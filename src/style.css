@@ -1,0 +1,325 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Intel One Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/intel-one-mono/IntelOneMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/geist-v1-latin/geist-v1-latin-200.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/geist-v1-latin/geist-v1-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/geist-v1-latin/geist-v1-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/geist-v1-latin/geist-v1-latin-800.woff2') format('woff2');
+}
+
+:root {
+  font-family: 'Geist', Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --font: #333;
+  --primary-color: rgba(0, 123, 255, 1);
+  --primary-color-005: rgba(0, 123, 255, 0.05);
+  --primary-color-01: rgba(0, 123, 255, 0.1);
+  --primary-color-dark: rgba(4, 94, 190, 1);
+  --border: rgba(239, 239, 239, 1);
+  --border-01: rgba(239, 239, 239, 0.1);
+  --border-dark: #e0e0e0;
+  --error: rgba(255, 0, 129, 1);
+  --success: rgb(0, 201, 81);
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color:var(--primary-color-dark);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  font-weight: 500;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.logo {
+  height: 2.2em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--primary-color));
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em var(--primary-color));
+}
+
+.upload-container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+#code {
+  font-family: 'Intel One Mono', 'Geist', Avenir, Helvetica, Arial, sans-serif;
+  margin-top: -1px;
+  border: 1px solid var(--border);
+  height: 50vh;
+  text-align: left;
+  overflow-y: auto;
+  font-size: 0.8em;
+  padding: 0 1em;
+}
+
+#code pre code {
+  font-family: 'Intel One Mono', 'Geist', Avenir, Helvetica, Arial, sans-serif;
+}
+
+.file-label {
+  background-color: var(--border);
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.file-label:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.upload-container .file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-name {
+  font-size: 0.8em;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.generator {
+  background-color: var(--primary-color-005);
+  align-self: stretch;
+}
+
+#status {
+  margin: -1px 0 1em 0;
+  padding: 1em;
+  text-align: left;
+  font-size: 0.9em;
+  border: 1px solid var(--border);
+  height: 2em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  background-color: var(--border-01);
+}
+
+#code:hover, .upload-container:hover, #status:hover {
+  border: 1px solid var(--border-dark);
+}
+
+#status p {
+  margin: 0;
+  padding: 0;
+}
+
+#status .error {
+  color: var(--pink);
+}
+
+.generator button {
+  padding: 1.5em 0;
+  outline: none;
+  border: 0px solid transparent;
+  height: 100%;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: transparent;
+  align-self: stretch;
+  color: var(--primary-color);
+}
+
+.generator button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.generator button:focus,
+.generator button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.generator button:active {
+  outline: none;
+}
+
+.generator button:disabled {
+  background-color: var(--border);
+  cursor: not-allowed;
+  color: var(--font);
+}
+
+.generator button:hover:disabled {
+  color: var(--font);
+  background-color: var(--border-dark);
+}
+
+.description, footer {
+  font-size: 0.9em;
+  margin: 0.5em 0;
+  text-align: left;
+}
+
+.description ul {
+  margin-left: -1em;
+}
+
+.description ul li {
+  text-align: left;
+  margin: 0;
+  list-style-type: circle;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--font);
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: var(--primary-color-dark);
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    height: 1.6em;
+  }
+  h1 {
+    font-size: 1em;
+  }
+  #code {
+    font-size: 0.8em;
+    height: 30vh;
+    max-width: 98vw;
+  }
+  #code pre code {
+    max-width: 98vw;
+  }
+  .status {
+    padding: 0.5em;
+  }
+  .upload-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: start;
+    padding: 0.5em;
+    grid-row-gap: 0.5em;
+  }
+  .upload-container .file {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+  .file-label {
+    padding: 0.2em 0.4em;
+    min-width: 160px;
+    border-radius: 0;
+    font-size: 0.8em;
+  }
+  .file-name {
+    font-size: 0.8em;
+    max-width: 140px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .generator {
+    justify-self: stretch;
+  }
+  .generator button {
+    padding: 0 0.4em;
+    width: 100%;
+  }
+  .description ul {
+    margin-left: -1.3em;
+  }
+  .description, footer {
+    font-size: 0.8em;
+    margin: 0.5em;
+  }
+}

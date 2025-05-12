@@ -1,0 +1,1460 @@
+{
+  "475": {
+    "nodeName": "conv_0",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "475",
+    "dataOffset": 0,
+    "byteLength": 1728,
+    "dataType": "float16",
+    "shape": [
+      32,
+      3,
+      3,
+      3
+    ]
+  },
+  "476": {
+    "nodeName": "conv_0",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "476",
+    "dataOffset": 1728,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "478": {
+    "nodeName": "conv_2",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "478",
+    "dataOffset": 1792,
+    "byteLength": 576,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      3,
+      3
+    ]
+  },
+  "479": {
+    "nodeName": "conv_2",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "479",
+    "dataOffset": 2368,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "481": {
+    "nodeName": "conv_4",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "481",
+    "dataOffset": 2432,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      16,
+      32,
+      1,
+      1
+    ]
+  },
+  "482": {
+    "nodeName": "conv_4",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "482",
+    "dataOffset": 3456,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "484": {
+    "nodeName": "conv_5",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "484",
+    "dataOffset": 3488,
+    "byteLength": 3072,
+    "dataType": "float16",
+    "shape": [
+      96,
+      16,
+      1,
+      1
+    ]
+  },
+  "485": {
+    "nodeName": "conv_5",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "485",
+    "dataOffset": 6560,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "487": {
+    "nodeName": "conv_7",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "487",
+    "dataOffset": 6752,
+    "byteLength": 1728,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      3,
+      3
+    ]
+  },
+  "488": {
+    "nodeName": "conv_7",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "488",
+    "dataOffset": 8480,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "490": {
+    "nodeName": "conv_9",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "490",
+    "dataOffset": 8672,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      24,
+      96,
+      1,
+      1
+    ]
+  },
+  "491": {
+    "nodeName": "conv_9",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "491",
+    "dataOffset": 13280,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "493": {
+    "nodeName": "conv_10",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "493",
+    "dataOffset": 13328,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      144,
+      24,
+      1,
+      1
+    ]
+  },
+  "494": {
+    "nodeName": "conv_10",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "494",
+    "dataOffset": 20240,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      144
+    ]
+  },
+  "496": {
+    "nodeName": "conv_12",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "496",
+    "dataOffset": 20528,
+    "byteLength": 2592,
+    "dataType": "float16",
+    "shape": [
+      144,
+      1,
+      3,
+      3
+    ]
+  },
+  "497": {
+    "nodeName": "conv_12",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "497",
+    "dataOffset": 23120,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      144
+    ]
+  },
+  "499": {
+    "nodeName": "conv_14",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "499",
+    "dataOffset": 23408,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      24,
+      144,
+      1,
+      1
+    ]
+  },
+  "500": {
+    "nodeName": "conv_14",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "500",
+    "dataOffset": 30320,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "502": {
+    "nodeName": "conv_16",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "502",
+    "dataOffset": 30368,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      144,
+      24,
+      1,
+      1
+    ]
+  },
+  "503": {
+    "nodeName": "conv_16",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "503",
+    "dataOffset": 37280,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      144
+    ]
+  },
+  "505": {
+    "nodeName": "conv_18",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "505",
+    "dataOffset": 37568,
+    "byteLength": 2592,
+    "dataType": "float16",
+    "shape": [
+      144,
+      1,
+      3,
+      3
+    ]
+  },
+  "506": {
+    "nodeName": "conv_18",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "506",
+    "dataOffset": 40160,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      144
+    ]
+  },
+  "508": {
+    "nodeName": "conv_20",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "508",
+    "dataOffset": 40448,
+    "byteLength": 9216,
+    "dataType": "float16",
+    "shape": [
+      32,
+      144,
+      1,
+      1
+    ]
+  },
+  "509": {
+    "nodeName": "conv_20",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "509",
+    "dataOffset": 49664,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "511": {
+    "nodeName": "conv_21",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "511",
+    "dataOffset": 49728,
+    "byteLength": 12288,
+    "dataType": "float16",
+    "shape": [
+      192,
+      32,
+      1,
+      1
+    ]
+  },
+  "512": {
+    "nodeName": "conv_21",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "512",
+    "dataOffset": 62016,
+    "byteLength": 384,
+    "dataType": "float16",
+    "shape": [
+      192
+    ]
+  },
+  "514": {
+    "nodeName": "conv_23",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "514",
+    "dataOffset": 62400,
+    "byteLength": 3456,
+    "dataType": "float16",
+    "shape": [
+      192,
+      1,
+      3,
+      3
+    ]
+  },
+  "515": {
+    "nodeName": "conv_23",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "515",
+    "dataOffset": 65856,
+    "byteLength": 384,
+    "dataType": "float16",
+    "shape": [
+      192
+    ]
+  },
+  "517": {
+    "nodeName": "conv_25",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "517",
+    "dataOffset": 66240,
+    "byteLength": 12288,
+    "dataType": "float16",
+    "shape": [
+      32,
+      192,
+      1,
+      1
+    ]
+  },
+  "518": {
+    "nodeName": "conv_25",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "518",
+    "dataOffset": 78528,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "520": {
+    "nodeName": "conv_27",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "520",
+    "dataOffset": 78592,
+    "byteLength": 12288,
+    "dataType": "float16",
+    "shape": [
+      192,
+      32,
+      1,
+      1
+    ]
+  },
+  "521": {
+    "nodeName": "conv_27",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "521",
+    "dataOffset": 90880,
+    "byteLength": 384,
+    "dataType": "float16",
+    "shape": [
+      192
+    ]
+  },
+  "523": {
+    "nodeName": "conv_29",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "523",
+    "dataOffset": 91264,
+    "byteLength": 3456,
+    "dataType": "float16",
+    "shape": [
+      192,
+      1,
+      3,
+      3
+    ]
+  },
+  "524": {
+    "nodeName": "conv_29",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "524",
+    "dataOffset": 94720,
+    "byteLength": 384,
+    "dataType": "float16",
+    "shape": [
+      192
+    ]
+  },
+  "526": {
+    "nodeName": "conv_31",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "526",
+    "dataOffset": 95104,
+    "byteLength": 12288,
+    "dataType": "float16",
+    "shape": [
+      32,
+      192,
+      1,
+      1
+    ]
+  },
+  "527": {
+    "nodeName": "conv_31",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "527",
+    "dataOffset": 107392,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "529": {
+    "nodeName": "conv_33",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "529",
+    "dataOffset": 107456,
+    "byteLength": 12288,
+    "dataType": "float16",
+    "shape": [
+      192,
+      32,
+      1,
+      1
+    ]
+  },
+  "530": {
+    "nodeName": "conv_33",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "530",
+    "dataOffset": 119744,
+    "byteLength": 384,
+    "dataType": "float16",
+    "shape": [
+      192
+    ]
+  },
+  "532": {
+    "nodeName": "conv_35",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "532",
+    "dataOffset": 120128,
+    "byteLength": 3456,
+    "dataType": "float16",
+    "shape": [
+      192,
+      1,
+      3,
+      3
+    ]
+  },
+  "533": {
+    "nodeName": "conv_35",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "533",
+    "dataOffset": 123584,
+    "byteLength": 384,
+    "dataType": "float16",
+    "shape": [
+      192
+    ]
+  },
+  "535": {
+    "nodeName": "conv_37",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "535",
+    "dataOffset": 123968,
+    "byteLength": 24576,
+    "dataType": "float16",
+    "shape": [
+      64,
+      192,
+      1,
+      1
+    ]
+  },
+  "536": {
+    "nodeName": "conv_37",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "536",
+    "dataOffset": 148544,
+    "byteLength": 128,
+    "dataType": "float16",
+    "shape": [
+      64
+    ]
+  },
+  "538": {
+    "nodeName": "conv_38",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "538",
+    "dataOffset": 148672,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "539": {
+    "nodeName": "conv_38",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "539",
+    "dataOffset": 197824,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "541": {
+    "nodeName": "conv_40",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "541",
+    "dataOffset": 198592,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "542": {
+    "nodeName": "conv_40",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "542",
+    "dataOffset": 205504,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "544": {
+    "nodeName": "conv_42",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "544",
+    "dataOffset": 206272,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      64,
+      384,
+      1,
+      1
+    ]
+  },
+  "545": {
+    "nodeName": "conv_42",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "545",
+    "dataOffset": 255424,
+    "byteLength": 128,
+    "dataType": "float16",
+    "shape": [
+      64
+    ]
+  },
+  "547": {
+    "nodeName": "conv_44",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "547",
+    "dataOffset": 255552,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "548": {
+    "nodeName": "conv_44",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "548",
+    "dataOffset": 304704,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "550": {
+    "nodeName": "conv_46",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "550",
+    "dataOffset": 305472,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "551": {
+    "nodeName": "conv_46",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "551",
+    "dataOffset": 312384,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "553": {
+    "nodeName": "conv_48",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "553",
+    "dataOffset": 313152,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      64,
+      384,
+      1,
+      1
+    ]
+  },
+  "554": {
+    "nodeName": "conv_48",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "554",
+    "dataOffset": 362304,
+    "byteLength": 128,
+    "dataType": "float16",
+    "shape": [
+      64
+    ]
+  },
+  "556": {
+    "nodeName": "conv_50",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "556",
+    "dataOffset": 362432,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "557": {
+    "nodeName": "conv_50",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "557",
+    "dataOffset": 411584,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "559": {
+    "nodeName": "conv_52",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "559",
+    "dataOffset": 412352,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "560": {
+    "nodeName": "conv_52",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "560",
+    "dataOffset": 419264,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "562": {
+    "nodeName": "conv_54",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "562",
+    "dataOffset": 420032,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      64,
+      384,
+      1,
+      1
+    ]
+  },
+  "563": {
+    "nodeName": "conv_54",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "563",
+    "dataOffset": 469184,
+    "byteLength": 128,
+    "dataType": "float16",
+    "shape": [
+      64
+    ]
+  },
+  "565": {
+    "nodeName": "conv_56",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "565",
+    "dataOffset": 469312,
+    "byteLength": 49152,
+    "dataType": "float16",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "566": {
+    "nodeName": "conv_56",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "566",
+    "dataOffset": 518464,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "568": {
+    "nodeName": "conv_58",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "568",
+    "dataOffset": 519232,
+    "byteLength": 6912,
+    "dataType": "float16",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "569": {
+    "nodeName": "conv_58",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "569",
+    "dataOffset": 526144,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      384
+    ]
+  },
+  "571": {
+    "nodeName": "conv_60",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "571",
+    "dataOffset": 526912,
+    "byteLength": 73728,
+    "dataType": "float16",
+    "shape": [
+      96,
+      384,
+      1,
+      1
+    ]
+  },
+  "572": {
+    "nodeName": "conv_60",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "572",
+    "dataOffset": 600640,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "574": {
+    "nodeName": "conv_61",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "574",
+    "dataOffset": 600832,
+    "byteLength": 110592,
+    "dataType": "float16",
+    "shape": [
+      576,
+      96,
+      1,
+      1
+    ]
+  },
+  "575": {
+    "nodeName": "conv_61",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "575",
+    "dataOffset": 711424,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      576
+    ]
+  },
+  "577": {
+    "nodeName": "conv_63",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "577",
+    "dataOffset": 712576,
+    "byteLength": 10368,
+    "dataType": "float16",
+    "shape": [
+      576,
+      1,
+      3,
+      3
+    ]
+  },
+  "578": {
+    "nodeName": "conv_63",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "578",
+    "dataOffset": 722944,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      576
+    ]
+  },
+  "580": {
+    "nodeName": "conv_65",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "580",
+    "dataOffset": 724096,
+    "byteLength": 110592,
+    "dataType": "float16",
+    "shape": [
+      96,
+      576,
+      1,
+      1
+    ]
+  },
+  "581": {
+    "nodeName": "conv_65",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "581",
+    "dataOffset": 834688,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "583": {
+    "nodeName": "conv_67",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "583",
+    "dataOffset": 834880,
+    "byteLength": 110592,
+    "dataType": "float16",
+    "shape": [
+      576,
+      96,
+      1,
+      1
+    ]
+  },
+  "584": {
+    "nodeName": "conv_67",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "584",
+    "dataOffset": 945472,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      576
+    ]
+  },
+  "586": {
+    "nodeName": "conv_69",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "586",
+    "dataOffset": 946624,
+    "byteLength": 10368,
+    "dataType": "float16",
+    "shape": [
+      576,
+      1,
+      3,
+      3
+    ]
+  },
+  "587": {
+    "nodeName": "conv_69",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "587",
+    "dataOffset": 956992,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      576
+    ]
+  },
+  "589": {
+    "nodeName": "conv_71",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "589",
+    "dataOffset": 958144,
+    "byteLength": 110592,
+    "dataType": "float16",
+    "shape": [
+      96,
+      576,
+      1,
+      1
+    ]
+  },
+  "590": {
+    "nodeName": "conv_71",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "590",
+    "dataOffset": 1068736,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "592": {
+    "nodeName": "conv_73",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "592",
+    "dataOffset": 1068928,
+    "byteLength": 110592,
+    "dataType": "float16",
+    "shape": [
+      576,
+      96,
+      1,
+      1
+    ]
+  },
+  "593": {
+    "nodeName": "conv_73",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "593",
+    "dataOffset": 1179520,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      576
+    ]
+  },
+  "595": {
+    "nodeName": "conv_75",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "595",
+    "dataOffset": 1180672,
+    "byteLength": 10368,
+    "dataType": "float16",
+    "shape": [
+      576,
+      1,
+      3,
+      3
+    ]
+  },
+  "596": {
+    "nodeName": "conv_75",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "596",
+    "dataOffset": 1191040,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      576
+    ]
+  },
+  "598": {
+    "nodeName": "conv_77",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "598",
+    "dataOffset": 1192192,
+    "byteLength": 184320,
+    "dataType": "float16",
+    "shape": [
+      160,
+      576,
+      1,
+      1
+    ]
+  },
+  "599": {
+    "nodeName": "conv_77",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "599",
+    "dataOffset": 1376512,
+    "byteLength": 320,
+    "dataType": "float16",
+    "shape": [
+      160
+    ]
+  },
+  "601": {
+    "nodeName": "conv_78",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "601",
+    "dataOffset": 1376832,
+    "byteLength": 307200,
+    "dataType": "float16",
+    "shape": [
+      960,
+      160,
+      1,
+      1
+    ]
+  },
+  "602": {
+    "nodeName": "conv_78",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "602",
+    "dataOffset": 1684032,
+    "byteLength": 1920,
+    "dataType": "float16",
+    "shape": [
+      960
+    ]
+  },
+  "604": {
+    "nodeName": "conv_80",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "604",
+    "dataOffset": 1685952,
+    "byteLength": 17280,
+    "dataType": "float16",
+    "shape": [
+      960,
+      1,
+      3,
+      3
+    ]
+  },
+  "605": {
+    "nodeName": "conv_80",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "605",
+    "dataOffset": 1703232,
+    "byteLength": 1920,
+    "dataType": "float16",
+    "shape": [
+      960
+    ]
+  },
+  "607": {
+    "nodeName": "conv_82",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "607",
+    "dataOffset": 1705152,
+    "byteLength": 307200,
+    "dataType": "float16",
+    "shape": [
+      160,
+      960,
+      1,
+      1
+    ]
+  },
+  "608": {
+    "nodeName": "conv_82",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "608",
+    "dataOffset": 2012352,
+    "byteLength": 320,
+    "dataType": "float16",
+    "shape": [
+      160
+    ]
+  },
+  "610": {
+    "nodeName": "conv_84",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "610",
+    "dataOffset": 2012672,
+    "byteLength": 307200,
+    "dataType": "float16",
+    "shape": [
+      960,
+      160,
+      1,
+      1
+    ]
+  },
+  "611": {
+    "nodeName": "conv_84",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "611",
+    "dataOffset": 2319872,
+    "byteLength": 1920,
+    "dataType": "float16",
+    "shape": [
+      960
+    ]
+  },
+  "613": {
+    "nodeName": "conv_86",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "613",
+    "dataOffset": 2321792,
+    "byteLength": 17280,
+    "dataType": "float16",
+    "shape": [
+      960,
+      1,
+      3,
+      3
+    ]
+  },
+  "614": {
+    "nodeName": "conv_86",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "614",
+    "dataOffset": 2339072,
+    "byteLength": 1920,
+    "dataType": "float16",
+    "shape": [
+      960
+    ]
+  },
+  "616": {
+    "nodeName": "conv_88",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "616",
+    "dataOffset": 2340992,
+    "byteLength": 307200,
+    "dataType": "float16",
+    "shape": [
+      160,
+      960,
+      1,
+      1
+    ]
+  },
+  "617": {
+    "nodeName": "conv_88",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "617",
+    "dataOffset": 2648192,
+    "byteLength": 320,
+    "dataType": "float16",
+    "shape": [
+      160
+    ]
+  },
+  "619": {
+    "nodeName": "conv_90",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "619",
+    "dataOffset": 2648512,
+    "byteLength": 307200,
+    "dataType": "float16",
+    "shape": [
+      960,
+      160,
+      1,
+      1
+    ]
+  },
+  "620": {
+    "nodeName": "conv_90",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "620",
+    "dataOffset": 2955712,
+    "byteLength": 1920,
+    "dataType": "float16",
+    "shape": [
+      960
+    ]
+  },
+  "622": {
+    "nodeName": "conv_92",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "622",
+    "dataOffset": 2957632,
+    "byteLength": 17280,
+    "dataType": "float16",
+    "shape": [
+      960,
+      1,
+      3,
+      3
+    ]
+  },
+  "623": {
+    "nodeName": "conv_92",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "623",
+    "dataOffset": 2974912,
+    "byteLength": 1920,
+    "dataType": "float16",
+    "shape": [
+      960
+    ]
+  },
+  "625": {
+    "nodeName": "conv_94",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "625",
+    "dataOffset": 2976832,
+    "byteLength": 614400,
+    "dataType": "float16",
+    "shape": [
+      320,
+      960,
+      1,
+      1
+    ]
+  },
+  "626": {
+    "nodeName": "conv_94",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "626",
+    "dataOffset": 3591232,
+    "byteLength": 640,
+    "dataType": "float16",
+    "shape": [
+      320
+    ]
+  },
+  "628": {
+    "nodeName": "conv_95",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "628",
+    "dataOffset": 3591872,
+    "byteLength": 819200,
+    "dataType": "float16",
+    "shape": [
+      1280,
+      320,
+      1,
+      1
+    ]
+  },
+  "629": {
+    "nodeName": "conv_95",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "629",
+    "dataOffset": 4411072,
+    "byteLength": 2560,
+    "dataType": "float16",
+    "shape": [
+      1280
+    ]
+  },
+  "dwconv_wgt": {
+    "nodeName": "globalaveragepool_97",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "dwconv_wgt",
+    "dataOffset": 4413632,
+    "byteLength": 125440,
+    "dataType": "float16",
+    "shape": [
+      1280,
+      1,
+      7,
+      7
+    ]
+  },
+  "wgt": {
+    "nodeName": "gemm_104",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "wgt",
+    "dataOffset": 4539072,
+    "byteLength": 2560000,
+    "dataType": "float16",
+    "shape": [
+      1000,
+      1280,
+      1,
+      1
+    ]
+  },
+  "classifier.1.bias": {
+    "nodeName": "gemm_104",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "classifier.1.bias",
+    "dataOffset": 7099072,
+    "byteLength": 2000,
+    "dataType": "float16",
+    "shape": [
+      1000
+    ]
+  },
+  "Gemm_104_shape": {
+    "nodeName": "gemm_104_reshape",
+    "nodeType": "Reshape",
+    "input": "shape",
+    "name": "Gemm_104_shape",
+    "dataOffset": 7101072,
+    "byteLength": 16,
+    "dataType": "int64",
+    "shape": [
+      2
+    ]
+  }
+}
