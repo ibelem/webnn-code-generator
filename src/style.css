@@ -48,10 +48,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --font: #333;
-  --primary-color: rgba(0, 123, 255, 1);
-  --primary-color-005: rgba(0, 123, 255, 0.05);
-  --primary-color-01: rgba(0, 123, 255, 0.1);
-  --primary-color-dark: rgba(4, 94, 190, 1);
+  --primary: rgba(0, 123, 255, 1);
+  --primary-005: rgba(0, 123, 255, 0.05);
+  --primary-01: rgba(0, 123, 255, 0.1);
+  --primary-dark: rgba(4, 94, 190, 1);
   --border: rgba(239, 239, 239, 1);
   --border-01: rgba(239, 239, 239, 0.1);
   --border-dark: #e0e0e0;
@@ -68,11 +68,11 @@
 
 a {
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--primary);
   text-decoration: inherit;
 }
 a:hover {
-  color:var(--primary-color-dark);
+  color:var(--primary-dark);
 }
 
 body {
@@ -112,10 +112,10 @@ header {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em var(--primary-color));
+  filter: drop-shadow(0 0 2em var(--primary));
 }
 .logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em var(--primary-color));
+  filter: drop-shadow(0 0 2em var(--primary));
 }
 
 .file-upload-panel {
@@ -177,6 +177,30 @@ header {
   justify-content: center;
 }
 
+.override.none {
+  display: none;
+}
+
+.override {
+  font-size: 0.8em;
+  padding: 0.5em;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.override span {
+  margin-left: 1em;
+}
+
+.override input {
+  outline: none;
+  border: 1px solid var(--border);
+}
+
+.override input:hover {
+  border: 1px solid var(--primary);
+}
+
 .output-panel {
   display: grid;
   grid-template-columns: repeat(2, 1fr) 4fr;
@@ -185,7 +209,6 @@ header {
   grid-column-gap: 0;
   border: 1px solid var(--border);
   margin-top: -1px;
-  height: 60vh;
   overflow-y: auto;
   font-size: 0.7em;
   align-items: stretch;
@@ -194,27 +217,34 @@ header {
 .panel {
   overflow-y: auto;
   text-align: left;
+  height: 60vh;
 }
 
-#output-graph, #output-weight {
+#output-graph, #output-weight, #output-code, #log-console {
   scroll-behavior: smooth;
   scrollbar-width: auto;
   scrollbar-color: var(--grey-02), #ffffff;
 }
 
 #output-graph::-webkit-scrollbar,
-#output-weight::-webkit-scrollbar {
+#output-weight::-webkit-scrollbar,
+#output-code::-webkit-scrollbar,
+#log-console::-webkit-scrollbar {
   width: 6px !important;
   height: 6px !important;
 }
 
 #output-graph::-webkit-scrollbar-track,
-#output-weight::-webkit-scrollbar-track {
+#output-weight::-webkit-scrollbar-track,
+#output-code::-webkit-scrollbar-track,
+#log-console::-webkit-scrollbar-track {
   background: transparent;
 }
 
 #output-graph::-webkit-scrollbar-thumb,
-#output-weight::-webkit-scrollbar-thumb {
+#output-weight::-webkit-scrollbar-thumb,
+#output-code::-webkit-scrollbar-thumb,
+#log-console::-webkit-scrollbar-thumb {
   background-color: var(--grey-04);
   border-radius: 10px;
   border: 3px solid #ffffff;
@@ -228,9 +258,17 @@ header {
   background-color: var(--green);
 }
 
+#output-code:hover::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+#log-console:hover::-webkit-scrollbar-thumb {
+  background-color: var(--grey);
+}
+
 .node-inputs-outputs {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   grid-template-rows: 3fr;
   grid-row-gap: 0em;
   grid-column-gap: 0.5em;
@@ -242,7 +280,7 @@ header {
 
 .graph-section {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   grid-template-rows: 2fr;
   grid-row-gap: 0em;
   grid-column-gap: 0.5em;
@@ -271,7 +309,7 @@ header {
 
 .initializer {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: 2fr;
   grid-row-gap: 0em;
   grid-column-gap: 0.1em;
@@ -301,9 +339,22 @@ header {
   text-align: center;
 }
 
+.type, .inputoutput {
+  max-width: 36px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nodename, .name, .tensor {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .weight-section {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   grid-template-rows: 3fr;
   grid-row-gap: 0em;
   grid-column-gap: 0.5em;
@@ -346,7 +397,7 @@ header {
 }
 
 .upload-button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary);
   color: white;
 }
 
@@ -387,10 +438,6 @@ input[type="file"] {
   border: 1px solid var(--border-dark);
 }
 
-#output-graph:hover, #output-weight:hover {
-
-}
-
 #output-code:hover {
   border-left: 1px solid var(--border-dark);
   border-right: 1px solid var(--border-dark);
@@ -420,7 +467,7 @@ input[type="file"] {
   transition: border-color 0.25s;
   background-color: transparent;
   align-self: stretch;
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 #generate-btn:hover {
@@ -436,11 +483,11 @@ input[type="file"] {
 }
 
 .step-3 {
-  background-color: var(--primary-color-005);
+  background-color: var(--primary-005);
 }
 
 .step-3:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary);
 }
 
 .step-3:hover #generate-btn, .step-3:hover .step-icon {
@@ -478,7 +525,7 @@ input[type="file"] {
     background-color: #ffffff;
   }
   a:hover {
-    color: var(--primary-color-dark);
+    color: var(--primary-dark);
   }
   button {
     background-color: #f9f9f9;

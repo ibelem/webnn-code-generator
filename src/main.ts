@@ -68,7 +68,7 @@ const renderAppLayout = (): void => {
           </div>
         </div>
       </div>
-
+      <div id="free-dimension-overrides" class="override"></div>
       <div class="output-panel">
         <div id="output-graph" class="panel"></div>
         <div id="output-weight" class="panel"></div>

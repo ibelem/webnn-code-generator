@@ -211,35 +211,47 @@ export const getModelState = (): ModelState => {
  */
 const renderGraphDetails = (graphData: any): void => {
   const outputGraphElement = document.querySelector<HTMLDivElement>('#output-graph');
-  if (!outputGraphElement) return;
+  const overrideDiv = document.getElementById('free-dimension-overrides');
+  if (!outputGraphElement || !overrideDiv) return;
 
   // Clear previous content
   outputGraphElement.innerHTML = '';
+  overrideDiv.innerHTML = '';
+  overrideDiv.className = 'override none';
+
+  // Helper to collect all string dimensions
+  const freeDims: Set<string> = new Set();
 
   // Render graph inputs
   if (graphData.inputs) {
-    const inputsHTML = graphData.inputs.map((input: any) => `
-      <div class="graph-section">
-        <span class="inputs" title="Inputs">I</span>
-        <span class="name">${input.name}</span>
-        <span></span>
-        <span class="tensor">
-          ${input.value[0]?.type?.dataType || ''}
-          ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
-        </span>
-      </div>
-    `).join('');
+    const inputsHTML = graphData.inputs.map((input: any) => {
+      const dims = input.value?.[0]?.type?.shape?.dimensions || [];
+      dims.forEach((dim: string | number) => {
+        if (typeof dim === 'string') freeDims.add(dim);
+      });
+      return `
+        <div class="graph-section">
+          <span class="inputs" title="Inputs">I</span>
+          <span class="name" title="${input.name}">${input.name}</span>
+          <span></span>
+          <span class="tensor">
+            ${input.value[0]?.type?.dataType || ''}
+            ${getShapeString(dims)}
+          </span>
+        </div>
+      `;
+    }).join('');
     outputGraphElement.innerHTML += `<div class="graph-inputs">${inputsHTML}</div>`;
   }
 
-  // Render graph outputs
+  // Render graph outputs (unchanged)
   if (graphData.outputs) {
     const outputsHTML = graphData.outputs.map((output: any) => `
       <div class="graph-section">
         <span class="outputs" title="Outputs">O</span>
-        <span class="name">${output.name}</span>
+        <span class="name" title="${output.name}">${output.name}</span>
         <span></span>
-        <span class="tensor">
+        <span class="tensor" title="${output.value[0]?.type?.dataType || ''} ${getShapeString(output.value[0]?.type?.shape?.dimensions)}">
           ${output.value[0]?.type?.dataType || ''}
           ${getShapeString(output.value[0]?.type?.shape?.dimensions)}
         </span>
@@ -248,40 +260,52 @@ const renderGraphDetails = (graphData: any): void => {
     outputGraphElement.innerHTML += `<div class="graph-outputs">${outputsHTML}</div>`;
   }
 
-  // Render graph nodes
+  // Render graph nodes (unchanged)
   if (graphData.nodes) {
     const nodesHTML = graphData.nodes.map((node: any) => `
       <div class="node-inputs-outputs">
-          <div>${node.type?.name || ''}</div>
-          <div class="pink">${node.name || ''}</div>
-          <div class="inputs" title="Inputs">I</div>
-          <div>
-            ${node.inputs.map((input: any) => `
-              <div class="initializer">
-                <span>${input.name}</span> 
-                <span class="green">${input.value[0]?.initializer?.name ?? input.value[0]?.name ?? ''}</span> 
-                <span></span>
-                <span>
-                  ${input.value[0]?.type?.dataType || ''}
-                  ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
-                </span>
-              </div>
-            `).join('')}
-          </div>
-          <div class="outputs" title="Outputs">O</div>
-          <div>
-            ${node.outputs.map((output: any) => `
-              <div class="initializer">
-                <span>${output.name}</span> <span class="">${output.value[0]?.name || ''}</span>
-              </div>
-            `).join('')}
-          </div>
+        <div class="type" title="${node.type?.name || ''}">${node.type?.name || ''}</div>
+        <div class="pink name" title="${node.name || ''}">${node.name || ''}</div>
+        <div class="inputs" title="Inputs">I</div>
+        <div>
+          ${node.inputs.map((input: any) => `
+            <div class="initializer">
+              <span class="inputoutput" title="${input.name}">${input.name}</span> 
+              <span class="green name" title="${input.value[0]?.initializer?.name ?? input.value[0]?.name ?? ''}">${input.value[0]?.initializer?.name ?? input.value[0]?.name ?? ''}</span> 
+              <span></span>
+              <span class="tensor" title="${input.value[0]?.type?.dataType || ''} ${getShapeString(input.value[0]?.type?.shape?.dimensions)}">
+                ${input.value[0]?.type?.dataType || ''}
+                ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
+              </span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="outputs" title="Outputs">O</div>
+        <div>
+          ${node.outputs.map((output: any) => `
+            <div class="initializer">
+              <span class="inputoutput" title="${output.name}">${output.name}</span> <span class="name" title="${output.value[0]?.name || ''}">${output.value[0]?.name || ''}</span>
+            </div>
+          `).join('')}
+        </div>
       </div>
     `).join('');
     outputGraphElement.innerHTML += `<div class="graph-nodes">${nodesHTML}</div>`;
   }
 
-  
+  // Render free dimension overrides if needed
+  if (freeDims.size > 0) {
+    overrideDiv.className = 'override';
+    overrideDiv.innerHTML = `
+      Set <a href="https://webnn.io/en/learn/tutorials/onnx-runtime/free-dimension-overrides">free dimension overrides</a>: 
+      ${Array.from(freeDims).map(dim => `
+        <span>${dim}</span> <input type="text" id="override_${dim}" name="override_${dim}" required size="5" />
+      `).join(' ')}
+    `;
+  } else {
+    overrideDiv.className = 'override none';
+    overrideDiv.innerHTML = '';
+  }
 };
 
 /**
@@ -306,13 +330,12 @@ const renderWeightDetails = (weightData: Record<string, any>): void => {
     const node = weightData[key];
     return `
       <div class="weight-section">
-        <span>${node.nodeType || ''}</span>
-        <span class="pink">${node.nodeName || ''}</span>
-        <span>${node.input || ''}</span>
-        <span class="green">${node.name || ''}</span>
+        <span class="type" title="${node.nodeType || ''}">${node.nodeType || ''}</span>
+        <span class="pink nodename" title="${node.nodeName || ''}">${node.nodeName || ''}</span>
+        <span class="inputoutput" title="${node.input || ''}">${node.input || ''}</span>
+        <span class="green name" title="${node.name || ''}">${node.name || ''}</span>
         <span></span>
-        <span>${node.dataType || ''}[${node.shape?.join(', ') || ''}]</span>
-        
+        <span class="tensor" title="${node.dataType || ''}[${node.shape?.join(', ') || ''}]">${node.dataType || ''}[${node.shape?.join(', ') || ''}]</span>
       </div>
     `;
   }).join('');
