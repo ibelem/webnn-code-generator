@@ -110,7 +110,9 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
 
       appendLogMessage('Files fetched successfully!');
       renderGraphDetails(modelFileState.graphModelData?.graph[0]); // Render graph details
-      renderWeightDetails(modelFileState.weightModelData); // Render weight details
+      if (modelFileState.weightModelData) {
+        renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
+      }
       updateGenerateButtonState();
     } catch (error) {
       console.error('Error fetching files from URL:', error);
@@ -148,7 +150,9 @@ export const setupFileInputs = (): void => {
         modelFileState.weightModelData = JSON.parse(data as string);
         updateFileInfo('weight-file-info', file);
         appendLogMessage('Weight file loaded successfully');
-        renderWeightDetails(modelFileState.weightModelData); // Render weight details
+        if (modelFileState.weightModelData) {
+          renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
+        }
         updateGenerateButtonState();
       } catch (error) {
         appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);

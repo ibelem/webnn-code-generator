@@ -374,6 +374,7 @@ header {
   overflow-y: auto;
   padding: 0 1em;
   align-self: start;
+  background-color: var(--grey-005);
 }
 
 .pink {
