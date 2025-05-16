@@ -3,27 +3,27 @@
  */
 import './style.css';
 import webnnLogo from '/logo/webnn.svg';
-import { setupGenerator } from './generator';
-import { initializeUI } from './ui';
+import { initializeCodeGenerator } from './generator';
+import { initializeInterface } from './ui';
 
 /**
  * Initialize the application
  */
 const initializeApp = (): void => {
-  renderAppTemplate();
-  initializeUI();
-  setupGenerator(document.querySelector<HTMLButtonElement>('#generator'));
+  renderAppLayout();
+  initializeInterface();
+  initializeCodeGenerator(document.querySelector<HTMLButtonElement>('#generate-btn'));
 };
 
 /**
  * Render the main application template
  */
-const renderAppTemplate = (): void => {
+const renderAppLayout = (): void => {
   const appContainer = document.querySelector<HTMLDivElement>('#app');
   if (!appContainer) return;
 
   appContainer.innerHTML = `
-    <div class="container">
+    <div class="app-container">
       <header>
         <a href="https://github.com/ibelem/webnn-code-generator" class="logo-link">
           <img src="${webnnLogo}" class="logo" alt="WebNN logo" />
@@ -31,42 +31,58 @@ const renderAppTemplate = (): void => {
         <h1>WebNN Code Generator</h1>
       </header>
       
-      <div class="upload-container">
-        <div class="file">
-          <label for="graph-upload" class="file-label">Choose Graph/Node File</label>
-          <input type="file" id="graph-upload" accept=".json">
-          <span class="file-name" id="graph-name">No .json file selected</span>
+      <div class="file-upload-panel">
+        <div class="step step-1">
+          <div class="step-icon">1</div>
+          <div id="step-1" title="Convert your ONNX, TensorFlow Lite, or other model formats into Graph, Weight and BIN files">
+            Donwload Graph, Weight and BIN files by using <a href="https://ibelem.github.io/netron">WebNN Netron</a>
+          </div>
+        </div>
+        <div class="step step-2">
+          <div class="step-icon">2</div>
+          <div id="step-2">
+            <div class="upload-item">
+              <label for="graph-file-input" class="upload-button">Choose Graph File</label>
+              <input type="file" id="graph-file-input" accept=".json">
+              <span class="file-info" id="graph-file-info">No .json file selected</span>
+            </div>
+            
+            <div class="upload-item">
+              <label for="weight-file-input" class="upload-button">Choose Weight File</label>
+              <input type="file" id="weight-file-input" accept=".json">
+              <span class="file-info" id="weight-file-info">No .json file selected</span>
+            </div>
+            
+            <div class="upload-item">
+              <label for="bin-file-input" class="upload-button">Choose BIN File</label>
+              <input type="file" id="bin-file-input" accept=".bin">
+              <span class="file-info" id="bin-file-info">No .bin file selected</span>
+            </div>
+          </div>
         </div>
         
-        <div class="file">
-          <label for="weight-upload" class="file-label">Choose Weight/Bias File</label>
-          <input type="file" id="weight-upload" accept=".json">
-          <span class="file-name" id="weight-name">No .json file selected</span>
-        </div>
-        
-        <div class="file">
-          <label for="bin-upload" class="file-label">Choose BIN File</label>
-          <input type="file" id="bin-upload" accept=".bin">
-          <span class="file-name" id="bin-name">No .bin file selected</span>
-        </div>
-        
-        <div class="file generator">
-          <button id="generator" type="button" disabled>Generate WebNN Code</button>
+        <div class="step step-3">
+          <div class="step-icon">3</div>
+          <div id="step-3" class="upload-item generate-action">
+            <button id="generate-btn" type="button" disabled>Generate WebNN Code</button>
+          </div>
         </div>
       </div>
-      
-      <div id="code" class="code"></div>
-      <div id="status" class="status"></div>
-      
-      <div class="description">
+
+      <div class="output-panel">
+        <div id="output-graph" class="panel"></div>
+        <div id="output-weight" class="panel"></div>
+        <div id="output-code" class="code panel"></div>
+      </div>
+      <div id="log-console" class="status"></div>
+      <div class="app-description">
         <ul>
-          <li>Generate Web Neural Network (WebNN) API vanilla JavaScript code from ONNX, TensorFlow Lite, or other models.</li>
-          <li>Model conversion and code generation occur entirely on your local machine, ensuring that none of your model information is stored by this service.</li>
+          <li>Generate WebNN API code in vanilla JavaScript from ONNX, TensorFlow Lite, or other model formats.</li>
+          <li>All model conversion and code generation processes execute entirely within your browser, ensuring your intellectual property remains private and secure as no model data is transmitted to or stored on cloud servers.</li>
         </ul>
       </div>
-      
       <footer>
-        &copy;2025 WebNN Code Generator
+        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a>
       </footer>
     </div>
   `;

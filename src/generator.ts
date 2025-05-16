@@ -2,42 +2,42 @@
  * WebNN Code Generator
  * Handles the code generation process from model files
  */
-import { getAppState, updateStatus } from './ui';
+import { getModelState, appendLogMessage } from './ui';
 
 /**
  * Set up the generator button with event listeners
  * @param button - The generator button element
  */
-export function setupGenerator(button: HTMLButtonElement | null): void {
+export function initializeCodeGenerator(button: HTMLButtonElement | null): void {
   if (!button) {
     console.error('Generator button not found');
     return;
   }
 
-  button.addEventListener('click', generateCode);
+  button.addEventListener('click', generateWebNNCode);
 }
 
 /**
  * Generate WebNN code from the loaded model files
  */
-function generateCode(): void {
-  const codeElement = document.querySelector<HTMLDivElement>('#code');
-  if (!codeElement) return;
+function generateWebNNCode(): void {
+  const outputElement = document.querySelector<HTMLDivElement>('#output-code');
+  if (!outputElement) return;
 
-  updateStatus('Starting code generation process...');
+  appendLogMessage('Starting code generation process...');
   
   try {
     // Get the current application state with file data
-    const { graphData, weightData, binData } = getAppState();
+    const { graphModelData, weightModelData, binaryModelData } = getModelState();
     
     // Validate that all required data is available
-    if (!graphData || !weightData || !binData) {
-      updateStatus('Missing required files for code generation', true);
+    if (!graphModelData || !weightModelData || !binaryModelData) {
+      appendLogMessage('Missing required files for code generation', true);
       return;
     }
     
     // Display temporary message during processing
-    codeElement.innerHTML = '<pre><code>WebNN Code Generator is running...</code></pre>';
+    outputElement.innerHTML = '<pre><code>WebNN Code Generator is running...</code></pre>';
     
     // TODO: Implement actual WebNN code generation logic here
     // This would process the graph, weights, and binary data
@@ -45,24 +45,24 @@ function generateCode(): void {
     
     // For now, display a placeholder message
     setTimeout(() => {
-      displayGeneratedCode(codeElement);
-      updateStatus('Vanilla JavaScript code generation for WebNN completed successfully');
+      renderOutputCode(outputElement);
+      appendLogMessage('Vanilla JavaScript code generation for WebNN completed successfully');
     }, 500);
     
   } catch (error) {
     console.error('Error during code generation:', error);
-    updateStatus(`Code generation failed: ${(error as Error).message}`, true);
-    codeElement.innerHTML = '<div class="error">Code generation failed. See status for details.</div>';
+    appendLogMessage(`Code generation failed: ${(error as Error).message}`, true);
+    outputElement.innerHTML = '<div class="log-error">Code generation failed. See status for details.</div>';
   }
 }
 
 /**
  * Display the generated code in the code element
- * @param codeElement - The element to display code in
+ * @param outputElement - The element to display code in
  */
-function displayGeneratedCode(codeElement: HTMLDivElement): void {
+function renderOutputCode(outputElement: HTMLDivElement): void {
   // This is a placeholder for the actual code generation result
-  codeElement.innerHTML = `
+  outputElement.innerHTML = `
     <pre><code>// Generated WebNN API Code
 
 /**

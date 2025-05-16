@@ -325,6 +325,22 @@
               "value": [
                 {
                   "name": "475",
+                  "initializer": {
+                    "name": "475",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32,
+                          3,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -344,6 +360,19 @@
               "value": [
                 {
                   "name": "476",
+                  "initializer": {
+                    "name": "476",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -645,6 +674,22 @@
               "value": [
                 {
                   "name": "478",
+                  "initializer": {
+                    "name": "478",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -664,6 +709,19 @@
               "value": [
                 {
                   "name": "479",
+                  "initializer": {
+                    "name": "479",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -965,6 +1023,22 @@
               "value": [
                 {
                   "name": "481",
+                  "initializer": {
+                    "name": "481",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          16,
+                          32,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -984,6 +1058,19 @@
               "value": [
                 {
                   "name": "482",
+                  "initializer": {
+                    "name": "482",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          16
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -1183,6 +1270,22 @@
               "value": [
                 {
                   "name": "484",
+                  "initializer": {
+                    "name": "484",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96,
+                          16,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -1202,6 +1305,19 @@
               "value": [
                 {
                   "name": "485",
+                  "initializer": {
+                    "name": "485",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -1503,6 +1619,22 @@
               "value": [
                 {
                   "name": "487",
+                  "initializer": {
+                    "name": "487",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -1522,6 +1654,19 @@
               "value": [
                 {
                   "name": "488",
+                  "initializer": {
+                    "name": "488",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -1823,6 +1968,22 @@
               "value": [
                 {
                   "name": "490",
+                  "initializer": {
+                    "name": "490",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          24,
+                          96,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -1842,6 +2003,19 @@
               "value": [
                 {
                   "name": "491",
+                  "initializer": {
+                    "name": "491",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          24
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2041,6 +2215,22 @@
               "value": [
                 {
                   "name": "493",
+                  "initializer": {
+                    "name": "493",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144,
+                          24,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2060,6 +2250,19 @@
               "value": [
                 {
                   "name": "494",
+                  "initializer": {
+                    "name": "494",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2361,6 +2564,22 @@
               "value": [
                 {
                   "name": "496",
+                  "initializer": {
+                    "name": "496",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2380,6 +2599,19 @@
               "value": [
                 {
                   "name": "497",
+                  "initializer": {
+                    "name": "497",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2681,6 +2913,22 @@
               "value": [
                 {
                   "name": "499",
+                  "initializer": {
+                    "name": "499",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          24,
+                          144,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2700,6 +2948,19 @@
               "value": [
                 {
                   "name": "500",
+                  "initializer": {
+                    "name": "500",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          24
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -2987,6 +3248,22 @@
               "value": [
                 {
                   "name": "502",
+                  "initializer": {
+                    "name": "502",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144,
+                          24,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3006,6 +3283,19 @@
               "value": [
                 {
                   "name": "503",
+                  "initializer": {
+                    "name": "503",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3307,6 +3597,22 @@
               "value": [
                 {
                   "name": "505",
+                  "initializer": {
+                    "name": "505",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3326,6 +3632,19 @@
               "value": [
                 {
                   "name": "506",
+                  "initializer": {
+                    "name": "506",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          144
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3627,6 +3946,22 @@
               "value": [
                 {
                   "name": "508",
+                  "initializer": {
+                    "name": "508",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32,
+                          144,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3646,6 +3981,19 @@
               "value": [
                 {
                   "name": "509",
+                  "initializer": {
+                    "name": "509",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3845,6 +4193,22 @@
               "value": [
                 {
                   "name": "511",
+                  "initializer": {
+                    "name": "511",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192,
+                          32,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -3864,6 +4228,19 @@
               "value": [
                 {
                   "name": "512",
+                  "initializer": {
+                    "name": "512",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -4165,6 +4542,22 @@
               "value": [
                 {
                   "name": "514",
+                  "initializer": {
+                    "name": "514",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -4184,6 +4577,19 @@
               "value": [
                 {
                   "name": "515",
+                  "initializer": {
+                    "name": "515",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -4485,6 +4891,22 @@
               "value": [
                 {
                   "name": "517",
+                  "initializer": {
+                    "name": "517",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32,
+                          192,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -4504,6 +4926,19 @@
               "value": [
                 {
                   "name": "518",
+                  "initializer": {
+                    "name": "518",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -4791,6 +5226,22 @@
               "value": [
                 {
                   "name": "520",
+                  "initializer": {
+                    "name": "520",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192,
+                          32,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -4810,6 +5261,19 @@
               "value": [
                 {
                   "name": "521",
+                  "initializer": {
+                    "name": "521",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -5111,6 +5575,22 @@
               "value": [
                 {
                   "name": "523",
+                  "initializer": {
+                    "name": "523",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -5130,6 +5610,19 @@
               "value": [
                 {
                   "name": "524",
+                  "initializer": {
+                    "name": "524",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -5431,6 +5924,22 @@
               "value": [
                 {
                   "name": "526",
+                  "initializer": {
+                    "name": "526",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32,
+                          192,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -5450,6 +5959,19 @@
               "value": [
                 {
                   "name": "527",
+                  "initializer": {
+                    "name": "527",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          32
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -5737,6 +6259,22 @@
               "value": [
                 {
                   "name": "529",
+                  "initializer": {
+                    "name": "529",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192,
+                          32,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -5756,6 +6294,19 @@
               "value": [
                 {
                   "name": "530",
+                  "initializer": {
+                    "name": "530",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6057,6 +6608,22 @@
               "value": [
                 {
                   "name": "532",
+                  "initializer": {
+                    "name": "532",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6076,6 +6643,19 @@
               "value": [
                 {
                   "name": "533",
+                  "initializer": {
+                    "name": "533",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          192
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6377,6 +6957,22 @@
               "value": [
                 {
                   "name": "535",
+                  "initializer": {
+                    "name": "535",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64,
+                          192,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6396,6 +6992,19 @@
               "value": [
                 {
                   "name": "536",
+                  "initializer": {
+                    "name": "536",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6595,6 +7204,22 @@
               "value": [
                 {
                   "name": "538",
+                  "initializer": {
+                    "name": "538",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          64,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6614,6 +7239,19 @@
               "value": [
                 {
                   "name": "539",
+                  "initializer": {
+                    "name": "539",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6915,6 +7553,22 @@
               "value": [
                 {
                   "name": "541",
+                  "initializer": {
+                    "name": "541",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -6934,6 +7588,19 @@
               "value": [
                 {
                   "name": "542",
+                  "initializer": {
+                    "name": "542",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -7235,6 +7902,22 @@
               "value": [
                 {
                   "name": "544",
+                  "initializer": {
+                    "name": "544",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64,
+                          384,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -7254,6 +7937,19 @@
               "value": [
                 {
                   "name": "545",
+                  "initializer": {
+                    "name": "545",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -7541,6 +8237,22 @@
               "value": [
                 {
                   "name": "547",
+                  "initializer": {
+                    "name": "547",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          64,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -7560,6 +8272,19 @@
               "value": [
                 {
                   "name": "548",
+                  "initializer": {
+                    "name": "548",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -7861,6 +8586,22 @@
               "value": [
                 {
                   "name": "550",
+                  "initializer": {
+                    "name": "550",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -7880,6 +8621,19 @@
               "value": [
                 {
                   "name": "551",
+                  "initializer": {
+                    "name": "551",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -8181,6 +8935,22 @@
               "value": [
                 {
                   "name": "553",
+                  "initializer": {
+                    "name": "553",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64,
+                          384,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -8200,6 +8970,19 @@
               "value": [
                 {
                   "name": "554",
+                  "initializer": {
+                    "name": "554",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -8487,6 +9270,22 @@
               "value": [
                 {
                   "name": "556",
+                  "initializer": {
+                    "name": "556",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          64,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -8506,6 +9305,19 @@
               "value": [
                 {
                   "name": "557",
+                  "initializer": {
+                    "name": "557",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -8807,6 +9619,22 @@
               "value": [
                 {
                   "name": "559",
+                  "initializer": {
+                    "name": "559",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -8826,6 +9654,19 @@
               "value": [
                 {
                   "name": "560",
+                  "initializer": {
+                    "name": "560",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -9127,6 +9968,22 @@
               "value": [
                 {
                   "name": "562",
+                  "initializer": {
+                    "name": "562",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64,
+                          384,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -9146,6 +10003,19 @@
               "value": [
                 {
                   "name": "563",
+                  "initializer": {
+                    "name": "563",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          64
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -9433,6 +10303,22 @@
               "value": [
                 {
                   "name": "565",
+                  "initializer": {
+                    "name": "565",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          64,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -9452,6 +10338,19 @@
               "value": [
                 {
                   "name": "566",
+                  "initializer": {
+                    "name": "566",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -9753,6 +10652,22 @@
               "value": [
                 {
                   "name": "568",
+                  "initializer": {
+                    "name": "568",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -9772,6 +10687,19 @@
               "value": [
                 {
                   "name": "569",
+                  "initializer": {
+                    "name": "569",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          384
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10073,6 +11001,22 @@
               "value": [
                 {
                   "name": "571",
+                  "initializer": {
+                    "name": "571",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96,
+                          384,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10092,6 +11036,19 @@
               "value": [
                 {
                   "name": "572",
+                  "initializer": {
+                    "name": "572",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10291,6 +11248,22 @@
               "value": [
                 {
                   "name": "574",
+                  "initializer": {
+                    "name": "574",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576,
+                          96,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10310,6 +11283,19 @@
               "value": [
                 {
                   "name": "575",
+                  "initializer": {
+                    "name": "575",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10611,6 +11597,22 @@
               "value": [
                 {
                   "name": "577",
+                  "initializer": {
+                    "name": "577",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10630,6 +11632,19 @@
               "value": [
                 {
                   "name": "578",
+                  "initializer": {
+                    "name": "578",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10931,6 +11946,22 @@
               "value": [
                 {
                   "name": "580",
+                  "initializer": {
+                    "name": "580",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96,
+                          576,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -10950,6 +11981,19 @@
               "value": [
                 {
                   "name": "581",
+                  "initializer": {
+                    "name": "581",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -11237,6 +12281,22 @@
               "value": [
                 {
                   "name": "583",
+                  "initializer": {
+                    "name": "583",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576,
+                          96,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -11256,6 +12316,19 @@
               "value": [
                 {
                   "name": "584",
+                  "initializer": {
+                    "name": "584",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -11557,6 +12630,22 @@
               "value": [
                 {
                   "name": "586",
+                  "initializer": {
+                    "name": "586",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -11576,6 +12665,19 @@
               "value": [
                 {
                   "name": "587",
+                  "initializer": {
+                    "name": "587",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -11877,6 +12979,22 @@
               "value": [
                 {
                   "name": "589",
+                  "initializer": {
+                    "name": "589",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96,
+                          576,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -11896,6 +13014,19 @@
               "value": [
                 {
                   "name": "590",
+                  "initializer": {
+                    "name": "590",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          96
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -12183,6 +13314,22 @@
               "value": [
                 {
                   "name": "592",
+                  "initializer": {
+                    "name": "592",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576,
+                          96,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -12202,6 +13349,19 @@
               "value": [
                 {
                   "name": "593",
+                  "initializer": {
+                    "name": "593",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -12503,6 +13663,22 @@
               "value": [
                 {
                   "name": "595",
+                  "initializer": {
+                    "name": "595",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -12522,6 +13698,19 @@
               "value": [
                 {
                   "name": "596",
+                  "initializer": {
+                    "name": "596",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          576
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -12823,6 +14012,22 @@
               "value": [
                 {
                   "name": "598",
+                  "initializer": {
+                    "name": "598",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          160,
+                          576,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -12842,6 +14047,19 @@
               "value": [
                 {
                   "name": "599",
+                  "initializer": {
+                    "name": "599",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          160
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13041,6 +14259,22 @@
               "value": [
                 {
                   "name": "601",
+                  "initializer": {
+                    "name": "601",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960,
+                          160,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13060,6 +14294,19 @@
               "value": [
                 {
                   "name": "602",
+                  "initializer": {
+                    "name": "602",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13361,6 +14608,22 @@
               "value": [
                 {
                   "name": "604",
+                  "initializer": {
+                    "name": "604",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13380,6 +14643,19 @@
               "value": [
                 {
                   "name": "605",
+                  "initializer": {
+                    "name": "605",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13681,6 +14957,22 @@
               "value": [
                 {
                   "name": "607",
+                  "initializer": {
+                    "name": "607",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          160,
+                          960,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13700,6 +14992,19 @@
               "value": [
                 {
                   "name": "608",
+                  "initializer": {
+                    "name": "608",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          160
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -13987,6 +15292,22 @@
               "value": [
                 {
                   "name": "610",
+                  "initializer": {
+                    "name": "610",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960,
+                          160,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14006,6 +15327,19 @@
               "value": [
                 {
                   "name": "611",
+                  "initializer": {
+                    "name": "611",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14307,6 +15641,22 @@
               "value": [
                 {
                   "name": "613",
+                  "initializer": {
+                    "name": "613",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14326,6 +15676,19 @@
               "value": [
                 {
                   "name": "614",
+                  "initializer": {
+                    "name": "614",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14627,6 +15990,22 @@
               "value": [
                 {
                   "name": "616",
+                  "initializer": {
+                    "name": "616",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          160,
+                          960,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14646,6 +16025,19 @@
               "value": [
                 {
                   "name": "617",
+                  "initializer": {
+                    "name": "617",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          160
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14933,6 +16325,22 @@
               "value": [
                 {
                   "name": "619",
+                  "initializer": {
+                    "name": "619",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960,
+                          160,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -14952,6 +16360,19 @@
               "value": [
                 {
                   "name": "620",
+                  "initializer": {
+                    "name": "620",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -15253,6 +16674,22 @@
               "value": [
                 {
                   "name": "622",
+                  "initializer": {
+                    "name": "622",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960,
+                          1,
+                          3,
+                          3
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -15272,6 +16709,19 @@
               "value": [
                 {
                   "name": "623",
+                  "initializer": {
+                    "name": "623",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          960
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -15573,6 +17023,22 @@
               "value": [
                 {
                   "name": "625",
+                  "initializer": {
+                    "name": "625",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          320,
+                          960,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -15592,6 +17058,19 @@
               "value": [
                 {
                   "name": "626",
+                  "initializer": {
+                    "name": "626",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          320
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -15791,6 +17270,22 @@
               "value": [
                 {
                   "name": "628",
+                  "initializer": {
+                    "name": "628",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          1280,
+                          320,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -15810,6 +17305,19 @@
               "value": [
                 {
                   "name": "629",
+                  "initializer": {
+                    "name": "629",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          1280
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -16111,6 +17619,22 @@
               "value": [
                 {
                   "name": "dwconv_wgt",
+                  "initializer": {
+                    "name": "dwconv_wgt",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          1280,
+                          1,
+                          7,
+                          7
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -16313,6 +17837,22 @@
               "value": [
                 {
                   "name": "wgt",
+                  "initializer": {
+                    "name": "wgt",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          1000,
+                          1280,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -16332,6 +17872,19 @@
               "value": [
                 {
                   "name": "classifier.1.bias",
+                  "initializer": {
+                    "name": "classifier.1.bias",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "float16",
+                      "shape": {
+                        "dimensions": [
+                          1000
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "float16",
                     "shape": {
@@ -16531,6 +18084,19 @@
               "value": [
                 {
                   "name": "Gemm_104_shape",
+                  "initializer": {
+                    "name": "Gemm_104_shape",
+                    "category": "Initializer",
+                    "encoding": "<",
+                    "type": {
+                      "dataType": "int64",
+                      "shape": {
+                        "dimensions": [
+                          2
+                        ]
+                      }
+                    }
+                  },
                   "type": {
                     "dataType": "int64",
                     "shape": {
