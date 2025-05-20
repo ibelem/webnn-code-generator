@@ -3,6 +3,14 @@
  * Handles the code generation process from model files
  */
 import { getModelState, appendLogMessage } from './ui';
+import { generateJS } from './code';
+
+// Store freeDims globally for access in generateWebNNCode
+let freeDims: string[] = [];
+
+export function setFreeDims(dims: string[]) {
+  freeDims = dims;
+}
 
 /**
  * Set up the generator button with event listeners
@@ -14,7 +22,25 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
     return;
   }
 
-  button.addEventListener('click', generateWebNNCode);
+  button.addEventListener('click', () => {
+    // Check for freeDims and their input values before generating code
+    if (freeDims.length > 0) {
+      let missing = false;
+      for (const dim of freeDims) {
+        const input = document.getElementById(`override_${dim}`) as HTMLInputElement | null;
+        const value = input?.value.trim();
+        if (!input || value === '') {
+          appendLogMessage(`You need to set free dimension override for "${dim}" before generating WebNN code`, true);
+          missing = true;
+        } else if (isNaN(Number(value))) {
+          appendLogMessage(`The free dimension override value for "${dim}" must be a number`, true);
+          missing = true;
+        }
+      }
+      if (missing) return;
+    }
+    generateWebNNCode();
+  });
 }
 
 /**
@@ -27,28 +53,16 @@ function generateWebNNCode(): void {
   appendLogMessage('Starting code generation process...');
   
   try {
-    // Get the current application state with file data
     const { graphModelData, weightModelData, binaryModelData } = getModelState();
-    
-    // Validate that all required data is available
     if (!graphModelData || !weightModelData || !binaryModelData) {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }
-    
-    // Display temporary message during processing
     outputElement.innerHTML = '<pre><code>WebNN Code Generator is running...</code></pre>';
-    
-    // TODO: Implement actual WebNN code generation logic here
-    // This would process the graph, weights, and binary data
-    // to generate WebNN JavaScript code
-    
-    // For now, display a placeholder message
     setTimeout(() => {
-      renderOutputCode(outputElement);
+      renderOutputCode(outputElement); // Your code generation logic here
       appendLogMessage('Vanilla JavaScript code generation for WebNN completed successfully');
     }, 500);
-    
   } catch (error) {
     console.error('Error during code generation:', error);
     appendLogMessage(`Code generation failed: ${(error as Error).message}`, true);
@@ -61,54 +75,10 @@ function generateWebNNCode(): void {
  * @param outputElement - The element to display code in
  */
 function renderOutputCode(outputElement: HTMLDivElement): void {
-  // This is a placeholder for the actual code generation result
-  outputElement.innerHTML = `
-    <pre><code>// Generated WebNN API Code
-
-/**
- * Initialize the WebNN model
- */
-async function initModel() {
-  try {
-    // Create WebNN context
-    const context = await navigator.ml.createContext();
-    
-    // Build the graph
-    const builder = new MLGraphBuilder(context);
-    
-    // Define input tensor
-    const inputDesc = {dataType: 'float32', dimensions: [1, 224, 224, 3]};
-    const input = builder.input('input', inputDesc);
-    
-    // Create the model operations
-    // ... model specific operations would be generated here ...
-    
-    // Build and compile the graph
-    const graph = await builder.build();
-    
-    return {
-      graph,
-      execute: async function(inputTensor) {
-        // Execute the model with input
-        const outputs = await graph.compute(
-          {'input': inputTensor},
-          ['output']
-        );
-        return outputs['output'];
-      }
-    };
-  } catch (error) {
-    console.error('Failed to initialize WebNN model:', error);
-    throw error;
+  const code = generateJS();
+  outputElement.innerHTML = `<pre><code></code></pre>`;
+  const codeBlock = outputElement.querySelector('code');
+  if (codeBlock) {
+    codeBlock.textContent = code; // Use textContent to preserve formatting
   }
-}
-
-// Usage example
-async function runInference(imageData) {
-  const model = await initModel();
-  const result = await model.execute(imageData);
-  return result;
-}
-</code></pre>
-  `;
 }

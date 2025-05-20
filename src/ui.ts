@@ -205,9 +205,7 @@ export const initializeInterface = (): void => {
  * Get the application state
  * @returns The current application state
  */
-export const getModelState = (): ModelState => {
-  return { ...modelFileState };
-};
+export const getModelState = (): ModelState => modelFileState;
 
 /**
  * Render graph details (inputs, outputs, nodes) in the output-graph element
@@ -218,7 +216,6 @@ const renderGraphDetails = (graphData: any): void => {
   const overrideDiv = document.getElementById('free-dimension-overrides');
   if (!outputGraphElement || !overrideDiv) return;
 
-  // Clear previous content
   outputGraphElement.innerHTML = '';
   overrideDiv.innerHTML = '';
   overrideDiv.className = 'override none';
@@ -306,9 +303,16 @@ const renderGraphDetails = (graphData: any): void => {
         <span>${dim}</span> <input type="text" id="override_${dim}" name="override_${dim}" required size="5" />
       `).join(' ')}
     `;
+    // Pass freeDims to generator for validation
+    import('./generator').then(mod => {
+      if (mod.setFreeDims) mod.setFreeDims(Array.from(freeDims));
+    });
   } else {
     overrideDiv.className = 'override none';
     overrideDiv.innerHTML = '';
+    import('./generator').then(mod => {
+      if (mod.setFreeDims) mod.setFreeDims([]);
+    });
   }
 };
 
