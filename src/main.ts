@@ -82,7 +82,7 @@ const renderAppLayout = (): void => {
         </ul>
       </div>
       <footer>
-        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a>
+        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/" title="WebNN Code Generator">GitHub Issues</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a>
       </footer>
     </div>
   `;
