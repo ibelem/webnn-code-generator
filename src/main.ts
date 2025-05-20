@@ -3,7 +3,7 @@
  */
 import './style.css';
 import webnnLogo from '/logo/webnn.svg';
-import { initializeCodeGenerator } from './generator';
+import { initializeCodeGenerator } from './ui';
 import { initializeInterface } from './ui';
 
 /**

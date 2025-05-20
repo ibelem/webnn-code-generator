@@ -1,12 +1,24 @@
 {
+  "471": {
+    "nodeName": "reshape_103",
+    "nodeType": "Reshape",
+    "input": "shape",
+    "name": "471",
+    "dataOffset": 8827264,
+    "byteLength": 16,
+    "dataType": "int64",
+    "shape": [
+      2
+    ]
+  },
   "475": {
     "nodeName": "conv_0",
     "nodeType": "Conv",
     "input": "W",
     "name": "475",
     "dataOffset": 0,
-    "byteLength": 1728,
-    "dataType": "float16",
+    "byteLength": 3456,
+    "dataType": "float32",
     "shape": [
       32,
       3,
@@ -19,9 +31,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "476",
-    "dataOffset": 1728,
-    "byteLength": 64,
-    "dataType": "float16",
+    "dataOffset": 3456,
+    "byteLength": 128,
+    "dataType": "float32",
     "shape": [
       32
     ]
@@ -31,9 +43,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "478",
-    "dataOffset": 1792,
-    "byteLength": 576,
-    "dataType": "float16",
+    "dataOffset": 3584,
+    "byteLength": 1152,
+    "dataType": "float32",
     "shape": [
       32,
       1,
@@ -46,9 +58,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "479",
-    "dataOffset": 2368,
-    "byteLength": 64,
-    "dataType": "float16",
+    "dataOffset": 4736,
+    "byteLength": 128,
+    "dataType": "float32",
     "shape": [
       32
     ]
@@ -58,9 +70,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "481",
-    "dataOffset": 2432,
-    "byteLength": 1024,
-    "dataType": "float16",
+    "dataOffset": 4864,
+    "byteLength": 2048,
+    "dataType": "float32",
     "shape": [
       16,
       32,
@@ -73,9 +85,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "482",
-    "dataOffset": 3456,
-    "byteLength": 32,
-    "dataType": "float16",
+    "dataOffset": 6912,
+    "byteLength": 64,
+    "dataType": "float32",
     "shape": [
       16
     ]
@@ -85,9 +97,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "484",
-    "dataOffset": 3488,
-    "byteLength": 3072,
-    "dataType": "float16",
+    "dataOffset": 6976,
+    "byteLength": 6144,
+    "dataType": "float32",
     "shape": [
       96,
       16,
@@ -100,9 +112,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "485",
-    "dataOffset": 6560,
-    "byteLength": 192,
-    "dataType": "float16",
+    "dataOffset": 13120,
+    "byteLength": 384,
+    "dataType": "float32",
     "shape": [
       96
     ]
@@ -112,9 +124,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "487",
-    "dataOffset": 6752,
-    "byteLength": 1728,
-    "dataType": "float16",
+    "dataOffset": 13504,
+    "byteLength": 3456,
+    "dataType": "float32",
     "shape": [
       96,
       1,
@@ -127,9 +139,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "488",
-    "dataOffset": 8480,
-    "byteLength": 192,
-    "dataType": "float16",
+    "dataOffset": 16960,
+    "byteLength": 384,
+    "dataType": "float32",
     "shape": [
       96
     ]
@@ -139,9 +151,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "490",
-    "dataOffset": 8672,
-    "byteLength": 4608,
-    "dataType": "float16",
+    "dataOffset": 17344,
+    "byteLength": 9216,
+    "dataType": "float32",
     "shape": [
       24,
       96,
@@ -154,9 +166,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "491",
-    "dataOffset": 13280,
-    "byteLength": 48,
-    "dataType": "float16",
+    "dataOffset": 26560,
+    "byteLength": 96,
+    "dataType": "float32",
     "shape": [
       24
     ]
@@ -166,9 +178,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "493",
-    "dataOffset": 13328,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 26656,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       144,
       24,
@@ -181,9 +193,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "494",
-    "dataOffset": 20240,
-    "byteLength": 288,
-    "dataType": "float16",
+    "dataOffset": 40480,
+    "byteLength": 576,
+    "dataType": "float32",
     "shape": [
       144
     ]
@@ -193,9 +205,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "496",
-    "dataOffset": 20528,
-    "byteLength": 2592,
-    "dataType": "float16",
+    "dataOffset": 41056,
+    "byteLength": 5184,
+    "dataType": "float32",
     "shape": [
       144,
       1,
@@ -208,9 +220,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "497",
-    "dataOffset": 23120,
-    "byteLength": 288,
-    "dataType": "float16",
+    "dataOffset": 46240,
+    "byteLength": 576,
+    "dataType": "float32",
     "shape": [
       144
     ]
@@ -220,9 +232,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "499",
-    "dataOffset": 23408,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 46816,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       24,
       144,
@@ -235,9 +247,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "500",
-    "dataOffset": 30320,
-    "byteLength": 48,
-    "dataType": "float16",
+    "dataOffset": 60640,
+    "byteLength": 96,
+    "dataType": "float32",
     "shape": [
       24
     ]
@@ -247,9 +259,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "502",
-    "dataOffset": 30368,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 60736,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       144,
       24,
@@ -262,9 +274,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "503",
-    "dataOffset": 37280,
-    "byteLength": 288,
-    "dataType": "float16",
+    "dataOffset": 74560,
+    "byteLength": 576,
+    "dataType": "float32",
     "shape": [
       144
     ]
@@ -274,9 +286,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "505",
-    "dataOffset": 37568,
-    "byteLength": 2592,
-    "dataType": "float16",
+    "dataOffset": 75136,
+    "byteLength": 5184,
+    "dataType": "float32",
     "shape": [
       144,
       1,
@@ -289,9 +301,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "506",
-    "dataOffset": 40160,
-    "byteLength": 288,
-    "dataType": "float16",
+    "dataOffset": 80320,
+    "byteLength": 576,
+    "dataType": "float32",
     "shape": [
       144
     ]
@@ -301,9 +313,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "508",
-    "dataOffset": 40448,
-    "byteLength": 9216,
-    "dataType": "float16",
+    "dataOffset": 80896,
+    "byteLength": 18432,
+    "dataType": "float32",
     "shape": [
       32,
       144,
@@ -316,9 +328,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "509",
-    "dataOffset": 49664,
-    "byteLength": 64,
-    "dataType": "float16",
+    "dataOffset": 99328,
+    "byteLength": 128,
+    "dataType": "float32",
     "shape": [
       32
     ]
@@ -328,9 +340,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "511",
-    "dataOffset": 49728,
-    "byteLength": 12288,
-    "dataType": "float16",
+    "dataOffset": 99456,
+    "byteLength": 24576,
+    "dataType": "float32",
     "shape": [
       192,
       32,
@@ -343,9 +355,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "512",
-    "dataOffset": 62016,
-    "byteLength": 384,
-    "dataType": "float16",
+    "dataOffset": 124032,
+    "byteLength": 768,
+    "dataType": "float32",
     "shape": [
       192
     ]
@@ -355,9 +367,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "514",
-    "dataOffset": 62400,
-    "byteLength": 3456,
-    "dataType": "float16",
+    "dataOffset": 124800,
+    "byteLength": 6912,
+    "dataType": "float32",
     "shape": [
       192,
       1,
@@ -370,9 +382,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "515",
-    "dataOffset": 65856,
-    "byteLength": 384,
-    "dataType": "float16",
+    "dataOffset": 131712,
+    "byteLength": 768,
+    "dataType": "float32",
     "shape": [
       192
     ]
@@ -382,9 +394,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "517",
-    "dataOffset": 66240,
-    "byteLength": 12288,
-    "dataType": "float16",
+    "dataOffset": 132480,
+    "byteLength": 24576,
+    "dataType": "float32",
     "shape": [
       32,
       192,
@@ -397,9 +409,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "518",
-    "dataOffset": 78528,
-    "byteLength": 64,
-    "dataType": "float16",
+    "dataOffset": 157056,
+    "byteLength": 128,
+    "dataType": "float32",
     "shape": [
       32
     ]
@@ -409,9 +421,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "520",
-    "dataOffset": 78592,
-    "byteLength": 12288,
-    "dataType": "float16",
+    "dataOffset": 157184,
+    "byteLength": 24576,
+    "dataType": "float32",
     "shape": [
       192,
       32,
@@ -424,9 +436,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "521",
-    "dataOffset": 90880,
-    "byteLength": 384,
-    "dataType": "float16",
+    "dataOffset": 181760,
+    "byteLength": 768,
+    "dataType": "float32",
     "shape": [
       192
     ]
@@ -436,9 +448,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "523",
-    "dataOffset": 91264,
-    "byteLength": 3456,
-    "dataType": "float16",
+    "dataOffset": 182528,
+    "byteLength": 6912,
+    "dataType": "float32",
     "shape": [
       192,
       1,
@@ -451,9 +463,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "524",
-    "dataOffset": 94720,
-    "byteLength": 384,
-    "dataType": "float16",
+    "dataOffset": 189440,
+    "byteLength": 768,
+    "dataType": "float32",
     "shape": [
       192
     ]
@@ -463,9 +475,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "526",
-    "dataOffset": 95104,
-    "byteLength": 12288,
-    "dataType": "float16",
+    "dataOffset": 190208,
+    "byteLength": 24576,
+    "dataType": "float32",
     "shape": [
       32,
       192,
@@ -478,9 +490,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "527",
-    "dataOffset": 107392,
-    "byteLength": 64,
-    "dataType": "float16",
+    "dataOffset": 214784,
+    "byteLength": 128,
+    "dataType": "float32",
     "shape": [
       32
     ]
@@ -490,9 +502,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "529",
-    "dataOffset": 107456,
-    "byteLength": 12288,
-    "dataType": "float16",
+    "dataOffset": 214912,
+    "byteLength": 24576,
+    "dataType": "float32",
     "shape": [
       192,
       32,
@@ -505,9 +517,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "530",
-    "dataOffset": 119744,
-    "byteLength": 384,
-    "dataType": "float16",
+    "dataOffset": 239488,
+    "byteLength": 768,
+    "dataType": "float32",
     "shape": [
       192
     ]
@@ -517,9 +529,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "532",
-    "dataOffset": 120128,
-    "byteLength": 3456,
-    "dataType": "float16",
+    "dataOffset": 240256,
+    "byteLength": 6912,
+    "dataType": "float32",
     "shape": [
       192,
       1,
@@ -532,9 +544,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "533",
-    "dataOffset": 123584,
-    "byteLength": 384,
-    "dataType": "float16",
+    "dataOffset": 247168,
+    "byteLength": 768,
+    "dataType": "float32",
     "shape": [
       192
     ]
@@ -544,9 +556,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "535",
-    "dataOffset": 123968,
-    "byteLength": 24576,
-    "dataType": "float16",
+    "dataOffset": 247936,
+    "byteLength": 49152,
+    "dataType": "float32",
     "shape": [
       64,
       192,
@@ -559,9 +571,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "536",
-    "dataOffset": 148544,
-    "byteLength": 128,
-    "dataType": "float16",
+    "dataOffset": 297088,
+    "byteLength": 256,
+    "dataType": "float32",
     "shape": [
       64
     ]
@@ -571,9 +583,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "538",
-    "dataOffset": 148672,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 297344,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       384,
       64,
@@ -586,9 +598,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "539",
-    "dataOffset": 197824,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 395648,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -598,9 +610,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "541",
-    "dataOffset": 198592,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 397184,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       384,
       1,
@@ -613,9 +625,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "542",
-    "dataOffset": 205504,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 411008,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -625,9 +637,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "544",
-    "dataOffset": 206272,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 412544,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       64,
       384,
@@ -640,9 +652,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "545",
-    "dataOffset": 255424,
-    "byteLength": 128,
-    "dataType": "float16",
+    "dataOffset": 510848,
+    "byteLength": 256,
+    "dataType": "float32",
     "shape": [
       64
     ]
@@ -652,9 +664,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "547",
-    "dataOffset": 255552,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 511104,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       384,
       64,
@@ -667,9 +679,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "548",
-    "dataOffset": 304704,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 609408,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -679,9 +691,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "550",
-    "dataOffset": 305472,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 610944,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       384,
       1,
@@ -694,9 +706,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "551",
-    "dataOffset": 312384,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 624768,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -706,9 +718,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "553",
-    "dataOffset": 313152,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 626304,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       64,
       384,
@@ -721,9 +733,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "554",
-    "dataOffset": 362304,
-    "byteLength": 128,
-    "dataType": "float16",
+    "dataOffset": 724608,
+    "byteLength": 256,
+    "dataType": "float32",
     "shape": [
       64
     ]
@@ -733,9 +745,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "556",
-    "dataOffset": 362432,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 724864,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       384,
       64,
@@ -748,9 +760,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "557",
-    "dataOffset": 411584,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 823168,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -760,9 +772,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "559",
-    "dataOffset": 412352,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 824704,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       384,
       1,
@@ -775,9 +787,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "560",
-    "dataOffset": 419264,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 838528,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -787,9 +799,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "562",
-    "dataOffset": 420032,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 840064,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       64,
       384,
@@ -802,9 +814,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "563",
-    "dataOffset": 469184,
-    "byteLength": 128,
-    "dataType": "float16",
+    "dataOffset": 938368,
+    "byteLength": 256,
+    "dataType": "float32",
     "shape": [
       64
     ]
@@ -814,9 +826,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "565",
-    "dataOffset": 469312,
-    "byteLength": 49152,
-    "dataType": "float16",
+    "dataOffset": 938624,
+    "byteLength": 98304,
+    "dataType": "float32",
     "shape": [
       384,
       64,
@@ -829,9 +841,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "566",
-    "dataOffset": 518464,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 1036928,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -841,9 +853,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "568",
-    "dataOffset": 519232,
-    "byteLength": 6912,
-    "dataType": "float16",
+    "dataOffset": 1038464,
+    "byteLength": 13824,
+    "dataType": "float32",
     "shape": [
       384,
       1,
@@ -856,9 +868,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "569",
-    "dataOffset": 526144,
-    "byteLength": 768,
-    "dataType": "float16",
+    "dataOffset": 1052288,
+    "byteLength": 1536,
+    "dataType": "float32",
     "shape": [
       384
     ]
@@ -868,9 +880,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "571",
-    "dataOffset": 526912,
-    "byteLength": 73728,
-    "dataType": "float16",
+    "dataOffset": 1053824,
+    "byteLength": 147456,
+    "dataType": "float32",
     "shape": [
       96,
       384,
@@ -883,9 +895,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "572",
-    "dataOffset": 600640,
-    "byteLength": 192,
-    "dataType": "float16",
+    "dataOffset": 1201280,
+    "byteLength": 384,
+    "dataType": "float32",
     "shape": [
       96
     ]
@@ -895,9 +907,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "574",
-    "dataOffset": 600832,
-    "byteLength": 110592,
-    "dataType": "float16",
+    "dataOffset": 1201664,
+    "byteLength": 221184,
+    "dataType": "float32",
     "shape": [
       576,
       96,
@@ -910,9 +922,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "575",
-    "dataOffset": 711424,
-    "byteLength": 1152,
-    "dataType": "float16",
+    "dataOffset": 1422848,
+    "byteLength": 2304,
+    "dataType": "float32",
     "shape": [
       576
     ]
@@ -922,9 +934,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "577",
-    "dataOffset": 712576,
-    "byteLength": 10368,
-    "dataType": "float16",
+    "dataOffset": 1425152,
+    "byteLength": 20736,
+    "dataType": "float32",
     "shape": [
       576,
       1,
@@ -937,9 +949,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "578",
-    "dataOffset": 722944,
-    "byteLength": 1152,
-    "dataType": "float16",
+    "dataOffset": 1445888,
+    "byteLength": 2304,
+    "dataType": "float32",
     "shape": [
       576
     ]
@@ -949,9 +961,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "580",
-    "dataOffset": 724096,
-    "byteLength": 110592,
-    "dataType": "float16",
+    "dataOffset": 1448192,
+    "byteLength": 221184,
+    "dataType": "float32",
     "shape": [
       96,
       576,
@@ -964,9 +976,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "581",
-    "dataOffset": 834688,
-    "byteLength": 192,
-    "dataType": "float16",
+    "dataOffset": 1669376,
+    "byteLength": 384,
+    "dataType": "float32",
     "shape": [
       96
     ]
@@ -976,9 +988,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "583",
-    "dataOffset": 834880,
-    "byteLength": 110592,
-    "dataType": "float16",
+    "dataOffset": 1669760,
+    "byteLength": 221184,
+    "dataType": "float32",
     "shape": [
       576,
       96,
@@ -991,9 +1003,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "584",
-    "dataOffset": 945472,
-    "byteLength": 1152,
-    "dataType": "float16",
+    "dataOffset": 1890944,
+    "byteLength": 2304,
+    "dataType": "float32",
     "shape": [
       576
     ]
@@ -1003,9 +1015,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "586",
-    "dataOffset": 946624,
-    "byteLength": 10368,
-    "dataType": "float16",
+    "dataOffset": 1893248,
+    "byteLength": 20736,
+    "dataType": "float32",
     "shape": [
       576,
       1,
@@ -1018,9 +1030,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "587",
-    "dataOffset": 956992,
-    "byteLength": 1152,
-    "dataType": "float16",
+    "dataOffset": 1913984,
+    "byteLength": 2304,
+    "dataType": "float32",
     "shape": [
       576
     ]
@@ -1030,9 +1042,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "589",
-    "dataOffset": 958144,
-    "byteLength": 110592,
-    "dataType": "float16",
+    "dataOffset": 1916288,
+    "byteLength": 221184,
+    "dataType": "float32",
     "shape": [
       96,
       576,
@@ -1045,9 +1057,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "590",
-    "dataOffset": 1068736,
-    "byteLength": 192,
-    "dataType": "float16",
+    "dataOffset": 2137472,
+    "byteLength": 384,
+    "dataType": "float32",
     "shape": [
       96
     ]
@@ -1057,9 +1069,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "592",
-    "dataOffset": 1068928,
-    "byteLength": 110592,
-    "dataType": "float16",
+    "dataOffset": 2137856,
+    "byteLength": 221184,
+    "dataType": "float32",
     "shape": [
       576,
       96,
@@ -1072,9 +1084,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "593",
-    "dataOffset": 1179520,
-    "byteLength": 1152,
-    "dataType": "float16",
+    "dataOffset": 2359040,
+    "byteLength": 2304,
+    "dataType": "float32",
     "shape": [
       576
     ]
@@ -1084,9 +1096,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "595",
-    "dataOffset": 1180672,
-    "byteLength": 10368,
-    "dataType": "float16",
+    "dataOffset": 2361344,
+    "byteLength": 20736,
+    "dataType": "float32",
     "shape": [
       576,
       1,
@@ -1099,9 +1111,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "596",
-    "dataOffset": 1191040,
-    "byteLength": 1152,
-    "dataType": "float16",
+    "dataOffset": 2382080,
+    "byteLength": 2304,
+    "dataType": "float32",
     "shape": [
       576
     ]
@@ -1111,9 +1123,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "598",
-    "dataOffset": 1192192,
-    "byteLength": 184320,
-    "dataType": "float16",
+    "dataOffset": 2384384,
+    "byteLength": 368640,
+    "dataType": "float32",
     "shape": [
       160,
       576,
@@ -1126,9 +1138,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "599",
-    "dataOffset": 1376512,
-    "byteLength": 320,
-    "dataType": "float16",
+    "dataOffset": 2753024,
+    "byteLength": 640,
+    "dataType": "float32",
     "shape": [
       160
     ]
@@ -1138,9 +1150,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "601",
-    "dataOffset": 1376832,
-    "byteLength": 307200,
-    "dataType": "float16",
+    "dataOffset": 2753664,
+    "byteLength": 614400,
+    "dataType": "float32",
     "shape": [
       960,
       160,
@@ -1153,9 +1165,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "602",
-    "dataOffset": 1684032,
-    "byteLength": 1920,
-    "dataType": "float16",
+    "dataOffset": 3368064,
+    "byteLength": 3840,
+    "dataType": "float32",
     "shape": [
       960
     ]
@@ -1165,9 +1177,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "604",
-    "dataOffset": 1685952,
-    "byteLength": 17280,
-    "dataType": "float16",
+    "dataOffset": 3371904,
+    "byteLength": 34560,
+    "dataType": "float32",
     "shape": [
       960,
       1,
@@ -1180,9 +1192,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "605",
-    "dataOffset": 1703232,
-    "byteLength": 1920,
-    "dataType": "float16",
+    "dataOffset": 3406464,
+    "byteLength": 3840,
+    "dataType": "float32",
     "shape": [
       960
     ]
@@ -1192,9 +1204,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "607",
-    "dataOffset": 1705152,
-    "byteLength": 307200,
-    "dataType": "float16",
+    "dataOffset": 3410304,
+    "byteLength": 614400,
+    "dataType": "float32",
     "shape": [
       160,
       960,
@@ -1207,9 +1219,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "608",
-    "dataOffset": 2012352,
-    "byteLength": 320,
-    "dataType": "float16",
+    "dataOffset": 4024704,
+    "byteLength": 640,
+    "dataType": "float32",
     "shape": [
       160
     ]
@@ -1219,9 +1231,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "610",
-    "dataOffset": 2012672,
-    "byteLength": 307200,
-    "dataType": "float16",
+    "dataOffset": 4025344,
+    "byteLength": 614400,
+    "dataType": "float32",
     "shape": [
       960,
       160,
@@ -1234,9 +1246,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "611",
-    "dataOffset": 2319872,
-    "byteLength": 1920,
-    "dataType": "float16",
+    "dataOffset": 4639744,
+    "byteLength": 3840,
+    "dataType": "float32",
     "shape": [
       960
     ]
@@ -1246,9 +1258,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "613",
-    "dataOffset": 2321792,
-    "byteLength": 17280,
-    "dataType": "float16",
+    "dataOffset": 4643584,
+    "byteLength": 34560,
+    "dataType": "float32",
     "shape": [
       960,
       1,
@@ -1261,9 +1273,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "614",
-    "dataOffset": 2339072,
-    "byteLength": 1920,
-    "dataType": "float16",
+    "dataOffset": 4678144,
+    "byteLength": 3840,
+    "dataType": "float32",
     "shape": [
       960
     ]
@@ -1273,9 +1285,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "616",
-    "dataOffset": 2340992,
-    "byteLength": 307200,
-    "dataType": "float16",
+    "dataOffset": 4681984,
+    "byteLength": 614400,
+    "dataType": "float32",
     "shape": [
       160,
       960,
@@ -1288,9 +1300,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "617",
-    "dataOffset": 2648192,
-    "byteLength": 320,
-    "dataType": "float16",
+    "dataOffset": 5296384,
+    "byteLength": 640,
+    "dataType": "float32",
     "shape": [
       160
     ]
@@ -1300,9 +1312,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "619",
-    "dataOffset": 2648512,
-    "byteLength": 307200,
-    "dataType": "float16",
+    "dataOffset": 5297024,
+    "byteLength": 614400,
+    "dataType": "float32",
     "shape": [
       960,
       160,
@@ -1315,9 +1327,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "620",
-    "dataOffset": 2955712,
-    "byteLength": 1920,
-    "dataType": "float16",
+    "dataOffset": 5911424,
+    "byteLength": 3840,
+    "dataType": "float32",
     "shape": [
       960
     ]
@@ -1327,9 +1339,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "622",
-    "dataOffset": 2957632,
-    "byteLength": 17280,
-    "dataType": "float16",
+    "dataOffset": 5915264,
+    "byteLength": 34560,
+    "dataType": "float32",
     "shape": [
       960,
       1,
@@ -1342,9 +1354,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "623",
-    "dataOffset": 2974912,
-    "byteLength": 1920,
-    "dataType": "float16",
+    "dataOffset": 5949824,
+    "byteLength": 3840,
+    "dataType": "float32",
     "shape": [
       960
     ]
@@ -1354,9 +1366,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "625",
-    "dataOffset": 2976832,
-    "byteLength": 614400,
-    "dataType": "float16",
+    "dataOffset": 5953664,
+    "byteLength": 1228800,
+    "dataType": "float32",
     "shape": [
       320,
       960,
@@ -1369,9 +1381,9 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "626",
-    "dataOffset": 3591232,
-    "byteLength": 640,
-    "dataType": "float16",
+    "dataOffset": 7182464,
+    "byteLength": 1280,
+    "dataType": "float32",
     "shape": [
       320
     ]
@@ -1381,9 +1393,9 @@
     "nodeType": "Conv",
     "input": "W",
     "name": "628",
-    "dataOffset": 3591872,
-    "byteLength": 819200,
-    "dataType": "float16",
+    "dataOffset": 7183744,
+    "byteLength": 1638400,
+    "dataType": "float32",
     "shape": [
       1280,
       320,
@@ -1396,65 +1408,60 @@
     "nodeType": "Conv",
     "input": "B",
     "name": "629",
-    "dataOffset": 4411072,
-    "byteLength": 2560,
-    "dataType": "float16",
+    "dataOffset": 8822144,
+    "byteLength": 5120,
+    "dataType": "float32",
     "shape": [
       1280
     ]
   },
-  "dwconv_wgt": {
-    "nodeName": "globalaveragepool_97",
-    "nodeType": "Conv",
-    "input": "W",
-    "name": "dwconv_wgt",
-    "dataOffset": 4413632,
-    "byteLength": 125440,
-    "dataType": "float16",
+  "Clip_3min": {
+    "nodeName": "clip_96",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "Clip_3min",
+    "dataOffset": 8827264,
+    "byteLength": 0,
+    "dataType": "float32",
     "shape": [
-      1280,
-      1,
-      7,
-      7
+      1
     ]
   },
-  "wgt": {
+  "Clip_19max": {
+    "nodeName": "clip_96",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "Clip_19max",
+    "dataOffset": 8827264,
+    "byteLength": 0,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "classifier.1.weight": {
     "nodeName": "gemm_104",
-    "nodeType": "Conv",
-    "input": "W",
-    "name": "wgt",
-    "dataOffset": 4539072,
-    "byteLength": 2560000,
-    "dataType": "float16",
+    "nodeType": "Gemm",
+    "input": "B",
+    "name": "classifier.1.weight",
+    "dataOffset": 8827280,
+    "byteLength": 5120000,
+    "dataType": "float32",
     "shape": [
       1000,
-      1280,
-      1,
-      1
+      1280
     ]
   },
   "classifier.1.bias": {
     "nodeName": "gemm_104",
-    "nodeType": "Conv",
-    "input": "B",
+    "nodeType": "Gemm",
+    "input": "C",
     "name": "classifier.1.bias",
-    "dataOffset": 7099072,
-    "byteLength": 2000,
-    "dataType": "float16",
+    "dataOffset": 13947280,
+    "byteLength": 4000,
+    "dataType": "float32",
     "shape": [
       1000
-    ]
-  },
-  "Gemm_104_shape": {
-    "nodeName": "gemm_104_reshape",
-    "nodeType": "Reshape",
-    "input": "shape",
-    "name": "Gemm_104_shape",
-    "dataOffset": 7101072,
-    "byteLength": 16,
-    "dataType": "int64",
-    "shape": [
-      2
     ]
   }
 }

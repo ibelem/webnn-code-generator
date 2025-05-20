@@ -24,11 +24,12 @@ function buildCode() {
     inputsCode += `
     const input = builder.input('${name}', { dataType: '${dataType}', shape: [${shape}] });
     this.inputTensors_['${name}'] = await this.context_.createTensor(
-        { dataType: '${dataType}', shape: [${shape}], writable: true }
+      { dataType: '${dataType}', shape: [${shape}], writable: true }
     );`;
   }
 
   let initializersCode = ``;
+  const emittedInitializers = new Set<string>();
   const graph = graphModelData?.graph?.[0];
   if (graph && Array.isArray(graph.nodes)) {
     for (const node of graph.nodes) {
@@ -38,19 +39,22 @@ function buildCode() {
             const initializer = val.initializer;
             if (initializer) {
               const name = initializer.name;
+              const varName = name.replaceAll('.', '_');
+              if (emittedInitializers.has(varName)) continue; // Skip if already emitted
+
               const dataType = initializer.type.dataType;
               const shape = initializer.type.shape.dimensions;
-
               const weightsDataOffset = weightModelData?.[name]?.dataOffset;
               const weightsByteLength = weightModelData?.[name]?.byteLength;
-              const varName = name.replaceAll('.', '_');
 
-              if(initializer?.encoding === '<') {
+              if (initializer?.encoding === '<') {
                 initializersCode += `
     const var_${varName} = builder.constant(
-        { dataType: '${dataType}', shape: [${shape}] },
-        new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)
-    );`;
+      { dataType: '${dataType}', shape: [${shape}] },
+      new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)
+    );
+    `;
+                emittedInitializers.add(varName);
               } else if (
                 initializer?.encoding === '|' &&
                 Array.isArray(initializer?.type.shape.dimensions) &&
@@ -58,7 +62,9 @@ function buildCode() {
                 initializer?.type.shape.dimensions[0] === 1
               ) {
                 initializersCode += `
-    const var_${varName} = ${initializer?.values['0']};`;
+    const var_${varName} = ${initializer?.values['0']};
+    `;
+                emittedInitializers.add(varName);
               }
             }
           }
@@ -66,6 +72,8 @@ function buildCode() {
       }
     }
   }
+
+  let operatorsCode = ``;
 
   return `
   async build(options) {
@@ -88,6 +96,9 @@ function buildCode() {
 
     // Create graph constant operands
     ${initializersCode}
+
+    // Create graph operators
+    ${operatorsCode}
   }`;
 }
 
@@ -129,7 +140,11 @@ function runCode() {
 
 export function generateJS() {
   const name = modelName();
-  return `export class ${name} {
+  return ` // WebNN Code Generator
+// Todo: Store freeDims globally for access in generateWebNNCode
+// Todo: NCHW, NHWC layouts
+
+export class ${name} {
 ${constructorCode()}
 ${buildCode()}
 ${runCode()}
@@ -143,4 +158,4 @@ ${constructorCode()}
 ${buildCode()}
 ${runCode()}
 }`;
-}
+};
