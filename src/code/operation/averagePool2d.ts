@@ -1,14 +1,13 @@
 /**
- * Generate JavaScript code for a WebNN add operation from ONNX Add node info.
+ * Generate JavaScript code for a WebNN averagePool2d operation from ONNX GlobalAveragePool node info.
  * @param node - The ONNX node object (with inputs, outputs)
  * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @returns JavaScript code string for the add operation
+ * @returns JavaScript code string for the averagePool2d operation
  */
-export function add_js(
+export function averagePool2d_js(
   node: any,
   toJsVarName: (name: string) => string
 ): string {
-  // Extract input and output names
   const inputs: string[] = node.inputs?.map((i: any) => i.value?.[0]?.name) || [];
   const outputs: string[] = node.outputs?.map((o: any) => o.value?.[0]?.name) || [];
 
@@ -16,5 +15,7 @@ export function add_js(
   const outputVar = toJsVarName(outputs[0]);
 
   return `
-    const ${outputVar} = builder.add(${inputVars[0]}, ${inputVars[1]});`;
+    const ${outputVar} = builder.averagePool2d(
+      ${inputVars[0]}
+    );`;
 }

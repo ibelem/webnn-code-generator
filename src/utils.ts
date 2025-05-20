@@ -1,5 +1,17 @@
 import { getModelState } from './ui';
 
+export function toJsVarName(name: string): string {
+  // Prefix with 'var_' if not a valid identifier or starts with a digit
+  let jsVarName = name;
+  // Check if the name is a valid JS identifier and does not start with a digit
+  if (!/^[$A-Z_a-z][$\w]*$/.test(jsVarName) || /^\d/.test(jsVarName)) {
+    jsVarName = `var_${jsVarName}`;
+  }
+  // Replace any character that is not alphanumeric or underscore with '_'
+  jsVarName = jsVarName.replace(/[^a-zA-Z0-9_]/g, '_');
+  return jsVarName;
+}
+
 export const dataTypeMap = {
   1: 'float32',   // FLOAT
   2: 'uint8',     // UINT8
