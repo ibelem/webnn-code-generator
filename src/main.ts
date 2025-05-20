@@ -82,7 +82,7 @@ const renderAppLayout = (): void => {
         </ul>
       </div>
       <footer>
-        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/" title="WebNN Code Generator">GitHub Issues</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a>
+        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/" title="WebNN Code Generator">GitHub Issues</a> · <a href="http://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/netron/model/mobilenetv2-12-static/model_graph_node_20250520014112.json&weight=https://ibelem.github.io/netron/model/mobilenetv2-12-static/model_weights_bias_20250520014112.json&bin=https://ibelem.github.io/netron/model/mobilenetv2-12-static/model_20250520014112.bin">Example</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a>
       </footer>
     </div>
   `;
