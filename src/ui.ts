@@ -23,6 +23,7 @@ const modelFileState: ModelState = {
 
 // File upload tracking
 let inputSetupComplete = false;
+let isTFLite = false;
 
 /**
  * Add a log message to the console display
@@ -52,6 +53,7 @@ export const updateGenerateButtonState = (): void => {
   const state = !(modelFileState.graphModelData && modelFileState.weightModelData && modelFileState.binaryModelData);
   generateDiv?.classList.toggle('disabled', state);
   generateBtn.disabled = state;
+
 };
 
 /**
@@ -370,6 +372,13 @@ const renderWeightDetails = (weightData: Record<string, any>): void => {
   if (!weightData || typeof weightData !== 'object') {
     outputWeightElement.innerHTML = '<p>No weight data found in the file.</p>';
     return;
+  }
+
+  const { graphModelData } = getModelState();
+  const graphData = graphModelData?.graph?.[0];
+
+  if(graphData?.format.toLowerCase().indexOf('tensorflow') !== -1) {
+    isTFLite = true;
   }
 
   // Render weight nodes

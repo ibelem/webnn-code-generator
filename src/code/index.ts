@@ -16,6 +16,10 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   GlobalAveragePool: averagePool2d_js,
   Reshape: reshape_js,
   // Add other op handlers here, e.g. Relu: relu_js, etc.
+
+  //TF Lite ops
+  Conv2D: conv2d_js,
+  AveragePool2D: averagePool2d_js,
 };
 
 function constructorCode() {
