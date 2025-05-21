@@ -510,11 +510,18 @@ input[type="file"] {
   text-align: left;
 }
 
-footer svg {
+.file-info svg { 
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.0em;
+  height: 1.0em;
   margin-bottom: -0.2em;
+}
+
+footer svg { 
+  display: inline-block;
+  width: 1.0em;
+  height: 1.0em;
+  margin-bottom: -0.1em;
 }
 
 .app-description ul {

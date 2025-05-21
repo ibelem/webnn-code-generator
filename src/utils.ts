@@ -71,7 +71,7 @@ export function getTypedArrayName(dataType: string): string | undefined {
     case 'uint32': return 'Uint32Array';
     case 'uint64': return 'BigUint64Array';
     case 'bool': return 'Uint8Array'; // BOOL is treated as Uint8Array
-    case 'float16': return 'Uint16Array'; // JS does not have Float16Array
+    case 'float16': return 'Float16Array';
     default: return 'Float32Array';
   }
 }
@@ -144,4 +144,19 @@ export function modelName() {
   modelName = modelName.charAt(0).toUpperCase() + modelName.slice(1);
 
   return modelName;
+}
+
+export function hasKeysandNumberValues(obj: any): boolean {
+  return (
+    obj &&
+    typeof obj === 'object' &&
+    !Array.isArray(obj) &&
+    Object.keys(obj).length > 0 &&
+    Object.values(obj).every(
+      (value) =>
+        typeof value === 'number' &&
+        isFinite(value) &&
+        !isNaN(value)
+    )
+  );
 }

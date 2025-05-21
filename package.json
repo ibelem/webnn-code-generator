@@ -11,6 +11,7 @@
   "devDependencies": {
     "@webnn/types": "^0.1.1",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-monaco-editor-esm": "^2.0.2"
   }
 }

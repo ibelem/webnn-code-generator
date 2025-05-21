@@ -23,10 +23,6 @@ export function reshape_js(
   }
   const shapeValue = shapeInput.value[0];
   const shapeName = shapeValue.name;
-  const shapeInit = shapeValue.initializer;
-  if (!shapeInit) {
-    throw new Error(`Reshape shape input '${shapeName}' must be an initializer`);
-  }
 
   const { weightModelData } = getModelState();
   if (!weightModelData) {

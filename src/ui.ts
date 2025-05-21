@@ -1,3 +1,8 @@
+import internetLogo from '/logo/internet.svg?raw';
+import localLogo from '/logo/local.svg?raw';
+import * as monaco from 'monaco-editor';
+import { downloadJS, downloadHTML } from './code';
+
 /**
  * UI state management and file handling for WebNN Code Generator
  */
@@ -96,19 +101,45 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
   const binUrl = params.get('bin');
 
   if (graphUrl && weightUrl && binUrl) {
-    appendLogMessage('Fetching files from URL...');
+    appendLogMessage('Fetching model graph and weights files from URL...');
     try {
-      const [graphResponse, weightResponse, binResponse] = await Promise.all([
-        fetch(graphUrl).then(res => res.json()),
-        fetch(weightUrl).then(res => res.json()),
-        fetch(binUrl).then(res => res.arrayBuffer())
+      // Fetch all files in parallel and get their responses
+      const [graphRes, weightRes, binRes] = await Promise.all([
+        fetch(graphUrl),
+        fetch(weightUrl),
+        fetch(binUrl)
       ]);
+
+      // Parse contents
+      const [graphResponse, weightResponse, binResponse] = await Promise.all([
+        graphRes.json(),
+        weightRes.json(),
+        binRes.arrayBuffer()
+      ]);
+
+      // Update file info with size and name
+      const updateRemoteFileInfo = (elementId: string, res: Response, url: string, fallbackSize: number) => {
+        const element = document.querySelector<HTMLSpanElement>(`#${elementId}`);
+        if (!element) return;
+        const fileName = url.split('/').pop() || '';
+        // Try to get size from header, fallback to content length
+        let size = Number(res.headers.get('content-length')) || fallbackSize;
+        const fileSizeInKB = size / 1024;
+        const fileSize = fileSizeInKB < 1024
+          ? `${fileSizeInKB.toFixed(2)} KB`
+          : `${(fileSizeInKB / 1024).toFixed(2)} MB`;
+        element.innerHTML = `${internetLogo} ${fileName} · ${fileSize}`;
+      };
+
+      updateRemoteFileInfo('graph-file-info', graphRes, graphUrl, JSON.stringify(graphResponse).length);
+      updateRemoteFileInfo('weight-file-info', weightRes, weightUrl, JSON.stringify(weightResponse).length);
+      updateRemoteFileInfo('bin-file-info', binRes, binUrl, binResponse.byteLength);
 
       modelFileState.graphModelData = graphResponse;
       modelFileState.weightModelData = weightResponse;
       modelFileState.binaryModelData = binResponse;
 
-      appendLogMessage('Files fetched successfully!');
+      appendLogMessage('Model graph and weights files fetched successfully.');
       renderGraphDetails(modelFileState.graphModelData?.graph[0]); // Render graph details
       if (modelFileState.weightModelData) {
         renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
@@ -189,7 +220,7 @@ const updateFileInfo = (elementId: string, file: File): void => {
     : `${(fileSizeInKB / 1024).toFixed(2)} MB`;
 
   // Update the element with file size and name
-  element.textContent = `${fileSize} · ${file.name}`;
+  element.innerHTML = `${localLogo} ${file.name} · ${fileSize}`;
 };
 
 /**
@@ -199,6 +230,14 @@ export const initializeInterface = (): void => {
   updateGenerateButtonState();
   fetchFilesFromUrl();
   setupFileInputs();
+  const outputElement = document.querySelector<HTMLDivElement>('#output-code');
+  if (!outputElement) return;
+  monaco.editor.create(outputElement, {
+    value: '// WebNN Code Generator',
+    language: 'javascript',
+    fontSize: 12,
+    fontFamily: 'Intel One Mono'
+  });
 };
 
 /**
@@ -360,6 +399,8 @@ const getShapeString = (dims?: number[]) => {
 
 // Store freeDims globally for access in generateWebNNCode
 let freeDims: string[] = [];
+    // Initial freeDimsOverrides object
+export let freeDimsOverrides: Record<string, number | null> = {};
 
 /**
  * Set free dimension names for validation before code generation
@@ -380,22 +421,29 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
 
   button.addEventListener('click', () => {
     // Check for freeDims and their input values before generating code
-    if (freeDims.length > 0) {
-      let missing = false;
-      for (const dim of freeDims) {
-        const input = document.getElementById(`override_${dim}`) as HTMLInputElement | null;
-        const value = input?.value.trim();
-        if (!input || value === '') {
-          appendLogMessage(`You need to set free dimension override for "${dim}" before generating WebNN code`, true);
-          missing = true;
-        } else if (isNaN(Number(value))) {
-          appendLogMessage(`The free dimension override value for "${dim}" must be a number`, true);
-          missing = true;
-        }
+    freeDims.forEach(dim => {
+      freeDimsOverrides[dim] = null;
+    });
+
+    let missing = false;
+    freeDims.forEach(dim => {
+      const input = document.getElementById(`override_${dim}`) as HTMLInputElement | null;
+      const value = input?.value.trim();
+      if (!input || value === '') {
+        appendLogMessage(`You need to set free dimension override for "${dim}" before generating WebNN code`, true);
+        missing = true;
+      } else if (isNaN(Number(value))) {
+        appendLogMessage(`The free dimension override value for "${dim}" must be a number`, true);
+        missing = true;
+      } else {
+        freeDimsOverrides[dim] = Number(value);
       }
-      if (missing) return;
-    }
+    });
+    if (missing) return;
+
     generateWebNNCode();
+    downloadJS();
+    downloadHTML();
   });
 }
 
@@ -403,9 +451,7 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
  * Generate WebNN code from the loaded model files
  */
 function generateWebNNCode(): void {
-  const outputElement = document.querySelector<HTMLDivElement>('#output-code');
-  if (!outputElement) return;
-
+  monaco.editor.getModels()[0].setValue('Starting code generation process...');
   appendLogMessage('Starting code generation process...');
   
   try {
@@ -414,30 +460,24 @@ function generateWebNNCode(): void {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }
-    outputElement.innerHTML = '<pre><code>WebNN Code Generator is running...</code></pre>';
     setTimeout(() => {
-      renderOutputCode(outputElement); // Your code generation logic here
+      renderOutputCode();
       appendLogMessage('Vanilla JavaScript code generation for WebNN completed successfully');
     }, 500);
   } catch (error) {
     console.error('Error during code generation:', error);
     appendLogMessage(`Code generation failed: ${(error as Error).message}`, true);
-    outputElement.innerHTML = '<div class="log-error">Code generation failed. See status for details.</div>';
+    monaco.editor.getModels()[0].setValue(`Code generation failed. See status for details.`);
   }
 }
 
 /**
  * Display the generated code in the code element
- * @param outputElement - The element to display code in
  */
-function renderOutputCode(outputElement: HTMLDivElement): void {
+function renderOutputCode(): void {
   // Import generateJS dynamically to avoid circular dependency if needed
   import('./code').then(mod => {
     const code = mod.generateJS();
-    outputElement.innerHTML = `<pre><code></code></pre>`;
-    const codeBlock = outputElement.querySelector('code');
-    if (codeBlock) {
-      codeBlock.textContent = code; // Use textContent to preserve formatting
-    }
+    monaco.editor.getModels()[0].setValue(code);
   });
 }
