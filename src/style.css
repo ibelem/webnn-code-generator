@@ -510,6 +510,13 @@ input[type="file"] {
   text-align: left;
 }
 
+footer svg {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-bottom: -0.2em;
+}
+
 .app-description ul {
   margin-left: -1em;
 }

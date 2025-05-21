@@ -92,7 +92,7 @@ const processFileContent = (file: File, callback: (data: any) => void): void => 
 export const fetchFilesFromUrl = async (): Promise<void> => {
   const params = new URLSearchParams(window.location.search);
   const graphUrl = params.get('graph');
-  const weightUrl = params.get('weight');
+  const weightUrl = params.get('weights');
   const binUrl = params.get('bin');
 
   if (graphUrl && weightUrl && binUrl) {

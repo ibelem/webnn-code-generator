@@ -3,6 +3,7 @@
  */
 import './style.css';
 import webnnLogo from '/logo/webnn.svg';
+import githubLogo from '/logo/github.svg?raw';
 import { initializeCodeGenerator } from './ui';
 import { initializeInterface } from './ui';
 
@@ -48,13 +49,13 @@ const renderAppLayout = (): void => {
             </div>
             
             <div class="upload-item">
-              <label for="weight-file-input" class="upload-button">Choose Weight File</label>
+              <label for="weight-file-input" class="upload-button">Choose Weights File</label>
               <input type="file" id="weight-file-input" accept=".json">
               <span class="file-info" id="weight-file-info">No .json file selected</span>
             </div>
             
             <div class="upload-item">
-              <label for="bin-file-input" class="upload-button">Choose BIN File</label>
+              <label for="bin-file-input" class="upload-button">Choose Bin File</label>
               <input type="file" id="bin-file-input" accept=".bin">
               <span class="file-info" id="bin-file-info">No .bin file selected</span>
             </div>
@@ -82,7 +83,7 @@ const renderAppLayout = (): void => {
         </ul>
       </div>
       <footer>
-        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/issues" title="WebNN Code Generator Issues">GitHub Issues</a> · <a href="http://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/netron/model/mobilenetv2-12-static/model_graph_node_20250520014112.json&weight=https://ibelem.github.io/netron/model/mobilenetv2-12-static/model_weights_bias_20250520014112.json&bin=https://ibelem.github.io/netron/model/mobilenetv2-12-static/model_20250520014112.bin">Example</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a>
+        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/issues" title="WebNN Code Generator Issues">${githubLogo}</a> · <a href="http://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/graph.json&weights=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights.json&bin=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights.bin">Example</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a>
       </footer>
     </div>
   `;
