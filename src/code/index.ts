@@ -377,9 +377,9 @@ export function generateHTML() {
 }
 
 export function downloadJS() {
-  downloadFile(modelName(), generateJS(), 'application/javascript');
+  downloadFile(modelName() + '.js', 'application/javascript', generateJS());
 }
 
 export function downloadHTML() {
-  downloadFile('webnn.html', generateHTML(), 'text/html');
+  downloadFile('webnn.html', 'text/html', generateHTML());
 }

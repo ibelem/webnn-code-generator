@@ -226,17 +226,26 @@ const updateFileInfo = (elementId: string, file: File): void => {
 /**
  * Initialize the UI
  */
+let monacoEditor: monaco.editor.IStandaloneCodeEditor | null = null;
+
 export const initializeInterface = (): void => {
   updateGenerateButtonState();
   fetchFilesFromUrl();
   setupFileInputs();
   const outputElement = document.querySelector<HTMLDivElement>('#output-code');
   if (!outputElement) return;
-  monaco.editor.create(outputElement, {
+  monacoEditor = monaco.editor.create(outputElement, {
     value: '// WebNN Code Generator',
     language: 'javascript',
     fontSize: 12,
     fontFamily: 'Intel One Mono'
+  });
+
+  // Resize Monaco editor on window resize
+  window.addEventListener('resize', () => {
+    if (monacoEditor) {
+      monacoEditor.layout();
+    }
   });
 
   // Add click handler for download button
