@@ -23,7 +23,6 @@ const modelFileState: ModelState = {
 
 // File upload tracking
 let inputSetupComplete = false;
-let isTFLite = false;
 
 /**
  * Add a log message to the console display
@@ -307,17 +306,16 @@ const renderGraphDetails = (graphData: any): void => {
     const nodesHTML = graphData.nodes.map((node: any) => `
       <div class="node-inputs-outputs">
         <div class="type" title="${node.type?.name || ''}">${node.type?.name || ''}</div>
-        <div class="pink name" title="${node.name || ''}">${node.name || ''}</div>
+        <div class="pink name" title="${node.name || node.identifier}">${node.name || node.identifier}</div>
         <div class="inputs" title="Inputs">I</div>
         <div>
           ${node.inputs.map((input: any) => `
             <div class="initializer">
               <span class="inputoutput" title="${input.name}">${input.name}</span> 
-              <span class="green name" title="${input.value[0]?.initializer?.name ?? input.value[0]?.name ?? ''}">${input.value[0]?.initializer?.name ?? input.value[0]?.name ?? ''}</span> 
+              <span class="green name" title="${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}">${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}</span> 
               <span></span>
-              <span class="tensor" title="${input.value[0]?.type?.dataType || ''} ${getShapeString(input.value[0]?.type?.shape?.dimensions)}">
-                ${input.value[0]?.type?.dataType || ''}
-                ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
+              <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}">
+                ${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}
               </span>
             </div>
           `).join('')}
@@ -365,29 +363,22 @@ const renderWeightDetails = (weightData: Record<string, any>): void => {
   const outputWeightElement = document.querySelector<HTMLDivElement>('#output-weight');
   if (!outputWeightElement) return;
 
-  // Clear previous content
-  outputWeightElement.innerHTML = '';
+  // Convert weightData to array and sort by nodeIdentifier if present
+  const nodes = Object.values(weightData)
+    .filter(node => node && node.nodeIdentifier !== undefined)
+    .sort((a, b) => Number(a.nodeIdentifier) - Number(b.nodeIdentifier));
 
-  // Check if weightData is valid
-  if (!weightData || typeof weightData !== 'object') {
-    outputWeightElement.innerHTML = '<p>No weight data found in the file.</p>';
-    return;
-  }
+  // If some nodes don't have nodeIdentifier, append them at the end
+  const noIdNodes = Object.values(weightData)
+    .filter(node => node && node.nodeIdentifier === undefined);
 
-  const { graphModelData } = getModelState();
-  const graphData = graphModelData?.graph?.[0];
+  const orderedNodes = [...nodes, ...noIdNodes];
 
-  if(graphData?.format.toLowerCase().indexOf('tensorflow') !== -1) {
-    isTFLite = true;
-  }
-
-  // Render weight nodes
-  const nodesHTML = Object.keys(weightData).map((key) => {
-    const node = weightData[key];
+  const nodesHTML = orderedNodes.map((node) => {
     return `
       <div class="weight-section">
         <span class="type" title="${node.nodeType || ''}">${node.nodeType || ''}</span>
-        <span class="pink nodename" title="${node.nodeName || ''}">${node.nodeName || ''}</span>
+        <span class="pink nodename" title="${node.nodeName || node.nodeIdentifier}">${node.nodeName || node.nodeIdentifier}</span>
         <span class="inputoutput" title="${node.input || ''}">${node.input || ''}</span>
         <span class="green name" title="${node.name || ''}">${node.name || ''}</span>
         <span></span>
@@ -396,7 +387,7 @@ const renderWeightDetails = (weightData: Record<string, any>): void => {
     `;
   }).join('');
 
-  outputWeightElement.innerHTML = nodesHTML || '<p>No weight nodes found in the file.</p>';
+  outputWeightElement.innerHTML = nodesHTML;
 };
 
 const getShapeString = (dims?: number[]) => {
