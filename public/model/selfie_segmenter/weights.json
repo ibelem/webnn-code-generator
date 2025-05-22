@@ -1,0 +1,1749 @@
+{
+  "1": {
+    "nodeName": "",
+    "nodeIdentifier": "0",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d/Kernel",
+    "identifier": "1",
+    "dataOffset": 0,
+    "byteLength": 864,
+    "dataType": "float16",
+    "shape": [
+      16,
+      3,
+      3,
+      3
+    ]
+  },
+  "2": {
+    "nodeName": "",
+    "nodeIdentifier": "1",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d/Bias",
+    "identifier": "2",
+    "dataOffset": 864,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "5": {
+    "nodeName": "",
+    "nodeIdentifier": "5",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_1/Kernel",
+    "identifier": "5",
+    "dataOffset": 928,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "6": {
+    "nodeName": "",
+    "nodeIdentifier": "4",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_1/Bias",
+    "identifier": "6",
+    "dataOffset": 896,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "9": {
+    "nodeName": "",
+    "nodeIdentifier": "9",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d/Kernel",
+    "identifier": "9",
+    "dataOffset": 1472,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      1,
+      3,
+      3,
+      16
+    ]
+  },
+  "10": {
+    "nodeName": "",
+    "nodeIdentifier": "8",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d/Bias",
+    "identifier": "10",
+    "dataOffset": 1440,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "14": {
+    "nodeName": "",
+    "nodeIdentifier": "13",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_2/Kernel",
+    "identifier": "14",
+    "dataOffset": 1760,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      8,
+      1,
+      1,
+      16
+    ]
+  },
+  "15": {
+    "nodeName": "",
+    "nodeIdentifier": "14",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_2/Bias",
+    "identifier": "15",
+    "dataOffset": 2016,
+    "byteLength": 16,
+    "dataType": "float16",
+    "shape": [
+      8
+    ]
+  },
+  "18": {
+    "nodeName": "",
+    "nodeIdentifier": "17",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_3/Kernel",
+    "identifier": "18",
+    "dataOffset": 2032,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      8
+    ]
+  },
+  "19": {
+    "nodeName": "",
+    "nodeIdentifier": "18",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_3/Bias",
+    "identifier": "19",
+    "dataOffset": 2288,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "23": {
+    "nodeName": "",
+    "nodeIdentifier": "23",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_4/Kernel",
+    "identifier": "23",
+    "dataOffset": 2352,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "24": {
+    "nodeName": "",
+    "nodeIdentifier": "22",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_4/Bias",
+    "identifier": "24",
+    "dataOffset": 2320,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "26": {
+    "nodeName": "",
+    "nodeIdentifier": "25",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_5/Kernel",
+    "identifier": "26",
+    "dataOffset": 2864,
+    "byteLength": 2304,
+    "dataType": "float16",
+    "shape": [
+      72,
+      1,
+      1,
+      16
+    ]
+  },
+  "27": {
+    "nodeName": "",
+    "nodeIdentifier": "26",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_5/Bias",
+    "identifier": "27",
+    "dataOffset": 5168,
+    "byteLength": 144,
+    "dataType": "float16",
+    "shape": [
+      72
+    ]
+  },
+  "30": {
+    "nodeName": "",
+    "nodeIdentifier": "29",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_1/Kernel",
+    "identifier": "30",
+    "dataOffset": 5312,
+    "byteLength": 1296,
+    "dataType": "float16",
+    "shape": [
+      1,
+      3,
+      3,
+      72
+    ]
+  },
+  "31": {
+    "nodeName": "",
+    "nodeIdentifier": "30",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_1/Bias",
+    "identifier": "31",
+    "dataOffset": 6608,
+    "byteLength": 144,
+    "dataType": "float16",
+    "shape": [
+      72
+    ]
+  },
+  "34": {
+    "nodeName": "",
+    "nodeIdentifier": "34",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_6/Kernel",
+    "identifier": "34",
+    "dataOffset": 6800,
+    "byteLength": 3456,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      72
+    ]
+  },
+  "35": {
+    "nodeName": "",
+    "nodeIdentifier": "33",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_6/Bias",
+    "identifier": "35",
+    "dataOffset": 6752,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "37": {
+    "nodeName": "",
+    "nodeIdentifier": "36",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_7/Kernel",
+    "identifier": "37",
+    "dataOffset": 10256,
+    "byteLength": 4224,
+    "dataType": "float16",
+    "shape": [
+      88,
+      1,
+      1,
+      24
+    ]
+  },
+  "38": {
+    "nodeName": "",
+    "nodeIdentifier": "37",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_7/Bias",
+    "identifier": "38",
+    "dataOffset": 14480,
+    "byteLength": 176,
+    "dataType": "float16",
+    "shape": [
+      88
+    ]
+  },
+  "41": {
+    "nodeName": "",
+    "nodeIdentifier": "41",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_2/Kernel",
+    "identifier": "41",
+    "dataOffset": 14832,
+    "byteLength": 1584,
+    "dataType": "float16",
+    "shape": [
+      1,
+      3,
+      3,
+      88
+    ]
+  },
+  "42": {
+    "nodeName": "",
+    "nodeIdentifier": "40",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_2/Bias",
+    "identifier": "42",
+    "dataOffset": 14656,
+    "byteLength": 176,
+    "dataType": "float16",
+    "shape": [
+      88
+    ]
+  },
+  "45": {
+    "nodeName": "",
+    "nodeIdentifier": "45",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_8/Kernel",
+    "identifier": "45",
+    "dataOffset": 16464,
+    "byteLength": 4224,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      88
+    ]
+  },
+  "46": {
+    "nodeName": "",
+    "nodeIdentifier": "44",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_8/Bias",
+    "identifier": "46",
+    "dataOffset": 16416,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "49": {
+    "nodeName": "",
+    "nodeIdentifier": "49",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_9/Kernel",
+    "identifier": "49",
+    "dataOffset": 20880,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      1,
+      24
+    ]
+  },
+  "50": {
+    "nodeName": "",
+    "nodeIdentifier": "48",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_9/Bias",
+    "identifier": "50",
+    "dataOffset": 20688,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "53": {
+    "nodeName": "",
+    "nodeIdentifier": "52",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_3/Kernel",
+    "identifier": "53",
+    "dataOffset": 25488,
+    "byteLength": 4800,
+    "dataType": "float16",
+    "shape": [
+      1,
+      5,
+      5,
+      96
+    ]
+  },
+  "54": {
+    "nodeName": "",
+    "nodeIdentifier": "53",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_3/Bias",
+    "identifier": "54",
+    "dataOffset": 30288,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "58": {
+    "nodeName": "",
+    "nodeIdentifier": "58",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_10/Kernel",
+    "identifier": "58",
+    "dataOffset": 30528,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      96
+    ]
+  },
+  "59": {
+    "nodeName": "",
+    "nodeIdentifier": "57",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_10/Bias",
+    "identifier": "59",
+    "dataOffset": 30480,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "62": {
+    "nodeName": "",
+    "nodeIdentifier": "61",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_11/Kernel",
+    "identifier": "62",
+    "dataOffset": 35136,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      1,
+      24
+    ]
+  },
+  "63": {
+    "nodeName": "",
+    "nodeIdentifier": "62",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_11/Bias",
+    "identifier": "63",
+    "dataOffset": 39744,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "67": {
+    "nodeName": "",
+    "nodeIdentifier": "67",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_12/Kernel",
+    "identifier": "67",
+    "dataOffset": 40000,
+    "byteLength": 6144,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      96
+    ]
+  },
+  "68": {
+    "nodeName": "",
+    "nodeIdentifier": "66",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_12/Bias",
+    "identifier": "68",
+    "dataOffset": 39936,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "70": {
+    "nodeName": "",
+    "nodeIdentifier": "70",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_13/Kernel",
+    "identifier": "70",
+    "dataOffset": 46400,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      128,
+      1,
+      1,
+      32
+    ]
+  },
+  "71": {
+    "nodeName": "",
+    "nodeIdentifier": "69",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_13/Bias",
+    "identifier": "71",
+    "dataOffset": 46144,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "74": {
+    "nodeName": "",
+    "nodeIdentifier": "74",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_4/Kernel",
+    "identifier": "74",
+    "dataOffset": 54848,
+    "byteLength": 6400,
+    "dataType": "float16",
+    "shape": [
+      1,
+      5,
+      5,
+      128
+    ]
+  },
+  "75": {
+    "nodeName": "",
+    "nodeIdentifier": "73",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_4/Bias",
+    "identifier": "75",
+    "dataOffset": 54592,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "79": {
+    "nodeName": "",
+    "nodeIdentifier": "78",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_14/Kernel",
+    "identifier": "79",
+    "dataOffset": 61248,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      128
+    ]
+  },
+  "80": {
+    "nodeName": "",
+    "nodeIdentifier": "79",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_14/Bias",
+    "identifier": "80",
+    "dataOffset": 69440,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "83": {
+    "nodeName": "",
+    "nodeIdentifier": "82",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_15/Kernel",
+    "identifier": "83",
+    "dataOffset": 69504,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      128,
+      1,
+      1,
+      32
+    ]
+  },
+  "84": {
+    "nodeName": "",
+    "nodeIdentifier": "83",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_15/Bias",
+    "identifier": "84",
+    "dataOffset": 77696,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "88": {
+    "nodeName": "",
+    "nodeIdentifier": "88",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_16/Kernel",
+    "identifier": "88",
+    "dataOffset": 78016,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      128
+    ]
+  },
+  "89": {
+    "nodeName": "",
+    "nodeIdentifier": "87",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_16/Bias",
+    "identifier": "89",
+    "dataOffset": 77952,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "92": {
+    "nodeName": "",
+    "nodeIdentifier": "92",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_17/Kernel",
+    "identifier": "92",
+    "dataOffset": 86464,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      128,
+      1,
+      1,
+      32
+    ]
+  },
+  "93": {
+    "nodeName": "",
+    "nodeIdentifier": "91",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_17/Bias",
+    "identifier": "93",
+    "dataOffset": 86208,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "96": {
+    "nodeName": "",
+    "nodeIdentifier": "95",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_5/Kernel",
+    "identifier": "96",
+    "dataOffset": 94656,
+    "byteLength": 6400,
+    "dataType": "float16",
+    "shape": [
+      1,
+      5,
+      5,
+      128
+    ]
+  },
+  "97": {
+    "nodeName": "",
+    "nodeIdentifier": "96",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_5/Bias",
+    "identifier": "97",
+    "dataOffset": 101056,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "101": {
+    "nodeName": "",
+    "nodeIdentifier": "100",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_18/Kernel",
+    "identifier": "101",
+    "dataOffset": 101312,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      128
+    ]
+  },
+  "102": {
+    "nodeName": "",
+    "nodeIdentifier": "101",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_18/Bias",
+    "identifier": "102",
+    "dataOffset": 109504,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "105": {
+    "nodeName": "",
+    "nodeIdentifier": "104",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_19/Kernel",
+    "identifier": "105",
+    "dataOffset": 109568,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      128,
+      1,
+      1,
+      32
+    ]
+  },
+  "106": {
+    "nodeName": "",
+    "nodeIdentifier": "105",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_19/Bias",
+    "identifier": "106",
+    "dataOffset": 117760,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "110": {
+    "nodeName": "",
+    "nodeIdentifier": "110",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_20/Kernel",
+    "identifier": "110",
+    "dataOffset": 118080,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      128
+    ]
+  },
+  "111": {
+    "nodeName": "",
+    "nodeIdentifier": "109",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_20/Bias",
+    "identifier": "111",
+    "dataOffset": 118016,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "114": {
+    "nodeName": "",
+    "nodeIdentifier": "113",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_21/Kernel",
+    "identifier": "114",
+    "dataOffset": 126272,
+    "byteLength": 6144,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      1,
+      32
+    ]
+  },
+  "115": {
+    "nodeName": "",
+    "nodeIdentifier": "114",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_21/Bias",
+    "identifier": "115",
+    "dataOffset": 132416,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "118": {
+    "nodeName": "",
+    "nodeIdentifier": "117",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_6/Kernel",
+    "identifier": "118",
+    "dataOffset": 132608,
+    "byteLength": 4800,
+    "dataType": "float16",
+    "shape": [
+      1,
+      5,
+      5,
+      96
+    ]
+  },
+  "119": {
+    "nodeName": "",
+    "nodeIdentifier": "118",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_6/Bias",
+    "identifier": "119",
+    "dataOffset": 137408,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "123": {
+    "nodeName": "",
+    "nodeIdentifier": "122",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_22/Kernel",
+    "identifier": "123",
+    "dataOffset": 137600,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      96
+    ]
+  },
+  "124": {
+    "nodeName": "",
+    "nodeIdentifier": "123",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_22/Bias",
+    "identifier": "124",
+    "dataOffset": 142208,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "127": {
+    "nodeName": "",
+    "nodeIdentifier": "126",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_23/Kernel",
+    "identifier": "127",
+    "dataOffset": 142256,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      1,
+      24
+    ]
+  },
+  "128": {
+    "nodeName": "",
+    "nodeIdentifier": "127",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_23/Bias",
+    "identifier": "128",
+    "dataOffset": 146864,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "132": {
+    "nodeName": "",
+    "nodeIdentifier": "131",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_24/Kernel",
+    "identifier": "132",
+    "dataOffset": 147056,
+    "byteLength": 6144,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      96
+    ]
+  },
+  "133": {
+    "nodeName": "",
+    "nodeIdentifier": "132",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_24/Bias",
+    "identifier": "133",
+    "dataOffset": 153200,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "136": {
+    "nodeName": "",
+    "nodeIdentifier": "135",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_25/Kernel",
+    "identifier": "136",
+    "dataOffset": 153264,
+    "byteLength": 6144,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      1,
+      32
+    ]
+  },
+  "137": {
+    "nodeName": "",
+    "nodeIdentifier": "136",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_25/Bias",
+    "identifier": "137",
+    "dataOffset": 159408,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "140": {
+    "nodeName": "",
+    "nodeIdentifier": "139",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_7/Kernel",
+    "identifier": "140",
+    "dataOffset": 159600,
+    "byteLength": 4800,
+    "dataType": "float16",
+    "shape": [
+      1,
+      5,
+      5,
+      96
+    ]
+  },
+  "141": {
+    "nodeName": "",
+    "nodeIdentifier": "140",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_7/Bias",
+    "identifier": "141",
+    "dataOffset": 164400,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "145": {
+    "nodeName": "",
+    "nodeIdentifier": "144",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_26/Kernel",
+    "identifier": "145",
+    "dataOffset": 164592,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      96
+    ]
+  },
+  "146": {
+    "nodeName": "",
+    "nodeIdentifier": "145",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_26/Bias",
+    "identifier": "146",
+    "dataOffset": 169200,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "149": {
+    "nodeName": "",
+    "nodeIdentifier": "149",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_27/Kernel",
+    "identifier": "149",
+    "dataOffset": 169440,
+    "byteLength": 4608,
+    "dataType": "float16",
+    "shape": [
+      96,
+      1,
+      1,
+      24
+    ]
+  },
+  "150": {
+    "nodeName": "",
+    "nodeIdentifier": "148",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_27/Bias",
+    "identifier": "150",
+    "dataOffset": 169248,
+    "byteLength": 192,
+    "dataType": "float16",
+    "shape": [
+      96
+    ]
+  },
+  "154": {
+    "nodeName": "",
+    "nodeIdentifier": "153",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_28/Kernel",
+    "identifier": "154",
+    "dataOffset": 174048,
+    "byteLength": 6144,
+    "dataType": "float16",
+    "shape": [
+      32,
+      1,
+      1,
+      96
+    ]
+  },
+  "155": {
+    "nodeName": "",
+    "nodeIdentifier": "154",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_28/Bias",
+    "identifier": "155",
+    "dataOffset": 180192,
+    "byteLength": 64,
+    "dataType": "float16",
+    "shape": [
+      32
+    ]
+  },
+  "159": {
+    "nodeName": "",
+    "nodeIdentifier": "158",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_29/Kernel",
+    "identifier": "159",
+    "dataOffset": 180256,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      128,
+      1,
+      1,
+      32
+    ]
+  },
+  "160": {
+    "nodeName": "",
+    "nodeIdentifier": "159",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_29/Bias",
+    "identifier": "160",
+    "dataOffset": 188448,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "162": {
+    "nodeName": "",
+    "nodeIdentifier": "161",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_30/Kernel",
+    "identifier": "162",
+    "dataOffset": 188704,
+    "byteLength": 8192,
+    "dataType": "float16",
+    "shape": [
+      128,
+      1,
+      1,
+      32
+    ]
+  },
+  "163": {
+    "nodeName": "",
+    "nodeIdentifier": "162",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_30/Bias",
+    "identifier": "163",
+    "dataOffset": 196896,
+    "byteLength": 256,
+    "dataType": "float16",
+    "shape": [
+      128
+    ]
+  },
+  "168": {
+    "nodeName": "",
+    "nodeIdentifier": "167",
+    "nodeType": "ResizeBilinear",
+    "input": "size",
+    "name": "up_sampling2d/Size",
+    "identifier": "168",
+    "dataOffset": 197152,
+    "byteLength": 8,
+    "dataType": "int32",
+    "shape": [
+      2
+    ]
+  },
+  "170": {
+    "nodeName": "",
+    "nodeIdentifier": "168",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_31/Kernel",
+    "identifier": "170",
+    "dataOffset": 197160,
+    "byteLength": 6144,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      128
+    ]
+  },
+  "171": {
+    "nodeName": "",
+    "nodeIdentifier": "169",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_31/Bias",
+    "identifier": "171",
+    "dataOffset": 203304,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "175": {
+    "nodeName": "",
+    "nodeIdentifier": "173",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_32/Kernel",
+    "identifier": "175",
+    "dataOffset": 203352,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      24
+    ]
+  },
+  "176": {
+    "nodeName": "",
+    "nodeIdentifier": "174",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_32/Bias",
+    "identifier": "176",
+    "dataOffset": 204504,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "179": {
+    "nodeName": "",
+    "nodeIdentifier": "177",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_33/Kernel",
+    "identifier": "179",
+    "dataOffset": 204552,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      24
+    ]
+  },
+  "180": {
+    "nodeName": "",
+    "nodeIdentifier": "178",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_33/Bias",
+    "identifier": "180",
+    "dataOffset": 205704,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "185": {
+    "nodeName": "",
+    "nodeIdentifier": "184",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_34/Kernel",
+    "identifier": "185",
+    "dataOffset": 205800,
+    "byteLength": 1152,
+    "dataType": "float16",
+    "shape": [
+      24,
+      1,
+      1,
+      24
+    ]
+  },
+  "186": {
+    "nodeName": "",
+    "nodeIdentifier": "183",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_34/Bias",
+    "identifier": "186",
+    "dataOffset": 205752,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "189": {
+    "nodeName": "",
+    "nodeIdentifier": "188",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_8/Kernel",
+    "identifier": "189",
+    "dataOffset": 207000,
+    "byteLength": 432,
+    "dataType": "float16",
+    "shape": [
+      1,
+      3,
+      3,
+      24
+    ]
+  },
+  "190": {
+    "nodeName": "",
+    "nodeIdentifier": "187",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_8/Bias",
+    "identifier": "190",
+    "dataOffset": 206952,
+    "byteLength": 48,
+    "dataType": "float16",
+    "shape": [
+      24
+    ]
+  },
+  "194": {
+    "nodeName": "",
+    "nodeIdentifier": "192",
+    "nodeType": "ResizeBilinear",
+    "input": "size",
+    "name": "up_sampling2d_1/Size",
+    "identifier": "194",
+    "dataOffset": 207432,
+    "byteLength": 8,
+    "dataType": "int32",
+    "shape": [
+      2
+    ]
+  },
+  "196": {
+    "nodeName": "",
+    "nodeIdentifier": "194",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_35/Kernel",
+    "identifier": "196",
+    "dataOffset": 207472,
+    "byteLength": 768,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      24
+    ]
+  },
+  "197": {
+    "nodeName": "",
+    "nodeIdentifier": "193",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_35/Bias",
+    "identifier": "197",
+    "dataOffset": 207440,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "201": {
+    "nodeName": "",
+    "nodeIdentifier": "198",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_36/Kernel",
+    "identifier": "201",
+    "dataOffset": 208240,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "202": {
+    "nodeName": "",
+    "nodeIdentifier": "199",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_36/Bias",
+    "identifier": "202",
+    "dataOffset": 208752,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "205": {
+    "nodeName": "",
+    "nodeIdentifier": "202",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_37/Kernel",
+    "identifier": "205",
+    "dataOffset": 208784,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "206": {
+    "nodeName": "",
+    "nodeIdentifier": "203",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_37/Bias",
+    "identifier": "206",
+    "dataOffset": 209296,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "211": {
+    "nodeName": "",
+    "nodeIdentifier": "208",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_38/Kernel",
+    "identifier": "211",
+    "dataOffset": 209328,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "212": {
+    "nodeName": "",
+    "nodeIdentifier": "209",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_38/Bias",
+    "identifier": "212",
+    "dataOffset": 209840,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "215": {
+    "nodeName": "",
+    "nodeIdentifier": "212",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_9/Kernel",
+    "identifier": "215",
+    "dataOffset": 209872,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      1,
+      3,
+      3,
+      16
+    ]
+  },
+  "216": {
+    "nodeName": "",
+    "nodeIdentifier": "213",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_9/Bias",
+    "identifier": "216",
+    "dataOffset": 210160,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "220": {
+    "nodeName": "",
+    "nodeIdentifier": "217",
+    "nodeType": "ResizeBilinear",
+    "input": "size",
+    "name": "up_sampling2d_2/Size",
+    "identifier": "220",
+    "dataOffset": 210192,
+    "byteLength": 8,
+    "dataType": "int32",
+    "shape": [
+      2
+    ]
+  },
+  "222": {
+    "nodeName": "",
+    "nodeIdentifier": "218",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_39/Kernel",
+    "identifier": "222",
+    "dataOffset": 210200,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "223": {
+    "nodeName": "",
+    "nodeIdentifier": "219",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_39/Bias",
+    "identifier": "223",
+    "dataOffset": 210712,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "227": {
+    "nodeName": "",
+    "nodeIdentifier": "223",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_40/Kernel",
+    "identifier": "227",
+    "dataOffset": 210744,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "228": {
+    "nodeName": "",
+    "nodeIdentifier": "224",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_40/Bias",
+    "identifier": "228",
+    "dataOffset": 211256,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "231": {
+    "nodeName": "",
+    "nodeIdentifier": "227",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_41/Kernel",
+    "identifier": "231",
+    "dataOffset": 211288,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "232": {
+    "nodeName": "",
+    "nodeIdentifier": "228",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_41/Bias",
+    "identifier": "232",
+    "dataOffset": 211800,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "237": {
+    "nodeName": "",
+    "nodeIdentifier": "233",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_42/Kernel",
+    "identifier": "237",
+    "dataOffset": 211832,
+    "byteLength": 512,
+    "dataType": "float16",
+    "shape": [
+      16,
+      1,
+      1,
+      16
+    ]
+  },
+  "238": {
+    "nodeName": "",
+    "nodeIdentifier": "234",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "conv2d_42/Bias",
+    "identifier": "238",
+    "dataOffset": 212344,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "241": {
+    "nodeName": "",
+    "nodeIdentifier": "237",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_10/Kernel",
+    "identifier": "241",
+    "dataOffset": 212376,
+    "byteLength": 288,
+    "dataType": "float16",
+    "shape": [
+      1,
+      3,
+      3,
+      16
+    ]
+  },
+  "242": {
+    "nodeName": "",
+    "nodeIdentifier": "238",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "depthwise_conv2d_10/Bias",
+    "identifier": "242",
+    "dataOffset": 212664,
+    "byteLength": 32,
+    "dataType": "float16",
+    "shape": [
+      16
+    ]
+  },
+  "246": {
+    "nodeName": "",
+    "nodeIdentifier": "242",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "segment/Kernel",
+    "identifier": "246",
+    "dataOffset": 212696,
+    "byteLength": 128,
+    "dataType": "float16",
+    "shape": [
+      1,
+      2,
+      2,
+      16
+    ]
+  },
+  "247": {
+    "nodeName": "",
+    "nodeIdentifier": "243",
+    "nodeType": "Dequantize",
+    "input": "input",
+    "name": "segment/Bias",
+    "identifier": "247",
+    "dataOffset": 212824,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": [
+      1
+    ]
+  }
+}

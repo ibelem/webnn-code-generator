@@ -75,7 +75,12 @@ const renderAppLayout = (): void => {
         <div id="output-weight" class="panel"></div>
         <div id="output-code" class="code panel"></div>
       </div>
-      <div id="log-console" class="status"></div>
+      <div id="log-panel" class="log-panel">
+        <div id="log-console" class="status"></div>
+        <div id="download" class="">
+          <button id="download-js" type="button" class="download-js">Download WebNN JS File</button>
+        </div>
+      </div>
       <div class="app-description">
         <ul>
           <li>Generate WebNN API code in vanilla JavaScript from ONNX, TensorFlow Lite, or other model formats.</li>
@@ -83,7 +88,8 @@ const renderAppLayout = (): void => {
         </ul>
       </div>
       <footer>
-        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/issues" title="WebNN Code Generator Issues">${githubLogo}</a> · <a href="http://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/graph.json&weights=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights.json&bin=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights.bin">Example</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a>
+        <div class="footer-link"><a href="http://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/graph.json&weights=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights.json&bin=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights.bin">Code Generator Example</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://ibelem.github.io/netron/reader.html" title="WebNN Netron">WebNN Bin File Reader</a> · <a href="https://github.com/huningxin/onnx2json/tree/webnn_js" title="Create WebNN JavaScript code for ONNX model">ONNX to JSON to WebNN</a></div>
+        &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/issues" title="WebNN Code Generator Issues">${githubLogo}</a>
       </footer>
     </div>
   `;

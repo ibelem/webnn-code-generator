@@ -375,6 +375,7 @@ header {
   padding: 0 1em;
   align-self: start;
   background-color: var(--grey-005);
+  height: 60vh;
 }
 
 .pink {
@@ -422,20 +423,57 @@ input[type="file"] {
   display: none;
 }
 
-#log-console {
+#log-panel {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr;
+  grid-row-gap: 0em;
+  grid-column-gap: 0.5em;
+  align-items: center;
   margin: -1px 0 1em 0;
-  padding: 1em;
+  padding: 0.5em 1em;
   text-align: left;
   font-size: 0.9em;
   border: 1px solid var(--border);
-  height: 1.5em;
+}
+
+#log-console {
+  height: 3em;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   background-color: var(--border-01);
 }
 
-.file-upload-panel:hover, #log-console:hover {
+#download {
+  display: none;
+  justify-self:end;
+}
+
+#download.show {
+  display: grid;
+}
+
+#download-js {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+  border: 1px solid var(--primary);
+}
+
+#download-js:hover {
+  cursor: pointer;
+  background-color: var(--primary-dark);
+}
+
+.file-upload-panel:hover, #log-panel:hover {
   border: 1px solid var(--border-dark);
 }
 
@@ -524,6 +562,10 @@ footer svg {
   margin-bottom: -0.2em;
 }
 
+.footer-link {
+  text-align: center;
+}
+
 .app-description ul {
   margin-left: -1em;
 }
@@ -601,5 +643,19 @@ footer svg {
   .app-description, footer {
     font-size: 0.8em;
     margin: 0.5em;
+  }
+  .file-upload-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #step-2 {
+    grid-template-columns: 1fr;
+    grid-row-gap: 0em;
+    grid-column-gap: 1em;
+  }
+  .file-upload-panel .upload-item {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

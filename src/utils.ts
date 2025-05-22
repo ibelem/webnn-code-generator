@@ -9,7 +9,42 @@ export function toJsVarName(name: string): string {
   }
   // Replace any character that is not alphanumeric or underscore with '_'
   jsVarName = jsVarName.replace(/[^a-zA-Z0-9_]/g, '_');
+
+  // Replace the string to lowercase
+  // This is to ensure that the variable name is consistent with the ONNX naming convention
+  // and to avoid any potential conflicts with reserved keywords in JavaScript.
+  jsVarName = jsVarName.toLowerCase();
   return jsVarName;
+}
+
+/**
+ * TFLite model
+ * There are some cases where the string contains '\n' characters,
+ * but we want to ignore them. 
+ * Returns the substring before the first '\n' character.
+ * If that substring is empty, returns the substring after the first '\n' character.
+ * If '\n' is not found, returns the original string.
+ */
+export function getNonEmptyStringAroundNewline(str: string): string {
+  if (typeof str !== 'string') return str;
+  const idx = str.indexOf('\n');
+  if (idx === -1) return str;
+  const before = str.substring(0, idx).trim();
+  if (before.length > 0) return before;
+  // Return the substring after the first '\n', trimmed
+  return str.substring(idx + 1).trim();
+}
+
+/**
+ * TFLite model
+ * Find a weight node in weightModelData by its 'name' property.
+ * @param weightModelData - The weights object (e.g. from weights.json)
+ * @param name - The name to match (e.g. "conv2d/Kernel")
+ * @returns The node value if found, otherwise undefined
+ */
+export function findWeightNodeByName(weightModelData: Record<string, any> | null, name: string) {
+  if (!weightModelData || !name) return undefined;
+  return Object.values(weightModelData).find((node: any) => node && node.name === name);
 }
 
 export const dataTypeMap = {
@@ -159,4 +194,17 @@ export function hasKeysandNumberValues(obj: any): boolean {
         !isNaN(value)
     )
   );
+}
+
+export function downloadFile(name: string, type: string, code: string) {
+  const blob = new Blob([code], { type: type });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }

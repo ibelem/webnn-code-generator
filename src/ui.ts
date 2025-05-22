@@ -1,8 +1,6 @@
 import internetLogo from '/logo/internet.svg?raw';
 import localLogo from '/logo/local.svg?raw';
 import * as monaco from 'monaco-editor';
-import { downloadJS, downloadHTML } from './code';
-
 /**
  * UI state management and file handling for WebNN Code Generator
  */
@@ -52,7 +50,7 @@ export const updateGenerateButtonState = (): void => {
   const state = !(modelFileState.graphModelData && modelFileState.weightModelData && modelFileState.binaryModelData);
   generateDiv?.classList.toggle('disabled', state);
   generateBtn.disabled = state;
-
+  document.getElementById('download')?.classList.remove('show');
 };
 
 /**
@@ -65,6 +63,7 @@ const setupFileInput = (inputId: string, callback: (file: File) => void): void =
   if (!inputElement) return;
   
   inputElement.addEventListener('change', (event) => {
+    document.getElementById('download')?.classList.remove('show');
     const files = (event.target as HTMLInputElement).files;
     const file = files && files[0];
     if (file) {
@@ -239,6 +238,17 @@ export const initializeInterface = (): void => {
     fontSize: 12,
     fontFamily: 'Intel One Mono'
   });
+
+  // Add click handler for download button
+  const downloadBtn = document.getElementById('download-js');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      import('./code').then(mod => {
+        mod.downloadJS();
+        mod.downloadHTML();
+      });
+    });
+  }
 };
 
 /**
@@ -420,6 +430,7 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
   }
 
   button.addEventListener('click', () => {
+    document.getElementById('download')?.classList.remove('show');
     // Check for freeDims and their input values before generating code
     freeDims.forEach(dim => {
       freeDimsOverrides[dim] = null;
@@ -442,8 +453,8 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
     if (missing) return;
 
     generateWebNNCode();
-    downloadJS();
-    downloadHTML();
+
+    document.getElementById('download')?.classList.add('show');
   });
 }
 

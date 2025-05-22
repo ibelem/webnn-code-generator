@@ -1,5 +1,6 @@
 // import { getModelState } from './ui';
-import { modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues } from '../utils';
+import { modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues, 
+  getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile } from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
 import { add_js } from './operation/add';
 import { averagePool2d_js } from './operation/averagePool2d';
@@ -39,7 +40,7 @@ function buildCode() {
 
   let inputsCode = ``;
   for (const input of inputs) {
-    const name = input.value[0]?.name;
+    const name = getNonEmptyStringAroundNewline(input.value[0]?.name);
     const dataType = input.value[0]?.type?.dataType;
     const shapeArr = input.value[0]?.type?.shape?.dimensions;
 
@@ -71,13 +72,23 @@ function buildCode() {
               if (name === undefined || null) {
                 name = val.name;
               }
+              name = getNonEmptyStringAroundNewline(name);
               const varName = toJsVarName(name);
               if (emittedInitializers.has(varName)) continue; // Skip if already emitted
 
               const dataType = initializer.type.dataType;
               const shape = initializer.type.shape.dimensions;
-              const weightsDataOffset = weightModelData?.[name]?.dataOffset;
-              const weightsByteLength = weightModelData?.[name]?.byteLength;
+              let weightsDataOffset = weightModelData?.[name]?.dataOffset;
+              let weightsByteLength = weightModelData?.[name]?.byteLength;
+
+              // TFLite case
+              if (weightsDataOffset === undefined || weightsByteLength === undefined) {
+                const weightInfo = findWeightNodeByName(weightModelData, name)
+                if (weightInfo) {
+                  weightsDataOffset = weightInfo.dataOffset;
+                  weightsByteLength = weightInfo.byteLength;
+                }
+              }
 
               if (initializer?.encoding === '<') {
                 initializersCode += `
@@ -115,9 +126,12 @@ function buildCode() {
         operatorsCode += `    ${jsCode}\n`;
       } else {
         const nodeName = node.name || '';
+        const nodeIdentifier = node.identifier || '';
+        const nodeNameStr = nodeName ? `· node: ${nodeName} ` : '';
+        const nodeIdentifierStr = nodeIdentifier ? `· identifier: ${nodeIdentifier}` : '';
         operatorsCode += `
     // Please file bug into https://github.com/ibelem/webnn-code-generator/issues
-    // [To do] Unsupported op: ${type} (node: ${nodeName})\n`;
+    // [To do] Unsupported op: ${type} ${nodeNameStr}${nodeIdentifierStr}\n`;
       }
     }
   }
@@ -126,8 +140,8 @@ function buildCode() {
   let buildGraphCode = '';
   if (outputs && outputs.length > 0) {
     // Collect output variable names and output names
-    const outputVars = outputs.map((output: any) => toJsVarName(output.value[0]?.name));
-    const outputNames = outputs.map((output: any) => output.value[0]?.name);
+    const outputVars = outputs.map((output: any) => toJsVarName(getNonEmptyStringAroundNewline(output.value[0]?.name)));
+    const outputNames = outputs.map((output: any) => getNonEmptyStringAroundNewline(output.value[0]?.name));
 
     if (outputVars.length === 1) {
       buildGraphCode += `
@@ -141,7 +155,7 @@ function buildCode() {
 
   let outputsCode = ``;
   for (const output of outputs) {
-    const name = output.value[0]?.name;
+    const name = getNonEmptyStringAroundNewline(output.value[0]?.name);
     const dataType = output.value[0]?.type?.dataType;
     const shapeArr = output.value[0]?.type?.shape?.dimensions;
     
@@ -232,13 +246,11 @@ function runCode() {
 export function generateJS() {
   const name = modelName();
   let freeDimsOverridesStr = '';
-
   if (hasKeysandNumberValues(freeDimsOverrides)) {
     const freeDimsString = Object.entries(freeDimsOverrides)
     .map(([key, value]) => `${key}: ${value}`)
     .join(', ');
-    freeDimsOverridesStr = `
-  // Set freeDimensionOverrides globally for symbolic dimensions
+    freeDimsOverridesStr = `  // Set freeDimensionOverrides globally for symbolic dimensions
   // ${freeDimsString}`;
   }
 
@@ -251,21 +263,6 @@ ${constructorCode()}
 ${buildCode()}
 ${runCode()}
 }`;
-}
-
-export function downloadJS() {
-  const name = modelName();
-  const jsCode = generateJS();
-  const blob = new Blob([jsCode], { type: 'application/javascript' });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${name}.js`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
 }
 
 export function generateHTML() {
@@ -379,16 +376,10 @@ export function generateHTML() {
 `;
 }
 
-export function downloadHTML() {
-  const htmlCode = generateHTML();
-  const blob = new Blob([htmlCode], { type: 'text/html' });
-  const url = URL.createObjectURL(blob);
+export function downloadJS() {
+  downloadFile(modelName(), generateJS(), 'application/javascript');
+}
 
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `webnn.html`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+export function downloadHTML() {
+  downloadFile('webnn.html', generateHTML(), 'text/html');
 }

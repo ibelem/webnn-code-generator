@@ -45,9 +45,9 @@ export class Mobilenetv212Static {
       new Float32Array(weights_array_buffer, 3456, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    const Clip_3min = 0;
+    const clip_3min = 0;
     
-    const Clip_19max = 6;
+    const clip_19max = 6;
     
     const var_478 = builder.constant(
       { dataType: 'float32', shape: [32,1,3,3] },
@@ -591,8 +591,8 @@ export class Mobilenetv212Static {
     const var_317 = builder.clamp(
       var_474,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -610,8 +610,8 @@ export class Mobilenetv212Static {
     const var_320 = builder.clamp(
       var_477,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -640,8 +640,8 @@ export class Mobilenetv212Static {
     const var_325 = builder.clamp(
       var_483,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -659,8 +659,8 @@ export class Mobilenetv212Static {
     const var_328 = builder.clamp(
       var_486,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -689,8 +689,8 @@ export class Mobilenetv212Static {
     const var_333 = builder.clamp(
       var_492,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -708,8 +708,8 @@ export class Mobilenetv212Static {
     const var_336 = builder.clamp(
       var_495,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -740,8 +740,8 @@ export class Mobilenetv212Static {
     const var_342 = builder.clamp(
       var_501,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -759,8 +759,8 @@ export class Mobilenetv212Static {
     const var_345 = builder.clamp(
       var_504,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -789,8 +789,8 @@ export class Mobilenetv212Static {
     const var_350 = builder.clamp(
       var_510,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -808,8 +808,8 @@ export class Mobilenetv212Static {
     const var_353 = builder.clamp(
       var_513,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -840,8 +840,8 @@ export class Mobilenetv212Static {
     const var_359 = builder.clamp(
       var_519,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -859,8 +859,8 @@ export class Mobilenetv212Static {
     const var_362 = builder.clamp(
       var_522,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -891,8 +891,8 @@ export class Mobilenetv212Static {
     const var_368 = builder.clamp(
       var_528,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -910,8 +910,8 @@ export class Mobilenetv212Static {
     const var_371 = builder.clamp(
       var_531,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -940,8 +940,8 @@ export class Mobilenetv212Static {
     const var_376 = builder.clamp(
       var_537,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -959,8 +959,8 @@ export class Mobilenetv212Static {
     const var_379 = builder.clamp(
       var_540,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -991,8 +991,8 @@ export class Mobilenetv212Static {
     const var_385 = builder.clamp(
       var_546,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1010,8 +1010,8 @@ export class Mobilenetv212Static {
     const var_388 = builder.clamp(
       var_549,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1042,8 +1042,8 @@ export class Mobilenetv212Static {
     const var_394 = builder.clamp(
       var_555,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1061,8 +1061,8 @@ export class Mobilenetv212Static {
     const var_397 = builder.clamp(
       var_558,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1093,8 +1093,8 @@ export class Mobilenetv212Static {
     const var_403 = builder.clamp(
       var_564,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1112,8 +1112,8 @@ export class Mobilenetv212Static {
     const var_406 = builder.clamp(
       var_567,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1142,8 +1142,8 @@ export class Mobilenetv212Static {
     const var_411 = builder.clamp(
       var_573,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1161,8 +1161,8 @@ export class Mobilenetv212Static {
     const var_414 = builder.clamp(
       var_576,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1193,8 +1193,8 @@ export class Mobilenetv212Static {
     const var_420 = builder.clamp(
       var_582,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1212,8 +1212,8 @@ export class Mobilenetv212Static {
     const var_423 = builder.clamp(
       var_585,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1244,8 +1244,8 @@ export class Mobilenetv212Static {
     const var_429 = builder.clamp(
       var_591,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1263,8 +1263,8 @@ export class Mobilenetv212Static {
     const var_432 = builder.clamp(
       var_594,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1293,8 +1293,8 @@ export class Mobilenetv212Static {
     const var_437 = builder.clamp(
       var_600,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1312,8 +1312,8 @@ export class Mobilenetv212Static {
     const var_440 = builder.clamp(
       var_603,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1344,8 +1344,8 @@ export class Mobilenetv212Static {
     const var_446 = builder.clamp(
       var_609,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1363,8 +1363,8 @@ export class Mobilenetv212Static {
     const var_449 = builder.clamp(
       var_612,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1395,8 +1395,8 @@ export class Mobilenetv212Static {
     const var_455 = builder.clamp(
       var_618,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1414,8 +1414,8 @@ export class Mobilenetv212Static {
     const var_458 = builder.clamp(
       var_621,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
@@ -1444,8 +1444,8 @@ export class Mobilenetv212Static {
     const var_463 = builder.clamp(
       var_627,
       {
-        minValue: Clip_3min,
-        maxValue: Clip_19max
+        minValue: clip_3min,
+        maxValue: clip_19max
       }
     );
     
