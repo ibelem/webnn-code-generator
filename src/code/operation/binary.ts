@@ -1,38 +1,32 @@
 /**
- * Generate JavaScript code for a WebNN clamp operation from ONNX Clip node info.
+ * Generate JavaScript code for a WebNN binary operation (add, sub, mul, div, max, min, pow).
  * @param node - The ONNX node object (with inputs, outputs)
  * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @returns JavaScript code string for the clamp operation
+ * @param opType - The binary operation type (e.g. 'add', 'sub', 'mul', etc.)
+ * @returns JavaScript code string for the binary operation
  */
 
 /**
  * WebNN Specification: https://www.w3.org/TR/webnn/
- * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-clamp
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-binary
  */
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
-export function clamp_js(
+export function binary_js(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  opType: string
 ): string {
+  // Extract input and output names
   const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0].name)) || [];
   const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0].name)) || [];
 
   const inputVars = inputs.map(toJsVarName);
   const outputVar = toJsVarName(outputs[0]);
 
-  // ONNX Clip: input, min, max
-  // WebNN clamp: builder.clamp(x, options)
-  // options: {minValue, maxValue}
-  const minValue = inputVars.length > 1 ? inputVars[1] : 'undefined';
-  const maxValue = inputVars.length > 2 ? inputVars[2] : 'undefined';
-
   return `
-    const ${outputVar} = builder.clamp(
+    const ${outputVar} = builder.${opType}(
       ${inputVars[0]},
-      {
-        minValue: ${minValue},
-        maxValue: ${maxValue}
-      }
+      ${inputVars[1]}
     );`;
 }

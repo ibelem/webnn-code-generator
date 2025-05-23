@@ -4,8 +4,14 @@
  * @param toJsVarName - Function to convert ONNX names to JS variable names
  * @returns JavaScript code string for the reshape operation
  */
+
+/**
+ * WebNN Specification: https://www.w3.org/TR/webnn/
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-reshape-method
+ */
+
 import { getModelState } from '../../ui';
-import {  getNonEmptyStringAroundNewline  } from '../../utils';
+import { getNonEmptyStringAroundNewline } from '../../utils';
 export function reshape_js(
   node: any,
   toJsVarName: (name: string) => string
@@ -39,26 +45,26 @@ export function reshape_js(
     const js_shape_array = `new BigInt64Array(weights_array_buffer, ${shape_offset}, ${shape_length} / BigInt64Array.BYTES_PER_ELEMENT)`;
     // Convert BigInt64Array to Number array for WebNN and handle -1
     const js_shape = `(() => {
-          const shape = Array.from(${js_shape_array}, Number);
-          // Calculate the concrete size for value -1.
-          if (shape.includes(-1)) {
-            const count = shape.filter(v => v === -1).length;
-            if (count !== 1) {
-              throw new Error('Only one -1 is allowed in reshape shape');
-            }
-            const totalInput = ${inputVars[0]}.shape.reduce((a, b) => a * b, 1);
-            const known = shape.reduce((a, b) => b === -1 ? a : a * b, 1);
-            const idx = shape.indexOf(-1);
-            shape[idx] = totalInput / known;
+        const shape = Array.from(${js_shape_array}, Number);
+        // Calculate the concrete size for value -1.
+        if (shape.includes(-1)) {
+          const count = shape.filter(v => v === -1).length;
+          if (count !== 1) {
+            throw new Error('Only one -1 is allowed in reshape shape');
           }
-          return shape;
-        })()`;
+          const totalInput = ${inputVars[0]}.shape.reduce((a, b) => a * b, 1);
+          const known = shape.reduce((a, b) => b === -1 ? a : a * b, 1);
+          const idx = shape.indexOf(-1);
+          shape[idx] = totalInput / known;
+        }
+        return shape;
+      })()`;
 
     return `
-      const ${outputVar} = builder.reshape(
-        ${inputVars[0]},
-        ${js_shape}
-      );`;
+    const ${outputVar} = builder.reshape(
+      ${inputVars[0]},
+      ${js_shape}
+    );`;
   }
 
   // TFLite style: use new_shape attribute

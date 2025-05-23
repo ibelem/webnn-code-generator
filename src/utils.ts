@@ -47,48 +47,6 @@ export function findWeightNodeByName(weightModelData: Record<string, any> | null
   return Object.values(weightModelData).find((node: any) => node && node.name === name);
 }
 
-export const dataTypeMap = {
-  1: 'float32',   // FLOAT
-  2: 'uint8',     // UINT8
-  3: 'int8',      // INT8
-  4: 'uint16',    // UINT16
-  5: 'int16',     // INT16
-  6: 'int32',     // INT32
-  7: 'int64',     // INT64 (not directly supported in JS)
-  9: 'uint8',     // BOOL (special handling)
-  10: 'float16',  // FLOAT16 (not directly supported in JS)
-  11: 'float64',  // DOUBLE
-  12: 'uint32',   // UINT32
-  13: 'uint64',   // UINT64 (not directly supported in JS)
-}
-
-export const typedArrayMap = {
-  1: 'Float32Array',   // FLOAT
-  2: 'Uint8Array',     // UINT8
-  3: 'Int8Array',      // INT8
-  4: 'Uint16Array',    // UINT16
-  5: 'Int16Array',     // INT16
-  6: 'Int32Array',     // INT32
-  7: 'BigInt64Array',  // INT64 (not directly supported in JS)
-  9: 'Bool',           // BOOL (special handling)
-  10: 'Float16Array',  // FLOAT16 (not directly supported in JS)
-  11: 'Float64Array',  // DOUBLE
-  12: 'Uint32Array',   // UINT32
-  13: 'BigUint64Array',   // UINT64 (not directly supported in JS)
-}
-
-/**
- * Get the ONNX data type code from a string (e.g., "float32" -> 1, "int64" -> 7)
- */
-export function getDataTypeCode(typeStr: string): number | undefined {
-  for (const [key, value] of Object.entries(dataTypeMap)) {
-    if (value === typeStr) {
-      return Number(key);
-    }
-  }
-  return undefined;
-}
-
 /**
  * Given a data type string (e.g. "float32", "int64"), return the corresponding TypedArray constructor name as a string.
  * Example: "float32" -> "Float32Array", "int64" -> "BigInt64Array"
@@ -102,11 +60,11 @@ export function getTypedArrayName(dataType: string): string | undefined {
     case 'int16': return 'Int16Array';
     case 'int32': return 'Int32Array';
     case 'int64': return 'BigInt64Array';
+    case 'bool': return 'Uint8Array'; // BOOL is treated as Uint8Array
+    case 'float16': return 'Float16Array';
     case 'float64': return 'Float64Array';
     case 'uint32': return 'Uint32Array';
     case 'uint64': return 'BigUint64Array';
-    case 'bool': return 'Uint8Array'; // BOOL is treated as Uint8Array
-    case 'float16': return 'Float16Array';
     default: return 'Float32Array';
   }
 }

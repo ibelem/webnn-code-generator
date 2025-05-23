@@ -2,23 +2,71 @@
 import { modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues, 
   getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile } from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
-import { add_js } from './operation/add';
+import { binary_js } from './operation/binary';
 import { averagePool2d_js } from './operation/averagePool2d';
 import { clamp_js } from './operation/clamp';
 import { conv2d_js } from './operation/conv2d';
 import { gemm_js } from './operation/gemm';
 import { reshape_js } from './operation/reshape';
+import { unary_js } from './operation/unary';
+import { logical_js } from './operation/logical';
 
-const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => string, initializers?: any[]) => string> = {
-  Add: add_js,
+const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => string) => string> = {
+  // Element-wise binary operations
+  Add: (node, toJsVarName) => binary_js(node, toJsVarName, 'add'),
+  Sub: (node, toJsVarName) => binary_js(node, toJsVarName, 'sub'),
+  Mul: (node, toJsVarName) => binary_js(node, toJsVarName, 'mul'),
+  Div: (node, toJsVarName) => binary_js(node, toJsVarName, 'div'),
+  Max: (node, toJsVarName) => binary_js(node, toJsVarName, 'max'),
+  Min: (node, toJsVarName) => binary_js(node, toJsVarName, 'min'),
+  Pow: (node, toJsVarName) => binary_js(node, toJsVarName, 'pow'),
+
+  // Element-wise unary operations
+  Abs: (node, toJsVarName) => unary_js(node, toJsVarName, 'abs'),
+  Ceil: (node, toJsVarName) => unary_js(node, toJsVarName, 'ceil'),
+  Cos: (node, toJsVarName) => unary_js(node, toJsVarName, 'cos'),
+  Erf: (node, toJsVarName) => unary_js(node, toJsVarName, 'erf'),
+  Exp: (node, toJsVarName) => unary_js(node, toJsVarName, 'exp'),
+  Floor: (node, toJsVarName) => unary_js(node, toJsVarName, 'floor'),
+  Identity: (node, toJsVarName) => unary_js(node, toJsVarName, 'identity'),
+  Log: (node, toJsVarName) => unary_js(node, toJsVarName, 'log'),
+  Neg: (node, toJsVarName) => unary_js(node, toJsVarName, 'neg'),
+  Round: (node, toJsVarName) => unary_js(node, toJsVarName, 'round'),
+  Reciprocal: (node, toJsVarName) => unary_js(node, toJsVarName, 'reciprocal'),
+  Sin: (node, toJsVarName) => unary_js(node, toJsVarName, 'sin'),
+  Sign: (node, toJsVarName) => unary_js(node, toJsVarName, 'sign'),
+  Sqrt: (node, toJsVarName) => unary_js(node, toJsVarName, 'sqrt'),
+  Tan: (node, toJsVarName) => unary_js(node, toJsVarName, 'tan'),
+
+  // Element-wise logical operations
+  Equal: (node, toJsVarName) => logical_js(node, toJsVarName, 'equal'),
+  // No NotEqual in ONNX model
+  NotEqual: (node, toJsVarName) => logical_js(node, toJsVarName, 'notEqual'),
+  Greater: (node, toJsVarName) => logical_js(node, toJsVarName, 'greater'),
+  GreaterOrEqual: (node, toJsVarName) => logical_js(node, toJsVarName, 'greaterOrEqual'),
+  Less: (node, toJsVarName) => logical_js(node, toJsVarName, 'lesser'),
+  LessOrEqual: (node, toJsVarName) => logical_js(node, toJsVarName, 'lesserOrEqual'),
+  Not: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalNot'),
+  And: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalAnd'),
+  Or: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalOr'),
+  Xor: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalXor'),
+  
+  // Normalization operations
+  // Activation operations
+  // Pooling operations
+  // Reduction operations
+  // Convolution operations
+
+  // Restore these handlers:
+  AveragePool: averagePool2d_js,
   Clip: clamp_js,
   Conv: conv2d_js,
+  Dropout: (node, toJsVarName) => unary_js(node, toJsVarName, 'identity'),
   Gemm: gemm_js,
   GlobalAveragePool: averagePool2d_js,
   Reshape: reshape_js,
-  // Add other op handlers here, e.g. Relu: relu_js, etc.
 
-  //TF Lite ops
+  // TF Lite ops
   Conv2D: conv2d_js,
   AveragePool2D: averagePool2d_js,
 };
@@ -231,8 +279,9 @@ function runCode() {
         case 'int16': typedArrayCtor = Int16Array; break;
         case 'int32': typedArrayCtor = Int32Array; break;
         case 'int64': typedArrayCtor = BigInt64Array; break;
-        case 'float64': typedArrayCtor = Float64Array; break;
+        case 'bool': return 'Uint8Array'; // BOOL is treated as Uint8Array
         case 'float16': typedArrayCtor = Float16Array; break;
+        case 'float64': typedArrayCtor = Float64Array; break;
         case 'uint32': typedArrayCtor = Uint32Array; break;
         case 'uint64': typedArrayCtor = BigUint64Array; break;
         default: throw new Error('Unhandled tensor dataType: ' + tensor.dataType);
@@ -255,7 +304,9 @@ export function generateJS() {
   }
 
   return `// WebNN Code Generator
-// Todo: NCHW, NHWC layouts
+// Todo: NCHW, NHWC layouts for BatchNormalization, InstanceNormalization, Conv, ConvInteger, 
+// QLinearConv, ConvTranspose, AveragePool, LpPool, MaxPool, MaxUnpool, GlobalAveragePool, 
+// GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth
 
 export class ${name} {
 ${freeDimsOverridesStr}
@@ -332,6 +383,7 @@ export function generateHTML() {
             case 'float16': typedArrayCtor = Float16Array; break;
             case 'uint32': typedArrayCtor = Uint32Array; break;
             case 'uint64': typedArrayCtor = BigUint64Array; break;
+            case 'bool': return 'Uint8Array'; // BOOL is treated as Uint8Array
             default: throw new Error(\`Unhandled input dataType: \${tensor.dataType}\`);
           }
           const size = tensor.shape.reduce((a, b) => a * b, 1);

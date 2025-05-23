@@ -4,7 +4,13 @@
  * @param toJsVarName - Function to convert ONNX names to JS variable names
  * @returns JavaScript code string for the gemm operation
  */
-import {  getNonEmptyStringAroundNewline  } from '../../utils';
+
+/**
+ * WebNN Specification: https://www.w3.org/TR/webnn/
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-gemm
+ */
+
+import { getNonEmptyStringAroundNewline } from '../../utils';
 export function gemm_js(
   node: any,
   toJsVarName: (name: string) => string

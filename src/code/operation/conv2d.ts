@@ -4,7 +4,13 @@
  * @param toJsVarName - Function to convert ONNX names to JS variable names
  * @returns JavaScript code string for the conv2d operation
  */
-import {  getNonEmptyStringAroundNewline  } from '../../utils';
+
+/**
+ * WebNN Specification: https://www.w3.org/TR/webnn/
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-conv2d
+ */
+
+import { getNonEmptyStringAroundNewline } from '../../utils';
 
 /**
  * TFLite model for getting Padding values from SAME and VALID
