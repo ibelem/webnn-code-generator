@@ -196,7 +196,7 @@ export const setupFileInputs = (): void => {
     processFileContent(file, (data) => {
       modelFileState.binaryModelData = data as ArrayBuffer;
       updateFileInfo('bin-file-info', file);
-      appendLogMessage('BIN file loaded successfully');
+      appendLogMessage('Bin file loaded successfully');
       updateGenerateButtonState();
     });
   });

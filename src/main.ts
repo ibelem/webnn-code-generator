@@ -4,6 +4,7 @@
 import './style.css';
 import webnnLogo from '/logo/webnn.svg';
 import githubLogo from '/logo/github.svg?raw';
+import downloadLogo from '/logo/download.svg?raw';
 import { initializeCodeGenerator } from './ui';
 import { initializeInterface } from './ui';
 
@@ -78,7 +79,7 @@ const renderAppLayout = (): void => {
       <div id="log-panel" class="log-panel">
         <div id="log-console" class="status"></div>
         <div id="download" class="">
-          <button id="download-js" type="button" class="download-js">Download WebNN JS File</button>
+          <button id="download-js" type="button" class="download-js">${downloadLogo} Download Code Files</button>
         </div>
       </div>
       <div class="app-description">

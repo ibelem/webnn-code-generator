@@ -456,10 +456,11 @@ input[type="file"] {
 
 #download-js {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0.5em;
+  gap: 0.2em;
+  padding: 0.8em 1em;
   border-radius: 5px;
   background-color: var(--primary);
   color: #fff;
@@ -471,6 +472,11 @@ input[type="file"] {
 #download-js:hover {
   cursor: pointer;
   background-color: var(--primary-dark);
+}
+
+#download-js svg {
+  width: 1.2em;
+  height: 1.2em;
 }
 
 .file-upload-panel:hover, #log-panel:hover {
