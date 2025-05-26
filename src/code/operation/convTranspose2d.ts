@@ -36,14 +36,14 @@ export function convTranspose2d_js(
   const outputVar = toJsVarName(outputs[0]);
 
   // Strides
-  let strides_js = 'undefined';
+  let strides_js = '[1, 1]';
   let strides = attrDict['strides']?.value?.value;
   if (Array.isArray(strides) && strides.length === 2) {
     strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
   }
 
   // Pads
-  let pads_js = 'undefined';
+  let pads_js = '[0, 0, 0, 0]';
   let pads = attrDict['pads']?.value?.value;
   if (Array.isArray(pads) && pads.length === 4) {
     // ONNX: [top, left, bottom, right] -> WebNN: [top, bottom, left, right]
@@ -52,24 +52,24 @@ export function convTranspose2d_js(
   }
 
   // Dilations
-  let dilations_js = 'undefined';
+  let dilations_js = '[1, 1]';
   let dilations = attrDict['dilations']?.value?.value;
   if (Array.isArray(dilations) && dilations.length === 2) {
     dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
   }
 
   // Groups
-  let groups = attrDict['group']?.value?.value;
-  let groups_js = groups !== undefined ? String(Number(groups)) : 'undefined';
+  let groups = attrDict['group']?.value?.value ?? 1;
+  let groups_js = String(Number(groups));
 
   // Output shape (optional)
   let output_shape = attrDict['output_shape']?.value?.value;
   let output_sizes_js = Array.isArray(output_shape)
     ? `[${output_shape.map((s: any) => String(Number(s))).join(', ')}]`
-    : 'undefined';
+    : undefined;
 
   // Bias input (optional)
-  const biasVar = inputVars.length > 2 ? inputVars[2] : 'undefined';
+  const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Filter layout and transposition for NHWC
   let filterLayout = undefined;
@@ -84,13 +84,14 @@ export function convTranspose2d_js(
 
   // Build options
   const options: string[] = [
-    `bias: ${biasVar}`,
     `strides: ${strides_js}`,
     `padding: ${pads_js}`,
     `dilations: ${dilations_js}`,
-    `groups: ${groups_js}`,
-    `outputSizes: ${output_sizes_js}`
+    `groups: ${groups_js}`
   ];
+
+  if(output_sizes_js) options.push(`outputSizes: ${output_sizes_js}`);
+  if(biasVar) options.push(`bias: ${biasVar}`);
   if (filterLayout) options.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) options.push(`inputLayout: ${inputLayout}`);
 

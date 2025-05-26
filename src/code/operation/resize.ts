@@ -37,8 +37,8 @@ export function resize_js(
   }
 
   // Handle scales and sizes (try to inline if possible, else use variable)
-  let scales_js = 'undefined';
-  let sizes_js = 'undefined';
+  let scales_js = undefined;
+  let sizes_js = undefined;
 
   // sizes: usually input[3]
   if (inputs.length > 3 && inputs[3]) {
@@ -53,9 +53,11 @@ export function resize_js(
 
   const options = [
     `mode: '${webnn_mode}'`,
-    `scales: ${scales_js}`,
-    `sizes: ${sizes_js}`
+    `scales: ${scales_js}`
   ];
+
+  if(sizes_js) options.push(`sizes: ${sizes_js}`);
+
   if (nhwc) {
     options.push('axes: [1, 2]');
   }

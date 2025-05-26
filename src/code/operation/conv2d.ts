@@ -35,7 +35,7 @@ export function conv2d_js(
   const outputVar = toJsVarName(outputs[0]);
 
   // Strides
-  let strides_js = 'undefined';
+  let strides_js = '[1, 1]';
   let strides = attrDict['strides']?.value?.value;
   if (!strides && (attrDict['stride_w'] || attrDict['stride_h'])) {
     const stride_w = Number(attrDict['stride_w']?.value ?? 1);
@@ -47,7 +47,7 @@ export function conv2d_js(
   }
 
   // Pads
-  let pads_js = 'undefined';
+  let pads_js = '[0, 0, 0, 0]';
   let pads = attrDict['pads']?.value?.value;
   if (!pads && attrDict['padding']?.value) {
     const padType = attrDict['padding'].value;
@@ -63,7 +63,7 @@ export function conv2d_js(
   }
 
   // Dilations
-  let dilations_js = 'undefined';
+  let dilations_js = '[1, 1]';
   let dilations = attrDict['dilations']?.value?.value;
   if (!dilations && (attrDict['dilation_w_factor'] || attrDict['dilation_h_factor'])) {
     const dilation_w = Number(attrDict['dilation_w_factor']?.value ?? 1);
@@ -79,7 +79,7 @@ export function conv2d_js(
   let groups_js = String(Number(groups));
 
   // Bias input (optional)
-  const biasVar = inputVars.length > 2 ? inputVars[2] : 'undefined';
+  const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Filter layout and transposition for NHWC
   let filterLayout = undefined;
@@ -109,12 +109,13 @@ export function conv2d_js(
 
   // Build options
   const options: string[] = [
-    `bias: ${biasVar}`,
     `strides: ${strides_js}`,
     `padding: ${pads_js}`,
     `dilations: ${dilations_js}`,
     `groups: ${groups_js}`
   ];
+
+  if(biasVar) options.push(`bias: ${biasVar}`);
   if (filterLayout) options.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) options.push(`inputLayout: ${inputLayout}`);
 
