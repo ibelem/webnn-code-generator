@@ -8,15 +8,13 @@ import * as monaco from 'monaco-editor';
 // Application state
 interface ModelState {
   graphModelData: Record<string, any> | null;
-  weightModelData: Record<string, any> | null;
-  binaryModelData: ArrayBuffer | null;
+  weightModelData: Record<string, any> | null
 }
 
 // Initialize application state
 const modelFileState: ModelState = {
   graphModelData: null,
-  weightModelData: null,
-  binaryModelData: null
+  weightModelData: null
 };
 
 // File upload tracking
@@ -46,11 +44,9 @@ export const updateGenerateButtonState = (): void => {
   const generateBtn = document.querySelector<HTMLButtonElement>('#generate-btn');
   const generateDiv = document.querySelectorAll<HTMLDivElement>('.step-3')[0];
   if (!generateBtn) return;
-
-  const state = !(modelFileState.graphModelData && modelFileState.weightModelData && modelFileState.binaryModelData);
+  const state = !(modelFileState.graphModelData && modelFileState.weightModelData);
   generateDiv?.classList.toggle('disabled', state);
   generateBtn.disabled = state;
-  document.getElementById('download')?.classList.remove('show');
 };
 
 /**
@@ -63,7 +59,7 @@ const setupFileInput = (inputId: string, callback: (file: File) => void): void =
   if (!inputElement) return;
   
   inputElement.addEventListener('change', (event) => {
-    document.getElementById('download')?.classList.remove('show');
+    updateDownloadButtonState(true);
     const files = (event.target as HTMLInputElement).files;
     const file = files && files[0];
     if (file) {
@@ -98,23 +94,20 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
   const params = new URLSearchParams(window.location.search);
   const graphUrl = params.get('graph');
   const weightUrl = params.get('weights');
-  const binUrl = params.get('bin');
 
-  if (graphUrl && weightUrl && binUrl) {
+  if (graphUrl && weightUrl) {
     appendLogMessage('Fetching model graph and weights files from URL...');
     try {
       // Fetch all files in parallel and get their responses
-      const [graphRes, weightRes, binRes] = await Promise.all([
+      const [graphRes, weightRes] = await Promise.all([
         fetch(graphUrl),
-        fetch(weightUrl),
-        fetch(binUrl)
+        fetch(weightUrl)
       ]);
 
       // Parse contents
-      const [graphResponse, weightResponse, binResponse] = await Promise.all([
+      const [graphResponse, weightResponse] = await Promise.all([
         graphRes.json(),
-        weightRes.json(),
-        binRes.arrayBuffer()
+        weightRes.json()
       ]);
 
       // Update file info with size and name
@@ -133,23 +126,39 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
 
       updateRemoteFileInfo('graph-file-info', graphRes, graphUrl, JSON.stringify(graphResponse).length);
       updateRemoteFileInfo('weight-file-info', weightRes, weightUrl, JSON.stringify(weightResponse).length);
-      updateRemoteFileInfo('bin-file-info', binRes, binUrl, binResponse.byteLength);
 
       modelFileState.graphModelData = graphResponse;
       modelFileState.weightModelData = weightResponse;
-      modelFileState.binaryModelData = binResponse;
 
       appendLogMessage('Model graph and weights files fetched successfully.');
       renderGraphDetails(modelFileState.graphModelData?.graph[0]); // Render graph details
       if (modelFileState.weightModelData) {
         renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
       }
+      updateStep1State(false);
+      updateStep2State(false);
       updateGenerateButtonState();
     } catch (error) {
       console.error('Error fetching files from URL:', error);
       appendLogMessage('Failed to fetch files from URL.', true);
     }
   }
+};
+
+/**
+ * Enable/disable the Step 1
+ */
+export const updateStep1State = (disabled:boolean): void => {
+  const step1Div = document.querySelectorAll<HTMLDivElement>('.step-1')[0];
+  (disabled === false) ? step1Div?.classList.remove('disabled') : step1Div?.classList.add('disabled');
+};
+
+/**
+ * Enable/disable the Step 2
+ */
+export const updateStep2State = (disabled:boolean): void => {
+  const step1Div = document.querySelectorAll<HTMLDivElement>('.step-2')[0];
+  (disabled === false) ? step1Div?.classList.remove('disabled') : step1Div?.classList.add('disabled');
 };
 
 /**
@@ -184,20 +193,12 @@ export const setupFileInputs = (): void => {
         if (modelFileState.weightModelData) {
           renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
         }
+        updateStep1State(false);
+        updateStep2State(false);
         updateGenerateButtonState();
       } catch (error) {
         appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);
       }
-    });
-  });
-
-  // Binary file upload
-  setupFileInput('bin-file-input', (file) => {
-    processFileContent(file, (data) => {
-      modelFileState.binaryModelData = data as ArrayBuffer;
-      updateFileInfo('bin-file-info', file);
-      appendLogMessage('Bin file loaded successfully');
-      updateGenerateButtonState();
     });
   });
   
@@ -249,7 +250,7 @@ export const initializeInterface = (): void => {
   });
 
   // Add click handler for download button
-  const downloadBtn = document.getElementById('download-js');
+  const downloadBtn = document.querySelector<HTMLButtonElement>('#download-btn');
   if (downloadBtn) {
     downloadBtn.addEventListener('click', () => {
       import('./code').then(mod => {
@@ -439,7 +440,7 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
   }
 
   button.addEventListener('click', () => {
-    document.getElementById('download')?.classList.remove('show');
+    updateDownloadButtonState(true);
     // Check for freeDims and their input values before generating code
     freeDims.forEach(dim => {
       freeDimsOverrides[dim] = null;
@@ -462,10 +463,21 @@ export function initializeCodeGenerator(button: HTMLButtonElement | null): void 
     if (missing) return;
 
     generateWebNNCode();
-
-    document.getElementById('download')?.classList.add('show');
+    updateDownloadButtonState(false);
   });
 }
+
+/**
+ * Enable/disable the download button based on whether generateWebNNCode() is completed
+ * and the generated code is available
+ */
+export const updateDownloadButtonState = (disabled:boolean): void => {
+  const downloadBtn = document.querySelector<HTMLButtonElement>('#download-btn');
+  const downloadDiv = document.querySelectorAll<HTMLDivElement>('.step-4')[0];
+  if (!downloadBtn) return;
+  (disabled === false) ? downloadDiv?.classList.remove('disabled') : downloadDiv?.classList.add('disabled');
+  (disabled === false) ? downloadBtn.disabled = false : downloadBtn.disabled = true;
+};
 
 /**
  * Generate WebNN code from the loaded model files
@@ -475,8 +487,8 @@ function generateWebNNCode(): void {
   appendLogMessage('Starting code generation process...');
   
   try {
-    const { graphModelData, weightModelData, binaryModelData } = getModelState();
-    if (!graphModelData || !weightModelData || !binaryModelData) {
+    const { graphModelData, weightModelData} = getModelState();
+    if (!graphModelData || !weightModelData) {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }

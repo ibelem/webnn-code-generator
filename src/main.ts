@@ -5,6 +5,7 @@ import './style.css';
 import webnnLogo from '/logo/webnn.svg';
 import githubLogo from '/logo/github.svg?raw';
 import downloadLogo from '/logo/download.svg?raw';
+import codeLogo from '/logo/code.svg?raw';
 import { initializeCodeGenerator } from './ui';
 import { initializeInterface } from './ui';
 
@@ -34,13 +35,13 @@ const renderAppLayout = (): void => {
       </header>
       
       <div class="file-upload-panel">
-        <div class="step step-1">
+        <div class="step step-1 disabled">
           <div class="step-icon">1</div>
           <div id="step-1" title="Convert your ONNX, TensorFlow Lite, or other model formats into graph, weights and bin files">
-            Donwload graph, weights and bin files by using <a href="https://ibelem.github.io/netron">WebNN Netron</a>
+            Donwload graph and weights files by using <a href="https://ibelem.github.io/netron">WebNN Netron</a>
           </div>
         </div>
-        <div class="step step-2">
+        <div class="step step-2 disabled">
           <div class="step-icon">2</div>
           <div id="step-2">
             <div class="upload-item">
@@ -54,19 +55,20 @@ const renderAppLayout = (): void => {
               <input type="file" id="weight-file-input" accept=".json">
               <span class="file-info" id="weight-file-info">No .json file selected</span>
             </div>
-            
-            <div class="upload-item">
-              <label for="bin-file-input" class="upload-button">Choose Bin File</label>
-              <input type="file" id="bin-file-input" accept=".bin">
-              <span class="file-info" id="bin-file-info">No .bin file selected</span>
-            </div>
           </div>
         </div>
         
-        <div class="step step-3">
+        <div class="step step-3 disabled">
           <div class="step-icon">3</div>
           <div id="step-3" class="upload-item generate-action">
-            <button id="generate-btn" type="button" disabled>Generate WebNN Code</button>
+            <button id="generate-btn" type="button" disabled>${codeLogo} Generate WebNN Code</button>
+          </div>
+        </div>
+
+        <div class="step step-4 disabled">
+          <div class="step-icon">4</div>
+          <div id="step-4" class="upload-item download-action">
+            <button id="download-btn" type="button" disabled>${downloadLogo} Download Code Files</button>
           </div>
         </div>
       </div>
@@ -76,12 +78,7 @@ const renderAppLayout = (): void => {
         <div id="output-weight" class="panel"></div>
         <div id="output-code" class="code panel"></div>
       </div>
-      <div id="log-panel" class="log-panel">
-        <div id="log-console" class="status"></div>
-        <div id="download" class="">
-          <button id="download-js" type="button" class="download-js">${downloadLogo} Download Code Files</button>
-        </div>
-      </div>
+      <div id="log-console" class="status"></div>
       <div class="app-description">
         <ul>
           <li>Generate WebNN API code in vanilla JavaScript from ONNX, TensorFlow Lite, or other model formats.</li>

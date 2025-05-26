@@ -121,7 +121,7 @@ header {
 .file-upload-panel {
   margin-top: 1em;
   display: grid;
-  grid-template-columns: 2fr 5fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-row-gap: 0;
   grid-column-gap: 0;
@@ -142,15 +142,45 @@ header {
   align-items: center;
   width: 2em;
   height: 2em;
-  border: 2px solid var(--border);
+  border: 2px solid var(--font);
   border-radius: 50%;
+  color: var(--font);
+}
+
+.step.disabled {
+  color: var(--font);
 }
 
 .step.disabled .step-icon {
-  border: 1px solid #fff;
+  color: var(--font);
+  border-color: var(--font);
 }
 
-.step-1, .step-3 {
+.step .step-icon {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.step:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.step:hover .step-icon {
+  color: #fff;
+  border-color: #fff;
+}
+
+.step:hover a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.step-1 {
+  align-self: stretch;
+}
+
+.step-1, .step-3, .step-4 {
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr;
 }
@@ -169,7 +199,7 @@ header {
 
 #step-2 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-row-gap: 0em;
   grid-column-gap: 1em;
@@ -390,17 +420,25 @@ header {
   font-family: 'Intel One Mono', 'Geist', Avenir, Helvetica, Arial, sans-serif;
 }
 
+.step-2:hover .upload-button {
+  background-color: #fff;
+  color: var(--primary);
+}
+
 .upload-button {
-  background-color: var(--border);
-  padding: 0.2em 0.6em;
-  border-radius: 5px;
+  border: var(--primary) 1px solid;
+  background-color: var(--primary-005);
+  padding: 0.1em 0.6em;
+  border-radius: 3px;
+  color: var(--primary);
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .upload-button:hover {
-  background-color: var(--primary);
+  background-color: transparent;
   color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .file-upload-panel .upload-item {
@@ -423,9 +461,9 @@ input[type="file"] {
   display: none;
 }
 
-#log-panel {
+#log-console {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns:1fr;
   grid-template-rows: 1fr;
   grid-row-gap: 0em;
   grid-column-gap: 0.5em;
@@ -435,12 +473,7 @@ input[type="file"] {
   text-align: left;
   font-size: 0.9em;
   border: 1px solid var(--border);
-}
-
-#log-console {
   height: 3em;
-  display: flex;
-  flex-direction: column;
   overflow-y: scroll;
   background-color: var(--border-01);
 }
@@ -453,33 +486,15 @@ input[type="file"] {
 #download.show {
   display: grid;
 }
+ 
 
-#download-js {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2em;
-  padding: 0.8em 1em;
-  border-radius: 5px;
-  background-color: var(--primary);
-  color: #fff;
-  font-size: 1em;
-  outline: none;
-  border: 1px solid var(--primary);
+#step-3 svg, #step-4 svg {
+  width: 1.1em;
+  height: 1.1em;
+  margin-bottom: -0.2em;
 }
 
-#download-js:hover {
-  cursor: pointer;
-  background-color: var(--primary-dark);
-}
-
-#download-js svg {
-  width: 1.2em;
-  height: 1.2em;
-}
-
-.file-upload-panel:hover, #log-panel:hover {
+.file-upload-panel:hover, #log-console:hover {
   border: 1px solid var(--border-dark);
 }
 
@@ -497,55 +512,64 @@ input[type="file"] {
   color: var(--pink);
 }
 
-.generate-action {
+.generate-action, .download-action {
   align-self: stretch;
 }
 
-#generate-btn {
+#generate-btn, #download-btn {
   padding: 1.5em 0;
   outline: none;
   border: 0px solid transparent;
   height: 100%;
   font-size: 1em;
   font-weight: 500;
-  cursor: pointer;
   transition: border-color 0.25s;
   background-color: transparent;
   align-self: stretch;
   color: var(--primary);
 }
 
-#generate-btn:hover {
+#generate-btn:hover, 
+#download-btn:hover {
   color: #fff;
+  cursor: pointer;
 }
 
-#generate-btn:active {
+#generate-btn:active, #download-btn:active {
   outline: none;
 }
 
-#generate-btn:disabled {
+#generate-btn:disabled, #download-btn:disabled {
   color: var(--font);
 }
 
-.step-3 {
-  background-color: var(--primary-005);
-}
-
-.step-3:hover {
+.step-3:hover, .step-4:hover {
   background-color: var(--primary);
 }
 
-.step-3:hover #generate-btn, .step-3:hover .step-icon {
+.step-3:hover .step-icon, .step-4:hover .step-icon {
+  border-color: #fff;
+}
+
+.step-3:hover #generate-btn, .step-3:hover .step-icon,
+.step-4:hover #download-btn, .step-4:hover .step-icon {
   color: #fff;
 }
 
-.step-3.disabled {
+.step-3.disabled, .step-4.disabled {
   background-color: var(--border);
-  cursor: not-allowed;
 }
 
-.step-3.disabled:hover {
+.step-4.disabled .step-icon {
+  border-color: var(--font);
+}
+
+.step-3.disabled:hover, .step-4.disabled:hover {
   background-color: var(--border-dark);
+}
+
+.step-4.disabled:hover .step-icon {
+  border-color: #fff;
 }
 
 .app-description, footer {
@@ -636,7 +660,7 @@ footer svg {
     font-size: 0.8em;
     max-width: 140px;
   }
-  .generate-action {
+  .generate-action, .download-action {
     justify-self: stretch;
   }
   #generate-btn {

@@ -81,43 +81,6 @@ export function weightInfo(name: string) {
   };
 }
 
-export function weightBuffer(name: string) {
-  const { weightModelData, binaryModelData } = getModelState();
-  if (!weightModelData || !binaryModelData || !weightModelData[name]) return null;
-  const { dataOffset, byteLength, dataType } = weightModelData[name];
-  const buffer = binaryModelData.slice(dataOffset, dataOffset + byteLength);
-
-  switch (dataType) {
-    case 'float32':
-      return new Float32Array(buffer);
-    case 'uint8':
-      return new Uint8Array(buffer);
-    case 'int8':
-      return new Int8Array(buffer);
-    case 'uint16':
-      return new Uint16Array(buffer);
-    case 'int16':
-      return new Int16Array(buffer);
-    case 'int32':
-      return new Int32Array(buffer);
-    case 'int64':
-      return new BigInt64Array(buffer);
-    case 'bool':
-      return new Uint8Array(buffer); // BOOL is treated as UINT8
-    case 'float16':
-      // @ts-ignore
-      return new Float16Array(buffer);
-    case 'float64':
-      return new Float64Array(buffer);
-    case 'uint32':
-      return new Uint32Array(buffer);
-    case 'uint64':
-      return new BigUint64Array(buffer);
-    default:
-      return new Uint8Array(buffer);
-  }
-}
-
 export function modelName() {
   const { graphModelData } = getModelState();
   if (!graphModelData) return null;
