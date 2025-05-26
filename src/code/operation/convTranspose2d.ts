@@ -1,13 +1,14 @@
 /**
- * Generate JavaScript code for a WebNN conv2d operation from ONNX node info.
+ * Generate JavaScript code for a WebNN convTranspose2d operation from ONNX node info.
  * @param node - The ONNX node object (with inputs, outputs, attributes)
  * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @returns JavaScript code string for the conv2d operation
+ * @param nhwc - Whether to use NHWC layout (default: false)
+ * @returns JavaScript code string for the convTranspose2d operation
  */
 
 /**
  * WebNN Specification: https://www.w3.org/TR/webnn/
- * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-conv2d
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-convtranspose2d
  */
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
@@ -20,10 +21,10 @@ function getTransposedFilterVarName(originalVar: string, permutation: number[]) 
   return `${originalVar}_transposed`;
 }
 
-export function conv2d_js(
+export function convTranspose2d_js(
   node: any,
   toJsVarName: (name: string) => string,
-  nhwc: boolean = false // Pass true if you want NHWC layout
+  nhwc: boolean = false
 ): string {
   const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0].name)) || [];
   const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0].name)) || [];
@@ -37,11 +38,6 @@ export function conv2d_js(
   // Strides
   let strides_js = 'undefined';
   let strides = attrDict['strides']?.value?.value;
-  if (!strides && (attrDict['stride_w'] || attrDict['stride_h'])) {
-    const stride_w = Number(attrDict['stride_w']?.value ?? 1);
-    const stride_h = Number(attrDict['stride_h']?.value ?? 1);
-    strides = [stride_h, stride_w];
-  }
   if (Array.isArray(strides) && strides.length === 2) {
     strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
   }
@@ -49,14 +45,7 @@ export function conv2d_js(
   // Pads
   let pads_js = 'undefined';
   let pads = attrDict['pads']?.value?.value;
-  if (!pads && attrDict['padding']?.value) {
-    const padType = attrDict['padding'].value;
-    if (padType === 'VALID') {
-      pads_js = '[0, 0, 0, 0]';
-    } else if (padType === 'SAME') {
-      pads_js = `'${padType}'`;
-    }
-  } else if (Array.isArray(pads) && pads.length === 4) {
+  if (Array.isArray(pads) && pads.length === 4) {
     // ONNX: [top, left, bottom, right] -> WebNN: [top, bottom, left, right]
     const pads_webnn = [pads[0], pads[2], pads[1], pads[3]];
     pads_js = `[${pads_webnn.map((p: any) => String(Number(p))).join(', ')}]`;
@@ -65,18 +54,19 @@ export function conv2d_js(
   // Dilations
   let dilations_js = 'undefined';
   let dilations = attrDict['dilations']?.value?.value;
-  if (!dilations && (attrDict['dilation_w_factor'] || attrDict['dilation_h_factor'])) {
-    const dilation_w = Number(attrDict['dilation_w_factor']?.value ?? 1);
-    const dilation_h = Number(attrDict['dilation_h_factor']?.value ?? 1);
-    dilations = [dilation_h, dilation_w];
-  }
   if (Array.isArray(dilations) && dilations.length === 2) {
     dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
   }
 
   // Groups
-  let groups = attrDict['group']?.value?.value ?? 1;
-  let groups_js = String(Number(groups));
+  let groups = attrDict['group']?.value?.value;
+  let groups_js = groups !== undefined ? String(Number(groups)) : 'undefined';
+
+  // Output shape (optional)
+  let output_shape = attrDict['output_shape']?.value?.value;
+  let output_sizes_js = Array.isArray(output_shape)
+    ? `[${output_shape.map((s: any) => String(Number(s))).join(', ')}]`
+    : 'undefined';
 
   // Bias input (optional)
   const biasVar = inputVars.length > 2 ? inputVars[2] : 'undefined';
@@ -85,25 +75,10 @@ export function conv2d_js(
   let filterLayout = undefined;
   let inputLayout = undefined;
   let filterVarName = inputVars[1];
-
-  // Try to detect depthwise conv
-  let isDepthwise = false;
-  let filterShape = attrDict['kernel_shape']?.value || []; // fallback: you may need to get this from weights meta
-  if (groups !== 1 && filterShape.length === 4) {
-    const outputChannels = filterShape[0];
-    if (groups === outputChannels) isDepthwise = true;
-  }
-
   if (nhwc) {
-    if (isDepthwise) {
-      // Depthwise: OIHW -> IHWO
-      filterVarName = getTransposedFilterVarName(filterVarName, [1, 2, 3, 0]);
-      filterLayout = "'ihwo'";
-    } else {
-      // Regular: OIHW -> OHWI
-      filterVarName = getTransposedFilterVarName(filterVarName, [0, 2, 3, 1]);
-      filterLayout = "'ohwi'";
-    }
+    // ONNX IOHW -> WebNN OHWI for NHWC
+    filterVarName = getTransposedFilterVarName(filterVarName, [1, 2, 3, 0]);
+    filterLayout = "'ohwi'";
     inputLayout = "'nhwc'";
   }
 
@@ -113,13 +88,14 @@ export function conv2d_js(
     `strides: ${strides_js}`,
     `padding: ${pads_js}`,
     `dilations: ${dilations_js}`,
-    `groups: ${groups_js}`
+    `groups: ${groups_js}`,
+    `outputSizes: ${output_sizes_js}`
   ];
   if (filterLayout) options.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) options.push(`inputLayout: ${inputLayout}`);
 
   return `
-    const ${outputVar} = builder.conv2d(
+    const ${outputVar} = builder.convTranspose2d(
       ${inputVars[0]}, ${filterVarName},
       {
         ${options.join(',\n        ')}
