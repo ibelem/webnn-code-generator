@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function sigmoid_js(
+export function sigmoid(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

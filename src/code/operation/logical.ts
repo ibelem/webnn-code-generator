@@ -1,19 +1,6 @@
-/**
- * Generate JavaScript code for a WebNN logical operation (equal, notEqual, greater, greaterOrEqual, lesser, lesserOrEqual, logicalAnd, logicalOr, logicalXor, logicalNot).
- * @param node - The ONNX node object (with inputs, outputs)
- * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @param opType - The logical operation type (e.g. 'equal', 'logicalAnd', etc.)
- * @returns JavaScript code string for the logical operation
- */
-
-/**
- * WebNN Specification: https://www.w3.org/TR/webnn/
- * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-logical
- */
-
 import { getNonEmptyStringAroundNewline } from '../../utils';
 
-export function logical_js(
+function logical(
   node: any,
   toJsVarName: (name: string) => string,
   opType: string
@@ -38,4 +25,32 @@ export function logical_js(
       ${inputVars[1]}
     );`;
   }
+}
+
+export function equal(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'equal');
+}
+export function greater(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'greater');
+}
+export function greaterOrEqual(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'greaterOrEqual');
+}
+export function less(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'lesser');
+}
+export function lessOrEqual(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'lesserOrEqual');
+}
+export function not(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'logicalNot');
+}
+export function and(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'logicalAnd');
+}
+export function or(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'logicalOr');
+}
+export function xor(node: any, toJsVarName: (name: string) => string): string {
+  return logical(node, toJsVarName, 'logicalXor');
 }

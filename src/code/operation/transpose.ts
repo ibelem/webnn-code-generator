@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
 
-export function transpose_js(
+export function transpose(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

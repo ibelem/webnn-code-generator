@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test Mobilenetv212Static</title>
+  <title>Test SelfieSegmenterLandscape19</title>
 </head>
 <body>
-  <h1>Test Mobilenetv212Static.js</h1>
+  <h1>Test SelfieSegmenterLandscape19.js</h1>
   <button id="run-btn">Build & Run Model</button>
   <label for="deviceType">Device:</label>
   <select id="deviceType">
@@ -17,7 +17,7 @@
   <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
   <pre id="output"></pre>
   <script type="module">
-    import { Mobilenetv212Static } from './Mobilenetv212Static.js';
+    import { SelfieSegmenterLandscape19 } from './SelfieSegmenterLandscape19.js';
 
     document.getElementById('run-btn').onclick = async () => {
       const output = document.getElementById('output');
@@ -25,7 +25,7 @@
       try {
         const deviceType = document.getElementById('deviceType').value || 'gpu';
         const t0 = performance.now();
-        const model = new Mobilenetv212Static();
+        const model = new SelfieSegmenterLandscape19();
         await model.build({ deviceType: deviceType });
         const t1 = performance.now();
         output.textContent += `Model built successfully. Build latency: ${(t1 - t0).toFixed(2)} ms\n`;

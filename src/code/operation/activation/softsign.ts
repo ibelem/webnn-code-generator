@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function softsign_js(
+export function softsign(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

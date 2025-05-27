@@ -11,7 +11,7 @@
  */
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
-export function gemm_js(
+export function gemm(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

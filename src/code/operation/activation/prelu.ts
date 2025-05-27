@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function prelu_js(
+export function prelu(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

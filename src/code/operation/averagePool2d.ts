@@ -12,7 +12,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
 
-export function averagePool2d_js(
+export function averagePool2d(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

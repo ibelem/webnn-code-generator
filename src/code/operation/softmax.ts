@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
 
-export function softmax_js(
+export function softmax(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

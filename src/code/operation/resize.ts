@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
 
-export function resize_js(
+export function resize(
   node: any,
   toJsVarName: (name: string) => string,
   nhwc: boolean = false

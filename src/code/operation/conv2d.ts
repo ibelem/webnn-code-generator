@@ -20,10 +20,10 @@ function getTransposedFilterVarName(originalVar: string, permutation: number[]) 
   return `${originalVar}_transposed`;
 }
 
-export function conv2d_js(
+export function conv2d(
   node: any,
   toJsVarName: (name: string) => string,
-  nhwc: boolean = false // Pass true if you want NHWC layout
+  nhwc: boolean = false
 ): string {
   const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0].name)) || [];
   const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0].name)) || [];
@@ -81,14 +81,17 @@ export function conv2d_js(
   // Bias input (optional)
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
-  // Filter layout and transposition for NHWC
-  let filterLayout = undefined;
-  let inputLayout = undefined;
+  // Extract input and filter shapes
+  const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions || [];
+  const filterShape = node.inputs?.[1]?.value?.[0]?.type?.shape?.dimensions || [];
+
+  // Determine inputLayout and filterLayout
+  let inputLayout = nhwc ? "'nhwc'" : "'nchw'";
+  let filterLayout = "'oihw'";
   let filterVarName = inputVars[1];
 
   // Try to detect depthwise conv
   let isDepthwise = false;
-  let filterShape = attrDict['kernel_shape']?.value || []; // fallback: you may need to get this from weights meta
   if (groups !== 1 && filterShape.length === 4) {
     const outputChannels = filterShape[0];
     if (groups === outputChannels) isDepthwise = true;
@@ -107,6 +110,76 @@ export function conv2d_js(
     inputLayout = "'nhwc'";
   }
 
+  // Get inputChannels and filterInputChannels based on layout
+  let inputChannels: number | undefined;
+  let filterInputChannels: number | undefined;
+  if (nhwc) {
+    inputChannels = inputShape[3];
+    // For filterLayout 'ohwi', filterInputChannels = filterShape[3]
+    if (filterLayout === "'ohwi'") filterInputChannels = filterShape[3];
+    else if (filterLayout === "'ihwo'") filterInputChannels = filterShape[0];
+    else filterInputChannels = filterShape[1]; // fallback
+  } else {
+    inputChannels = inputShape[1];
+    filterInputChannels = filterShape[1];
+  }
+
+  // Output channels for bias check
+  const outputChannels = nhwc
+    ? (filterLayout === "'ohwi'" ? filterShape[0] : filterShape[3])
+    : filterShape[0];
+
+  // Groups check
+  let groupCheckCode = '';
+  if (
+    typeof inputChannels === 'number' &&
+    typeof filterInputChannels === 'number' &&
+    groups > 0
+  ) {
+    groupCheckCode = `
+    if (${inputChannels} % ${groups_js} !== 0)
+      throw new Error('The groups (${groups_js}) must evenly divide the input channels (${inputChannels})');
+    if (${inputChannels} / ${groups_js} !== ${filterInputChannels})
+      throw new Error('Filter input channels (${filterInputChannels}) must equal input channels (${inputChannels}) divided by groups (${groups_js})');
+    `;
+  }
+
+  // Strides, dilations, padding, groups validation
+  let optionsCheckCode = '';
+  if (strides_js && strides_js !== '[1, 1]') {
+    optionsCheckCode += `
+    if (${strides_js}.length !== 2) throw new Error('strides must be length 2');
+    if (${strides_js}[0] === 0 || ${strides_js}[1] === 0) throw new Error('stride values must be > 0');
+    `;
+  }
+  if (dilations_js && dilations_js !== '[1, 1]') {
+    optionsCheckCode += `
+    if (${dilations_js}.length !== 2) throw new Error('dilations must be length 2');
+    if (${dilations_js}[0] === 0 || ${dilations_js}[1] === 0) throw new Error('dilation values must be > 0');
+    `;
+  }
+  if (pads_js && pads_js !== '[0, 0, 0, 0]' && pads_js !== "'SAME'" && pads_js !== "'VALID'") {
+    optionsCheckCode += `
+    if (${pads_js}.length !== 4) throw new Error('padding must be length 4');
+    `;
+  }
+  if (groups_js === '0') {
+    optionsCheckCode += `
+    throw new Error('groups must be > 0');
+    `;
+  }
+
+  // Bias shape check (if bias is present)
+  let biasCheckCode = '';
+  if (biasVar && typeof outputChannels === 'number') {
+    biasCheckCode = `
+    if (${biasVar}.shape && ${biasVar}.shape.length !== 1)
+      throw new Error('Bias must be 1D');
+    if (${biasVar}.shape && ${biasVar}.shape[0] !== ${outputChannels})
+      throw new Error('Bias shape must match outputChannels');
+    `;
+  }
+
   // Build options
   const options: string[] = [
     `strides: ${strides_js}`,
@@ -120,6 +193,9 @@ export function conv2d_js(
   if (inputLayout) options.push(`inputLayout: ${inputLayout}`);
 
   return `
+    ${groupCheckCode}
+    ${optionsCheckCode}
+    ${biasCheckCode}
     const ${outputVar} = builder.conv2d(
       ${inputVars[0]}, ${filterVarName},
       {

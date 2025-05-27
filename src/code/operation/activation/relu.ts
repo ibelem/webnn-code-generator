@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function relu_js(
+export function relu(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

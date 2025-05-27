@@ -1,5 +1,7 @@
 // WebNN Code Generator
-// Todo: NCHW, NHWC layouts
+// Todo: NCHW, NHWC layouts for BatchNormalization, InstanceNormalization, Conv, ConvInteger, 
+// QLinearConv, ConvTranspose, AveragePool, LpPool, MaxPool, MaxUnpool, GlobalAveragePool, 
+// GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth
 
 export class Mobilenetv212Static {
 
@@ -580,11 +582,11 @@ export class Mobilenetv212Static {
     const var_474 = builder.conv2d(
       input, var_475,
       {
-        bias: var_476,
         strides: [2, 2],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_476
       }
     );
     
@@ -599,11 +601,11 @@ export class Mobilenetv212Static {
     const var_477 = builder.conv2d(
       var_317, var_478,
       {
-        bias: var_479,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 32
+        groups: 32,
+        bias: var_479
       }
     );
     
@@ -618,22 +620,22 @@ export class Mobilenetv212Static {
     const var_480 = builder.conv2d(
       var_320, var_481,
       {
-        bias: var_482,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_482
       }
     );
     
     const var_483 = builder.conv2d(
       var_480, var_484,
       {
-        bias: var_485,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_485
       }
     );
     
@@ -648,11 +650,11 @@ export class Mobilenetv212Static {
     const var_486 = builder.conv2d(
       var_325, var_487,
       {
-        bias: var_488,
         strides: [2, 2],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 96
+        groups: 96,
+        bias: var_488
       }
     );
     
@@ -667,22 +669,22 @@ export class Mobilenetv212Static {
     const var_489 = builder.conv2d(
       var_328, var_490,
       {
-        bias: var_491,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_491
       }
     );
     
     const var_492 = builder.conv2d(
       var_489, var_493,
       {
-        bias: var_494,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_494
       }
     );
     
@@ -697,11 +699,11 @@ export class Mobilenetv212Static {
     const var_495 = builder.conv2d(
       var_333, var_496,
       {
-        bias: var_497,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 144
+        groups: 144,
+        bias: var_497
       }
     );
     
@@ -716,24 +718,27 @@ export class Mobilenetv212Static {
     const var_498 = builder.conv2d(
       var_336, var_499,
       {
-        bias: var_500,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_500
       }
     );
     
-    const var_339 = builder.add(var_489, var_498);
+    const var_339 = builder.add(
+      var_489,
+      var_498
+    );
     
     const var_501 = builder.conv2d(
       var_339, var_502,
       {
-        bias: var_503,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_503
       }
     );
     
@@ -748,11 +753,11 @@ export class Mobilenetv212Static {
     const var_504 = builder.conv2d(
       var_342, var_505,
       {
-        bias: var_506,
         strides: [2, 2],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 144
+        groups: 144,
+        bias: var_506
       }
     );
     
@@ -767,22 +772,22 @@ export class Mobilenetv212Static {
     const var_507 = builder.conv2d(
       var_345, var_508,
       {
-        bias: var_509,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_509
       }
     );
     
     const var_510 = builder.conv2d(
       var_507, var_511,
       {
-        bias: var_512,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_512
       }
     );
     
@@ -797,11 +802,11 @@ export class Mobilenetv212Static {
     const var_513 = builder.conv2d(
       var_350, var_514,
       {
-        bias: var_515,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 192
+        groups: 192,
+        bias: var_515
       }
     );
     
@@ -816,24 +821,27 @@ export class Mobilenetv212Static {
     const var_516 = builder.conv2d(
       var_353, var_517,
       {
-        bias: var_518,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_518
       }
     );
     
-    const var_356 = builder.add(var_507, var_516);
+    const var_356 = builder.add(
+      var_507,
+      var_516
+    );
     
     const var_519 = builder.conv2d(
       var_356, var_520,
       {
-        bias: var_521,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_521
       }
     );
     
@@ -848,11 +856,11 @@ export class Mobilenetv212Static {
     const var_522 = builder.conv2d(
       var_359, var_523,
       {
-        bias: var_524,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 192
+        groups: 192,
+        bias: var_524
       }
     );
     
@@ -867,24 +875,27 @@ export class Mobilenetv212Static {
     const var_525 = builder.conv2d(
       var_362, var_526,
       {
-        bias: var_527,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_527
       }
     );
     
-    const var_365 = builder.add(var_356, var_525);
+    const var_365 = builder.add(
+      var_356,
+      var_525
+    );
     
     const var_528 = builder.conv2d(
       var_365, var_529,
       {
-        bias: var_530,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_530
       }
     );
     
@@ -899,11 +910,11 @@ export class Mobilenetv212Static {
     const var_531 = builder.conv2d(
       var_368, var_532,
       {
-        bias: var_533,
         strides: [2, 2],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 192
+        groups: 192,
+        bias: var_533
       }
     );
     
@@ -918,22 +929,22 @@ export class Mobilenetv212Static {
     const var_534 = builder.conv2d(
       var_371, var_535,
       {
-        bias: var_536,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_536
       }
     );
     
     const var_537 = builder.conv2d(
       var_534, var_538,
       {
-        bias: var_539,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_539
       }
     );
     
@@ -948,11 +959,11 @@ export class Mobilenetv212Static {
     const var_540 = builder.conv2d(
       var_376, var_541,
       {
-        bias: var_542,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 384
+        groups: 384,
+        bias: var_542
       }
     );
     
@@ -967,24 +978,27 @@ export class Mobilenetv212Static {
     const var_543 = builder.conv2d(
       var_379, var_544,
       {
-        bias: var_545,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_545
       }
     );
     
-    const var_382 = builder.add(var_534, var_543);
+    const var_382 = builder.add(
+      var_534,
+      var_543
+    );
     
     const var_546 = builder.conv2d(
       var_382, var_547,
       {
-        bias: var_548,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_548
       }
     );
     
@@ -999,11 +1013,11 @@ export class Mobilenetv212Static {
     const var_549 = builder.conv2d(
       var_385, var_550,
       {
-        bias: var_551,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 384
+        groups: 384,
+        bias: var_551
       }
     );
     
@@ -1018,24 +1032,27 @@ export class Mobilenetv212Static {
     const var_552 = builder.conv2d(
       var_388, var_553,
       {
-        bias: var_554,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_554
       }
     );
     
-    const var_391 = builder.add(var_382, var_552);
+    const var_391 = builder.add(
+      var_382,
+      var_552
+    );
     
     const var_555 = builder.conv2d(
       var_391, var_556,
       {
-        bias: var_557,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_557
       }
     );
     
@@ -1050,11 +1067,11 @@ export class Mobilenetv212Static {
     const var_558 = builder.conv2d(
       var_394, var_559,
       {
-        bias: var_560,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 384
+        groups: 384,
+        bias: var_560
       }
     );
     
@@ -1069,24 +1086,27 @@ export class Mobilenetv212Static {
     const var_561 = builder.conv2d(
       var_397, var_562,
       {
-        bias: var_563,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_563
       }
     );
     
-    const var_400 = builder.add(var_391, var_561);
+    const var_400 = builder.add(
+      var_391,
+      var_561
+    );
     
     const var_564 = builder.conv2d(
       var_400, var_565,
       {
-        bias: var_566,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_566
       }
     );
     
@@ -1101,11 +1121,11 @@ export class Mobilenetv212Static {
     const var_567 = builder.conv2d(
       var_403, var_568,
       {
-        bias: var_569,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 384
+        groups: 384,
+        bias: var_569
       }
     );
     
@@ -1120,22 +1140,22 @@ export class Mobilenetv212Static {
     const var_570 = builder.conv2d(
       var_406, var_571,
       {
-        bias: var_572,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_572
       }
     );
     
     const var_573 = builder.conv2d(
       var_570, var_574,
       {
-        bias: var_575,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_575
       }
     );
     
@@ -1150,11 +1170,11 @@ export class Mobilenetv212Static {
     const var_576 = builder.conv2d(
       var_411, var_577,
       {
-        bias: var_578,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 576
+        groups: 576,
+        bias: var_578
       }
     );
     
@@ -1169,24 +1189,27 @@ export class Mobilenetv212Static {
     const var_579 = builder.conv2d(
       var_414, var_580,
       {
-        bias: var_581,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_581
       }
     );
     
-    const var_417 = builder.add(var_570, var_579);
+    const var_417 = builder.add(
+      var_570,
+      var_579
+    );
     
     const var_582 = builder.conv2d(
       var_417, var_583,
       {
-        bias: var_584,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_584
       }
     );
     
@@ -1201,11 +1224,11 @@ export class Mobilenetv212Static {
     const var_585 = builder.conv2d(
       var_420, var_586,
       {
-        bias: var_587,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 576
+        groups: 576,
+        bias: var_587
       }
     );
     
@@ -1220,24 +1243,27 @@ export class Mobilenetv212Static {
     const var_588 = builder.conv2d(
       var_423, var_589,
       {
-        bias: var_590,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_590
       }
     );
     
-    const var_426 = builder.add(var_417, var_588);
+    const var_426 = builder.add(
+      var_417,
+      var_588
+    );
     
     const var_591 = builder.conv2d(
       var_426, var_592,
       {
-        bias: var_593,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_593
       }
     );
     
@@ -1252,11 +1278,11 @@ export class Mobilenetv212Static {
     const var_594 = builder.conv2d(
       var_429, var_595,
       {
-        bias: var_596,
         strides: [2, 2],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 576
+        groups: 576,
+        bias: var_596
       }
     );
     
@@ -1271,22 +1297,22 @@ export class Mobilenetv212Static {
     const var_597 = builder.conv2d(
       var_432, var_598,
       {
-        bias: var_599,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_599
       }
     );
     
     const var_600 = builder.conv2d(
       var_597, var_601,
       {
-        bias: var_602,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_602
       }
     );
     
@@ -1301,11 +1327,11 @@ export class Mobilenetv212Static {
     const var_603 = builder.conv2d(
       var_437, var_604,
       {
-        bias: var_605,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 960
+        groups: 960,
+        bias: var_605
       }
     );
     
@@ -1320,24 +1346,27 @@ export class Mobilenetv212Static {
     const var_606 = builder.conv2d(
       var_440, var_607,
       {
-        bias: var_608,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_608
       }
     );
     
-    const var_443 = builder.add(var_597, var_606);
+    const var_443 = builder.add(
+      var_597,
+      var_606
+    );
     
     const var_609 = builder.conv2d(
       var_443, var_610,
       {
-        bias: var_611,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_611
       }
     );
     
@@ -1352,11 +1381,11 @@ export class Mobilenetv212Static {
     const var_612 = builder.conv2d(
       var_446, var_613,
       {
-        bias: var_614,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 960
+        groups: 960,
+        bias: var_614
       }
     );
     
@@ -1371,24 +1400,27 @@ export class Mobilenetv212Static {
     const var_615 = builder.conv2d(
       var_449, var_616,
       {
-        bias: var_617,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_617
       }
     );
     
-    const var_452 = builder.add(var_443, var_615);
+    const var_452 = builder.add(
+      var_443,
+      var_615
+    );
     
     const var_618 = builder.conv2d(
       var_452, var_619,
       {
-        bias: var_620,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_620
       }
     );
     
@@ -1403,11 +1435,11 @@ export class Mobilenetv212Static {
     const var_621 = builder.conv2d(
       var_455, var_622,
       {
-        bias: var_623,
         strides: [1, 1],
         padding: [1, 1, 1, 1],
         dilations: [1, 1],
-        groups: 960
+        groups: 960,
+        bias: var_623
       }
     );
     
@@ -1422,22 +1454,22 @@ export class Mobilenetv212Static {
     const var_624 = builder.conv2d(
       var_458, var_625,
       {
-        bias: var_626,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_626
       }
     );
     
     const var_627 = builder.conv2d(
       var_624, var_628,
       {
-        bias: var_629,
         strides: [1, 1],
         padding: [0, 0, 0, 0],
         dilations: [1, 1],
-        groups: 1
+        groups: 1,
+        bias: var_629
       }
     );
     
@@ -1516,8 +1548,8 @@ export class Mobilenetv212Static {
         case 'int16': typedArrayCtor = Int16Array; break;
         case 'int32': typedArrayCtor = Int32Array; break;
         case 'int64': typedArrayCtor = BigInt64Array; break;
-        case 'float64': typedArrayCtor = Float64Array; break;
         case 'float16': typedArrayCtor = Float16Array; break;
+        case 'float64': typedArrayCtor = Float64Array; break;
         case 'uint32': typedArrayCtor = Uint32Array; break;
         case 'uint64': typedArrayCtor = BigUint64Array; break;
         default: throw new Error('Unhandled tensor dataType: ' + tensor.dataType);

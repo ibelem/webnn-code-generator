@@ -11,7 +11,7 @@
  */
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
-export function clamp_js(
+export function clamp(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

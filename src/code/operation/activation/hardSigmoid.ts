@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function hardSigmoid_js(
+export function hardSigmoid(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

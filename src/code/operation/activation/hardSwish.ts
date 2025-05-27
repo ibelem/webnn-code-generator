@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function hardSwish_js(
+export function hardSwish(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

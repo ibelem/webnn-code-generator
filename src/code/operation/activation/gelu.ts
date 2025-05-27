@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function gelu_js(
+export function gelu(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

@@ -13,7 +13,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
 
-export function unary_js(
+function unary(
   node: any,
   toJsVarName: (name: string) => string,
   opType: string
@@ -29,4 +29,50 @@ export function unary_js(
     const ${outputVar} = builder.${opType}(
       ${inputVar}
     );`;
+}
+
+export function abs(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'abs');
+}
+export function ceil(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'ceil');
+}
+export function cos(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'cos');
+}
+export function erf(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'erf');
+}
+export function exp(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'exp');
+}
+export function floor(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'floor');
+}
+export function identity(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'identity');
+}
+export function log(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'log');
+}
+export function neg(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'neg');
+}
+export function round(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'round');
+}
+export function reciprocal(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'reciprocal');
+}
+export function sin(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'sin');
+}
+export function sign(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'sign');
+}
+export function sqrt(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'sqrt');
+}
+export function tan(node: any, toJsVarName: (name: string) => string): string {
+  return unary(node, toJsVarName, 'tan');
 }

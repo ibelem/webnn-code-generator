@@ -1,53 +1,60 @@
-import { binary_js } from './operation/binary';
-import { averagePool2d_js } from './operation/averagePool2d';
-import { clamp_js } from './operation/clamp';
-import { conv2d_js } from './operation/conv2d';
-import { convTranspose2d_js } from './operation/convTranspose2d';
-import { gemm_js } from './operation/gemm';
-import { reshape_js } from './operation/reshape';
-import { unary_js } from './operation/unary';
-import { logical_js } from './operation/logical';
-import { resize_js } from './operation/resize';
-import { transpose_js } from './operation/transpose';
-import { softmax_js } from './operation/softmax';
-import { prelu_js } from './operation/activation/prelu';
-import { relu_js } from './operation/activation/relu';
-import { sigmoid_js } from './operation/activation/sigmoid';
-import { elu_js } from './operation/activation/elu';
-import { gelu_js } from './operation/activation/gelu';
-import { tanh_js } from './operation/activation/tanh';
-import { hardSigmoid_js } from './operation/activation/hardSigmoid';
-import { hardSwish_js } from './operation/activation/hardSwish';
-import { leakyRelu_js } from './operation/activation/leakyRelu';
-import { softplus_js } from './operation/activation/softplus';
-import { softsign_js } from './operation/activation/softsign';
+import { add, sub, mul, div, max, min, pow } from './operation/binary';
+import { argMax, argMin } from './operation/argMinMax';
+import { averagePool2d } from './operation/averagePool2d';
+import { clamp } from './operation/clamp';
+import { conv2d } from './operation/conv2d';
+import { convTranspose2d } from './operation/convTranspose2d';
+import { gemm } from './operation/gemm';
+import { reshape } from './operation/reshape';
+import { resize } from './operation/resize';
+import { transpose } from './operation/transpose';
+import { softmax } from './operation/softmax';
+import { prelu } from './operation/activation/prelu';
+import { relu } from './operation/activation/relu';
+import { sigmoid } from './operation/activation/sigmoid';
+import { elu } from './operation/activation/elu';
+import { gelu } from './operation/activation/gelu';
+import { tanh } from './operation/activation/tanh';
+import { hardSigmoid } from './operation/activation/hardSigmoid';
+import { hardSwish } from './operation/activation/hardSwish';
+import { leakyRelu } from './operation/activation/leakyRelu';
+import {
+  equal, greater, greaterOrEqual, less, lessOrEqual,
+  not, and, or, xor
+} from './operation/logical';
+import { softplus } from './operation/activation/softplus';
+import { softsign } from './operation/activation/softsign';
+import {
+  abs, ceil, cos, erf, exp, floor, identity, log,
+  neg, round, reciprocal, sin, sign, sqrt, tan
+} from './operation/unary';
 
 const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => string) => string> = {
   // 7 element-wise binary
-  Add: (node, toJsVarName) => binary_js(node, toJsVarName, 'add'),
-  Sub: (node, toJsVarName) => binary_js(node, toJsVarName, 'sub'),
-  Mul: (node, toJsVarName) => binary_js(node, toJsVarName, 'mul'),
-  Div: (node, toJsVarName) => binary_js(node, toJsVarName, 'div'),
-  Max: (node, toJsVarName) => binary_js(node, toJsVarName, 'max'),
-  Min: (node, toJsVarName) => binary_js(node, toJsVarName, 'min'),
-  Pow: (node, toJsVarName) => binary_js(node, toJsVarName, 'pow'),
+  Add: add,
+  Sub: sub,
+  Mul: mul,
+  Div: div,
+  Max: max,
+  Min: min,
+  Pow: pow,
 
   // 15 element-wise unary
-  Abs: (node, toJsVarName) => unary_js(node, toJsVarName, 'abs'),
-  Ceil: (node, toJsVarName) => unary_js(node, toJsVarName, 'ceil'),
-  Cos: (node, toJsVarName) => unary_js(node, toJsVarName, 'cos'),
-  Erf: (node, toJsVarName) => unary_js(node, toJsVarName, 'erf'),
-  Exp: (node, toJsVarName) => unary_js(node, toJsVarName, 'exp'),
-  Floor: (node, toJsVarName) => unary_js(node, toJsVarName, 'floor'),
-  Identity: (node, toJsVarName) => unary_js(node, toJsVarName, 'identity'),
-  Log: (node, toJsVarName) => unary_js(node, toJsVarName, 'log'),
-  Neg: (node, toJsVarName) => unary_js(node, toJsVarName, 'neg'),
-  Round: (node, toJsVarName) => unary_js(node, toJsVarName, 'round'),
-  Reciprocal: (node, toJsVarName) => unary_js(node, toJsVarName, 'reciprocal'),
-  Sin: (node, toJsVarName) => unary_js(node, toJsVarName, 'sin'),
-  Sign: (node, toJsVarName) => unary_js(node, toJsVarName, 'sign'),
-  Sqrt: (node, toJsVarName) => unary_js(node, toJsVarName, 'sqrt'),
-  Tan: (node, toJsVarName) => unary_js(node, toJsVarName, 'tan'),
+  Abs: abs,
+  Ceil: ceil,
+  Cos: cos,
+  Erf: erf,
+  Exp: exp,
+  Floor: floor,
+  Identity: identity,
+  Log: log,
+  Neg: neg,
+  Round: round,
+  Reciprocal: reciprocal,
+  Sin: sin,
+  Sign: sign,
+  Sqrt: sqrt,
+  Tan: tan,
 
   // https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/op_builder_factory.cc
 
@@ -69,38 +76,40 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // {"Tile": "tile"}, {"Trilu": "triangular"}, {"Unsqueeze": "reshape"}, {"Where": "where"},
 
   // Activation
-  Elu: elu_js,
-  Gelu: gelu_js,
-  HardSigmoid: hardSigmoid_js,
-  HardSwish: hardSwish_js,
-  LeakyRelu: leakyRelu_js,
-  PRelu: prelu_js,
-  Relu: relu_js,
-  Sigmoid: sigmoid_js,
-  Softplus: softplus_js,
-  Softsign: softsign_js,
-  Tanh: tanh_js,
+  Elu: elu,
+  Gelu: gelu,
+  HardSigmoid: hardSigmoid,
+  HardSwish: hardSwish,
+  LeakyRelu: leakyRelu,
+  PRelu: prelu,
+  Relu: relu,
+  Sigmoid: sigmoid,
+  Softplus: softplus,
+  Softsign: softsign,
+  Tanh: tanh,
   
   // ArgMax, ArgMin
+  ArgMax: argMax,
+  ArgMin: argMin,
 
   // Cast
 
   // Clip
-  Clip: clamp_js,
+  Clip: clamp,
 
   // Conv
-  Conv: conv2d_js,
+  Conv: conv2d,
   // ConvInteger
-  ConvTranspose: convTranspose2d_js,
+  ConvTranspose: convTranspose2d,
   // // TF Lite ops
-  Conv2D: conv2d_js,
+  Conv2D: conv2d,
 
   // Concat
 
   // CumSum
 
   // Dropout
-  Dropout: (node, toJsVarName) => unary_js(node, toJsVarName, 'identity'),
+  Dropout: identity,
 
   // DequantizeLinear, QuantizeLinear, DynamicQuantizeLinear
 
@@ -119,23 +128,23 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // Flatten
 
   // Gemm, MatMul
-  Gemm: gemm_js,
+  Gemm: gemm,
   // Matmul, MatMulInteger
 
   // GRU
 
   // 9 element-wise logical without NotEqual
-  Equal: (node, toJsVarName) => logical_js(node, toJsVarName, 'equal'),
+  Equal: equal,
   // No NotEqual in ONNX model
-  // NotEqual: (node, toJsVarName) => logical_js(node, toJsVarName, 'notEqual'),
-  Greater: (node, toJsVarName) => logical_js(node, toJsVarName, 'greater'),
-  GreaterOrEqual: (node, toJsVarName) => logical_js(node, toJsVarName, 'greaterOrEqual'),
-  Less: (node, toJsVarName) => logical_js(node, toJsVarName, 'lesser'),
-  LessOrEqual: (node, toJsVarName) => logical_js(node, toJsVarName, 'lesserOrEqual'),
-  Not: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalNot'),
-  And: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalAnd'),
-  Or: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalOr'),
-  Xor: (node, toJsVarName) => logical_js(node, toJsVarName, 'logicalXor'),
+  // NotEqual: (node, toJsVarName) => logical(node, toJsVarName, 'notEqual'),
+  Greater: greater,
+  GreaterOrEqual: greaterOrEqual,
+  Less: less,
+  LessOrEqual: lessOrEqual,
+  Not: not,
+  And: and,
+  Or: or,
+  Xor: xor,
 
   // LRN
 
@@ -153,21 +162,21 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // Pad
 
   // Pooling
-  AveragePool: averagePool2d_js,
-  GlobalAveragePool: averagePool2d_js,
+  AveragePool: averagePool2d,
+  GlobalAveragePool: averagePool2d,
   // GlobalMaxPool, GlobalLpPool, LpPool, MaxPool
   // // TFLite op
-  AveragePool2D: averagePool2d_js,
+  AveragePool2D: averagePool2d,
 
   // Reduction
   // ReduceL1, ReduceL2, ReduceLogSum, ReduceLogSumExp, 
   // ReduceMax, ReduceMean, ReduceMin, ReduceProd, ReduceSum, ReduceSumSquare
 
   // Reshape
-  Reshape: reshape_js,
+  Reshape: reshape,
 
   // Resize
-  Resize: resize_js,
+  Resize: resize,
 
   // RotaryEmbedding
 
@@ -180,7 +189,7 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // Slice
 
   // Softmax
-  Softmax: softmax_js,
+  Softmax: softmax,
 
   // Split
 
@@ -189,9 +198,21 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // Tile
 
   // Transpose
-  Transpose: transpose_js,
+  Transpose: transpose,
 
   // Trilu
 };
+
+  // Some ONNX ops are supported by decomposed WebNN ops
+  // {"ConvInteger", {"cast", "conv2d", "dequantizeLinear"}},
+  // {"GroupQueryAttention", {"add", "cast", "concat", "constant", "cumulativeSum", 
+  //    "div", "expand", "lesser", "matmul", "reshape", "scatterND", "softmax", "transpose", "where"}},
+  // {"LRN", {"add", "averagePool2d", "div", "mul", "pad", "pow", "transpose"}},
+  // {"MatMulInteger", {"cast", "dequantizeLinear", "matmul"}},
+  // {"MatMulNBits", {"add", "dequantizeLinear", "matmul", "reshape", "transpose"}},
+  // {"MultiHeadAttention", {"add", "cast", "concat", "constant", "div", "matmul", "reshape", "softmax", "transpose"}},
+  // {"RotaryEmbedding", {"add", "concat", "gather", "mul", "reshape", "slice", "split"}},
+  // {"SimplifiedLayerNormalization", {"add", "div", "mul", "pow", "reduceMean", "sqrt"}},
+  // {"SkipSimplifiedLayerNormalization", {"add", "div", "mul", "pow", "reduceMean", "sqrt"}},
 
 export { opHandlers };

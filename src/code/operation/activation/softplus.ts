@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function softplus_js(
+export function softplus(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

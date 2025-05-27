@@ -21,7 +21,7 @@ function getTransposedFilterVarName(originalVar: string, permutation: number[]) 
   return `${originalVar}_transposed`;
 }
 
-export function convTranspose2d_js(
+export function convTranspose2d(
   node: any,
   toJsVarName: (name: string) => string,
   nhwc: boolean = false

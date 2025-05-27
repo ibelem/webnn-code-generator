@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function elu_js(
+export function elu(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function leakyRelu_js(
+export function leakyRelu(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

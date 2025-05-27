@@ -69,6 +69,91 @@ export function getTypedArrayName(dataType: string): string | undefined {
   }
 }
 
+export function getDatafromWeightsArrayBuffer(
+  arrayBuffer: ArrayBuffer,
+  dataType: string,
+  dataOffset: number,
+  byteLength: number
+): any {
+  // Create a Uint8Array view for the slice
+  const buffer = new Uint8Array(arrayBuffer, dataOffset, byteLength);
+  const baseOffset = buffer.byteOffset;
+  const baseBuffer = buffer.buffer;
+  let data;
+  switch (dataType.toLowerCase()) {
+    case 'float':
+    case 'float32':
+      data = new Float32Array(baseBuffer, baseOffset, byteLength / Float32Array.BYTES_PER_ELEMENT);
+      break;
+    case 'uint8':
+      data = new Uint8Array(baseBuffer, baseOffset, byteLength);
+      break;
+    case 'int8':
+      data = new Int8Array(baseBuffer, baseOffset, byteLength);
+      break;
+    case 'uint16':
+      data = new Uint16Array(baseBuffer, baseOffset, byteLength / Uint16Array.BYTES_PER_ELEMENT);
+      break;
+    case 'int16':
+      data = new Int16Array(baseBuffer, baseOffset, byteLength / Int16Array.BYTES_PER_ELEMENT);
+      break;
+    case 'int32':
+      data = new Int32Array(baseBuffer, baseOffset, byteLength / Int32Array.BYTES_PER_ELEMENT);
+      break;
+    case 'int64':
+      if (typeof BigInt64Array !== 'undefined') {
+        if (baseOffset % 8 !== 0) throw new Error('BigInt64Array offset must be a multiple of 8');
+        data = new BigInt64Array(baseBuffer, baseOffset, byteLength / BigInt64Array.BYTES_PER_ELEMENT);
+      } else {
+        data = "Int64 data type not fully supported in this browser";
+      }
+      break;
+    case 'float16':
+      // Not standard; handle or polyfill as needed
+      data = "Float16Array not supported natively";
+      break;
+    case 'double':
+    case 'float64':
+      data = new Float64Array(baseBuffer, baseOffset, byteLength / Float64Array.BYTES_PER_ELEMENT);
+      break;
+    case 'uint32':
+      data = new Uint32Array(baseBuffer, baseOffset, byteLength / Uint32Array.BYTES_PER_ELEMENT);
+      break;
+    case 'uint64':
+      if (typeof BigUint64Array !== 'undefined') {
+        if (baseOffset % 8 !== 0) throw new Error('BigUint64Array offset must be a multiple of 8');
+        data = new BigUint64Array(baseBuffer, baseOffset, byteLength / BigUint64Array.BYTES_PER_ELEMENT);
+      } else {
+        data = "Uint64 data type not fully supported in this browser";
+      }
+      break;
+    case 'string':
+      data = new TextDecoder().decode(new Uint8Array(baseBuffer, baseOffset, byteLength));
+      break;
+    case 'bool':
+      data = Array.from(new Uint8Array(baseBuffer, baseOffset, byteLength)).map(Boolean);
+      break;
+    default:
+      data = "Unknown data type: " + dataType;
+  }
+  return data;
+}
+
+// https://www.w3.org/TR/webnn/#enumdef-mloperanddatatype
+export function mlOperandDataType(onnxType: string): string {
+  switch (onnxType.toLowerCase()) {
+    case 'float32': return 'float32';
+    case 'float16': return 'float16';
+    case 'int32':   return 'int32';
+    case 'uint32':  return 'uint32';
+    case 'int64':   return 'int64';
+    case 'uint64':  return 'uint64';
+    case 'int8':    return 'int8';
+    case 'uint8':   return 'uint8';
+    default:        return 'int32'; // fallback to int32
+  }
+}
+
 export function weightInfo(name: string) {
   const { weightModelData } = getModelState();
   if (!weightModelData || !weightModelData[name]) return null;

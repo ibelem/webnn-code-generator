@@ -12,7 +12,7 @@
 
 import { getModelState } from '../../ui';
 import { getNonEmptyStringAroundNewline } from '../../utils';
-export function reshape_js(
+export function reshape(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

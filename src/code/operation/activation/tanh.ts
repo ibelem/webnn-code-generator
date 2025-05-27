@@ -5,7 +5,7 @@
 
 import { getNonEmptyStringAroundNewline } from '../../../utils';
 
-export function tanh_js(
+export function tanh(
   node: any,
   toJsVarName: (name: string) => string
 ): string {

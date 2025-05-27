@@ -12,7 +12,7 @@
  */
 
 import { getNonEmptyStringAroundNewline } from '../../utils';
-export function binary_js(
+function binary(
   node: any,
   toJsVarName: (name: string) => string,
   opType: string
@@ -29,4 +29,26 @@ export function binary_js(
       ${inputVars[0]},
       ${inputVars[1]}
     );`;
+}
+
+export function add(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'add');
+}
+export function sub(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'sub');
+}
+export function mul(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'mul');
+}
+export function div(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'div');
+}
+export function max(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'max');
+}
+export function min(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'min');
+}
+export function pow(node: any, toJsVarName: (name: string) => string): string {
+  return binary(node, toJsVarName, 'pow');
 }
