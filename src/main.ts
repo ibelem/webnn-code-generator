@@ -74,11 +74,16 @@ const renderAppLayout = (): void => {
       </div>
       <div id="free-dimension-overrides" class="override"></div>
       <div class="output-panel">
-        <div id="output-graph" class="panel"></div>
-        <div id="output-weight" class="panel"></div>
-        <div id="output-code" class="code panel"></div>
+        <div class="left-panel">
+          <div class="graph-weight-panel">
+            <div id="output-graph" class="panel"></div>
+            <div id="output-weight" class="panel"></div>
+          </div>
+          <div id="log-console" class="status panel"></div>
+        </div>
+        <div id="output-code" class="code "></div>
       </div>
-      <div id="log-console" class="status"></div>
+      
       <div class="app-description">
         Disclamer: All model conversion and code generation processes execute entirely within your browser, ensuring your intellectual property remains private and secure as no model data is transmitted to or stored on cloud servers.
       </div>

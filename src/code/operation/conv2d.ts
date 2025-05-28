@@ -136,8 +136,7 @@ export function conv2d(
     typeof filterInputChannels === 'number' &&
     groups > 0
   ) {
-    groupCheckCode = `
-    if (${inputChannels} % ${groups_js} !== 0)
+    groupCheckCode = `if (${inputChannels} % ${groups_js} !== 0)
       throw new Error('The groups (${groups_js}) must evenly divide the input channels (${inputChannels})');
     if (${inputChannels} / ${groups_js} !== ${filterInputChannels})
       throw new Error('Filter input channels (${filterInputChannels}) must equal input channels (${inputChannels}) divided by groups (${groups_js})');
@@ -147,33 +146,28 @@ export function conv2d(
   // Strides, dilations, padding, groups validation
   let optionsCheckCode = '';
   if (strides_js && strides_js !== '[1, 1]') {
-    optionsCheckCode += `
-    if (${strides_js}.length !== 2) throw new Error('strides must be length 2');
+    optionsCheckCode += `if (${strides_js}.length !== 2) throw new Error('strides must be length 2');
     if (${strides_js}[0] === 0 || ${strides_js}[1] === 0) throw new Error('stride values must be > 0');
     `;
   }
   if (dilations_js && dilations_js !== '[1, 1]') {
-    optionsCheckCode += `
-    if (${dilations_js}.length !== 2) throw new Error('dilations must be length 2');
+    optionsCheckCode += `if (${dilations_js}.length !== 2) throw new Error('dilations must be length 2');
     if (${dilations_js}[0] === 0 || ${dilations_js}[1] === 0) throw new Error('dilation values must be > 0');
     `;
   }
   if (pads_js && pads_js !== '[0, 0, 0, 0]' && pads_js !== "'SAME'" && pads_js !== "'VALID'") {
-    optionsCheckCode += `
-    if (${pads_js}.length !== 4) throw new Error('padding must be length 4');
+    optionsCheckCode += `if (${pads_js}.length !== 4) throw new Error('padding must be length 4');
     `;
   }
   if (groups_js === '0') {
-    optionsCheckCode += `
-    throw new Error('groups must be > 0');
+    optionsCheckCode += `throw new Error('groups must be > 0');
     `;
   }
 
   // Bias shape check (if bias is present)
   let biasCheckCode = '';
   if (biasVar && typeof outputChannels === 'number') {
-    biasCheckCode = `
-    if (${biasVar}.shape && ${biasVar}.shape.length !== 1)
+    biasCheckCode = `if (${biasVar}.shape && ${biasVar}.shape.length !== 1)
       throw new Error('Bias must be 1D');
     if (${biasVar}.shape && ${biasVar}.shape[0] !== ${outputChannels})
       throw new Error('Bias shape must match outputChannels');
@@ -193,9 +187,7 @@ export function conv2d(
   if (inputLayout) options.push(`inputLayout: ${inputLayout}`);
 
   return `
-    ${groupCheckCode}
-    ${optionsCheckCode}
-    ${biasCheckCode}
+    ${groupCheckCode}${optionsCheckCode}${biasCheckCode}
     const ${outputVar} = builder.conv2d(
       ${inputVars[0]}, ${filterVarName},
       {

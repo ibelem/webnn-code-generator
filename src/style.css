@@ -233,7 +233,7 @@ header {
 
 .output-panel {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) 4fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
   grid-row-gap: 1em;
   grid-column-gap: 0;
@@ -244,10 +244,26 @@ header {
   align-items: stretch;
 }
 
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-right: 1px solid var(--border);
+}
+
+.graph-weight-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-row-gap: 0em;
+  grid-column-gap: 0em;
+  align-items: stretch;
+  height: 69vh;
+}
+
 .panel {
   overflow-y: auto;
   text-align: left;
-  height: 67vh;
 }
 
 #output-graph, #output-weight, #output-code, #log-console {
@@ -349,7 +365,6 @@ header {
 
 #output-weight {
   border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
 }
 
 #output-weight p {
@@ -405,7 +420,7 @@ header {
   padding: 0 1em;
   align-self: start;
   background-color: var(--grey-005);
-  height: 67vh;
+  height: 100%;
 }
 
 .pink {
@@ -463,17 +478,14 @@ input[type="file"] {
 
 #log-console {
   display: grid;
-  grid-template-columns:1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-row-gap: 0em;
-  grid-column-gap: 0.5em;
   align-items: center;
-  margin: -1px 0 1em 0;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   text-align: left;
-  font-size: 0.9em;
-  border: 1px solid var(--border);
-  height: 3em;
+  border-top: 1px solid var(--border);
+  height: 3vh;
   overflow-y: scroll;
   background-color: var(--border-01);
 }
@@ -494,7 +506,7 @@ input[type="file"] {
   margin-bottom: -0.2em;
 }
 
-.file-upload-panel:hover, #log-console:hover {
+.file-upload-panel:hover {
   border: 1px solid var(--border-dark);
 }
 
@@ -574,8 +586,15 @@ input[type="file"] {
 
 .app-description, footer {
   font-size: 0.8em;
-  margin: 0.5em 0;
   text-align: center;
+}
+
+.app-description {
+  margin-top: 1em;
+}
+
+footer {
+  margin: 0.5em 0;
 }
 
 .file-info svg { 
@@ -644,10 +663,13 @@ footer .footer-link {
   #output-code {
     font-size: 0.8em;
     height: 30vh;
-    max-width: 98vw;
+    width: 100%;
   }
   #output-code pre code {
-    max-width: 98vw;
+    width: 100%;
+  }
+  .monaco-editor {
+    width: 100%;
   }
   .log-console {
     padding: 0.5em;
@@ -702,5 +724,25 @@ footer .footer-link {
   .file-upload-panel .upload-item {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .graph-weight-panel {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .output-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  footer .footer-link {
+    text-align: center;
   }
 }

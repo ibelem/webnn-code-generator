@@ -236,8 +236,10 @@ export function generateJS() {
     const freeDimsString = Object.entries(freeDimsOverrides)
     .map(([key, value]) => `${key}: ${value}`)
     .join(', ');
-    freeDimsOverridesStr = `  // Set freeDimensionOverrides globally for symbolic dimensions
-  // ${freeDimsString}`;
+    freeDimsOverridesStr = `
+  // Set freeDimensionOverrides globally for symbolic dimensions
+  // ${freeDimsString}
+`;
   }
 
   return `// WebNN Code Generator
@@ -246,8 +248,7 @@ export function generateJS() {
 // GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth
 
 export class ${name} {
-${freeDimsOverridesStr}
-${constructorCode()}
+${freeDimsOverridesStr}${constructorCode()}
 ${buildCode()}
 ${runCode()}
 }`;
