@@ -82,7 +82,7 @@ export function conv2d(
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Extract input and filter shapes
-  const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions || [];
+  // const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions || [];
   const filterShape = node.inputs?.[1]?.value?.[0]?.type?.shape?.dimensions || [];
 
   // Determine inputLayout and filterLayout
@@ -110,38 +110,38 @@ export function conv2d(
     inputLayout = "'nhwc'";
   }
 
-  // Get inputChannels and filterInputChannels based on layout
-  let inputChannels: number | undefined;
-  let filterInputChannels: number | undefined;
-  if (nhwc) {
-    inputChannels = inputShape[3];
-    // For filterLayout 'ohwi', filterInputChannels = filterShape[3]
-    if (filterLayout === "'ohwi'") filterInputChannels = filterShape[3];
-    else if (filterLayout === "'ihwo'") filterInputChannels = filterShape[0];
-    else filterInputChannels = filterShape[1]; // fallback
-  } else {
-    inputChannels = inputShape[1];
-    filterInputChannels = filterShape[1];
-  }
+  // // Get inputChannels and filterInputChannels based on layout
+  // let inputChannels: number | undefined;
+  // let filterInputChannels: number | undefined;
+  // if (nhwc) {
+  //   inputChannels = inputShape[3];
+  //   // For filterLayout 'ohwi', filterInputChannels = filterShape[3]
+  //   if (filterLayout === "'ohwi'") filterInputChannels = filterShape[3];
+  //   else if (filterLayout === "'ihwo'") filterInputChannels = filterShape[0];
+  //   else filterInputChannels = filterShape[1]; // fallback
+  // } else {
+  //   inputChannels = inputShape[1];
+  //   filterInputChannels = filterShape[1];
+  // }
 
-  // Output channels for bias check
-  const outputChannels = nhwc
-    ? (filterLayout === "'ohwi'" ? filterShape[0] : filterShape[3])
-    : filterShape[0];
+  // // Output channels for bias check
+  // const outputChannels = nhwc
+  //   ? (filterLayout === "'ohwi'" ? filterShape[0] : filterShape[3])
+  //   : filterShape[0];
 
-  // Groups check
-  let groupCheckCode = '';
-  if (
-    typeof inputChannels === 'number' &&
-    typeof filterInputChannels === 'number' &&
-    groups > 0
-  ) {
-    groupCheckCode = `if (${inputChannels} % ${groups_js} !== 0)
-      throw new Error('The groups (${groups_js}) must evenly divide the input channels (${inputChannels})');
-    if (${inputChannels} / ${groups_js} !== ${filterInputChannels})
-      throw new Error('Filter input channels (${filterInputChannels}) must equal input channels (${inputChannels}) divided by groups (${groups_js})');
-    `;
-  }
+  // // Groups check
+  // let groupCheckCode = '';
+  // if (
+  //   typeof inputChannels === 'number' &&
+  //   typeof filterInputChannels === 'number' &&
+  //   groups > 0
+  // ) {
+  //   groupCheckCode = `if (${inputChannels} % ${groups_js} !== 0)
+  //     throw new Error('The groups (${groups_js}) must evenly divide the input channels (${inputChannels})');
+  //   if (${inputChannels} / ${groups_js} !== ${filterInputChannels})
+  //     throw new Error('Filter input channels (${filterInputChannels}) must equal input channels (${inputChannels}) divided by groups (${groups_js})');
+  //   `;
+  // }
 
   // Strides, dilations, padding, groups validation
   let optionsCheckCode = '';
@@ -164,15 +164,15 @@ export function conv2d(
     `;
   }
 
-  // Bias shape check (if bias is present)
-  let biasCheckCode = '';
-  if (biasVar && typeof outputChannels === 'number') {
-    biasCheckCode = `if (${biasVar}.shape && ${biasVar}.shape.length !== 1)
-      throw new Error('Bias must be 1D');
-    if (${biasVar}.shape && ${biasVar}.shape[0] !== ${outputChannels})
-      throw new Error('Bias shape must match outputChannels');
-    `;
-  }
+  // // Bias shape check (if bias is present)
+  // let biasCheckCode = '';
+  // if (biasVar && typeof outputChannels === 'number') {
+  //   biasCheckCode = `if (${biasVar}.shape && ${biasVar}.shape.length !== 1)
+  //     throw new Error('Bias must be 1D');
+  //   if (${biasVar}.shape && ${biasVar}.shape[0] !== ${outputChannels})
+  //     throw new Error('Bias shape must match outputChannels');
+  //   `;
+  // }
 
   // Build options
   const options: string[] = [
