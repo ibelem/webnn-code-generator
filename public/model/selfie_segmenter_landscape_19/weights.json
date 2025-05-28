@@ -1,0 +1,2073 @@
+{
+  "292": {
+    "nodeName": "Relu6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "292",
+    "identifier": "",
+    "dataOffset": 1796,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "293": {
+    "nodeName": "Relu6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "293",
+    "identifier": "",
+    "dataOffset": 1800,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "294": {
+    "nodeName": "Relu6_1",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "294",
+    "identifier": "",
+    "dataOffset": 50996,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "295": {
+    "nodeName": "Relu6_1",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "295",
+    "identifier": "",
+    "dataOffset": 51000,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "296": {
+    "nodeName": "Relu6_2",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "296",
+    "identifier": "",
+    "dataOffset": 60996,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "297": {
+    "nodeName": "Relu6_2",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "297",
+    "identifier": "",
+    "dataOffset": 61000,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "298": {
+    "nodeName": "Relu6_3",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "298",
+    "identifier": "",
+    "dataOffset": 109236,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "299": {
+    "nodeName": "Relu6_3",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "299",
+    "identifier": "",
+    "dataOffset": 109240,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "300": {
+    "nodeName": "Relu6_4",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "300",
+    "identifier": "",
+    "dataOffset": 122564,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "301": {
+    "nodeName": "Relu6_4",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "301",
+    "identifier": "",
+    "dataOffset": 122568,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "302": {
+    "nodeName": "Relu6_5",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "302",
+    "identifier": "",
+    "dataOffset": 189396,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "303": {
+    "nodeName": "Relu6_5",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "303",
+    "identifier": "",
+    "dataOffset": 189400,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "304": {
+    "nodeName": "Relu6_6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "304",
+    "identifier": "",
+    "dataOffset": 202724,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "305": {
+    "nodeName": "Relu6_6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "305",
+    "identifier": "",
+    "dataOffset": 202728,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "306": {
+    "nodeName": "Relu6_7",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "306",
+    "identifier": "",
+    "dataOffset": 265332,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "307": {
+    "nodeName": "Relu6_7",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "307",
+    "identifier": "",
+    "dataOffset": 265336,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "308": {
+    "nodeName": "Relu6_8",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "308",
+    "identifier": "",
+    "dataOffset": 275332,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "309": {
+    "nodeName": "Relu6_8",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "309",
+    "identifier": "",
+    "dataOffset": 275336,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "310": {
+    "nodeName": "Relu6_9",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "310",
+    "identifier": "",
+    "dataOffset": 319348,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "311": {
+    "nodeName": "Relu6_9",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "311",
+    "identifier": "",
+    "dataOffset": 319352,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "312": {
+    "nodeName": "Relu6_10",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "312",
+    "identifier": "",
+    "dataOffset": 329348,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "313": {
+    "nodeName": "Relu6_10",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "313",
+    "identifier": "",
+    "dataOffset": 329352,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "314": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "roi",
+    "name": "314",
+    "identifier": "",
+    "dataOffset": 394480,
+    "byteLength": 32,
+    "dataType": "float32",
+    "shape": [
+      8
+    ]
+  },
+  "315": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "roi",
+    "name": "315",
+    "identifier": "",
+    "dataOffset": 415072,
+    "byteLength": 32,
+    "dataType": "float32",
+    "shape": [
+      8
+    ]
+  },
+  "316": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "roi",
+    "name": "316",
+    "identifier": "",
+    "dataOffset": 420624,
+    "byteLength": 32,
+    "dataType": "float32",
+    "shape": [
+      8
+    ]
+  },
+  "Conv2D/filter:0": {
+    "nodeName": "Conv__158",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D/filter:0",
+    "identifier": "",
+    "dataOffset": 0,
+    "byteLength": 1728,
+    "dataType": "float32",
+    "shape": [
+      16,
+      3,
+      3,
+      3
+    ]
+  },
+  "conv2d_1/y:0": {
+    "nodeName": "Conv__158",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_1/y:0",
+    "identifier": "",
+    "dataOffset": 1728,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "const_fold_opt__408": {
+    "nodeName": "add_10",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "const_fold_opt__408",
+    "identifier": "",
+    "dataOffset": 329344,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "mul_3/y:0": {
+    "nodeName": "mul_20",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "A",
+    "name": "mul_3/y:0",
+    "identifier": "",
+    "dataOffset": 329356,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "Conv2D_2/filter:0": {
+    "nodeName": "Conv__161",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_2/filter:0",
+    "identifier": "",
+    "dataOffset": 1808,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_1_1/y:0": {
+    "nodeName": "Conv__161",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_1_1/y:0",
+    "identifier": "",
+    "dataOffset": 2832,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "const_fold_opt__377": {
+    "nodeName": "Conv__162",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__377",
+    "identifier": "",
+    "dataOffset": 2896,
+    "byteLength": 576,
+    "dataType": "float32",
+    "shape": [
+      16,
+      1,
+      3,
+      3
+    ]
+  },
+  "depthwise_conv2d/y:0": {
+    "nodeName": "Conv__162",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d/y:0",
+    "identifier": "",
+    "dataOffset": 3472,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_3/filter:0": {
+    "nodeName": "Conv__165",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_3/filter:0",
+    "identifier": "",
+    "dataOffset": 3536,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      8,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_2_1/y:0": {
+    "nodeName": "Conv__165",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_2_1/y:0",
+    "identifier": "",
+    "dataOffset": 4048,
+    "byteLength": 32,
+    "dataType": "float32",
+    "shape": [
+      8
+    ]
+  },
+  "Conv2D_4/filter:0": {
+    "nodeName": "Conv__166",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_4/filter:0",
+    "identifier": "",
+    "dataOffset": 4080,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      16,
+      8,
+      1,
+      1
+    ]
+  },
+  "conv2d_3_1/y:0": {
+    "nodeName": "Conv__166",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_3_1/y:0",
+    "identifier": "",
+    "dataOffset": 4592,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_5/filter:0": {
+    "nodeName": "Conv__167",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_5/filter:0",
+    "identifier": "",
+    "dataOffset": 4656,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_4_1/y:0": {
+    "nodeName": "Conv__167",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_4_1/y:0",
+    "identifier": "",
+    "dataOffset": 5680,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_6/filter:0": {
+    "nodeName": "Conv__171",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_6/filter:0",
+    "identifier": "",
+    "dataOffset": 5744,
+    "byteLength": 4608,
+    "dataType": "float32",
+    "shape": [
+      72,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_5_1/y:0": {
+    "nodeName": "Conv__171",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_5_1/y:0",
+    "identifier": "",
+    "dataOffset": 10352,
+    "byteLength": 288,
+    "dataType": "float32",
+    "shape": [
+      72
+    ]
+  },
+  "const_fold_opt__387": {
+    "nodeName": "Conv__172",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__387",
+    "identifier": "",
+    "dataOffset": 10640,
+    "byteLength": 2592,
+    "dataType": "float32",
+    "shape": [
+      72,
+      1,
+      3,
+      3
+    ]
+  },
+  "depthwise_conv2d_1/y:0": {
+    "nodeName": "Conv__172",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_1/y:0",
+    "identifier": "",
+    "dataOffset": 13232,
+    "byteLength": 288,
+    "dataType": "float32",
+    "shape": [
+      72
+    ]
+  },
+  "Conv2D_7/filter:0": {
+    "nodeName": "Conv__173",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_7/filter:0",
+    "identifier": "",
+    "dataOffset": 13520,
+    "byteLength": 6912,
+    "dataType": "float32",
+    "shape": [
+      24,
+      72,
+      1,
+      1
+    ]
+  },
+  "conv2d_6_1/y:0": {
+    "nodeName": "Conv__173",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_6_1/y:0",
+    "identifier": "",
+    "dataOffset": 20432,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_8/filter:0": {
+    "nodeName": "Conv__176",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_8/filter:0",
+    "identifier": "",
+    "dataOffset": 20528,
+    "byteLength": 8448,
+    "dataType": "float32",
+    "shape": [
+      88,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_7_1/y:0": {
+    "nodeName": "Conv__176",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_7_1/y:0",
+    "identifier": "",
+    "dataOffset": 28976,
+    "byteLength": 352,
+    "dataType": "float32",
+    "shape": [
+      88
+    ]
+  },
+  "const_fold_opt__385": {
+    "nodeName": "Conv__177",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__385",
+    "identifier": "",
+    "dataOffset": 29328,
+    "byteLength": 3168,
+    "dataType": "float32",
+    "shape": [
+      88,
+      1,
+      3,
+      3
+    ]
+  },
+  "depthwise_conv2d_2/y:0": {
+    "nodeName": "Conv__177",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_2/y:0",
+    "identifier": "",
+    "dataOffset": 32496,
+    "byteLength": 352,
+    "dataType": "float32",
+    "shape": [
+      88
+    ]
+  },
+  "Conv2D_9/filter:0": {
+    "nodeName": "Conv__178",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_9/filter:0",
+    "identifier": "",
+    "dataOffset": 32848,
+    "byteLength": 8448,
+    "dataType": "float32",
+    "shape": [
+      24,
+      88,
+      1,
+      1
+    ]
+  },
+  "conv2d_8_1/y:0": {
+    "nodeName": "Conv__178",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_8_1/y:0",
+    "identifier": "",
+    "dataOffset": 41296,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_10/filter:0": {
+    "nodeName": "Conv__183",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_10/filter:0",
+    "identifier": "",
+    "dataOffset": 41392,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      96,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_9_1/y:0": {
+    "nodeName": "Conv__183",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_9_1/y:0",
+    "identifier": "",
+    "dataOffset": 50608,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "const_fold_opt__383": {
+    "nodeName": "Conv__186",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__383",
+    "identifier": "",
+    "dataOffset": 51008,
+    "byteLength": 9600,
+    "dataType": "float32",
+    "shape": [
+      96,
+      1,
+      5,
+      5
+    ]
+  },
+  "depthwise_conv2d_3/y:0": {
+    "nodeName": "Conv__186",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_3/y:0",
+    "identifier": "",
+    "dataOffset": 60608,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "Conv2D_11/filter:0": {
+    "nodeName": "Conv__189",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_11/filter:0",
+    "identifier": "",
+    "dataOffset": 61008,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      24,
+      96,
+      1,
+      1
+    ]
+  },
+  "conv2d_10_1/y:0": {
+    "nodeName": "Conv__189",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_10_1/y:0",
+    "identifier": "",
+    "dataOffset": 70224,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_12/filter:0": {
+    "nodeName": "Conv__190",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_12/filter:0",
+    "identifier": "",
+    "dataOffset": 70320,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      96,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_11_1/y:0": {
+    "nodeName": "Conv__190",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_11_1/y:0",
+    "identifier": "",
+    "dataOffset": 79536,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "Conv2D_13/filter:0": {
+    "nodeName": "Conv__191",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_13/filter:0",
+    "identifier": "",
+    "dataOffset": 79920,
+    "byteLength": 12288,
+    "dataType": "float32",
+    "shape": [
+      32,
+      96,
+      1,
+      1
+    ]
+  },
+  "conv2d_12_1/y:0": {
+    "nodeName": "Conv__191",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_12_1/y:0",
+    "identifier": "",
+    "dataOffset": 92208,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_14/filter:0": {
+    "nodeName": "Conv__194",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_14/filter:0",
+    "identifier": "",
+    "dataOffset": 92336,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      128,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_13_1/y:0": {
+    "nodeName": "Conv__194",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_13_1/y:0",
+    "identifier": "",
+    "dataOffset": 108720,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "const_fold_opt__381": {
+    "nodeName": "Conv__197",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__381",
+    "identifier": "",
+    "dataOffset": 109248,
+    "byteLength": 12800,
+    "dataType": "float32",
+    "shape": [
+      128,
+      1,
+      5,
+      5
+    ]
+  },
+  "depthwise_conv2d_4/y:0": {
+    "nodeName": "Conv__197",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_4/y:0",
+    "identifier": "",
+    "dataOffset": 122048,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "Conv2D_15/filter:0": {
+    "nodeName": "Conv__200",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_15/filter:0",
+    "identifier": "",
+    "dataOffset": 122576,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      32,
+      128,
+      1,
+      1
+    ]
+  },
+  "conv2d_14_1/y:0": {
+    "nodeName": "Conv__200",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_14_1/y:0",
+    "identifier": "",
+    "dataOffset": 138960,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_16/filter:0": {
+    "nodeName": "Conv__201",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_16/filter:0",
+    "identifier": "",
+    "dataOffset": 139088,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      128,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_15_1/y:0": {
+    "nodeName": "Conv__201",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_15_1/y:0",
+    "identifier": "",
+    "dataOffset": 155472,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "Conv2D_17/filter:0": {
+    "nodeName": "Conv__202",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_17/filter:0",
+    "identifier": "",
+    "dataOffset": 155984,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      32,
+      128,
+      1,
+      1
+    ]
+  },
+  "conv2d_16_1/y:0": {
+    "nodeName": "Conv__202",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_16_1/y:0",
+    "identifier": "",
+    "dataOffset": 172368,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_18/filter:0": {
+    "nodeName": "Conv__205",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_18/filter:0",
+    "identifier": "",
+    "dataOffset": 172496,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      128,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_17_1/y:0": {
+    "nodeName": "Conv__205",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_17_1/y:0",
+    "identifier": "",
+    "dataOffset": 188880,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "const_fold_opt__379": {
+    "nodeName": "Conv__208",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__379",
+    "identifier": "",
+    "dataOffset": 189408,
+    "byteLength": 12800,
+    "dataType": "float32",
+    "shape": [
+      128,
+      1,
+      5,
+      5
+    ]
+  },
+  "depthwise_conv2d_5/y:0": {
+    "nodeName": "Conv__208",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_5/y:0",
+    "identifier": "",
+    "dataOffset": 202208,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "Conv2D_19/filter:0": {
+    "nodeName": "Conv__211",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_19/filter:0",
+    "identifier": "",
+    "dataOffset": 202736,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      32,
+      128,
+      1,
+      1
+    ]
+  },
+  "conv2d_18_1/y:0": {
+    "nodeName": "Conv__211",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_18_1/y:0",
+    "identifier": "",
+    "dataOffset": 219120,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_20/filter:0": {
+    "nodeName": "Conv__212",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_20/filter:0",
+    "identifier": "",
+    "dataOffset": 219248,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      128,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_19_1/y:0": {
+    "nodeName": "Conv__212",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_19_1/y:0",
+    "identifier": "",
+    "dataOffset": 235632,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "Conv2D_21/filter:0": {
+    "nodeName": "Conv__213",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_21/filter:0",
+    "identifier": "",
+    "dataOffset": 236144,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      32,
+      128,
+      1,
+      1
+    ]
+  },
+  "conv2d_20_1/y:0": {
+    "nodeName": "Conv__213",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_20_1/y:0",
+    "identifier": "",
+    "dataOffset": 252528,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_22/filter:0": {
+    "nodeName": "Conv__216",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_22/filter:0",
+    "identifier": "",
+    "dataOffset": 252656,
+    "byteLength": 12288,
+    "dataType": "float32",
+    "shape": [
+      96,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_21_1/y:0": {
+    "nodeName": "Conv__216",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_21_1/y:0",
+    "identifier": "",
+    "dataOffset": 264944,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "const_fold_opt__395": {
+    "nodeName": "Conv__219",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__395",
+    "identifier": "",
+    "dataOffset": 265344,
+    "byteLength": 9600,
+    "dataType": "float32",
+    "shape": [
+      96,
+      1,
+      5,
+      5
+    ]
+  },
+  "depthwise_conv2d_6/y:0": {
+    "nodeName": "Conv__219",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_6/y:0",
+    "identifier": "",
+    "dataOffset": 274944,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "Conv2D_23/filter:0": {
+    "nodeName": "Conv__222",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_23/filter:0",
+    "identifier": "",
+    "dataOffset": 275344,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      24,
+      96,
+      1,
+      1
+    ]
+  },
+  "conv2d_22_1/y:0": {
+    "nodeName": "Conv__222",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_22_1/y:0",
+    "identifier": "",
+    "dataOffset": 284560,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_24/filter:0": {
+    "nodeName": "Conv__223",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_24/filter:0",
+    "identifier": "",
+    "dataOffset": 284656,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      96,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_23_1/y:0": {
+    "nodeName": "Conv__223",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_23_1/y:0",
+    "identifier": "",
+    "dataOffset": 293872,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "Conv2D_25/filter:0": {
+    "nodeName": "Conv__224",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_25/filter:0",
+    "identifier": "",
+    "dataOffset": 294256,
+    "byteLength": 12288,
+    "dataType": "float32",
+    "shape": [
+      32,
+      96,
+      1,
+      1
+    ]
+  },
+  "conv2d_24_1/y:0": {
+    "nodeName": "Conv__224",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_24_1/y:0",
+    "identifier": "",
+    "dataOffset": 306544,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_26/filter:0": {
+    "nodeName": "Conv__227",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_26/filter:0",
+    "identifier": "",
+    "dataOffset": 306672,
+    "byteLength": 12288,
+    "dataType": "float32",
+    "shape": [
+      96,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_25_1/y:0": {
+    "nodeName": "Conv__227",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_25_1/y:0",
+    "identifier": "",
+    "dataOffset": 318960,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "const_fold_opt__407": {
+    "nodeName": "Conv__230",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__407",
+    "identifier": "",
+    "dataOffset": 319360,
+    "byteLength": 9600,
+    "dataType": "float32",
+    "shape": [
+      96,
+      1,
+      5,
+      5
+    ]
+  },
+  "depthwise_conv2d_7/y:0": {
+    "nodeName": "Conv__230",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_7/y:0",
+    "identifier": "",
+    "dataOffset": 328960,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "Conv2D_27/filter:0": {
+    "nodeName": "Conv__233",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_27/filter:0",
+    "identifier": "",
+    "dataOffset": 329360,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      24,
+      96,
+      1,
+      1
+    ]
+  },
+  "conv2d_26_1/y:0": {
+    "nodeName": "Conv__233",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_26_1/y:0",
+    "identifier": "",
+    "dataOffset": 338576,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_28/filter:0": {
+    "nodeName": "Conv__234",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_28/filter:0",
+    "identifier": "",
+    "dataOffset": 338672,
+    "byteLength": 9216,
+    "dataType": "float32",
+    "shape": [
+      96,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_27_1/y:0": {
+    "nodeName": "Conv__234",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_27_1/y:0",
+    "identifier": "",
+    "dataOffset": 347888,
+    "byteLength": 384,
+    "dataType": "float32",
+    "shape": [
+      96
+    ]
+  },
+  "Conv2D_29/filter:0": {
+    "nodeName": "Conv__235",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_29/filter:0",
+    "identifier": "",
+    "dataOffset": 348272,
+    "byteLength": 12288,
+    "dataType": "float32",
+    "shape": [
+      32,
+      96,
+      1,
+      1
+    ]
+  },
+  "conv2d_28_1/y:0": {
+    "nodeName": "Conv__235",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_28_1/y:0",
+    "identifier": "",
+    "dataOffset": 360560,
+    "byteLength": 128,
+    "dataType": "float32",
+    "shape": [
+      32
+    ]
+  },
+  "Conv2D_31/filter:0": {
+    "nodeName": "Conv__238",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_31/filter:0",
+    "identifier": "",
+    "dataOffset": 360688,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      128,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_30_1/y:0": {
+    "nodeName": "Conv__238",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_30_1/y:0",
+    "identifier": "",
+    "dataOffset": 377072,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "Conv2D_30/filter:0": {
+    "nodeName": "Conv__239",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_30/filter:0",
+    "identifier": "",
+    "dataOffset": 377584,
+    "byteLength": 16384,
+    "dataType": "float32",
+    "shape": [
+      128,
+      32,
+      1,
+      1
+    ]
+  },
+  "conv2d_29_1/y:0": {
+    "nodeName": "Conv__239",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_29_1/y:0",
+    "identifier": "",
+    "dataOffset": 393968,
+    "byteLength": 512,
+    "dataType": "float32",
+    "shape": [
+      128
+    ]
+  },
+  "scales__125": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "scales",
+    "name": "scales__125",
+    "identifier": "",
+    "dataOffset": 420656,
+    "byteLength": 16,
+    "dataType": "float32",
+    "shape": [
+      4
+    ]
+  },
+  "Conv2D_32/filter:0": {
+    "nodeName": "Conv__240",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_32/filter:0",
+    "identifier": "",
+    "dataOffset": 394528,
+    "byteLength": 12288,
+    "dataType": "float32",
+    "shape": [
+      24,
+      128,
+      1,
+      1
+    ]
+  },
+  "conv2d_31_1/y:0": {
+    "nodeName": "Conv__240",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_31_1/y:0",
+    "identifier": "",
+    "dataOffset": 406816,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_33/filter:0": {
+    "nodeName": "Conv__243",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_33/filter:0",
+    "identifier": "",
+    "dataOffset": 406912,
+    "byteLength": 2304,
+    "dataType": "float32",
+    "shape": [
+      24,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_32_1/y:0": {
+    "nodeName": "Conv__243",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_32_1/y:0",
+    "identifier": "",
+    "dataOffset": 409216,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_34/filter:0": {
+    "nodeName": "Conv__244",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_34/filter:0",
+    "identifier": "",
+    "dataOffset": 409312,
+    "byteLength": 2304,
+    "dataType": "float32",
+    "shape": [
+      24,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_33_1/y:0": {
+    "nodeName": "Conv__244",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_33_1/y:0",
+    "identifier": "",
+    "dataOffset": 411616,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_35/filter:0": {
+    "nodeName": "Conv__245",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_35/filter:0",
+    "identifier": "",
+    "dataOffset": 411712,
+    "byteLength": 2304,
+    "dataType": "float32",
+    "shape": [
+      24,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_34_1/y:0": {
+    "nodeName": "Conv__245",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_34_1/y:0",
+    "identifier": "",
+    "dataOffset": 414016,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "const_fold_opt__394": {
+    "nodeName": "Conv__248",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__394",
+    "identifier": "",
+    "dataOffset": 414112,
+    "byteLength": 864,
+    "dataType": "float32",
+    "shape": [
+      24,
+      1,
+      3,
+      3
+    ]
+  },
+  "depthwise_conv2d_8/y:0": {
+    "nodeName": "Conv__248",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_8/y:0",
+    "identifier": "",
+    "dataOffset": 414976,
+    "byteLength": 96,
+    "dataType": "float32",
+    "shape": [
+      24
+    ]
+  },
+  "Conv2D_36/filter:0": {
+    "nodeName": "Conv__249",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_36/filter:0",
+    "identifier": "",
+    "dataOffset": 415120,
+    "byteLength": 1536,
+    "dataType": "float32",
+    "shape": [
+      16,
+      24,
+      1,
+      1
+    ]
+  },
+  "conv2d_35_1/y:0": {
+    "nodeName": "Conv__249",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_35_1/y:0",
+    "identifier": "",
+    "dataOffset": 416656,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_37/filter:0": {
+    "nodeName": "Conv__252",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_37/filter:0",
+    "identifier": "",
+    "dataOffset": 416720,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_36_1/y:0": {
+    "nodeName": "Conv__252",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_36_1/y:0",
+    "identifier": "",
+    "dataOffset": 417744,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_38/filter:0": {
+    "nodeName": "Conv__253",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_38/filter:0",
+    "identifier": "",
+    "dataOffset": 417808,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_37_1/y:0": {
+    "nodeName": "Conv__253",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_37_1/y:0",
+    "identifier": "",
+    "dataOffset": 418832,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_39/filter:0": {
+    "nodeName": "Conv__254",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_39/filter:0",
+    "identifier": "",
+    "dataOffset": 418896,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_38_1/y:0": {
+    "nodeName": "Conv__254",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_38_1/y:0",
+    "identifier": "",
+    "dataOffset": 419920,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "const_fold_opt__391": {
+    "nodeName": "Conv__257",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__391",
+    "identifier": "",
+    "dataOffset": 419984,
+    "byteLength": 576,
+    "dataType": "float32",
+    "shape": [
+      16,
+      1,
+      3,
+      3
+    ]
+  },
+  "depthwise_conv2d_9/y:0": {
+    "nodeName": "Conv__257",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_9/y:0",
+    "identifier": "",
+    "dataOffset": 420560,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_40/filter:0": {
+    "nodeName": "Conv__258",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_40/filter:0",
+    "identifier": "",
+    "dataOffset": 420672,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_39_1/y:0": {
+    "nodeName": "Conv__258",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_39_1/y:0",
+    "identifier": "",
+    "dataOffset": 421696,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_41/filter:0": {
+    "nodeName": "Conv__261",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_41/filter:0",
+    "identifier": "",
+    "dataOffset": 421760,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_40_1/y:0": {
+    "nodeName": "Conv__261",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_40_1/y:0",
+    "identifier": "",
+    "dataOffset": 422784,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_42/filter:0": {
+    "nodeName": "Conv__262",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_42/filter:0",
+    "identifier": "",
+    "dataOffset": 422848,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_41_1/y:0": {
+    "nodeName": "Conv__262",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_41_1/y:0",
+    "identifier": "",
+    "dataOffset": 423872,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "Conv2D_43/filter:0": {
+    "nodeName": "Conv__263",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_43/filter:0",
+    "identifier": "",
+    "dataOffset": 423936,
+    "byteLength": 1024,
+    "dataType": "float32",
+    "shape": [
+      16,
+      16,
+      1,
+      1
+    ]
+  },
+  "conv2d_42_1/y:0": {
+    "nodeName": "Conv__263",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_42_1/y:0",
+    "identifier": "",
+    "dataOffset": 424960,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "const_fold_opt__389": {
+    "nodeName": "Conv__266",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__389",
+    "identifier": "",
+    "dataOffset": 425024,
+    "byteLength": 576,
+    "dataType": "float32",
+    "shape": [
+      16,
+      1,
+      3,
+      3
+    ]
+  },
+  "depthwise_conv2d_10/y:0": {
+    "nodeName": "Conv__266",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_10/y:0",
+    "identifier": "",
+    "dataOffset": 425600,
+    "byteLength": 64,
+    "dataType": "float32",
+    "shape": [
+      16
+    ]
+  },
+  "conv2d_transpose/filter:0": {
+    "nodeName": "conv2d_transpose",
+    "nodeIdentifier": "",
+    "nodeType": "ConvTranspose",
+    "input": "W",
+    "name": "conv2d_transpose/filter:0",
+    "identifier": "",
+    "dataOffset": 425664,
+    "byteLength": 256,
+    "dataType": "float32",
+    "shape": [
+      16,
+      1,
+      2,
+      2
+    ]
+  },
+  "const_fold_opt__402": {
+    "nodeName": "conv2d_transpose_add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "const_fold_opt__402",
+    "identifier": "",
+    "dataOffset": 425920,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "new_shape__369": {
+    "nodeName": "Transpose__272",
+    "nodeIdentifier": "",
+    "nodeType": "Reshape",
+    "input": "shape",
+    "name": "new_shape__369",
+    "identifier": "",
+    "dataOffset": 425924,
+    "byteLength": 32,
+    "dataType": "int64",
+    "shape": [
+      4
+    ]
+  }
+}

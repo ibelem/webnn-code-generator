@@ -186,8 +186,8 @@ export function conv2d(
   if (filterLayout) options.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) options.push(`inputLayout: ${inputLayout}`);
 
+  //     ${groupCheckCode}${optionsCheckCode}${biasCheckCode}
   return `
-    ${groupCheckCode}${optionsCheckCode}${biasCheckCode}
     const ${outputVar} = builder.conv2d(
       ${inputVars[0]}, ${filterVarName},
       {

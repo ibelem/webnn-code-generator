@@ -42,7 +42,9 @@ export function reshape(
       throw new Error(`Reshape shape initializer '${shapeName}' missing length`);
     }
     // Only support BigInt64Array for shape tensor
-    const js_shape_array = `new BigInt64Array(weights_array_buffer, ${shape_offset}, ${shape_length} / BigInt64Array.BYTES_PER_ELEMENT)`;
+    // const js_shape_array = `new BigInt64Array(weights_array_buffer, ${shape_offset}, ${shape_length} / BigInt64Array.BYTES_PER_ELEMENT)`;
+    const js_shape_array = `new BigInt64Array(weights_array_buffer.slice(${shape_offset}, ${shape_offset + shape_length}))`;
+
     // Convert BigInt64Array to Number array for WebNN and handle -1
     const js_shape = `(() => {
         const shape = Array.from(${js_shape_array}, Number);

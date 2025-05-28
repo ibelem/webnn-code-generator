@@ -19,12 +19,8 @@ export function resize(
   // Default mode is 'nearest'
   let mode = 'nearest';
   for (const attr of attrs) {
-    if (attr.name === 'mode' && attr.s) {
-      try {
-        mode = atob(attr.s).toLowerCase();
-      } catch {
-        mode = attr.s.toLowerCase();
-      }
+    if (attr.name === 'mode' && typeof attr.value === 'string') {
+      mode = attr.value.toLowerCase();
     }
   }
 
@@ -36,31 +32,55 @@ export function resize(
     throw new Error('WebNN does not support cubic mode for Resize.');
   }
 
-  // Handle scales and sizes (try to inline if possible, else use variable)
-  let scales_js = undefined;
-  let sizes_js = undefined;
+  // Handle scales and sizes
+  let scales_js: string | undefined = undefined;
+  let sizes_js: string | undefined = undefined;
+
+  // Helper to extract initializer array from input index
+  function getInitializerArr(idx: number): number[] | undefined {
+    if (inputs.length > idx && node.inputs[idx]?.value?.[0]?.initializer) {
+      const init = node.inputs[idx].value[0].initializer;
+      const arr = Object.keys(init.values)
+        .sort((a, b) => Number(a) - Number(b))
+        .map(k => init.values[k]);
+      return arr;
+    }
+    return undefined;
+  }
 
   // sizes: usually input[3]
-  if (inputs.length > 3 && inputs[3]) {
-    // Try to inline if available as initializer (should be resolved in your loader)
-    // Here, just use the variable name for codegen
+  const sizesArr = getInitializerArr(3);
+  if (sizesArr && sizesArr.length >= 4) {
+    sizes_js = `[${parseInt(sizesArr[2].toString())}, ${parseInt(sizesArr[3].toString())}]`;
+  } else if (inputs.length > 3 && inputs[3]) {
     sizes_js = toJsVarName(inputs[3]);
   }
+
   // scales: usually input[2]
-  if (inputs.length > 2 && inputs[2]) {
+  const scalesArr = getInitializerArr(2);
+  if (scalesArr && scalesArr.length >= 4) {
+    scales_js = `[${parseFloat(scalesArr[2].toString())}, ${parseFloat(scalesArr[3].toString())}]`;
+  } else if (inputs.length > 2 && inputs[2]) {
     scales_js = toJsVarName(inputs[2]);
   }
 
-  const options = [
-    `mode: '${webnn_mode}'`,
-    `scales: ${scales_js}`
-  ];
+  // Axes: default per spec
+  let axes_js = nhwc ? '[1, 2]' : '[2, 3]';
 
-  if(sizes_js) options.push(`sizes: ${sizes_js}`);
-
-  if (nhwc) {
-    options.push('axes: [1, 2]');
+  // Build options
+  const options: string[] = [`mode: '${webnn_mode}'`];
+  if (sizes_js) {
+    options.push(`sizes: ${sizes_js}`);
+  } else {
+    options.push(`sizes: undefined`);
+  } 
+  
+  if (scales_js) {
+    options.push(`scales: ${scales_js}`);
+  } else {
+    options.push('scales: [1.0, 1.0]');
   }
+  options.push(`axes: ${axes_js}`);
 
   return `
     const ${outputVar} = builder.resample2d(

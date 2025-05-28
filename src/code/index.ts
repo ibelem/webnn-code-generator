@@ -1,6 +1,8 @@
 // import { getModelState } from './ui';
-import { modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues, 
-  getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile } from '../utils';
+import {
+  modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues,
+  getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile
+} from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
 import { opHandlers } from './operation';
 
@@ -86,13 +88,20 @@ function buildCode() {
                 emittedInitializers.add(varName);
               } else if (
                 initializer?.encoding === '|' &&
-                Array.isArray(initializer?.type.shape.dimensions) &&
-                initializer?.type.shape.dimensions.length === 1 &&
-                initializer?.type.shape.dimensions[0] === 1
+                Array.isArray(initializer?.type.shape.dimensions)
               ) {
+                const dims = initializer.type.shape.dimensions;
+                const valueArr = Object.keys(initializer.values)
+                  .sort((a, b) => Number(a) - Number(b))
+                  .map(k => initializer.values[k]);
+                const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
+                const shapeStr = JSON.stringify(dims);
                 initializersCode += `
-    const ${varName} = ${initializer?.values['0']};
-    `;
+    const ${varName} = builder.constant(
+      { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
+      new ${typedArrayCtor}([${valueArr.join(', ')}])
+    );
+`;
                 emittedInitializers.add(varName);
               }
             }
@@ -144,7 +153,7 @@ function buildCode() {
     const name = getNonEmptyStringAroundNewline(output.value[0]?.name);
     const dataType = output.value[0]?.type?.dataType;
     const shapeArr = output.value[0]?.type?.shape?.dimensions;
-    
+
     // Replace symbolic dimensions with values from freeDimsOverrides if present
     const resolvedShape = shapeArr.map((dim: any) =>
       typeof dim === 'string' && freeDimsOverrides && freeDimsOverrides[dim] != null
@@ -234,8 +243,8 @@ export function generateJS() {
   let freeDimsOverridesStr = '';
   if (hasKeysandNumberValues(freeDimsOverrides)) {
     const freeDimsString = Object.entries(freeDimsOverrides)
-    .map(([key, value]) => `${key}: ${value}`)
-    .join(', ');
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(', ');
     freeDimsOverridesStr = `
   // Set freeDimensionOverrides globally for symbolic dimensions
   // ${freeDimsString}

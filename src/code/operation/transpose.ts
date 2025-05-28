@@ -18,8 +18,14 @@ export function transpose(
   // Default perm is reversed order if not specified
   let perm: number[] | null = null;
   for (const attr of attrs) {
-    if (attr.name === 'perm' && Array.isArray(attr.ints)) {
-      perm = attr.ints;
+    if (attr.name === 'perm') {
+      if (attr.value.type === "int64[]" || attr.value.type === "bigint[]") {
+        // Convert each string to a BigInt or Number
+        perm = attr.value.value.map((v: string) => BigInt(v));
+      } else {
+        perm = attr.value.value.map((v: any) => Number(v));
+      }
+
       break;
     }
   }
