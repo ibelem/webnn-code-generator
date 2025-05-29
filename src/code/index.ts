@@ -74,11 +74,18 @@ function buildCode() {
               }
 
               if (initializer?.encoding === '<') {
-                let constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)`
-                if (dataType === 'int64' || dataType === 'uint64') {
-                  // Skip the int64/uint64 check for "start offset of BigInt64Array should be a multiple of 8"
-                  constantBuffer = `new BigInt64Array(weights_array_buffer.slice(${weightsDataOffset}, ${weightsDataOffset + weightsByteLength}))`;
-                }
+                const constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer.slice(${weightsDataOffset}, ${weightsDataOffset + weightsByteLength}))`;
+                // const constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)`
+                // if (dataType === 'int64' || dataType === 'uint64') {
+                //   // Skip the int64/uint64 check for "start offset of BigInt64Array should be a multiple of 8"
+                //   constantBuffer = `new BigInt64Array(weights_array_buffer.slice(${weightsDataOffset}, ${weightsDataOffset + weightsByteLength}))`;
+                // }
+                // if (dataType === 'int32') {
+                //   constantBuffer = `new Int32Array(weights_array_buffer.slice(${weightsDataOffset}, ${weightsDataOffset + weightsByteLength}))`;
+                // }
+                // if (dataType === 'uint32') {
+                //   constantBuffer = `new Uint32Array(weights_array_buffer.slice(${weightsDataOffset}, ${weightsDataOffset + weightsByteLength}))`;
+                // }
                 initializersCode += `
     const ${varName} = builder.constant(
       { dataType: '${dataType}', shape: [${shape}] },

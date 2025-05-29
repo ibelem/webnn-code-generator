@@ -19,9 +19,20 @@ export function softmax(
   let axis = 1;
   for (const attr of attrs) {
     if (attr.name === 'axis') {
-      axis = Number(attr.i ?? 1);
+      // Handle ONNX JSON format: value: { type: "bigint", value: "-1" }
+      if (attr.value && typeof attr.value.value === 'string') {
+        axis = Number(attr.value.value);
+      } else if (typeof attr.value === 'number') {
+        axis = attr.value;
+      }
       break;
     }
+  }
+
+  if (axis < 0) {
+    // Get input shape from node.inputs[0].value[0].type.shape.dimensions or default to []
+    const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions || [];
+    axis = inputShape.length + axis;
   }
 
   return `

@@ -18,10 +18,30 @@ export function argMaxMin(
 
   // Default axis is 0 for ONNX ArgMax/ArgMin
   let axis = 0;
-  let keepDims = false;
+  let keepDims = true; // ONNX default is keepdims=1 (true)
   for (const attr of attrs) {
-    if (attr.name === 'axis') axis = Number(attr.i ?? 0);
-    if (attr.name === 'keepdims') keepDims = !!attr.i;
+    if (attr.name === 'axis') {
+      // Handle ONNX JSON format: value: { type: "bigint", value: "-1" }
+      if (attr.value && typeof attr.value.value === 'string') {
+        axis = Number(attr.value.value);
+      } else if (typeof attr.value === 'number') {
+        axis = attr.value;
+      }
+    }
+    if (attr.name === 'keepdims') {
+      // ONNX default is 1 (true), 0 (false)
+      if (attr.value && typeof attr.value.value === 'string') {
+        keepDims = Number(attr.value.value) !== 0;
+      } else if (typeof attr.value === 'number') {
+        keepDims = attr.value !== 0;
+      }
+    }
+  }
+
+  // Handle negative axis
+  if (axis < 0) {
+    const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions || [];
+    axis = inputShape.length + axis;
   }
 
   // Set outputDataType to 'int32' as per WebNN default

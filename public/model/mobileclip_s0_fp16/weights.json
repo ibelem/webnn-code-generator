@@ -1,0 +1,2293 @@
+{
+  "embedding_layer.weight": {
+    "nodeName": "/embedding_layer/Gather",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "data",
+    "name": "embedding_layer.weight",
+    "identifier": "",
+    "dataOffset": 0,
+    "byteLength": 50593792,
+    "dataType": "float16",
+    "shape": [
+      49408,
+      512
+    ]
+  },
+  "/Constant_1_output_0": {
+    "nodeName": "/Gather",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 50593792,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "onnx::Unsqueeze_90": {
+    "nodeName": "/positional_embedding/pos_embed/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_90",
+    "identifier": "",
+    "dataOffset": 50593800,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/positional_embedding/pos_embed/Constant_output_0": {
+    "nodeName": "/positional_embedding/pos_embed/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/positional_embedding/pos_embed/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 50593808,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/positional_embedding/pos_embed/Constant_1_output_0": {
+    "nodeName": "/positional_embedding/pos_embed/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/positional_embedding/pos_embed/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 50593816,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "positional_embedding.pos_embed.pos_embed": {
+    "nodeName": "/positional_embedding/pos_embed/Reshape",
+    "nodeIdentifier": "",
+    "nodeType": "Reshape",
+    "input": "data",
+    "name": "positional_embedding.pos_embed.pos_embed",
+    "identifier": "",
+    "dataOffset": 50593824,
+    "byteLength": 78848,
+    "dataType": "float16",
+    "shape": [
+      1,
+      1,
+      77,
+      512
+    ]
+  },
+  "/transformer.0/Constant_1_output_0": {
+    "nodeName": "/transformer.0/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "/transformer.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 50672672,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "transformer.0.token_mixer.reparam_conv.weight": {
+    "nodeName": "/transformer.0/token_mixer/reparam_conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "transformer.0.token_mixer.reparam_conv.weight",
+    "identifier": "",
+    "dataOffset": 50672680,
+    "byteLength": 11264,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1,
+      1,
+      11
+    ]
+  },
+  "transformer.0.token_mixer.reparam_conv.bias": {
+    "nodeName": "/transformer.0/token_mixer/reparam_conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "transformer.0.token_mixer.reparam_conv.bias",
+    "identifier": "",
+    "dataOffset": 50683944,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "onnx::Conv_531": {
+    "nodeName": "/transformer.0/convffn/conv/conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "onnx::Conv_531",
+    "identifier": "",
+    "dataOffset": 50684968,
+    "byteLength": 11264,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1,
+      1,
+      11
+    ]
+  },
+  "onnx::Conv_532": {
+    "nodeName": "/transformer.0/convffn/conv/conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "onnx::Conv_532",
+    "identifier": "",
+    "dataOffset": 50696232,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.0.convffn.fc1.weight": {
+    "nodeName": "/transformer.0/convffn/fc1/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "transformer.0.convffn.fc1.weight",
+    "identifier": "",
+    "dataOffset": 50697256,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      2048,
+      512,
+      1,
+      1
+    ]
+  },
+  "transformer.0.convffn.fc1.bias": {
+    "nodeName": "/transformer.0/convffn/fc1/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "transformer.0.convffn.fc1.bias",
+    "identifier": "",
+    "dataOffset": 52794408,
+    "byteLength": 4096,
+    "dataType": "float16",
+    "shape": [
+      2048
+    ]
+  },
+  "/transformer.0/convffn/act/Constant_output_0": {
+    "nodeName": "/transformer.0/convffn/act/Div",
+    "nodeIdentifier": "",
+    "nodeType": "Div",
+    "input": "B",
+    "name": "/transformer.0/convffn/act/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 52798504,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.0/convffn/act/Constant_1_output_0": {
+    "nodeName": "/transformer.0/convffn/act/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.0/convffn/act/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 52798506,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.0/convffn/act/Constant_2_output_0": {
+    "nodeName": "/transformer.0/convffn/act/Mul_1",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.0/convffn/act/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 52798508,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.0.convffn.fc2.weight": {
+    "nodeName": "/transformer.0/convffn/fc2/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "transformer.0.convffn.fc2.weight",
+    "identifier": "",
+    "dataOffset": 52798510,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      512,
+      2048,
+      1,
+      1
+    ]
+  },
+  "transformer.0.convffn.fc2.bias": {
+    "nodeName": "/transformer.0/convffn/fc2/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "transformer.0.convffn.fc2.bias",
+    "identifier": "",
+    "dataOffset": 54895662,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.0.layer_scale": {
+    "nodeName": "/transformer.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "A",
+    "name": "transformer.0.layer_scale",
+    "identifier": "",
+    "dataOffset": 54896686,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1,
+      1
+    ]
+  },
+  "/transformer.0/Constant_2_output_0": {
+    "nodeName": "/transformer.0/Squeeze",
+    "nodeIdentifier": "",
+    "nodeType": "Squeeze",
+    "input": "axes",
+    "name": "/transformer.0/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 54897710,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.1/pre_norm_mha.0/Constant_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.1/pre_norm_mha.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 54897718,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.1/pre_norm_mha.0/Constant_1_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.1/pre_norm_mha.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 54897720,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.1.pre_norm_mha.0.weight": {
+    "nodeName": "/transformer.1/pre_norm_mha.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.1.pre_norm_mha.0.weight",
+    "identifier": "",
+    "dataOffset": 54897722,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.1.pre_norm_mha.0.bias": {
+    "nodeName": "/transformer.1/pre_norm_mha.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.1.pre_norm_mha.0.bias",
+    "identifier": "",
+    "dataOffset": 54898746,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_1_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Gather",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 54899770,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_2_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Gather_1",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 54899778,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "onnx::MatMul_538": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/qkv_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_538",
+    "identifier": "",
+    "dataOffset": 54899786,
+    "byteLength": 1572864,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1536
+    ]
+  },
+  "transformer.1.pre_norm_mha.1.qkv_proj.bias": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/qkv_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.1.pre_norm_mha.1.qkv_proj.bias",
+    "identifier": "",
+    "dataOffset": 56472650,
+    "byteLength": 3072,
+    "dataType": "float16",
+    "shape": [
+      1536
+    ]
+  },
+  "onnx::Unsqueeze_145": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_145",
+    "identifier": "",
+    "dataOffset": 56475722,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_147": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Unsqueeze_1",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_147",
+    "identifier": "",
+    "dataOffset": 56475730,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_3_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_3_output_0",
+    "identifier": "",
+    "dataOffset": 56475738,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_4_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_4_output_0",
+    "identifier": "",
+    "dataOffset": 56475746,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_5_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_5_output_0",
+    "identifier": "",
+    "dataOffset": 56475754,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Gather_2",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 75390426,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Gather_3",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 75390434,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/transformer.0/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Gather_4",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 75390442,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_6_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_6_output_0",
+    "identifier": "",
+    "dataOffset": 56475786,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::Unsqueeze_170": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Unsqueeze_2",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_170",
+    "identifier": "",
+    "dataOffset": 56475788,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_172": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Unsqueeze_3",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_172",
+    "identifier": "",
+    "dataOffset": 56475796,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.1/pre_norm_mha.1/Constant_7_output_0": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/Concat_1",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.1/pre_norm_mha.1/Constant_7_output_0",
+    "identifier": "",
+    "dataOffset": 56475804,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::MatMul_543": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/out_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_543",
+    "identifier": "",
+    "dataOffset": 56475812,
+    "byteLength": 524288,
+    "dataType": "float16",
+    "shape": [
+      512,
+      512
+    ]
+  },
+  "transformer.1.pre_norm_mha.1.out_proj.bias": {
+    "nodeName": "/transformer.1/pre_norm_mha.1/out_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.1.pre_norm_mha.1.out_proj.bias",
+    "identifier": "",
+    "dataOffset": 57000100,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 57001124,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 57001126,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.1.pre_norm_ffn.0.weight": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.1.pre_norm_ffn.0.weight",
+    "identifier": "",
+    "dataOffset": 57001128,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.1.pre_norm_ffn.0.bias": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.1.pre_norm_ffn.0.bias",
+    "identifier": "",
+    "dataOffset": 57002152,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "onnx::MatMul_544": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.1/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_544",
+    "identifier": "",
+    "dataOffset": 57003176,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      512,
+      2048
+    ]
+  },
+  "transformer.1.pre_norm_ffn.1.bias": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.1/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.1.pre_norm_ffn.1.bias",
+    "identifier": "",
+    "dataOffset": 59100328,
+    "byteLength": 4096,
+    "dataType": "float16",
+    "shape": [
+      2048
+    ]
+  },
+  "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Div",
+    "nodeIdentifier": "",
+    "nodeType": "Div",
+    "input": "B",
+    "name": "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 59104424,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 59104426,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Mul_1",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.1/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 59104428,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::MatMul_545": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.4/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_545",
+    "identifier": "",
+    "dataOffset": 59104430,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      2048,
+      512
+    ]
+  },
+  "transformer.1.pre_norm_ffn.4.bias": {
+    "nodeName": "/transformer.1/pre_norm_ffn/pre_norm_ffn.4/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.1.pre_norm_ffn.4.bias",
+    "identifier": "",
+    "dataOffset": 61201582,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.2/pre_norm_mha.0/Constant_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.2/pre_norm_mha.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 61202606,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.2/pre_norm_mha.0/Constant_1_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.2/pre_norm_mha.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 61202608,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.2.pre_norm_mha.0.weight": {
+    "nodeName": "/transformer.2/pre_norm_mha.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.2.pre_norm_mha.0.weight",
+    "identifier": "",
+    "dataOffset": 61202610,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.2.pre_norm_mha.0.bias": {
+    "nodeName": "/transformer.2/pre_norm_mha.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.2.pre_norm_mha.0.bias",
+    "identifier": "",
+    "dataOffset": 61203634,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Gather",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 61204658,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_1_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Gather_1",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 61204666,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "onnx::MatMul_546": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/qkv_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_546",
+    "identifier": "",
+    "dataOffset": 61204674,
+    "byteLength": 1572864,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1536
+    ]
+  },
+  "transformer.2.pre_norm_mha.1.qkv_proj.bias": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/qkv_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.2.pre_norm_mha.1.qkv_proj.bias",
+    "identifier": "",
+    "dataOffset": 62777538,
+    "byteLength": 3072,
+    "dataType": "float16",
+    "shape": [
+      1536
+    ]
+  },
+  "onnx::Unsqueeze_232": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_232",
+    "identifier": "",
+    "dataOffset": 62780610,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_234": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Unsqueeze_1",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_234",
+    "identifier": "",
+    "dataOffset": 62780618,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_2_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 62780626,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_3_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_3_output_0",
+    "identifier": "",
+    "dataOffset": 62780634,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_4_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_4_output_0",
+    "identifier": "",
+    "dataOffset": 62780642,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_5_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_5_output_0",
+    "identifier": "",
+    "dataOffset": 62780674,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::Unsqueeze_257": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Unsqueeze_2",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_257",
+    "identifier": "",
+    "dataOffset": 62780676,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_259": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Unsqueeze_3",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_259",
+    "identifier": "",
+    "dataOffset": 62780684,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.2/pre_norm_mha.1/Constant_6_output_0": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/Concat_1",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.2/pre_norm_mha.1/Constant_6_output_0",
+    "identifier": "",
+    "dataOffset": 62780692,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::MatMul_551": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/out_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_551",
+    "identifier": "",
+    "dataOffset": 62780700,
+    "byteLength": 524288,
+    "dataType": "float16",
+    "shape": [
+      512,
+      512
+    ]
+  },
+  "transformer.2.pre_norm_mha.1.out_proj.bias": {
+    "nodeName": "/transformer.2/pre_norm_mha.1/out_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.2.pre_norm_mha.1.out_proj.bias",
+    "identifier": "",
+    "dataOffset": 63304988,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 63306012,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 63306014,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.2.pre_norm_ffn.0.weight": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.2.pre_norm_ffn.0.weight",
+    "identifier": "",
+    "dataOffset": 63306016,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.2.pre_norm_ffn.0.bias": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.2.pre_norm_ffn.0.bias",
+    "identifier": "",
+    "dataOffset": 63307040,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "onnx::MatMul_552": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.1/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_552",
+    "identifier": "",
+    "dataOffset": 63308064,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      512,
+      2048
+    ]
+  },
+  "transformer.2.pre_norm_ffn.1.bias": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.1/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.2.pre_norm_ffn.1.bias",
+    "identifier": "",
+    "dataOffset": 65405216,
+    "byteLength": 4096,
+    "dataType": "float16",
+    "shape": [
+      2048
+    ]
+  },
+  "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Div",
+    "nodeIdentifier": "",
+    "nodeType": "Div",
+    "input": "B",
+    "name": "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 65409312,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 65409314,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Mul_1",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.2/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 65409316,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::MatMul_553": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.4/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_553",
+    "identifier": "",
+    "dataOffset": 65409318,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      2048,
+      512
+    ]
+  },
+  "transformer.2.pre_norm_ffn.4.bias": {
+    "nodeName": "/transformer.2/pre_norm_ffn/pre_norm_ffn.4/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.2.pre_norm_ffn.4.bias",
+    "identifier": "",
+    "dataOffset": 67506470,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.3/pre_norm_mha.0/Constant_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.3/pre_norm_mha.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 67507494,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.3/pre_norm_mha.0/Constant_1_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.3/pre_norm_mha.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 67507496,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.3.pre_norm_mha.0.weight": {
+    "nodeName": "/transformer.3/pre_norm_mha.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.3.pre_norm_mha.0.weight",
+    "identifier": "",
+    "dataOffset": 67507498,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.3.pre_norm_mha.0.bias": {
+    "nodeName": "/transformer.3/pre_norm_mha.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.3.pre_norm_mha.0.bias",
+    "identifier": "",
+    "dataOffset": 67508522,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Gather",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 67509546,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_1_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Gather_1",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 67509554,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "onnx::MatMul_554": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/qkv_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_554",
+    "identifier": "",
+    "dataOffset": 67509562,
+    "byteLength": 1572864,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1536
+    ]
+  },
+  "transformer.3.pre_norm_mha.1.qkv_proj.bias": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/qkv_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.3.pre_norm_mha.1.qkv_proj.bias",
+    "identifier": "",
+    "dataOffset": 69082426,
+    "byteLength": 3072,
+    "dataType": "float16",
+    "shape": [
+      1536
+    ]
+  },
+  "onnx::Unsqueeze_319": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_319",
+    "identifier": "",
+    "dataOffset": 69085498,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_321": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Unsqueeze_1",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_321",
+    "identifier": "",
+    "dataOffset": 69085506,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_2_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 69085514,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_3_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_3_output_0",
+    "identifier": "",
+    "dataOffset": 69085522,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_4_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_4_output_0",
+    "identifier": "",
+    "dataOffset": 69085530,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_5_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_5_output_0",
+    "identifier": "",
+    "dataOffset": 69085562,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::Unsqueeze_344": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Unsqueeze_2",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_344",
+    "identifier": "",
+    "dataOffset": 69085564,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_346": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Unsqueeze_3",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_346",
+    "identifier": "",
+    "dataOffset": 69085572,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.3/pre_norm_mha.1/Constant_6_output_0": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/Concat_1",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.3/pre_norm_mha.1/Constant_6_output_0",
+    "identifier": "",
+    "dataOffset": 69085580,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::MatMul_559": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/out_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_559",
+    "identifier": "",
+    "dataOffset": 69085588,
+    "byteLength": 524288,
+    "dataType": "float16",
+    "shape": [
+      512,
+      512
+    ]
+  },
+  "transformer.3.pre_norm_mha.1.out_proj.bias": {
+    "nodeName": "/transformer.3/pre_norm_mha.1/out_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.3.pre_norm_mha.1.out_proj.bias",
+    "identifier": "",
+    "dataOffset": 69609876,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 69610900,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 69610902,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.3.pre_norm_ffn.0.weight": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.3.pre_norm_ffn.0.weight",
+    "identifier": "",
+    "dataOffset": 69610904,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.3.pre_norm_ffn.0.bias": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.3.pre_norm_ffn.0.bias",
+    "identifier": "",
+    "dataOffset": 69611928,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "onnx::MatMul_560": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.1/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_560",
+    "identifier": "",
+    "dataOffset": 69612952,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      512,
+      2048
+    ]
+  },
+  "transformer.3.pre_norm_ffn.1.bias": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.1/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.3.pre_norm_ffn.1.bias",
+    "identifier": "",
+    "dataOffset": 71710104,
+    "byteLength": 4096,
+    "dataType": "float16",
+    "shape": [
+      2048
+    ]
+  },
+  "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Div",
+    "nodeIdentifier": "",
+    "nodeType": "Div",
+    "input": "B",
+    "name": "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 71714200,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 71714202,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Mul_1",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.3/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 71714204,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::MatMul_561": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.4/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_561",
+    "identifier": "",
+    "dataOffset": 71714206,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      2048,
+      512
+    ]
+  },
+  "transformer.3.pre_norm_ffn.4.bias": {
+    "nodeName": "/transformer.3/pre_norm_ffn/pre_norm_ffn.4/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.3.pre_norm_ffn.4.bias",
+    "identifier": "",
+    "dataOffset": 73811358,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.4/pre_norm_mha.0/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.4/pre_norm_mha.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 73812382,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.4/pre_norm_mha.0/Constant_1_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.4/pre_norm_mha.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 73812384,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.4.pre_norm_mha.0.weight": {
+    "nodeName": "/transformer.4/pre_norm_mha.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.4.pre_norm_mha.0.weight",
+    "identifier": "",
+    "dataOffset": 73812386,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.4.pre_norm_mha.0.bias": {
+    "nodeName": "/transformer.4/pre_norm_mha.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.4.pre_norm_mha.0.bias",
+    "identifier": "",
+    "dataOffset": 73813410,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Gather",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 73814434,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_1_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Gather_1",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 73814442,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "onnx::MatMul_562": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/qkv_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_562",
+    "identifier": "",
+    "dataOffset": 73814450,
+    "byteLength": 1572864,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1536
+    ]
+  },
+  "transformer.4.pre_norm_mha.1.qkv_proj.bias": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/qkv_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.4.pre_norm_mha.1.qkv_proj.bias",
+    "identifier": "",
+    "dataOffset": 75387314,
+    "byteLength": 3072,
+    "dataType": "float16",
+    "shape": [
+      1536
+    ]
+  },
+  "onnx::Unsqueeze_406": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_406",
+    "identifier": "",
+    "dataOffset": 75390386,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_408": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Unsqueeze_1",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_408",
+    "identifier": "",
+    "dataOffset": 75390394,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_2_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 75390402,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_3_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_3_output_0",
+    "identifier": "",
+    "dataOffset": 75390410,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_4_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_4_output_0",
+    "identifier": "",
+    "dataOffset": 75390418,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_5_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_5_output_0",
+    "identifier": "",
+    "dataOffset": 75390450,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::Unsqueeze_431": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Unsqueeze_2",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_431",
+    "identifier": "",
+    "dataOffset": 75390452,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::Unsqueeze_433": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Unsqueeze_3",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "onnx::Unsqueeze_433",
+    "identifier": "",
+    "dataOffset": 75390460,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/transformer.4/pre_norm_mha.1/Constant_6_output_0": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/Concat_1",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/transformer.4/pre_norm_mha.1/Constant_6_output_0",
+    "identifier": "",
+    "dataOffset": 75390468,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "onnx::MatMul_567": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/out_proj/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_567",
+    "identifier": "",
+    "dataOffset": 75390476,
+    "byteLength": 524288,
+    "dataType": "float16",
+    "shape": [
+      512,
+      512
+    ]
+  },
+  "transformer.4.pre_norm_mha.1.out_proj.bias": {
+    "nodeName": "/transformer.4/pre_norm_mha.1/out_proj/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.4.pre_norm_mha.1.out_proj.bias",
+    "identifier": "",
+    "dataOffset": 75914764,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 75915788,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 75915790,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.4.pre_norm_ffn.0.weight": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "transformer.4.pre_norm_ffn.0.weight",
+    "identifier": "",
+    "dataOffset": 75915792,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.4.pre_norm_ffn.0.bias": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.0/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "transformer.4.pre_norm_ffn.0.bias",
+    "identifier": "",
+    "dataOffset": 75916816,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "onnx::MatMul_568": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.1/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_568",
+    "identifier": "",
+    "dataOffset": 75917840,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      512,
+      2048
+    ]
+  },
+  "transformer.4.pre_norm_ffn.1.bias": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.1/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.4.pre_norm_ffn.1.bias",
+    "identifier": "",
+    "dataOffset": 78014992,
+    "byteLength": 4096,
+    "dataType": "float16",
+    "shape": [
+      2048
+    ]
+  },
+  "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Div",
+    "nodeIdentifier": "",
+    "nodeType": "Div",
+    "input": "B",
+    "name": "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 78019088,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 78019090,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Mul_1",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.4/pre_norm_ffn/pre_norm_ffn.2/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 78019092,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "onnx::MatMul_569": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.4/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "onnx::MatMul_569",
+    "identifier": "",
+    "dataOffset": 78019094,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      2048,
+      512
+    ]
+  },
+  "transformer.4.pre_norm_ffn.4.bias": {
+    "nodeName": "/transformer.4/pre_norm_ffn/pre_norm_ffn.4/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "A",
+    "name": "transformer.4.pre_norm_ffn.4.bias",
+    "identifier": "",
+    "dataOffset": 80116246,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/transformer.5/Constant_output_0": {
+    "nodeName": "/transformer.5/Unsqueeze",
+    "nodeIdentifier": "",
+    "nodeType": "Unsqueeze",
+    "input": "axes",
+    "name": "/transformer.5/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 80117270,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "transformer.5.token_mixer.reparam_conv.weight": {
+    "nodeName": "/transformer.5/token_mixer/reparam_conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "transformer.5.token_mixer.reparam_conv.weight",
+    "identifier": "",
+    "dataOffset": 80117278,
+    "byteLength": 11264,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1,
+      1,
+      11
+    ]
+  },
+  "transformer.5.token_mixer.reparam_conv.bias": {
+    "nodeName": "/transformer.5/token_mixer/reparam_conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "transformer.5.token_mixer.reparam_conv.bias",
+    "identifier": "",
+    "dataOffset": 80128542,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "onnx::Conv_534": {
+    "nodeName": "/transformer.5/convffn/conv/conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "onnx::Conv_534",
+    "identifier": "",
+    "dataOffset": 80129566,
+    "byteLength": 11264,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1,
+      1,
+      11
+    ]
+  },
+  "onnx::Conv_535": {
+    "nodeName": "/transformer.5/convffn/conv/conv/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "onnx::Conv_535",
+    "identifier": "",
+    "dataOffset": 80140830,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.5.convffn.fc1.weight": {
+    "nodeName": "/transformer.5/convffn/fc1/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "transformer.5.convffn.fc1.weight",
+    "identifier": "",
+    "dataOffset": 80141854,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      2048,
+      512,
+      1,
+      1
+    ]
+  },
+  "transformer.5.convffn.fc1.bias": {
+    "nodeName": "/transformer.5/convffn/fc1/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "transformer.5.convffn.fc1.bias",
+    "identifier": "",
+    "dataOffset": 82239006,
+    "byteLength": 4096,
+    "dataType": "float16",
+    "shape": [
+      2048
+    ]
+  },
+  "/transformer.5/convffn/act/Constant_output_0": {
+    "nodeName": "/transformer.5/convffn/act/Div",
+    "nodeIdentifier": "",
+    "nodeType": "Div",
+    "input": "B",
+    "name": "/transformer.5/convffn/act/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 82243102,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.5/convffn/act/Constant_1_output_0": {
+    "nodeName": "/transformer.5/convffn/act/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/transformer.5/convffn/act/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 82243104,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/transformer.5/convffn/act/Constant_2_output_0": {
+    "nodeName": "/transformer.5/convffn/act/Mul_1",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "/transformer.5/convffn/act/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 82243106,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "transformer.5.convffn.fc2.weight": {
+    "nodeName": "/transformer.5/convffn/fc2/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "transformer.5.convffn.fc2.weight",
+    "identifier": "",
+    "dataOffset": 82243108,
+    "byteLength": 2097152,
+    "dataType": "float16",
+    "shape": [
+      512,
+      2048,
+      1,
+      1
+    ]
+  },
+  "transformer.5.convffn.fc2.bias": {
+    "nodeName": "/transformer.5/convffn/fc2/Conv",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "transformer.5.convffn.fc2.bias",
+    "identifier": "",
+    "dataOffset": 84340260,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "transformer.5.layer_scale": {
+    "nodeName": "/transformer.5/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "A",
+    "name": "transformer.5.layer_scale",
+    "identifier": "",
+    "dataOffset": 84341284,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512,
+      1,
+      1
+    ]
+  },
+  "/transformer.5/Constant_1_output_0": {
+    "nodeName": "/transformer.5/Squeeze",
+    "nodeIdentifier": "",
+    "nodeType": "Squeeze",
+    "input": "axes",
+    "name": "/transformer.5/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 84342308,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/final_layer_norm/Constant_output_0": {
+    "nodeName": "/final_layer_norm/Pow",
+    "nodeIdentifier": "",
+    "nodeType": "Pow",
+    "input": "Y",
+    "name": "/final_layer_norm/Constant_output_0",
+    "identifier": "",
+    "dataOffset": 84342316,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "/final_layer_norm/Constant_1_output_0": {
+    "nodeName": "/final_layer_norm/Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "/final_layer_norm/Constant_1_output_0",
+    "identifier": "",
+    "dataOffset": 84342318,
+    "byteLength": 2,
+    "dataType": "float16",
+    "shape": []
+  },
+  "final_layer_norm.weight": {
+    "nodeName": "/final_layer_norm/Mul",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "B",
+    "name": "final_layer_norm.weight",
+    "identifier": "",
+    "dataOffset": 84342320,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "final_layer_norm.bias": {
+    "nodeName": "/final_layer_norm/Add_1",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "final_layer_norm.bias",
+    "identifier": "",
+    "dataOffset": 84343344,
+    "byteLength": 1024,
+    "dataType": "float16",
+    "shape": [
+      512
+    ]
+  },
+  "/Constant_2_output_0": {
+    "nodeName": "/Gather_1",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/Constant_2_output_0",
+    "identifier": "",
+    "dataOffset": 84344368,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/Constant_3_output_0": {
+    "nodeName": "/Range",
+    "nodeIdentifier": "",
+    "nodeType": "Range",
+    "input": "start",
+    "name": "/Constant_3_output_0",
+    "identifier": "",
+    "dataOffset": 84344376,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/Constant_4_output_0": {
+    "nodeName": "/Range",
+    "nodeIdentifier": "",
+    "nodeType": "Range",
+    "input": "delta",
+    "name": "/Constant_4_output_0",
+    "identifier": "",
+    "dataOffset": 84344384,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": []
+  },
+  "/Constant_5_output_0": {
+    "nodeName": "/Gather_2",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/Constant_5_output_0",
+    "identifier": "",
+    "dataOffset": 84344392,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/Constant_6_output_0": {
+    "nodeName": "/Gather_3",
+    "nodeIdentifier": "",
+    "nodeType": "Gather",
+    "input": "indices",
+    "name": "/Constant_6_output_0",
+    "identifier": "",
+    "dataOffset": 84344400,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "/Constant_7_output_0": {
+    "nodeName": "/Concat",
+    "nodeIdentifier": "",
+    "nodeType": "Concat",
+    "input": "inputs",
+    "name": "/Constant_7_output_0",
+    "identifier": "",
+    "dataOffset": 84344408,
+    "byteLength": 8,
+    "dataType": "int64",
+    "shape": [
+      1
+    ]
+  },
+  "projection_layer": {
+    "nodeName": "/MatMul",
+    "nodeIdentifier": "",
+    "nodeType": "MatMul",
+    "input": "B",
+    "name": "projection_layer",
+    "identifier": "",
+    "dataOffset": 84344416,
+    "byteLength": 524288,
+    "dataType": "float16",
+    "shape": [
+      512,
+      512
+    ]
+  }
+}

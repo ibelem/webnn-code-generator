@@ -28,6 +28,9 @@ import {
   abs, ceil, cos, erf, exp, floor, identity, log,
   neg, round, reciprocal, sin, sign, sqrt, tan
 } from './operation/unary';
+import { dequantizeLinear } from './operation/quantization/dequantizeLinear';
+import { quantizeLinear } from './operation/quantization/quantizeLinear';
+import { matmul } from './operation/matmul';
 
 const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => string) => string> = {
   // 7 element-wise binary
@@ -58,15 +61,15 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
 
   // https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/op_builder_factory.cc
 
-  // {"ArgMax": "argMax"}, {"ArgMin": "argMin"}, {"BatchNormalization": "batchNormalization"},
+  // {"BatchNormalization": "batchNormalization"},
   // {"Cast": "cast"}, {"Concat": "concat"}, {"CumSum": "cumulativeSum"},
-  // {"DequantizeLinear": "dequantizeLinear"}, {"DynamicQuantizeLinear": "dynamicQuantizeLinear"},
+  // {"DynamicQuantizeLinear": "dynamicQuantizeLinear"},
   // {"Einsum": "matmul"}, {"Expand": "expand"}, {"Flatten": "reshape"},
   // {"Gather": "gather"}, {"GatherElements": "gatherElements"},
   // {"GatherND": "gatherND"}, {"GlobalMaxPool": "maxPool2d"}, {"GlobalLpPool": "l2Pool2d"}, {"GRU": "gru"},
   // {"InstanceNormalization": "instanceNormalization"}, {"LayerNormalization": "layerNormalization"},
-  // {"LpPool": "l2Pool2d"}, {"LSTM": "lstm"}, {"MatMul": "matmul"}, {"Max": "max"}, {"MaxPool": "maxPool2d"},
-  // {"Pad": "pad"}, {"QuantizeLinear": "quantizeLinear"}, {"Reciprocal": "reciprocal"},
+  // {"LpPool": "l2Pool2d"}, {"LSTM": "lstm"}, {"MaxPool": "maxPool2d"},
+  // {"Pad": "pad"}, {"Reciprocal": "reciprocal"},
   // {"ReduceL1": "reduceL1"}, {"ReduceL2": "reduceL2"}, {"ReduceLogSum": "reduceLogSum"},
   // {"ReduceLogSumExp": "reduceLogSumExp"}, {"ReduceMax": "reduceMax"},
   // {"ReduceMean": "reduceMean"}, {"ReduceMin": "reduceMin"},
@@ -111,7 +114,9 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // Dropout
   Dropout: identity,
 
-  // DequantizeLinear, QuantizeLinear, DynamicQuantizeLinear
+  // DynamicQuantizeLinear
+  DequantizeLinear: dequantizeLinear,
+  QuantizeLinear: quantizeLinear,
 
   // Einsum
 
@@ -127,9 +132,9 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
 
   // Flatten
 
-  // Gemm, MatMul
+  // MatMulInteger
   Gemm: gemm,
-  // Matmul, MatMulInteger
+  MatMul: matmul,
 
   // GRU
 
@@ -151,8 +156,6 @@ const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => stri
   // LSTM
 
   // MatMulNBits
-
-  // Max, Min
 
   // MultiHeadAttention
 

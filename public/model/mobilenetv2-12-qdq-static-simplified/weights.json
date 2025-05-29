@@ -1,0 +1,4043 @@
+{
+  "471": {
+    "nodeName": "Reshape_103_quant",
+    "nodeIdentifier": "",
+    "nodeType": "Reshape",
+    "input": "shape",
+    "name": "471",
+    "identifier": "",
+    "dataOffset": 2259300,
+    "byteLength": 16,
+    "dataType": "int64",
+    "shape": [
+      2
+    ]
+  },
+  "input_scale": {
+    "nodeName": "input_Conv_0_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "input_scale",
+    "identifier": "",
+    "dataOffset": 5,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "input_zero_point": {
+    "nodeName": "input_Conv_0_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "input_zero_point",
+    "identifier": "",
+    "dataOffset": 9,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "475_quantized": {
+    "nodeName": "475_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "475_quantized",
+    "identifier": "",
+    "dataOffset": 10,
+    "byteLength": 864,
+    "dataType": "int8",
+    "shape": [
+      32,
+      3,
+      3,
+      3
+    ]
+  },
+  "475_scale": {
+    "nodeName": "475_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "475_scale",
+    "identifier": "",
+    "dataOffset": 874,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "475_zero_point": {
+    "nodeName": "classifier.1.weight_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "475_zero_point",
+    "identifier": "",
+    "dataOffset": 3539330,
+    "byteLength": 1,
+    "dataType": "int8",
+    "shape": []
+  },
+  "476_quantized": {
+    "nodeName": "476_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "476_quantized",
+    "identifier": "",
+    "dataOffset": 879,
+    "byteLength": 128,
+    "dataType": "int32",
+    "shape": [
+      32
+    ]
+  },
+  "476_scale": {
+    "nodeName": "476_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "476_scale",
+    "identifier": "",
+    "dataOffset": 1007,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "623_zero_point": {
+    "nodeName": "629_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "623_zero_point",
+    "identifier": "",
+    "dataOffset": 2259276,
+    "byteLength": 4,
+    "dataType": "int32",
+    "shape": [
+      1
+    ]
+  },
+  "474_scale": {
+    "nodeName": "474_Conv_2_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "474_scale",
+    "identifier": "",
+    "dataOffset": 1020,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "474_zero_point": {
+    "nodeName": "472_Gemm_104_MatMul_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "474_zero_point",
+    "identifier": "",
+    "dataOffset": 2259325,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "478_quantized": {
+    "nodeName": "478_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "478_quantized",
+    "identifier": "",
+    "dataOffset": 1025,
+    "byteLength": 288,
+    "dataType": "int8",
+    "shape": [
+      32,
+      1,
+      3,
+      3
+    ]
+  },
+  "478_scale": {
+    "nodeName": "478_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "478_scale",
+    "identifier": "",
+    "dataOffset": 1313,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "479_quantized": {
+    "nodeName": "479_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "479_quantized",
+    "identifier": "",
+    "dataOffset": 1318,
+    "byteLength": 128,
+    "dataType": "int32",
+    "shape": [
+      32
+    ]
+  },
+  "479_scale": {
+    "nodeName": "479_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "479_scale",
+    "identifier": "",
+    "dataOffset": 1446,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "576_scale": {
+    "nodeName": "627_Conv_95_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "576_scale",
+    "identifier": "",
+    "dataOffset": 2259285,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "481_quantized": {
+    "nodeName": "481_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "481_quantized",
+    "identifier": "",
+    "dataOffset": 1464,
+    "byteLength": 512,
+    "dataType": "int8",
+    "shape": [
+      16,
+      32,
+      1,
+      1
+    ]
+  },
+  "481_scale": {
+    "nodeName": "481_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "481_scale",
+    "identifier": "",
+    "dataOffset": 1976,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "482_quantized": {
+    "nodeName": "482_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "482_quantized",
+    "identifier": "",
+    "dataOffset": 1981,
+    "byteLength": 64,
+    "dataType": "int32",
+    "shape": [
+      16
+    ]
+  },
+  "482_scale": {
+    "nodeName": "482_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "482_scale",
+    "identifier": "",
+    "dataOffset": 2045,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "480_scale": {
+    "nodeName": "480_Conv_5_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "480_scale",
+    "identifier": "",
+    "dataOffset": 2058,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "480_zero_point": {
+    "nodeName": "443_Conv_84_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "480_zero_point",
+    "identifier": "",
+    "dataOffset": 1041838,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "484_quantized": {
+    "nodeName": "484_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "484_quantized",
+    "identifier": "",
+    "dataOffset": 2063,
+    "byteLength": 1536,
+    "dataType": "int8",
+    "shape": [
+      96,
+      16,
+      1,
+      1
+    ]
+  },
+  "484_scale": {
+    "nodeName": "484_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "484_scale",
+    "identifier": "",
+    "dataOffset": 3599,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "485_quantized": {
+    "nodeName": "485_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "485_quantized",
+    "identifier": "",
+    "dataOffset": 3604,
+    "byteLength": 384,
+    "dataType": "int32",
+    "shape": [
+      96
+    ]
+  },
+  "485_scale": {
+    "nodeName": "485_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "485_scale",
+    "identifier": "",
+    "dataOffset": 3988,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "487_quantized": {
+    "nodeName": "487_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "487_quantized",
+    "identifier": "",
+    "dataOffset": 4006,
+    "byteLength": 864,
+    "dataType": "int8",
+    "shape": [
+      96,
+      1,
+      3,
+      3
+    ]
+  },
+  "487_scale": {
+    "nodeName": "487_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "487_scale",
+    "identifier": "",
+    "dataOffset": 4870,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "488_quantized": {
+    "nodeName": "488_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "488_quantized",
+    "identifier": "",
+    "dataOffset": 4875,
+    "byteLength": 384,
+    "dataType": "int32",
+    "shape": [
+      96
+    ]
+  },
+  "488_scale": {
+    "nodeName": "488_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "488_scale",
+    "identifier": "",
+    "dataOffset": 5259,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "490_quantized": {
+    "nodeName": "490_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "490_quantized",
+    "identifier": "",
+    "dataOffset": 5277,
+    "byteLength": 2304,
+    "dataType": "int8",
+    "shape": [
+      24,
+      96,
+      1,
+      1
+    ]
+  },
+  "490_scale": {
+    "nodeName": "490_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "490_scale",
+    "identifier": "",
+    "dataOffset": 7581,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "491_quantized": {
+    "nodeName": "491_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "491_quantized",
+    "identifier": "",
+    "dataOffset": 7586,
+    "byteLength": 96,
+    "dataType": "int32",
+    "shape": [
+      24
+    ]
+  },
+  "491_scale": {
+    "nodeName": "491_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "491_scale",
+    "identifier": "",
+    "dataOffset": 7682,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "489_scale": {
+    "nodeName": "489_Conv_9_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "489_scale",
+    "identifier": "",
+    "dataOffset": 7695,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "489_zero_point": {
+    "nodeName": "489_Conv_9_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "489_zero_point",
+    "identifier": "",
+    "dataOffset": 7699,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "493_quantized": {
+    "nodeName": "493_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "493_quantized",
+    "identifier": "",
+    "dataOffset": 7700,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      144,
+      24,
+      1,
+      1
+    ]
+  },
+  "493_scale": {
+    "nodeName": "493_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "493_scale",
+    "identifier": "",
+    "dataOffset": 11156,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "494_quantized": {
+    "nodeName": "494_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "494_quantized",
+    "identifier": "",
+    "dataOffset": 11161,
+    "byteLength": 576,
+    "dataType": "int32",
+    "shape": [
+      144
+    ]
+  },
+  "494_scale": {
+    "nodeName": "494_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "494_scale",
+    "identifier": "",
+    "dataOffset": 11737,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "492_scale": {
+    "nodeName": "492_Conv_12_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "492_scale",
+    "identifier": "",
+    "dataOffset": 11750,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "496_quantized": {
+    "nodeName": "496_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "496_quantized",
+    "identifier": "",
+    "dataOffset": 11755,
+    "byteLength": 1296,
+    "dataType": "int8",
+    "shape": [
+      144,
+      1,
+      3,
+      3
+    ]
+  },
+  "496_scale": {
+    "nodeName": "496_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "496_scale",
+    "identifier": "",
+    "dataOffset": 13051,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "497_quantized": {
+    "nodeName": "497_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "497_quantized",
+    "identifier": "",
+    "dataOffset": 13056,
+    "byteLength": 576,
+    "dataType": "int32",
+    "shape": [
+      144
+    ]
+  },
+  "497_scale": {
+    "nodeName": "497_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "497_scale",
+    "identifier": "",
+    "dataOffset": 13632,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "495_scale": {
+    "nodeName": "495_Conv_14_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "495_scale",
+    "identifier": "",
+    "dataOffset": 13645,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "499_quantized": {
+    "nodeName": "499_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "499_quantized",
+    "identifier": "",
+    "dataOffset": 13650,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      24,
+      144,
+      1,
+      1
+    ]
+  },
+  "499_scale": {
+    "nodeName": "499_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "499_scale",
+    "identifier": "",
+    "dataOffset": 17106,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "500_quantized": {
+    "nodeName": "500_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "500_quantized",
+    "identifier": "",
+    "dataOffset": 17111,
+    "byteLength": 96,
+    "dataType": "int32",
+    "shape": [
+      24
+    ]
+  },
+  "500_scale": {
+    "nodeName": "500_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "500_scale",
+    "identifier": "",
+    "dataOffset": 17207,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "498_scale": {
+    "nodeName": "498_Conv_14_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "498_scale",
+    "identifier": "",
+    "dataOffset": 17220,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "498_zero_point": {
+    "nodeName": "498_Conv_14_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "498_zero_point",
+    "identifier": "",
+    "dataOffset": 17224,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "339_scale": {
+    "nodeName": "339_Conv_16_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "339_scale",
+    "identifier": "",
+    "dataOffset": 17230,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "339_zero_point": {
+    "nodeName": "339_Conv_16_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "339_zero_point",
+    "identifier": "",
+    "dataOffset": 17234,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "502_quantized": {
+    "nodeName": "502_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "502_quantized",
+    "identifier": "",
+    "dataOffset": 17235,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      144,
+      24,
+      1,
+      1
+    ]
+  },
+  "502_scale": {
+    "nodeName": "502_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "502_scale",
+    "identifier": "",
+    "dataOffset": 20691,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "503_quantized": {
+    "nodeName": "503_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "503_quantized",
+    "identifier": "",
+    "dataOffset": 20696,
+    "byteLength": 576,
+    "dataType": "int32",
+    "shape": [
+      144
+    ]
+  },
+  "503_scale": {
+    "nodeName": "503_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "503_scale",
+    "identifier": "",
+    "dataOffset": 21272,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "501_scale": {
+    "nodeName": "501_Conv_18_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "501_scale",
+    "identifier": "",
+    "dataOffset": 21285,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "505_quantized": {
+    "nodeName": "505_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "505_quantized",
+    "identifier": "",
+    "dataOffset": 21290,
+    "byteLength": 1296,
+    "dataType": "int8",
+    "shape": [
+      144,
+      1,
+      3,
+      3
+    ]
+  },
+  "505_scale": {
+    "nodeName": "505_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "505_scale",
+    "identifier": "",
+    "dataOffset": 22586,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "506_quantized": {
+    "nodeName": "506_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "506_quantized",
+    "identifier": "",
+    "dataOffset": 22591,
+    "byteLength": 576,
+    "dataType": "int32",
+    "shape": [
+      144
+    ]
+  },
+  "506_scale": {
+    "nodeName": "506_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "506_scale",
+    "identifier": "",
+    "dataOffset": 23167,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "504_scale": {
+    "nodeName": "504_Conv_20_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "504_scale",
+    "identifier": "",
+    "dataOffset": 23180,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "508_quantized": {
+    "nodeName": "508_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "508_quantized",
+    "identifier": "",
+    "dataOffset": 23185,
+    "byteLength": 4608,
+    "dataType": "int8",
+    "shape": [
+      32,
+      144,
+      1,
+      1
+    ]
+  },
+  "508_scale": {
+    "nodeName": "508_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "508_scale",
+    "identifier": "",
+    "dataOffset": 27793,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "509_quantized": {
+    "nodeName": "509_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "509_quantized",
+    "identifier": "",
+    "dataOffset": 27798,
+    "byteLength": 128,
+    "dataType": "int32",
+    "shape": [
+      32
+    ]
+  },
+  "509_scale": {
+    "nodeName": "509_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "509_scale",
+    "identifier": "",
+    "dataOffset": 27926,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "507_scale": {
+    "nodeName": "507_Conv_20_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "507_scale",
+    "identifier": "",
+    "dataOffset": 27939,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "507_zero_point": {
+    "nodeName": "507_Conv_20_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "507_zero_point",
+    "identifier": "",
+    "dataOffset": 27943,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "511_quantized": {
+    "nodeName": "511_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "511_quantized",
+    "identifier": "",
+    "dataOffset": 27944,
+    "byteLength": 6144,
+    "dataType": "int8",
+    "shape": [
+      192,
+      32,
+      1,
+      1
+    ]
+  },
+  "511_scale": {
+    "nodeName": "511_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "511_scale",
+    "identifier": "",
+    "dataOffset": 34088,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "512_quantized": {
+    "nodeName": "512_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "512_quantized",
+    "identifier": "",
+    "dataOffset": 34093,
+    "byteLength": 768,
+    "dataType": "int32",
+    "shape": [
+      192
+    ]
+  },
+  "512_scale": {
+    "nodeName": "512_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "512_scale",
+    "identifier": "",
+    "dataOffset": 34861,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "510_scale": {
+    "nodeName": "510_Conv_23_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "510_scale",
+    "identifier": "",
+    "dataOffset": 34874,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "514_quantized": {
+    "nodeName": "514_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "514_quantized",
+    "identifier": "",
+    "dataOffset": 34879,
+    "byteLength": 1728,
+    "dataType": "int8",
+    "shape": [
+      192,
+      1,
+      3,
+      3
+    ]
+  },
+  "514_scale": {
+    "nodeName": "514_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "514_scale",
+    "identifier": "",
+    "dataOffset": 36607,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "515_quantized": {
+    "nodeName": "515_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "515_quantized",
+    "identifier": "",
+    "dataOffset": 36612,
+    "byteLength": 768,
+    "dataType": "int32",
+    "shape": [
+      192
+    ]
+  },
+  "515_scale": {
+    "nodeName": "515_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "515_scale",
+    "identifier": "",
+    "dataOffset": 37380,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "513_scale": {
+    "nodeName": "513_Conv_25_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "513_scale",
+    "identifier": "",
+    "dataOffset": 37393,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "517_quantized": {
+    "nodeName": "517_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "517_quantized",
+    "identifier": "",
+    "dataOffset": 37398,
+    "byteLength": 6144,
+    "dataType": "int8",
+    "shape": [
+      32,
+      192,
+      1,
+      1
+    ]
+  },
+  "517_scale": {
+    "nodeName": "517_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "517_scale",
+    "identifier": "",
+    "dataOffset": 43542,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "518_quantized": {
+    "nodeName": "518_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "518_quantized",
+    "identifier": "",
+    "dataOffset": 43547,
+    "byteLength": 128,
+    "dataType": "int32",
+    "shape": [
+      32
+    ]
+  },
+  "518_scale": {
+    "nodeName": "518_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "518_scale",
+    "identifier": "",
+    "dataOffset": 43675,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "516_scale": {
+    "nodeName": "516_Conv_25_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "516_scale",
+    "identifier": "",
+    "dataOffset": 43688,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "516_zero_point": {
+    "nodeName": "516_Conv_25_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "516_zero_point",
+    "identifier": "",
+    "dataOffset": 43692,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "356_scale": {
+    "nodeName": "356_Conv_27_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "356_scale",
+    "identifier": "",
+    "dataOffset": 43698,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "356_zero_point": {
+    "nodeName": "356_Conv_27_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "356_zero_point",
+    "identifier": "",
+    "dataOffset": 43702,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "520_quantized": {
+    "nodeName": "520_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "520_quantized",
+    "identifier": "",
+    "dataOffset": 43703,
+    "byteLength": 6144,
+    "dataType": "int8",
+    "shape": [
+      192,
+      32,
+      1,
+      1
+    ]
+  },
+  "520_scale": {
+    "nodeName": "520_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "520_scale",
+    "identifier": "",
+    "dataOffset": 49847,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "521_quantized": {
+    "nodeName": "521_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "521_quantized",
+    "identifier": "",
+    "dataOffset": 49852,
+    "byteLength": 768,
+    "dataType": "int32",
+    "shape": [
+      192
+    ]
+  },
+  "521_scale": {
+    "nodeName": "521_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "521_scale",
+    "identifier": "",
+    "dataOffset": 50620,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "519_scale": {
+    "nodeName": "519_Conv_29_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "519_scale",
+    "identifier": "",
+    "dataOffset": 50633,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "523_quantized": {
+    "nodeName": "523_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "523_quantized",
+    "identifier": "",
+    "dataOffset": 50638,
+    "byteLength": 1728,
+    "dataType": "int8",
+    "shape": [
+      192,
+      1,
+      3,
+      3
+    ]
+  },
+  "523_scale": {
+    "nodeName": "523_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "523_scale",
+    "identifier": "",
+    "dataOffset": 52366,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "524_quantized": {
+    "nodeName": "524_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "524_quantized",
+    "identifier": "",
+    "dataOffset": 52371,
+    "byteLength": 768,
+    "dataType": "int32",
+    "shape": [
+      192
+    ]
+  },
+  "524_scale": {
+    "nodeName": "524_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "524_scale",
+    "identifier": "",
+    "dataOffset": 53139,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "522_scale": {
+    "nodeName": "522_Conv_31_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "522_scale",
+    "identifier": "",
+    "dataOffset": 53152,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "526_quantized": {
+    "nodeName": "526_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "526_quantized",
+    "identifier": "",
+    "dataOffset": 53157,
+    "byteLength": 6144,
+    "dataType": "int8",
+    "shape": [
+      32,
+      192,
+      1,
+      1
+    ]
+  },
+  "526_scale": {
+    "nodeName": "526_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "526_scale",
+    "identifier": "",
+    "dataOffset": 59301,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "527_quantized": {
+    "nodeName": "527_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "527_quantized",
+    "identifier": "",
+    "dataOffset": 59306,
+    "byteLength": 128,
+    "dataType": "int32",
+    "shape": [
+      32
+    ]
+  },
+  "527_scale": {
+    "nodeName": "527_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "527_scale",
+    "identifier": "",
+    "dataOffset": 59434,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "525_scale": {
+    "nodeName": "525_Conv_31_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "525_scale",
+    "identifier": "",
+    "dataOffset": 59447,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "525_zero_point": {
+    "nodeName": "391_Conv_50_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "525_zero_point",
+    "identifier": "",
+    "dataOffset": 193512,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "365_scale": {
+    "nodeName": "365_Conv_33_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "365_scale",
+    "identifier": "",
+    "dataOffset": 59457,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "365_zero_point": {
+    "nodeName": "365_Conv_33_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "365_zero_point",
+    "identifier": "",
+    "dataOffset": 59461,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "529_quantized": {
+    "nodeName": "529_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "529_quantized",
+    "identifier": "",
+    "dataOffset": 59462,
+    "byteLength": 6144,
+    "dataType": "int8",
+    "shape": [
+      192,
+      32,
+      1,
+      1
+    ]
+  },
+  "529_scale": {
+    "nodeName": "529_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "529_scale",
+    "identifier": "",
+    "dataOffset": 65606,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "530_quantized": {
+    "nodeName": "530_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "530_quantized",
+    "identifier": "",
+    "dataOffset": 65611,
+    "byteLength": 768,
+    "dataType": "int32",
+    "shape": [
+      192
+    ]
+  },
+  "530_scale": {
+    "nodeName": "530_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "530_scale",
+    "identifier": "",
+    "dataOffset": 66379,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "528_scale": {
+    "nodeName": "528_Conv_35_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "528_scale",
+    "identifier": "",
+    "dataOffset": 66392,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "532_quantized": {
+    "nodeName": "532_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "532_quantized",
+    "identifier": "",
+    "dataOffset": 66397,
+    "byteLength": 1728,
+    "dataType": "int8",
+    "shape": [
+      192,
+      1,
+      3,
+      3
+    ]
+  },
+  "532_scale": {
+    "nodeName": "532_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "532_scale",
+    "identifier": "",
+    "dataOffset": 68125,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "533_quantized": {
+    "nodeName": "533_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "533_quantized",
+    "identifier": "",
+    "dataOffset": 68130,
+    "byteLength": 768,
+    "dataType": "int32",
+    "shape": [
+      192
+    ]
+  },
+  "533_scale": {
+    "nodeName": "533_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "533_scale",
+    "identifier": "",
+    "dataOffset": 68898,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "531_scale": {
+    "nodeName": "531_Conv_37_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "531_scale",
+    "identifier": "",
+    "dataOffset": 68911,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "535_quantized": {
+    "nodeName": "535_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "535_quantized",
+    "identifier": "",
+    "dataOffset": 68916,
+    "byteLength": 12288,
+    "dataType": "int8",
+    "shape": [
+      64,
+      192,
+      1,
+      1
+    ]
+  },
+  "535_scale": {
+    "nodeName": "535_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "535_scale",
+    "identifier": "",
+    "dataOffset": 81204,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "536_quantized": {
+    "nodeName": "536_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "536_quantized",
+    "identifier": "",
+    "dataOffset": 81209,
+    "byteLength": 256,
+    "dataType": "int32",
+    "shape": [
+      64
+    ]
+  },
+  "536_scale": {
+    "nodeName": "536_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "536_scale",
+    "identifier": "",
+    "dataOffset": 81465,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "534_scale": {
+    "nodeName": "534_Conv_37_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "534_scale",
+    "identifier": "",
+    "dataOffset": 81478,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "534_zero_point": {
+    "nodeName": "534_Conv_37_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "534_zero_point",
+    "identifier": "",
+    "dataOffset": 81482,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "538_quantized": {
+    "nodeName": "538_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "538_quantized",
+    "identifier": "",
+    "dataOffset": 81483,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "538_scale": {
+    "nodeName": "538_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "538_scale",
+    "identifier": "",
+    "dataOffset": 106059,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "539_quantized": {
+    "nodeName": "539_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "539_quantized",
+    "identifier": "",
+    "dataOffset": 106064,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "539_scale": {
+    "nodeName": "539_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "539_scale",
+    "identifier": "",
+    "dataOffset": 107600,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "537_scale": {
+    "nodeName": "537_Conv_40_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "537_scale",
+    "identifier": "",
+    "dataOffset": 107613,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "541_quantized": {
+    "nodeName": "541_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "541_quantized",
+    "identifier": "",
+    "dataOffset": 107618,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "541_scale": {
+    "nodeName": "541_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "541_scale",
+    "identifier": "",
+    "dataOffset": 111074,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "542_quantized": {
+    "nodeName": "542_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "542_quantized",
+    "identifier": "",
+    "dataOffset": 111079,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "542_scale": {
+    "nodeName": "542_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "542_scale",
+    "identifier": "",
+    "dataOffset": 112615,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "540_scale": {
+    "nodeName": "540_Conv_42_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "540_scale",
+    "identifier": "",
+    "dataOffset": 112628,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "544_quantized": {
+    "nodeName": "544_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "544_quantized",
+    "identifier": "",
+    "dataOffset": 112633,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      64,
+      384,
+      1,
+      1
+    ]
+  },
+  "544_scale": {
+    "nodeName": "544_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "544_scale",
+    "identifier": "",
+    "dataOffset": 137209,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "545_quantized": {
+    "nodeName": "545_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "545_quantized",
+    "identifier": "",
+    "dataOffset": 137214,
+    "byteLength": 256,
+    "dataType": "int32",
+    "shape": [
+      64
+    ]
+  },
+  "545_scale": {
+    "nodeName": "545_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "545_scale",
+    "identifier": "",
+    "dataOffset": 137470,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "543_scale": {
+    "nodeName": "543_Conv_42_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "543_scale",
+    "identifier": "",
+    "dataOffset": 137483,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "543_zero_point": {
+    "nodeName": "552_Conv_48_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "543_zero_point",
+    "identifier": "",
+    "dataOffset": 193502,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "382_scale": {
+    "nodeName": "382_Conv_44_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "382_scale",
+    "identifier": "",
+    "dataOffset": 137493,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "382_zero_point": {
+    "nodeName": "382_Conv_44_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "382_zero_point",
+    "identifier": "",
+    "dataOffset": 137497,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "547_quantized": {
+    "nodeName": "547_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "547_quantized",
+    "identifier": "",
+    "dataOffset": 137498,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "547_scale": {
+    "nodeName": "547_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "547_scale",
+    "identifier": "",
+    "dataOffset": 162074,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "548_quantized": {
+    "nodeName": "548_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "548_quantized",
+    "identifier": "",
+    "dataOffset": 162079,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "548_scale": {
+    "nodeName": "548_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "548_scale",
+    "identifier": "",
+    "dataOffset": 163615,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "546_scale": {
+    "nodeName": "546_Conv_46_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "546_scale",
+    "identifier": "",
+    "dataOffset": 163628,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "550_quantized": {
+    "nodeName": "550_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "550_quantized",
+    "identifier": "",
+    "dataOffset": 163633,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "550_scale": {
+    "nodeName": "550_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "550_scale",
+    "identifier": "",
+    "dataOffset": 167089,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "551_quantized": {
+    "nodeName": "551_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "551_quantized",
+    "identifier": "",
+    "dataOffset": 167094,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "551_scale": {
+    "nodeName": "551_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "551_scale",
+    "identifier": "",
+    "dataOffset": 168630,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "549_scale": {
+    "nodeName": "549_Conv_48_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "549_scale",
+    "identifier": "",
+    "dataOffset": 168643,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "553_quantized": {
+    "nodeName": "553_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "553_quantized",
+    "identifier": "",
+    "dataOffset": 168648,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      64,
+      384,
+      1,
+      1
+    ]
+  },
+  "553_scale": {
+    "nodeName": "553_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "553_scale",
+    "identifier": "",
+    "dataOffset": 193224,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "554_quantized": {
+    "nodeName": "554_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "554_quantized",
+    "identifier": "",
+    "dataOffset": 193229,
+    "byteLength": 256,
+    "dataType": "int32",
+    "shape": [
+      64
+    ]
+  },
+  "554_scale": {
+    "nodeName": "554_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "554_scale",
+    "identifier": "",
+    "dataOffset": 193485,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "552_scale": {
+    "nodeName": "552_Conv_48_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "552_scale",
+    "identifier": "",
+    "dataOffset": 193498,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "391_scale": {
+    "nodeName": "391_Conv_50_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "391_scale",
+    "identifier": "",
+    "dataOffset": 193508,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "556_quantized": {
+    "nodeName": "556_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "556_quantized",
+    "identifier": "",
+    "dataOffset": 193513,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "556_scale": {
+    "nodeName": "556_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "556_scale",
+    "identifier": "",
+    "dataOffset": 218089,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "557_quantized": {
+    "nodeName": "557_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "557_quantized",
+    "identifier": "",
+    "dataOffset": 218094,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "557_scale": {
+    "nodeName": "557_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "557_scale",
+    "identifier": "",
+    "dataOffset": 219630,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "555_scale": {
+    "nodeName": "555_Conv_52_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "555_scale",
+    "identifier": "",
+    "dataOffset": 219643,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "559_quantized": {
+    "nodeName": "559_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "559_quantized",
+    "identifier": "",
+    "dataOffset": 219648,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "559_scale": {
+    "nodeName": "559_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "559_scale",
+    "identifier": "",
+    "dataOffset": 223104,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "560_quantized": {
+    "nodeName": "560_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "560_quantized",
+    "identifier": "",
+    "dataOffset": 223109,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "560_scale": {
+    "nodeName": "560_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "560_scale",
+    "identifier": "",
+    "dataOffset": 224645,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "558_scale": {
+    "nodeName": "558_Conv_54_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "558_scale",
+    "identifier": "",
+    "dataOffset": 224658,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "562_quantized": {
+    "nodeName": "562_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "562_quantized",
+    "identifier": "",
+    "dataOffset": 224663,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      64,
+      384,
+      1,
+      1
+    ]
+  },
+  "562_scale": {
+    "nodeName": "562_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "562_scale",
+    "identifier": "",
+    "dataOffset": 249239,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "563_quantized": {
+    "nodeName": "563_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "563_quantized",
+    "identifier": "",
+    "dataOffset": 249244,
+    "byteLength": 256,
+    "dataType": "int32",
+    "shape": [
+      64
+    ]
+  },
+  "563_scale": {
+    "nodeName": "563_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "563_scale",
+    "identifier": "",
+    "dataOffset": 249500,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "561_scale": {
+    "nodeName": "561_Conv_54_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "561_scale",
+    "identifier": "",
+    "dataOffset": 249513,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "561_zero_point": {
+    "nodeName": "561_Conv_54_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "561_zero_point",
+    "identifier": "",
+    "dataOffset": 249517,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "400_scale": {
+    "nodeName": "400_Conv_56_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "400_scale",
+    "identifier": "",
+    "dataOffset": 249523,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "400_zero_point": {
+    "nodeName": "400_Conv_56_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "400_zero_point",
+    "identifier": "",
+    "dataOffset": 249527,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "565_quantized": {
+    "nodeName": "565_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "565_quantized",
+    "identifier": "",
+    "dataOffset": 249528,
+    "byteLength": 24576,
+    "dataType": "int8",
+    "shape": [
+      384,
+      64,
+      1,
+      1
+    ]
+  },
+  "565_scale": {
+    "nodeName": "565_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "565_scale",
+    "identifier": "",
+    "dataOffset": 274104,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "566_quantized": {
+    "nodeName": "566_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "566_quantized",
+    "identifier": "",
+    "dataOffset": 274109,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "566_scale": {
+    "nodeName": "566_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "566_scale",
+    "identifier": "",
+    "dataOffset": 275645,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "564_scale": {
+    "nodeName": "564_Conv_58_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "564_scale",
+    "identifier": "",
+    "dataOffset": 275658,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "568_quantized": {
+    "nodeName": "568_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "568_quantized",
+    "identifier": "",
+    "dataOffset": 275663,
+    "byteLength": 3456,
+    "dataType": "int8",
+    "shape": [
+      384,
+      1,
+      3,
+      3
+    ]
+  },
+  "568_scale": {
+    "nodeName": "568_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "568_scale",
+    "identifier": "",
+    "dataOffset": 279119,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "569_quantized": {
+    "nodeName": "569_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "569_quantized",
+    "identifier": "",
+    "dataOffset": 279124,
+    "byteLength": 1536,
+    "dataType": "int32",
+    "shape": [
+      384
+    ]
+  },
+  "569_scale": {
+    "nodeName": "569_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "569_scale",
+    "identifier": "",
+    "dataOffset": 280660,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "567_scale": {
+    "nodeName": "567_Conv_60_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "567_scale",
+    "identifier": "",
+    "dataOffset": 280673,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "571_quantized": {
+    "nodeName": "571_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "571_quantized",
+    "identifier": "",
+    "dataOffset": 280678,
+    "byteLength": 36864,
+    "dataType": "int8",
+    "shape": [
+      96,
+      384,
+      1,
+      1
+    ]
+  },
+  "571_scale": {
+    "nodeName": "571_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "571_scale",
+    "identifier": "",
+    "dataOffset": 317542,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "572_quantized": {
+    "nodeName": "572_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "572_quantized",
+    "identifier": "",
+    "dataOffset": 317547,
+    "byteLength": 384,
+    "dataType": "int32",
+    "shape": [
+      96
+    ]
+  },
+  "572_scale": {
+    "nodeName": "572_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "572_scale",
+    "identifier": "",
+    "dataOffset": 317931,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "570_scale": {
+    "nodeName": "570_Conv_60_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "570_scale",
+    "identifier": "",
+    "dataOffset": 317944,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "624_zero_point": {
+    "nodeName": "624_Conv_95_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "624_zero_point",
+    "identifier": "",
+    "dataOffset": 1844546,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "574_quantized": {
+    "nodeName": "574_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "574_quantized",
+    "identifier": "",
+    "dataOffset": 317949,
+    "byteLength": 55296,
+    "dataType": "int8",
+    "shape": [
+      576,
+      96,
+      1,
+      1
+    ]
+  },
+  "574_scale": {
+    "nodeName": "574_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "574_scale",
+    "identifier": "",
+    "dataOffset": 373245,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "575_quantized": {
+    "nodeName": "575_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "575_quantized",
+    "identifier": "",
+    "dataOffset": 373250,
+    "byteLength": 2304,
+    "dataType": "int32",
+    "shape": [
+      576
+    ]
+  },
+  "575_scale": {
+    "nodeName": "575_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "575_scale",
+    "identifier": "",
+    "dataOffset": 375554,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "573_scale": {
+    "nodeName": "573_Conv_63_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "573_scale",
+    "identifier": "",
+    "dataOffset": 375567,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "577_quantized": {
+    "nodeName": "577_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "577_quantized",
+    "identifier": "",
+    "dataOffset": 375572,
+    "byteLength": 5184,
+    "dataType": "int8",
+    "shape": [
+      576,
+      1,
+      3,
+      3
+    ]
+  },
+  "577_scale": {
+    "nodeName": "577_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "577_scale",
+    "identifier": "",
+    "dataOffset": 380756,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "578_quantized": {
+    "nodeName": "578_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "578_quantized",
+    "identifier": "",
+    "dataOffset": 380761,
+    "byteLength": 2304,
+    "dataType": "int32",
+    "shape": [
+      576
+    ]
+  },
+  "578_scale": {
+    "nodeName": "578_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "578_scale",
+    "identifier": "",
+    "dataOffset": 383065,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "580_quantized": {
+    "nodeName": "580_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "580_quantized",
+    "identifier": "",
+    "dataOffset": 383083,
+    "byteLength": 55296,
+    "dataType": "int8",
+    "shape": [
+      96,
+      576,
+      1,
+      1
+    ]
+  },
+  "580_scale": {
+    "nodeName": "580_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "580_scale",
+    "identifier": "",
+    "dataOffset": 438379,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "581_quantized": {
+    "nodeName": "581_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "581_quantized",
+    "identifier": "",
+    "dataOffset": 438384,
+    "byteLength": 384,
+    "dataType": "int32",
+    "shape": [
+      96
+    ]
+  },
+  "581_scale": {
+    "nodeName": "581_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "581_scale",
+    "identifier": "",
+    "dataOffset": 438768,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "579_scale": {
+    "nodeName": "579_Conv_65_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "579_scale",
+    "identifier": "",
+    "dataOffset": 438781,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "579_zero_point": {
+    "nodeName": "579_Conv_65_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "579_zero_point",
+    "identifier": "",
+    "dataOffset": 438785,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "417_scale": {
+    "nodeName": "417_Conv_67_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "417_scale",
+    "identifier": "",
+    "dataOffset": 438791,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "417_zero_point": {
+    "nodeName": "417_Conv_67_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "417_zero_point",
+    "identifier": "",
+    "dataOffset": 438795,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "583_quantized": {
+    "nodeName": "583_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "583_quantized",
+    "identifier": "",
+    "dataOffset": 438796,
+    "byteLength": 55296,
+    "dataType": "int8",
+    "shape": [
+      576,
+      96,
+      1,
+      1
+    ]
+  },
+  "583_scale": {
+    "nodeName": "583_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "583_scale",
+    "identifier": "",
+    "dataOffset": 494092,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "584_quantized": {
+    "nodeName": "584_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "584_quantized",
+    "identifier": "",
+    "dataOffset": 494097,
+    "byteLength": 2304,
+    "dataType": "int32",
+    "shape": [
+      576
+    ]
+  },
+  "584_scale": {
+    "nodeName": "584_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "584_scale",
+    "identifier": "",
+    "dataOffset": 496401,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "582_scale": {
+    "nodeName": "582_Conv_69_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "582_scale",
+    "identifier": "",
+    "dataOffset": 496414,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "586_quantized": {
+    "nodeName": "586_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "586_quantized",
+    "identifier": "",
+    "dataOffset": 496419,
+    "byteLength": 5184,
+    "dataType": "int8",
+    "shape": [
+      576,
+      1,
+      3,
+      3
+    ]
+  },
+  "586_scale": {
+    "nodeName": "586_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "586_scale",
+    "identifier": "",
+    "dataOffset": 501603,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "587_quantized": {
+    "nodeName": "587_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "587_quantized",
+    "identifier": "",
+    "dataOffset": 501608,
+    "byteLength": 2304,
+    "dataType": "int32",
+    "shape": [
+      576
+    ]
+  },
+  "587_scale": {
+    "nodeName": "587_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "587_scale",
+    "identifier": "",
+    "dataOffset": 503912,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "589_quantized": {
+    "nodeName": "589_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "589_quantized",
+    "identifier": "",
+    "dataOffset": 503930,
+    "byteLength": 55296,
+    "dataType": "int8",
+    "shape": [
+      96,
+      576,
+      1,
+      1
+    ]
+  },
+  "589_scale": {
+    "nodeName": "589_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "589_scale",
+    "identifier": "",
+    "dataOffset": 559226,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "590_quantized": {
+    "nodeName": "590_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "590_quantized",
+    "identifier": "",
+    "dataOffset": 559231,
+    "byteLength": 384,
+    "dataType": "int32",
+    "shape": [
+      96
+    ]
+  },
+  "590_scale": {
+    "nodeName": "590_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "590_scale",
+    "identifier": "",
+    "dataOffset": 559615,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "588_scale": {
+    "nodeName": "588_Conv_71_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "588_scale",
+    "identifier": "",
+    "dataOffset": 559628,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "588_zero_point": {
+    "nodeName": "588_Conv_71_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "588_zero_point",
+    "identifier": "",
+    "dataOffset": 559632,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "426_scale": {
+    "nodeName": "426_Conv_73_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "426_scale",
+    "identifier": "",
+    "dataOffset": 559638,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "592_quantized": {
+    "nodeName": "592_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "592_quantized",
+    "identifier": "",
+    "dataOffset": 559643,
+    "byteLength": 55296,
+    "dataType": "int8",
+    "shape": [
+      576,
+      96,
+      1,
+      1
+    ]
+  },
+  "592_scale": {
+    "nodeName": "592_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "592_scale",
+    "identifier": "",
+    "dataOffset": 614939,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "593_quantized": {
+    "nodeName": "593_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "593_quantized",
+    "identifier": "",
+    "dataOffset": 614944,
+    "byteLength": 2304,
+    "dataType": "int32",
+    "shape": [
+      576
+    ]
+  },
+  "593_scale": {
+    "nodeName": "593_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "593_scale",
+    "identifier": "",
+    "dataOffset": 617248,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "591_scale": {
+    "nodeName": "591_Conv_75_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "591_scale",
+    "identifier": "",
+    "dataOffset": 617261,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "595_quantized": {
+    "nodeName": "595_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "595_quantized",
+    "identifier": "",
+    "dataOffset": 617266,
+    "byteLength": 5184,
+    "dataType": "int8",
+    "shape": [
+      576,
+      1,
+      3,
+      3
+    ]
+  },
+  "595_scale": {
+    "nodeName": "595_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "595_scale",
+    "identifier": "",
+    "dataOffset": 622450,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "596_quantized": {
+    "nodeName": "596_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "596_quantized",
+    "identifier": "",
+    "dataOffset": 622455,
+    "byteLength": 2304,
+    "dataType": "int32",
+    "shape": [
+      576
+    ]
+  },
+  "596_scale": {
+    "nodeName": "596_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "596_scale",
+    "identifier": "",
+    "dataOffset": 624759,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "598_quantized": {
+    "nodeName": "598_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "598_quantized",
+    "identifier": "",
+    "dataOffset": 624777,
+    "byteLength": 92160,
+    "dataType": "int8",
+    "shape": [
+      160,
+      576,
+      1,
+      1
+    ]
+  },
+  "598_scale": {
+    "nodeName": "598_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "598_scale",
+    "identifier": "",
+    "dataOffset": 716937,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "599_quantized": {
+    "nodeName": "599_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "599_quantized",
+    "identifier": "",
+    "dataOffset": 716942,
+    "byteLength": 640,
+    "dataType": "int32",
+    "shape": [
+      160
+    ]
+  },
+  "599_scale": {
+    "nodeName": "599_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "599_scale",
+    "identifier": "",
+    "dataOffset": 717582,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "597_scale": {
+    "nodeName": "597_Conv_77_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "597_scale",
+    "identifier": "",
+    "dataOffset": 717595,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "597_zero_point": {
+    "nodeName": "597_Conv_77_DequantizeLinear/duplicated",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "597_zero_point",
+    "identifier": "",
+    "dataOffset": 717599,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "601_quantized": {
+    "nodeName": "601_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "601_quantized",
+    "identifier": "",
+    "dataOffset": 717600,
+    "byteLength": 153600,
+    "dataType": "int8",
+    "shape": [
+      960,
+      160,
+      1,
+      1
+    ]
+  },
+  "601_scale": {
+    "nodeName": "601_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "601_scale",
+    "identifier": "",
+    "dataOffset": 871200,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "602_quantized": {
+    "nodeName": "602_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "602_quantized",
+    "identifier": "",
+    "dataOffset": 871205,
+    "byteLength": 3840,
+    "dataType": "int32",
+    "shape": [
+      960
+    ]
+  },
+  "602_scale": {
+    "nodeName": "602_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "602_scale",
+    "identifier": "",
+    "dataOffset": 875045,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "600_scale": {
+    "nodeName": "600_Conv_80_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "600_scale",
+    "identifier": "",
+    "dataOffset": 875058,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "604_quantized": {
+    "nodeName": "604_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "604_quantized",
+    "identifier": "",
+    "dataOffset": 875063,
+    "byteLength": 8640,
+    "dataType": "int8",
+    "shape": [
+      960,
+      1,
+      3,
+      3
+    ]
+  },
+  "604_scale": {
+    "nodeName": "604_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "604_scale",
+    "identifier": "",
+    "dataOffset": 883703,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "605_quantized": {
+    "nodeName": "605_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "605_quantized",
+    "identifier": "",
+    "dataOffset": 883708,
+    "byteLength": 3840,
+    "dataType": "int32",
+    "shape": [
+      960
+    ]
+  },
+  "605_scale": {
+    "nodeName": "605_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "605_scale",
+    "identifier": "",
+    "dataOffset": 887548,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "603_scale": {
+    "nodeName": "603_Conv_82_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "603_scale",
+    "identifier": "",
+    "dataOffset": 887561,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "607_quantized": {
+    "nodeName": "607_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "607_quantized",
+    "identifier": "",
+    "dataOffset": 887566,
+    "byteLength": 153600,
+    "dataType": "int8",
+    "shape": [
+      160,
+      960,
+      1,
+      1
+    ]
+  },
+  "607_scale": {
+    "nodeName": "607_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "607_scale",
+    "identifier": "",
+    "dataOffset": 1041166,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "608_quantized": {
+    "nodeName": "608_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "608_quantized",
+    "identifier": "",
+    "dataOffset": 1041171,
+    "byteLength": 640,
+    "dataType": "int32",
+    "shape": [
+      160
+    ]
+  },
+  "608_scale": {
+    "nodeName": "608_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "608_scale",
+    "identifier": "",
+    "dataOffset": 1041811,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "606_scale": {
+    "nodeName": "606_Conv_82_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "606_scale",
+    "identifier": "",
+    "dataOffset": 1041824,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "606_zero_point": {
+    "nodeName": "606_Conv_82_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "606_zero_point",
+    "identifier": "",
+    "dataOffset": 1041828,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "443_scale": {
+    "nodeName": "443_Conv_84_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "443_scale",
+    "identifier": "",
+    "dataOffset": 1041834,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "610_quantized": {
+    "nodeName": "610_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "610_quantized",
+    "identifier": "",
+    "dataOffset": 1041839,
+    "byteLength": 153600,
+    "dataType": "int8",
+    "shape": [
+      960,
+      160,
+      1,
+      1
+    ]
+  },
+  "610_scale": {
+    "nodeName": "610_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "610_scale",
+    "identifier": "",
+    "dataOffset": 1195439,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "611_quantized": {
+    "nodeName": "611_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "611_quantized",
+    "identifier": "",
+    "dataOffset": 1195444,
+    "byteLength": 3840,
+    "dataType": "int32",
+    "shape": [
+      960
+    ]
+  },
+  "611_scale": {
+    "nodeName": "611_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "611_scale",
+    "identifier": "",
+    "dataOffset": 1199284,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "609_scale": {
+    "nodeName": "609_Conv_86_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "609_scale",
+    "identifier": "",
+    "dataOffset": 1199297,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "613_quantized": {
+    "nodeName": "613_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "613_quantized",
+    "identifier": "",
+    "dataOffset": 1199302,
+    "byteLength": 8640,
+    "dataType": "int8",
+    "shape": [
+      960,
+      1,
+      3,
+      3
+    ]
+  },
+  "613_scale": {
+    "nodeName": "613_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "613_scale",
+    "identifier": "",
+    "dataOffset": 1207942,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "614_quantized": {
+    "nodeName": "614_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "614_quantized",
+    "identifier": "",
+    "dataOffset": 1207947,
+    "byteLength": 3840,
+    "dataType": "int32",
+    "shape": [
+      960
+    ]
+  },
+  "614_scale": {
+    "nodeName": "614_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "614_scale",
+    "identifier": "",
+    "dataOffset": 1211787,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "616_quantized": {
+    "nodeName": "616_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "616_quantized",
+    "identifier": "",
+    "dataOffset": 1211805,
+    "byteLength": 153600,
+    "dataType": "int8",
+    "shape": [
+      160,
+      960,
+      1,
+      1
+    ]
+  },
+  "616_scale": {
+    "nodeName": "616_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "616_scale",
+    "identifier": "",
+    "dataOffset": 1365405,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "617_quantized": {
+    "nodeName": "617_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "617_quantized",
+    "identifier": "",
+    "dataOffset": 1365410,
+    "byteLength": 640,
+    "dataType": "int32",
+    "shape": [
+      160
+    ]
+  },
+  "617_scale": {
+    "nodeName": "617_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "617_scale",
+    "identifier": "",
+    "dataOffset": 1366050,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "615_scale": {
+    "nodeName": "615_Conv_88_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "615_scale",
+    "identifier": "",
+    "dataOffset": 1366063,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "615_zero_point": {
+    "nodeName": "615_Conv_88_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "615_zero_point",
+    "identifier": "",
+    "dataOffset": 1366067,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "452_scale": {
+    "nodeName": "452_Conv_90_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "452_scale",
+    "identifier": "",
+    "dataOffset": 1366073,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "452_zero_point": {
+    "nodeName": "452_Conv_90_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "452_zero_point",
+    "identifier": "",
+    "dataOffset": 1366077,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "619_quantized": {
+    "nodeName": "619_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "619_quantized",
+    "identifier": "",
+    "dataOffset": 1366078,
+    "byteLength": 153600,
+    "dataType": "int8",
+    "shape": [
+      960,
+      160,
+      1,
+      1
+    ]
+  },
+  "619_scale": {
+    "nodeName": "619_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "619_scale",
+    "identifier": "",
+    "dataOffset": 1519678,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "620_quantized": {
+    "nodeName": "620_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "620_quantized",
+    "identifier": "",
+    "dataOffset": 1519683,
+    "byteLength": 3840,
+    "dataType": "int32",
+    "shape": [
+      960
+    ]
+  },
+  "620_scale": {
+    "nodeName": "620_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "620_scale",
+    "identifier": "",
+    "dataOffset": 1523523,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "618_scale": {
+    "nodeName": "618_Conv_92_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "618_scale",
+    "identifier": "",
+    "dataOffset": 1523536,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "622_quantized": {
+    "nodeName": "622_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "622_quantized",
+    "identifier": "",
+    "dataOffset": 1523541,
+    "byteLength": 8640,
+    "dataType": "int8",
+    "shape": [
+      960,
+      1,
+      3,
+      3
+    ]
+  },
+  "622_scale": {
+    "nodeName": "622_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "622_scale",
+    "identifier": "",
+    "dataOffset": 1532181,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "623_quantized": {
+    "nodeName": "623_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "623_quantized",
+    "identifier": "",
+    "dataOffset": 1532186,
+    "byteLength": 3840,
+    "dataType": "int32",
+    "shape": [
+      960
+    ]
+  },
+  "623_scale": {
+    "nodeName": "623_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "623_scale",
+    "identifier": "",
+    "dataOffset": 1536026,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "621_scale": {
+    "nodeName": "621_Conv_94_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "621_scale",
+    "identifier": "",
+    "dataOffset": 1536039,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "625_quantized": {
+    "nodeName": "625_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "625_quantized",
+    "identifier": "",
+    "dataOffset": 1536044,
+    "byteLength": 307200,
+    "dataType": "int8",
+    "shape": [
+      320,
+      960,
+      1,
+      1
+    ]
+  },
+  "625_scale": {
+    "nodeName": "625_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "625_scale",
+    "identifier": "",
+    "dataOffset": 1843244,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "626_quantized": {
+    "nodeName": "626_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "626_quantized",
+    "identifier": "",
+    "dataOffset": 1843249,
+    "byteLength": 1280,
+    "dataType": "int32",
+    "shape": [
+      320
+    ]
+  },
+  "626_scale": {
+    "nodeName": "626_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "626_scale",
+    "identifier": "",
+    "dataOffset": 1844529,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "624_scale": {
+    "nodeName": "624_Conv_95_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "624_scale",
+    "identifier": "",
+    "dataOffset": 1844542,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "628_quantized": {
+    "nodeName": "628_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "628_quantized",
+    "identifier": "",
+    "dataOffset": 1844547,
+    "byteLength": 409600,
+    "dataType": "int8",
+    "shape": [
+      1280,
+      320,
+      1,
+      1
+    ]
+  },
+  "628_scale": {
+    "nodeName": "628_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "628_scale",
+    "identifier": "",
+    "dataOffset": 2254147,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "629_quantized": {
+    "nodeName": "629_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "629_quantized",
+    "identifier": "",
+    "dataOffset": 2254152,
+    "byteLength": 5120,
+    "dataType": "int32",
+    "shape": [
+      1280
+    ]
+  },
+  "629_scale": {
+    "nodeName": "629_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "629_scale",
+    "identifier": "",
+    "dataOffset": 2259272,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": [
+      1
+    ]
+  },
+  "464_scale": {
+    "nodeName": "472_Gemm_104_MatMul_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "464_scale",
+    "identifier": "",
+    "dataOffset": 2259321,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "classifier.1.weight_quantized": {
+    "nodeName": "classifier.1.weight_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x",
+    "name": "classifier.1.weight_quantized",
+    "identifier": "",
+    "dataOffset": 2259326,
+    "byteLength": 1280000,
+    "dataType": "int8",
+    "shape": [
+      1280,
+      1000
+    ]
+  },
+  "classifier.1.weight_scale": {
+    "nodeName": "classifier.1.weight_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "classifier.1.weight_scale",
+    "identifier": "",
+    "dataOffset": 3539326,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "output_MatMul_scale": {
+    "nodeName": "output_MatMul_Gemm_104_MatMul_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_scale",
+    "name": "output_MatMul_scale",
+    "identifier": "",
+    "dataOffset": 3539336,
+    "byteLength": 4,
+    "dataType": "float32",
+    "shape": []
+  },
+  "output_MatMul_zero_point": {
+    "nodeName": "output_MatMul_Gemm_104_MatMul_DequantizeLinear",
+    "nodeIdentifier": "",
+    "nodeType": "DequantizeLinear",
+    "input": "x_zero_point",
+    "name": "output_MatMul_zero_point",
+    "identifier": "",
+    "dataOffset": 3539340,
+    "byteLength": 1,
+    "dataType": "uint8",
+    "shape": []
+  },
+  "classifier.1.bias": {
+    "nodeName": "Gemm_104_Add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "classifier.1.bias",
+    "identifier": "",
+    "dataOffset": 3539341,
+    "byteLength": 4000,
+    "dataType": "float32",
+    "shape": [
+      1000
+    ]
+  }
+}
