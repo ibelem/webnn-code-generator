@@ -19,13 +19,31 @@ export function HardSigmoid(
   let beta = 0.5;
   for (const attr of node.attributes || []) {
     // Todo: Handle attr.f attribute correctly from json file
-    if (attr.name === 'alpha') alpha = Number(attr.f ?? 0.2);
-    if (attr.name === 'beta') beta = Number(attr.f ?? 0.5);
+    if (attr.name === 'alpha') {
+      alpha =
+        typeof attr.f === 'number'
+          ? attr.f
+          : (typeof attr.value === 'number'
+              ? attr.value
+              : Number(attr.value?.value ?? 0.2));
+    }
+    if (attr.name === 'beta') {
+      beta =
+        typeof attr.f === 'number'
+          ? attr.f
+          : (typeof attr.value === 'number'
+              ? attr.value
+              : Number(attr.value?.value ?? 0.5));
+    }
   }
+
+  // Add label for debugging if node.name exists
+  const opts = `{ alpha: ${alpha}, beta: ${beta}, label: '${node.name || ''}' }`;
 
   return `
     const ${outputVars[0]} = builder.hardSigmoid(
       ${inputVars[0]},
-      { alpha: ${alpha}, beta: ${beta} }
-    );`;
+      ${opts}
+    );
+  `;
 }

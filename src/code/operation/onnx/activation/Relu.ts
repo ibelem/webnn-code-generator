@@ -14,8 +14,13 @@ export function Relu(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
+  // Add label for debugging if node.name exists
+  const opts = `{ label: '${node.name || ''}' }`;
+
   return `
     const ${outputVars[0]} = builder.relu(
-      ${inputVars[0]}
-    );`;
+      ${inputVars[0]},
+      ${opts}
+    );
+  `;
 }

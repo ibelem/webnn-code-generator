@@ -9,8 +9,7 @@ import {
  */
 export function Gelu(
   node: any,
-  toJsVarName: (name: string) => string,
-  _options: { [key: string]: any } = {}
+  toJsVarName: (name: string) => string
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
@@ -19,15 +18,25 @@ export function Gelu(
   let mode = 'exact';
   for (const attr of node.attributes || []) {
     if (attr.name === 'approximate') {
-      // Todo: Handle attr.s attribute correctly from json file
-      mode = attr.s === 'tanh' ? 'tanh' : 'exact';
+      // ONNX uses 'tanh' for approximate, otherwise 'exact'
+      // Todo: Handle attr.s and attr.value correctly from json file
+      mode =
+        (typeof attr.s === 'string' && attr.s === 'tanh') ||
+        (typeof attr.value === 'string' && attr.value === 'tanh') ||
+        (typeof attr.value?.value === 'string' && attr.value.value === 'tanh')
+          ? 'tanh'
+          : 'exact';
       break;
     }
   }
 
+  // Add label for debugging if node.name exists
+  const opts = `{ mode: '${mode}', label: '${node.name || ''}' }`;
+
   return `
     const ${outputVars[0]} = builder.gelu(
       ${inputVars[0]},
-      { mode: '${mode}' }
-    );`;
+      ${opts}
+    );
+  `;
 }
