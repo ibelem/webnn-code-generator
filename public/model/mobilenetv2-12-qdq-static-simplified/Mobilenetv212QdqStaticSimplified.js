@@ -48,7 +48,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_475_quantized = builder.constant(
       { dataType: 'int8', shape: [32,3,3,3] },
-      new Int8Array(weights_array_buffer.slice(10, 874))
+      new Int8Array(weights_array_buffer, 32, 864 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_475_scale = builder.constant(
@@ -63,17 +63,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_476_quantized = builder.constant(
       { dataType: 'int32', shape: [32] },
-      new Int32Array(weights_array_buffer.slice(879, 1007))
+      new Int32Array(weights_array_buffer, 912, 128 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_476_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1007, 1011))
+      new Float32Array(weights_array_buffer, 1040, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_623_zero_point = builder.constant(
       { dataType: 'int32', shape: [1] },
-      new Int32Array(weights_array_buffer.slice(2259276, 2259280))
+      new Int32Array(weights_array_buffer, 2261624, 4 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_474_scale = builder.constant(
@@ -88,7 +88,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_478_quantized = builder.constant(
       { dataType: 'int8', shape: [32,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(1025, 1313))
+      new Int8Array(weights_array_buffer, 1088, 288 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_478_scale = builder.constant(
@@ -98,12 +98,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_479_quantized = builder.constant(
       { dataType: 'int32', shape: [32] },
-      new Int32Array(weights_array_buffer.slice(1318, 1446))
+      new Int32Array(weights_array_buffer, 1392, 128 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_479_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1446, 1450))
+      new Float32Array(weights_array_buffer, 1520, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_576_scale = builder.constant(
@@ -113,7 +113,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_481_quantized = builder.constant(
       { dataType: 'int8', shape: [16,32,1,1] },
-      new Int8Array(weights_array_buffer.slice(1464, 1976))
+      new Int8Array(weights_array_buffer, 1568, 512 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_481_scale = builder.constant(
@@ -123,12 +123,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_482_quantized = builder.constant(
       { dataType: 'int32', shape: [16] },
-      new Int32Array(weights_array_buffer.slice(1981, 2045))
+      new Int32Array(weights_array_buffer, 2096, 64 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_482_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(2045, 2049))
+      new Float32Array(weights_array_buffer, 2160, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_480_scale = builder.constant(
@@ -143,7 +143,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_484_quantized = builder.constant(
       { dataType: 'int8', shape: [96,16,1,1] },
-      new Int8Array(weights_array_buffer.slice(2063, 3599))
+      new Int8Array(weights_array_buffer, 2208, 1536 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_484_scale = builder.constant(
@@ -153,17 +153,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_485_quantized = builder.constant(
       { dataType: 'int32', shape: [96] },
-      new Int32Array(weights_array_buffer.slice(3604, 3988))
+      new Int32Array(weights_array_buffer, 3760, 384 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_485_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(3988, 3992))
+      new Float32Array(weights_array_buffer, 4144, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_487_quantized = builder.constant(
       { dataType: 'int8', shape: [96,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(4006, 4870))
+      new Int8Array(weights_array_buffer, 4192, 864 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_487_scale = builder.constant(
@@ -173,17 +173,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_488_quantized = builder.constant(
       { dataType: 'int32', shape: [96] },
-      new Int32Array(weights_array_buffer.slice(4875, 5259))
+      new Int32Array(weights_array_buffer, 5072, 384 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_488_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(5259, 5263))
+      new Float32Array(weights_array_buffer, 5456, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_490_quantized = builder.constant(
       { dataType: 'int8', shape: [24,96,1,1] },
-      new Int8Array(weights_array_buffer.slice(5277, 7581))
+      new Int8Array(weights_array_buffer, 5504, 2304 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_490_scale = builder.constant(
@@ -193,12 +193,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_491_quantized = builder.constant(
       { dataType: 'int32', shape: [24] },
-      new Int32Array(weights_array_buffer.slice(7586, 7682))
+      new Int32Array(weights_array_buffer, 7824, 96 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_491_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(7682, 7686))
+      new Float32Array(weights_array_buffer, 7920, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_489_scale = builder.constant(
@@ -213,7 +213,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_493_quantized = builder.constant(
       { dataType: 'int8', shape: [144,24,1,1] },
-      new Int8Array(weights_array_buffer.slice(7700, 11156))
+      new Int8Array(weights_array_buffer, 7968, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_493_scale = builder.constant(
@@ -223,12 +223,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_494_quantized = builder.constant(
       { dataType: 'int32', shape: [144] },
-      new Int32Array(weights_array_buffer.slice(11161, 11737))
+      new Int32Array(weights_array_buffer, 11440, 576 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_494_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(11737, 11741))
+      new Float32Array(weights_array_buffer, 12016, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_492_scale = builder.constant(
@@ -238,7 +238,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_496_quantized = builder.constant(
       { dataType: 'int8', shape: [144,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(11755, 13051))
+      new Int8Array(weights_array_buffer, 12064, 1296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_496_scale = builder.constant(
@@ -248,12 +248,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_497_quantized = builder.constant(
       { dataType: 'int32', shape: [144] },
-      new Int32Array(weights_array_buffer.slice(13056, 13632))
+      new Int32Array(weights_array_buffer, 13376, 576 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_497_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(13632, 13636))
+      new Float32Array(weights_array_buffer, 13952, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_495_scale = builder.constant(
@@ -263,7 +263,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_499_quantized = builder.constant(
       { dataType: 'int8', shape: [24,144,1,1] },
-      new Int8Array(weights_array_buffer.slice(13650, 17106))
+      new Int8Array(weights_array_buffer, 14000, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_499_scale = builder.constant(
@@ -273,12 +273,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_500_quantized = builder.constant(
       { dataType: 'int32', shape: [24] },
-      new Int32Array(weights_array_buffer.slice(17111, 17207))
+      new Int32Array(weights_array_buffer, 17472, 96 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_500_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(17207, 17211))
+      new Float32Array(weights_array_buffer, 17568, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_498_scale = builder.constant(
@@ -303,7 +303,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_502_quantized = builder.constant(
       { dataType: 'int8', shape: [144,24,1,1] },
-      new Int8Array(weights_array_buffer.slice(17235, 20691))
+      new Int8Array(weights_array_buffer, 17648, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_502_scale = builder.constant(
@@ -313,12 +313,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_503_quantized = builder.constant(
       { dataType: 'int32', shape: [144] },
-      new Int32Array(weights_array_buffer.slice(20696, 21272))
+      new Int32Array(weights_array_buffer, 21120, 576 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_503_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(21272, 21276))
+      new Float32Array(weights_array_buffer, 21696, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_501_scale = builder.constant(
@@ -328,7 +328,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_505_quantized = builder.constant(
       { dataType: 'int8', shape: [144,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(21290, 22586))
+      new Int8Array(weights_array_buffer, 21744, 1296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_505_scale = builder.constant(
@@ -338,12 +338,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_506_quantized = builder.constant(
       { dataType: 'int32', shape: [144] },
-      new Int32Array(weights_array_buffer.slice(22591, 23167))
+      new Int32Array(weights_array_buffer, 23056, 576 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_506_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(23167, 23171))
+      new Float32Array(weights_array_buffer, 23632, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_504_scale = builder.constant(
@@ -353,7 +353,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_508_quantized = builder.constant(
       { dataType: 'int8', shape: [32,144,1,1] },
-      new Int8Array(weights_array_buffer.slice(23185, 27793))
+      new Int8Array(weights_array_buffer, 23680, 4608 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_508_scale = builder.constant(
@@ -363,12 +363,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_509_quantized = builder.constant(
       { dataType: 'int32', shape: [32] },
-      new Int32Array(weights_array_buffer.slice(27798, 27926))
+      new Int32Array(weights_array_buffer, 28304, 128 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_509_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(27926, 27930))
+      new Float32Array(weights_array_buffer, 28432, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_507_scale = builder.constant(
@@ -383,7 +383,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_511_quantized = builder.constant(
       { dataType: 'int8', shape: [192,32,1,1] },
-      new Int8Array(weights_array_buffer.slice(27944, 34088))
+      new Int8Array(weights_array_buffer, 28480, 6144 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_511_scale = builder.constant(
@@ -393,12 +393,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_512_quantized = builder.constant(
       { dataType: 'int32', shape: [192] },
-      new Int32Array(weights_array_buffer.slice(34093, 34861))
+      new Int32Array(weights_array_buffer, 34640, 768 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_512_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(34861, 34865))
+      new Float32Array(weights_array_buffer, 35408, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_510_scale = builder.constant(
@@ -408,7 +408,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_514_quantized = builder.constant(
       { dataType: 'int8', shape: [192,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(34879, 36607))
+      new Int8Array(weights_array_buffer, 35456, 1728 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_514_scale = builder.constant(
@@ -418,12 +418,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_515_quantized = builder.constant(
       { dataType: 'int32', shape: [192] },
-      new Int32Array(weights_array_buffer.slice(36612, 37380))
+      new Int32Array(weights_array_buffer, 37200, 768 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_515_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(37380, 37384))
+      new Float32Array(weights_array_buffer, 37968, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_513_scale = builder.constant(
@@ -433,7 +433,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_517_quantized = builder.constant(
       { dataType: 'int8', shape: [32,192,1,1] },
-      new Int8Array(weights_array_buffer.slice(37398, 43542))
+      new Int8Array(weights_array_buffer, 38016, 6144 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_517_scale = builder.constant(
@@ -443,12 +443,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_518_quantized = builder.constant(
       { dataType: 'int32', shape: [32] },
-      new Int32Array(weights_array_buffer.slice(43547, 43675))
+      new Int32Array(weights_array_buffer, 44176, 128 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_518_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(43675, 43679))
+      new Float32Array(weights_array_buffer, 44304, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_516_scale = builder.constant(
@@ -473,7 +473,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_520_quantized = builder.constant(
       { dataType: 'int8', shape: [192,32,1,1] },
-      new Int8Array(weights_array_buffer.slice(43703, 49847))
+      new Int8Array(weights_array_buffer, 44384, 6144 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_520_scale = builder.constant(
@@ -483,12 +483,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_521_quantized = builder.constant(
       { dataType: 'int32', shape: [192] },
-      new Int32Array(weights_array_buffer.slice(49852, 50620))
+      new Int32Array(weights_array_buffer, 50544, 768 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_521_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(50620, 50624))
+      new Float32Array(weights_array_buffer, 51312, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_519_scale = builder.constant(
@@ -498,7 +498,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_523_quantized = builder.constant(
       { dataType: 'int8', shape: [192,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(50638, 52366))
+      new Int8Array(weights_array_buffer, 51360, 1728 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_523_scale = builder.constant(
@@ -508,12 +508,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_524_quantized = builder.constant(
       { dataType: 'int32', shape: [192] },
-      new Int32Array(weights_array_buffer.slice(52371, 53139))
+      new Int32Array(weights_array_buffer, 53104, 768 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_524_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(53139, 53143))
+      new Float32Array(weights_array_buffer, 53872, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_522_scale = builder.constant(
@@ -523,7 +523,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_526_quantized = builder.constant(
       { dataType: 'int8', shape: [32,192,1,1] },
-      new Int8Array(weights_array_buffer.slice(53157, 59301))
+      new Int8Array(weights_array_buffer, 53920, 6144 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_526_scale = builder.constant(
@@ -533,12 +533,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_527_quantized = builder.constant(
       { dataType: 'int32', shape: [32] },
-      new Int32Array(weights_array_buffer.slice(59306, 59434))
+      new Int32Array(weights_array_buffer, 60080, 128 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_527_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(59434, 59438))
+      new Float32Array(weights_array_buffer, 60208, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_525_scale = builder.constant(
@@ -563,7 +563,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_529_quantized = builder.constant(
       { dataType: 'int8', shape: [192,32,1,1] },
-      new Int8Array(weights_array_buffer.slice(59462, 65606))
+      new Int8Array(weights_array_buffer, 60288, 6144 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_529_scale = builder.constant(
@@ -573,12 +573,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_530_quantized = builder.constant(
       { dataType: 'int32', shape: [192] },
-      new Int32Array(weights_array_buffer.slice(65611, 66379))
+      new Int32Array(weights_array_buffer, 66448, 768 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_530_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(66379, 66383))
+      new Float32Array(weights_array_buffer, 67216, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_528_scale = builder.constant(
@@ -588,7 +588,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_532_quantized = builder.constant(
       { dataType: 'int8', shape: [192,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(66397, 68125))
+      new Int8Array(weights_array_buffer, 67264, 1728 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_532_scale = builder.constant(
@@ -598,12 +598,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_533_quantized = builder.constant(
       { dataType: 'int32', shape: [192] },
-      new Int32Array(weights_array_buffer.slice(68130, 68898))
+      new Int32Array(weights_array_buffer, 69008, 768 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_533_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(68898, 68902))
+      new Float32Array(weights_array_buffer, 69776, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_531_scale = builder.constant(
@@ -613,7 +613,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_535_quantized = builder.constant(
       { dataType: 'int8', shape: [64,192,1,1] },
-      new Int8Array(weights_array_buffer.slice(68916, 81204))
+      new Int8Array(weights_array_buffer, 69824, 12288 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_535_scale = builder.constant(
@@ -623,12 +623,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_536_quantized = builder.constant(
       { dataType: 'int32', shape: [64] },
-      new Int32Array(weights_array_buffer.slice(81209, 81465))
+      new Int32Array(weights_array_buffer, 82128, 256 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_536_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(81465, 81469))
+      new Float32Array(weights_array_buffer, 82384, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_534_scale = builder.constant(
@@ -643,7 +643,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_538_quantized = builder.constant(
       { dataType: 'int8', shape: [384,64,1,1] },
-      new Int8Array(weights_array_buffer.slice(81483, 106059))
+      new Int8Array(weights_array_buffer, 82432, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_538_scale = builder.constant(
@@ -653,12 +653,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_539_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(106064, 107600))
+      new Int32Array(weights_array_buffer, 107024, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_539_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(107600, 107604))
+      new Float32Array(weights_array_buffer, 108560, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_537_scale = builder.constant(
@@ -668,7 +668,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_541_quantized = builder.constant(
       { dataType: 'int8', shape: [384,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(107618, 111074))
+      new Int8Array(weights_array_buffer, 108608, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_541_scale = builder.constant(
@@ -678,12 +678,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_542_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(111079, 112615))
+      new Int32Array(weights_array_buffer, 112080, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_542_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(112615, 112619))
+      new Float32Array(weights_array_buffer, 113616, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_540_scale = builder.constant(
@@ -693,7 +693,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_544_quantized = builder.constant(
       { dataType: 'int8', shape: [64,384,1,1] },
-      new Int8Array(weights_array_buffer.slice(112633, 137209))
+      new Int8Array(weights_array_buffer, 113664, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_544_scale = builder.constant(
@@ -703,12 +703,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_545_quantized = builder.constant(
       { dataType: 'int32', shape: [64] },
-      new Int32Array(weights_array_buffer.slice(137214, 137470))
+      new Int32Array(weights_array_buffer, 138256, 256 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_545_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(137470, 137474))
+      new Float32Array(weights_array_buffer, 138512, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_543_scale = builder.constant(
@@ -733,7 +733,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_547_quantized = builder.constant(
       { dataType: 'int8', shape: [384,64,1,1] },
-      new Int8Array(weights_array_buffer.slice(137498, 162074))
+      new Int8Array(weights_array_buffer, 138592, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_547_scale = builder.constant(
@@ -743,12 +743,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_548_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(162079, 163615))
+      new Int32Array(weights_array_buffer, 163184, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_548_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(163615, 163619))
+      new Float32Array(weights_array_buffer, 164720, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_546_scale = builder.constant(
@@ -758,7 +758,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_550_quantized = builder.constant(
       { dataType: 'int8', shape: [384,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(163633, 167089))
+      new Int8Array(weights_array_buffer, 164768, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_550_scale = builder.constant(
@@ -768,12 +768,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_551_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(167094, 168630))
+      new Int32Array(weights_array_buffer, 168240, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_551_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(168630, 168634))
+      new Float32Array(weights_array_buffer, 169776, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_549_scale = builder.constant(
@@ -783,7 +783,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_553_quantized = builder.constant(
       { dataType: 'int8', shape: [64,384,1,1] },
-      new Int8Array(weights_array_buffer.slice(168648, 193224))
+      new Int8Array(weights_array_buffer, 169824, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_553_scale = builder.constant(
@@ -793,12 +793,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_554_quantized = builder.constant(
       { dataType: 'int32', shape: [64] },
-      new Int32Array(weights_array_buffer.slice(193229, 193485))
+      new Int32Array(weights_array_buffer, 194416, 256 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_554_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(193485, 193489))
+      new Float32Array(weights_array_buffer, 194672, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_552_scale = builder.constant(
@@ -813,7 +813,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_556_quantized = builder.constant(
       { dataType: 'int8', shape: [384,64,1,1] },
-      new Int8Array(weights_array_buffer.slice(193513, 218089))
+      new Int8Array(weights_array_buffer, 194752, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_556_scale = builder.constant(
@@ -823,12 +823,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_557_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(218094, 219630))
+      new Int32Array(weights_array_buffer, 219344, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_557_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(219630, 219634))
+      new Float32Array(weights_array_buffer, 220880, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_555_scale = builder.constant(
@@ -838,7 +838,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_559_quantized = builder.constant(
       { dataType: 'int8', shape: [384,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(219648, 223104))
+      new Int8Array(weights_array_buffer, 220928, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_559_scale = builder.constant(
@@ -848,12 +848,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_560_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(223109, 224645))
+      new Int32Array(weights_array_buffer, 224400, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_560_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(224645, 224649))
+      new Float32Array(weights_array_buffer, 225936, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_558_scale = builder.constant(
@@ -863,7 +863,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_562_quantized = builder.constant(
       { dataType: 'int8', shape: [64,384,1,1] },
-      new Int8Array(weights_array_buffer.slice(224663, 249239))
+      new Int8Array(weights_array_buffer, 225984, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_562_scale = builder.constant(
@@ -873,12 +873,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_563_quantized = builder.constant(
       { dataType: 'int32', shape: [64] },
-      new Int32Array(weights_array_buffer.slice(249244, 249500))
+      new Int32Array(weights_array_buffer, 250576, 256 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_563_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(249500, 249504))
+      new Float32Array(weights_array_buffer, 250832, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_561_scale = builder.constant(
@@ -903,7 +903,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_565_quantized = builder.constant(
       { dataType: 'int8', shape: [384,64,1,1] },
-      new Int8Array(weights_array_buffer.slice(249528, 274104))
+      new Int8Array(weights_array_buffer, 250912, 24576 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_565_scale = builder.constant(
@@ -913,12 +913,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_566_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(274109, 275645))
+      new Int32Array(weights_array_buffer, 275504, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_566_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(275645, 275649))
+      new Float32Array(weights_array_buffer, 277040, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_564_scale = builder.constant(
@@ -928,7 +928,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_568_quantized = builder.constant(
       { dataType: 'int8', shape: [384,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(275663, 279119))
+      new Int8Array(weights_array_buffer, 277088, 3456 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_568_scale = builder.constant(
@@ -938,12 +938,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_569_quantized = builder.constant(
       { dataType: 'int32', shape: [384] },
-      new Int32Array(weights_array_buffer.slice(279124, 280660))
+      new Int32Array(weights_array_buffer, 280560, 1536 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_569_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(280660, 280664))
+      new Float32Array(weights_array_buffer, 282096, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_567_scale = builder.constant(
@@ -953,7 +953,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_571_quantized = builder.constant(
       { dataType: 'int8', shape: [96,384,1,1] },
-      new Int8Array(weights_array_buffer.slice(280678, 317542))
+      new Int8Array(weights_array_buffer, 282144, 36864 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_571_scale = builder.constant(
@@ -963,12 +963,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_572_quantized = builder.constant(
       { dataType: 'int32', shape: [96] },
-      new Int32Array(weights_array_buffer.slice(317547, 317931))
+      new Int32Array(weights_array_buffer, 319024, 384 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_572_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(317931, 317935))
+      new Float32Array(weights_array_buffer, 319408, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_570_scale = builder.constant(
@@ -983,7 +983,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_574_quantized = builder.constant(
       { dataType: 'int8', shape: [576,96,1,1] },
-      new Int8Array(weights_array_buffer.slice(317949, 373245))
+      new Int8Array(weights_array_buffer, 319456, 55296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_574_scale = builder.constant(
@@ -993,12 +993,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_575_quantized = builder.constant(
       { dataType: 'int32', shape: [576] },
-      new Int32Array(weights_array_buffer.slice(373250, 375554))
+      new Int32Array(weights_array_buffer, 374768, 2304 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_575_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(375554, 375558))
+      new Float32Array(weights_array_buffer, 377072, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_573_scale = builder.constant(
@@ -1008,7 +1008,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_577_quantized = builder.constant(
       { dataType: 'int8', shape: [576,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(375572, 380756))
+      new Int8Array(weights_array_buffer, 377120, 5184 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_577_scale = builder.constant(
@@ -1018,17 +1018,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_578_quantized = builder.constant(
       { dataType: 'int32', shape: [576] },
-      new Int32Array(weights_array_buffer.slice(380761, 383065))
+      new Int32Array(weights_array_buffer, 382320, 2304 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_578_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(383065, 383069))
+      new Float32Array(weights_array_buffer, 384624, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_580_quantized = builder.constant(
       { dataType: 'int8', shape: [96,576,1,1] },
-      new Int8Array(weights_array_buffer.slice(383083, 438379))
+      new Int8Array(weights_array_buffer, 384672, 55296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_580_scale = builder.constant(
@@ -1038,12 +1038,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_581_quantized = builder.constant(
       { dataType: 'int32', shape: [96] },
-      new Int32Array(weights_array_buffer.slice(438384, 438768))
+      new Int32Array(weights_array_buffer, 439984, 384 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_581_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(438768, 438772))
+      new Float32Array(weights_array_buffer, 440368, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_579_scale = builder.constant(
@@ -1068,7 +1068,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_583_quantized = builder.constant(
       { dataType: 'int8', shape: [576,96,1,1] },
-      new Int8Array(weights_array_buffer.slice(438796, 494092))
+      new Int8Array(weights_array_buffer, 440448, 55296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_583_scale = builder.constant(
@@ -1078,12 +1078,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_584_quantized = builder.constant(
       { dataType: 'int32', shape: [576] },
-      new Int32Array(weights_array_buffer.slice(494097, 496401))
+      new Int32Array(weights_array_buffer, 495760, 2304 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_584_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(496401, 496405))
+      new Float32Array(weights_array_buffer, 498064, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_582_scale = builder.constant(
@@ -1093,7 +1093,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_586_quantized = builder.constant(
       { dataType: 'int8', shape: [576,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(496419, 501603))
+      new Int8Array(weights_array_buffer, 498112, 5184 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_586_scale = builder.constant(
@@ -1103,17 +1103,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_587_quantized = builder.constant(
       { dataType: 'int32', shape: [576] },
-      new Int32Array(weights_array_buffer.slice(501608, 503912))
+      new Int32Array(weights_array_buffer, 503312, 2304 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_587_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(503912, 503916))
+      new Float32Array(weights_array_buffer, 505616, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_589_quantized = builder.constant(
       { dataType: 'int8', shape: [96,576,1,1] },
-      new Int8Array(weights_array_buffer.slice(503930, 559226))
+      new Int8Array(weights_array_buffer, 505664, 55296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_589_scale = builder.constant(
@@ -1123,12 +1123,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_590_quantized = builder.constant(
       { dataType: 'int32', shape: [96] },
-      new Int32Array(weights_array_buffer.slice(559231, 559615))
+      new Int32Array(weights_array_buffer, 560976, 384 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_590_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(559615, 559619))
+      new Float32Array(weights_array_buffer, 561360, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_588_scale = builder.constant(
@@ -1148,7 +1148,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_592_quantized = builder.constant(
       { dataType: 'int8', shape: [576,96,1,1] },
-      new Int8Array(weights_array_buffer.slice(559643, 614939))
+      new Int8Array(weights_array_buffer, 561440, 55296 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_592_scale = builder.constant(
@@ -1158,12 +1158,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_593_quantized = builder.constant(
       { dataType: 'int32', shape: [576] },
-      new Int32Array(weights_array_buffer.slice(614944, 617248))
+      new Int32Array(weights_array_buffer, 616752, 2304 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_593_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(617248, 617252))
+      new Float32Array(weights_array_buffer, 619056, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_591_scale = builder.constant(
@@ -1173,7 +1173,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_595_quantized = builder.constant(
       { dataType: 'int8', shape: [576,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(617266, 622450))
+      new Int8Array(weights_array_buffer, 619104, 5184 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_595_scale = builder.constant(
@@ -1183,17 +1183,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_596_quantized = builder.constant(
       { dataType: 'int32', shape: [576] },
-      new Int32Array(weights_array_buffer.slice(622455, 624759))
+      new Int32Array(weights_array_buffer, 624304, 2304 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_596_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(624759, 624763))
+      new Float32Array(weights_array_buffer, 626608, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_598_quantized = builder.constant(
       { dataType: 'int8', shape: [160,576,1,1] },
-      new Int8Array(weights_array_buffer.slice(624777, 716937))
+      new Int8Array(weights_array_buffer, 626656, 92160 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_598_scale = builder.constant(
@@ -1203,12 +1203,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_599_quantized = builder.constant(
       { dataType: 'int32', shape: [160] },
-      new Int32Array(weights_array_buffer.slice(716942, 717582))
+      new Int32Array(weights_array_buffer, 718832, 640 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_599_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(717582, 717586))
+      new Float32Array(weights_array_buffer, 719472, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_597_scale = builder.constant(
@@ -1223,7 +1223,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_601_quantized = builder.constant(
       { dataType: 'int8', shape: [960,160,1,1] },
-      new Int8Array(weights_array_buffer.slice(717600, 871200))
+      new Int8Array(weights_array_buffer, 719520, 153600 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_601_scale = builder.constant(
@@ -1233,12 +1233,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_602_quantized = builder.constant(
       { dataType: 'int32', shape: [960] },
-      new Int32Array(weights_array_buffer.slice(871205, 875045))
+      new Int32Array(weights_array_buffer, 873136, 3840 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_602_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(875045, 875049))
+      new Float32Array(weights_array_buffer, 876976, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_600_scale = builder.constant(
@@ -1248,7 +1248,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_604_quantized = builder.constant(
       { dataType: 'int8', shape: [960,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(875063, 883703))
+      new Int8Array(weights_array_buffer, 877024, 8640 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_604_scale = builder.constant(
@@ -1258,12 +1258,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_605_quantized = builder.constant(
       { dataType: 'int32', shape: [960] },
-      new Int32Array(weights_array_buffer.slice(883708, 887548))
+      new Int32Array(weights_array_buffer, 885680, 3840 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_605_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(887548, 887552))
+      new Float32Array(weights_array_buffer, 889520, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_603_scale = builder.constant(
@@ -1273,7 +1273,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_607_quantized = builder.constant(
       { dataType: 'int8', shape: [160,960,1,1] },
-      new Int8Array(weights_array_buffer.slice(887566, 1041166))
+      new Int8Array(weights_array_buffer, 889568, 153600 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_607_scale = builder.constant(
@@ -1283,12 +1283,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_608_quantized = builder.constant(
       { dataType: 'int32', shape: [160] },
-      new Int32Array(weights_array_buffer.slice(1041171, 1041811))
+      new Int32Array(weights_array_buffer, 1043184, 640 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_608_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1041811, 1041815))
+      new Float32Array(weights_array_buffer, 1043824, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_606_scale = builder.constant(
@@ -1308,7 +1308,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_610_quantized = builder.constant(
       { dataType: 'int8', shape: [960,160,1,1] },
-      new Int8Array(weights_array_buffer.slice(1041839, 1195439))
+      new Int8Array(weights_array_buffer, 1043904, 153600 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_610_scale = builder.constant(
@@ -1318,12 +1318,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_611_quantized = builder.constant(
       { dataType: 'int32', shape: [960] },
-      new Int32Array(weights_array_buffer.slice(1195444, 1199284))
+      new Int32Array(weights_array_buffer, 1197520, 3840 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_611_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1199284, 1199288))
+      new Float32Array(weights_array_buffer, 1201360, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_609_scale = builder.constant(
@@ -1333,7 +1333,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_613_quantized = builder.constant(
       { dataType: 'int8', shape: [960,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(1199302, 1207942))
+      new Int8Array(weights_array_buffer, 1201408, 8640 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_613_scale = builder.constant(
@@ -1343,17 +1343,17 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_614_quantized = builder.constant(
       { dataType: 'int32', shape: [960] },
-      new Int32Array(weights_array_buffer.slice(1207947, 1211787))
+      new Int32Array(weights_array_buffer, 1210064, 3840 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_614_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1211787, 1211791))
+      new Float32Array(weights_array_buffer, 1213904, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_616_quantized = builder.constant(
       { dataType: 'int8', shape: [160,960,1,1] },
-      new Int8Array(weights_array_buffer.slice(1211805, 1365405))
+      new Int8Array(weights_array_buffer, 1213952, 153600 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_616_scale = builder.constant(
@@ -1363,12 +1363,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_617_quantized = builder.constant(
       { dataType: 'int32', shape: [160] },
-      new Int32Array(weights_array_buffer.slice(1365410, 1366050))
+      new Int32Array(weights_array_buffer, 1367568, 640 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_617_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1366050, 1366054))
+      new Float32Array(weights_array_buffer, 1368208, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_615_scale = builder.constant(
@@ -1393,7 +1393,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_619_quantized = builder.constant(
       { dataType: 'int8', shape: [960,160,1,1] },
-      new Int8Array(weights_array_buffer.slice(1366078, 1519678))
+      new Int8Array(weights_array_buffer, 1368288, 153600 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_619_scale = builder.constant(
@@ -1403,12 +1403,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_620_quantized = builder.constant(
       { dataType: 'int32', shape: [960] },
-      new Int32Array(weights_array_buffer.slice(1519683, 1523523))
+      new Int32Array(weights_array_buffer, 1521904, 3840 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_620_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1523523, 1523527))
+      new Float32Array(weights_array_buffer, 1525744, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_618_scale = builder.constant(
@@ -1418,7 +1418,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_622_quantized = builder.constant(
       { dataType: 'int8', shape: [960,1,3,3] },
-      new Int8Array(weights_array_buffer.slice(1523541, 1532181))
+      new Int8Array(weights_array_buffer, 1525792, 8640 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_622_scale = builder.constant(
@@ -1428,12 +1428,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_623_quantized = builder.constant(
       { dataType: 'int32', shape: [960] },
-      new Int32Array(weights_array_buffer.slice(1532186, 1536026))
+      new Int32Array(weights_array_buffer, 1534448, 3840 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_623_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1536026, 1536030))
+      new Float32Array(weights_array_buffer, 1538288, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_621_scale = builder.constant(
@@ -1443,7 +1443,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_625_quantized = builder.constant(
       { dataType: 'int8', shape: [320,960,1,1] },
-      new Int8Array(weights_array_buffer.slice(1536044, 1843244))
+      new Int8Array(weights_array_buffer, 1538336, 307200 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_625_scale = builder.constant(
@@ -1453,12 +1453,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_626_quantized = builder.constant(
       { dataType: 'int32', shape: [320] },
-      new Int32Array(weights_array_buffer.slice(1843249, 1844529))
+      new Int32Array(weights_array_buffer, 1845552, 1280 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_626_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(1844529, 1844533))
+      new Float32Array(weights_array_buffer, 1846832, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_624_scale = builder.constant(
@@ -1468,7 +1468,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_628_quantized = builder.constant(
       { dataType: 'int8', shape: [1280,320,1,1] },
-      new Int8Array(weights_array_buffer.slice(1844547, 2254147))
+      new Int8Array(weights_array_buffer, 1846880, 409600 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_628_scale = builder.constant(
@@ -1478,12 +1478,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_629_quantized = builder.constant(
       { dataType: 'int32', shape: [1280] },
-      new Int32Array(weights_array_buffer.slice(2254152, 2259272))
+      new Int32Array(weights_array_buffer, 2256496, 5120 / Int32Array.BYTES_PER_ELEMENT)
     );
     
     const var_629_scale = builder.constant(
       { dataType: 'float32', shape: [1] },
-      new Float32Array(weights_array_buffer.slice(2259272, 2259276))
+      new Float32Array(weights_array_buffer, 2261616, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_464_scale = builder.constant(
@@ -1493,12 +1493,12 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_471 = builder.constant(
       { dataType: 'int64', shape: [2] },
-      new BigInt64Array(weights_array_buffer.slice(2259300, 2259316))
+      new BigInt64Array(weights_array_buffer, 2261696, 16 / BigInt64Array.BYTES_PER_ELEMENT)
     );
     
     const var_classifier_1_weight_quantized = builder.constant(
       { dataType: 'int8', shape: [1280,1000] },
-      new Int8Array(weights_array_buffer.slice(2259326, 3539326))
+      new Int8Array(weights_array_buffer, 2261744, 1280000 / Int8Array.BYTES_PER_ELEMENT)
     );
     
     const var_classifier_1_weight_scale = builder.constant(
@@ -1518,7 +1518,7 @@ export class Mobilenetv212QdqStaticSimplified {
 
     const var_classifier_1_bias = builder.constant(
       { dataType: 'float32', shape: [1000] },
-      new Float32Array(weights_array_buffer.slice(3539341, 3543341))
+      new Float32Array(weights_array_buffer, 3541792, 4000 / Float32Array.BYTES_PER_ELEMENT)
     );
     
 
@@ -3649,7 +3649,7 @@ export class Mobilenetv212QdqStaticSimplified {
     const var_472_quantizeinput = builder.reshape(
       var_464_reshape_103_dequantized,
       (() => {
-        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(2259300, 2259316)), Number);
+        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(2261696, 2261712)), Number);
         // Calculate the concrete size for value -1.
         if (shape.includes(-1)) {
           const count = shape.filter(v => v === -1).length;

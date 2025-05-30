@@ -48,7 +48,7 @@ export class SelfieSegmenterLandscape19 {
     
     const const_fold_opt__408 = builder.constant(
       { dataType: 'float32', shape: [1,1,1,1] },
-      new Float32Array(weights_array_buffer, 329344, 4 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 329504, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_292 = builder.constant(
@@ -63,127 +63,127 @@ export class SelfieSegmenterLandscape19 {
 
     const var_mul_3_y_0 = builder.constant(
       { dataType: 'float32', shape: [] },
-      new Float32Array(weights_array_buffer, 329356, 4 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 329528, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_2_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 1808, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 1824, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_1_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 2832, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 2848, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__377 = builder.constant(
       { dataType: 'float32', shape: [16,1,3,3] },
-      new Float32Array(weights_array_buffer, 2896, 576 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 2912, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 3472, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 3488, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_3_filter_0 = builder.constant(
       { dataType: 'float32', shape: [8,16,1,1] },
-      new Float32Array(weights_array_buffer, 3536, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 3552, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_2_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [8] },
-      new Float32Array(weights_array_buffer, 4048, 32 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 4064, 32 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_4_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,8,1,1] },
-      new Float32Array(weights_array_buffer, 4080, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 4096, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_3_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 4592, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 4608, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_5_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 4656, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 4672, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_4_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 5680, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 5696, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_6_filter_0 = builder.constant(
       { dataType: 'float32', shape: [72,16,1,1] },
-      new Float32Array(weights_array_buffer, 5744, 4608 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 5760, 4608 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_5_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [72] },
-      new Float32Array(weights_array_buffer, 10352, 288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 10368, 288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__387 = builder.constant(
       { dataType: 'float32', shape: [72,1,3,3] },
-      new Float32Array(weights_array_buffer, 10640, 2592 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 10656, 2592 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [72] },
-      new Float32Array(weights_array_buffer, 13232, 288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 13248, 288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_7_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,72,1,1] },
-      new Float32Array(weights_array_buffer, 13520, 6912 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 13536, 6912 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_6_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 20432, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 20448, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_8_filter_0 = builder.constant(
       { dataType: 'float32', shape: [88,24,1,1] },
-      new Float32Array(weights_array_buffer, 20528, 8448 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 20544, 8448 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_7_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [88] },
-      new Float32Array(weights_array_buffer, 28976, 352 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 28992, 352 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__385 = builder.constant(
       { dataType: 'float32', shape: [88,1,3,3] },
-      new Float32Array(weights_array_buffer, 29328, 3168 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 29344, 3168 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_2_y_0 = builder.constant(
       { dataType: 'float32', shape: [88] },
-      new Float32Array(weights_array_buffer, 32496, 352 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 32512, 352 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_9_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,88,1,1] },
-      new Float32Array(weights_array_buffer, 32848, 8448 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 32864, 8448 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_8_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 41296, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 41312, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_10_filter_0 = builder.constant(
       { dataType: 'float32', shape: [96,24,1,1] },
-      new Float32Array(weights_array_buffer, 41392, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 41408, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_9_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 50608, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 50624, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_294 = builder.constant(
@@ -198,12 +198,12 @@ export class SelfieSegmenterLandscape19 {
 
     const const_fold_opt__383 = builder.constant(
       { dataType: 'float32', shape: [96,1,5,5] },
-      new Float32Array(weights_array_buffer, 51008, 9600 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 51040, 9600 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_3_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 60608, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 60640, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_296 = builder.constant(
@@ -218,42 +218,42 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_11_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,96,1,1] },
-      new Float32Array(weights_array_buffer, 61008, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 61056, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_10_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 70224, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 70272, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_12_filter_0 = builder.constant(
       { dataType: 'float32', shape: [96,24,1,1] },
-      new Float32Array(weights_array_buffer, 70320, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 70368, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_11_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 79536, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 79584, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_13_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,96,1,1] },
-      new Float32Array(weights_array_buffer, 79920, 12288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 79968, 12288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_12_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 92208, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 92256, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_14_filter_0 = builder.constant(
       { dataType: 'float32', shape: [128,32,1,1] },
-      new Float32Array(weights_array_buffer, 92336, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 92384, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_13_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 108720, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 108768, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_298 = builder.constant(
@@ -268,12 +268,12 @@ export class SelfieSegmenterLandscape19 {
 
     const const_fold_opt__381 = builder.constant(
       { dataType: 'float32', shape: [128,1,5,5] },
-      new Float32Array(weights_array_buffer, 109248, 12800 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 109312, 12800 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_4_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 122048, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 122112, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_300 = builder.constant(
@@ -288,42 +288,42 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_15_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,128,1,1] },
-      new Float32Array(weights_array_buffer, 122576, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 122656, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_14_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 138960, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 139040, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_16_filter_0 = builder.constant(
       { dataType: 'float32', shape: [128,32,1,1] },
-      new Float32Array(weights_array_buffer, 139088, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 139168, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_15_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 155472, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 155552, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_17_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,128,1,1] },
-      new Float32Array(weights_array_buffer, 155984, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 156064, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_16_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 172368, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 172448, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_18_filter_0 = builder.constant(
       { dataType: 'float32', shape: [128,32,1,1] },
-      new Float32Array(weights_array_buffer, 172496, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 172576, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_17_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 188880, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 188960, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_302 = builder.constant(
@@ -338,12 +338,12 @@ export class SelfieSegmenterLandscape19 {
 
     const const_fold_opt__379 = builder.constant(
       { dataType: 'float32', shape: [128,1,5,5] },
-      new Float32Array(weights_array_buffer, 189408, 12800 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 189504, 12800 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_5_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 202208, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 202304, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_304 = builder.constant(
@@ -358,42 +358,42 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_19_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,128,1,1] },
-      new Float32Array(weights_array_buffer, 202736, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 202848, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_18_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 219120, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 219232, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_20_filter_0 = builder.constant(
       { dataType: 'float32', shape: [128,32,1,1] },
-      new Float32Array(weights_array_buffer, 219248, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 219360, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_19_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 235632, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 235744, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_21_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,128,1,1] },
-      new Float32Array(weights_array_buffer, 236144, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 236256, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_20_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 252528, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 252640, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_22_filter_0 = builder.constant(
       { dataType: 'float32', shape: [96,32,1,1] },
-      new Float32Array(weights_array_buffer, 252656, 12288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 252768, 12288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_21_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 264944, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 265056, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_306 = builder.constant(
@@ -408,12 +408,12 @@ export class SelfieSegmenterLandscape19 {
 
     const const_fold_opt__395 = builder.constant(
       { dataType: 'float32', shape: [96,1,5,5] },
-      new Float32Array(weights_array_buffer, 265344, 9600 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 265472, 9600 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_6_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 274944, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 275072, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_308 = builder.constant(
@@ -428,42 +428,42 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_23_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,96,1,1] },
-      new Float32Array(weights_array_buffer, 275344, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 275488, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_22_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 284560, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 284704, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_24_filter_0 = builder.constant(
       { dataType: 'float32', shape: [96,24,1,1] },
-      new Float32Array(weights_array_buffer, 284656, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 284800, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_23_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 293872, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 294016, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_25_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,96,1,1] },
-      new Float32Array(weights_array_buffer, 294256, 12288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 294400, 12288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_24_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 306544, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 306688, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_26_filter_0 = builder.constant(
       { dataType: 'float32', shape: [96,32,1,1] },
-      new Float32Array(weights_array_buffer, 306672, 12288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 306816, 12288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_25_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 318960, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 319104, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_310 = builder.constant(
@@ -478,12 +478,12 @@ export class SelfieSegmenterLandscape19 {
 
     const const_fold_opt__407 = builder.constant(
       { dataType: 'float32', shape: [96,1,5,5] },
-      new Float32Array(weights_array_buffer, 319360, 9600 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 319520, 9600 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_7_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 328960, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 329120, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_312 = builder.constant(
@@ -498,52 +498,52 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_27_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,96,1,1] },
-      new Float32Array(weights_array_buffer, 329360, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 329536, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_26_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 338576, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 338752, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_28_filter_0 = builder.constant(
       { dataType: 'float32', shape: [96,24,1,1] },
-      new Float32Array(weights_array_buffer, 338672, 9216 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 338848, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_27_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [96] },
-      new Float32Array(weights_array_buffer, 347888, 384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 348064, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_29_filter_0 = builder.constant(
       { dataType: 'float32', shape: [32,96,1,1] },
-      new Float32Array(weights_array_buffer, 348272, 12288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 348448, 12288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_28_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [32] },
-      new Float32Array(weights_array_buffer, 360560, 128 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 360736, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_31_filter_0 = builder.constant(
       { dataType: 'float32', shape: [128,32,1,1] },
-      new Float32Array(weights_array_buffer, 360688, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 360864, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_30_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 377072, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 377248, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_30_filter_0 = builder.constant(
       { dataType: 'float32', shape: [128,32,1,1] },
-      new Float32Array(weights_array_buffer, 377584, 16384 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 377760, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_29_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [128] },
-      new Float32Array(weights_array_buffer, 393968, 512 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 394144, 512 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_314 = builder.constant(
@@ -558,52 +558,52 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_32_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,128,1,1] },
-      new Float32Array(weights_array_buffer, 394528, 12288 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 394704, 12288 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_31_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 406816, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 406992, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_33_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,24,1,1] },
-      new Float32Array(weights_array_buffer, 406912, 2304 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 407088, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_32_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 409216, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 409392, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_34_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,24,1,1] },
-      new Float32Array(weights_array_buffer, 409312, 2304 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 409488, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_33_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 411616, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 411792, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_35_filter_0 = builder.constant(
       { dataType: 'float32', shape: [24,24,1,1] },
-      new Float32Array(weights_array_buffer, 411712, 2304 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 411888, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_34_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 414016, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 414192, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__394 = builder.constant(
       { dataType: 'float32', shape: [24,1,3,3] },
-      new Float32Array(weights_array_buffer, 414112, 864 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 414288, 864 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_8_y_0 = builder.constant(
       { dataType: 'float32', shape: [24] },
-      new Float32Array(weights_array_buffer, 414976, 96 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 415152, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_315 = builder.constant(
@@ -613,52 +613,52 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_36_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,24,1,1] },
-      new Float32Array(weights_array_buffer, 415120, 1536 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 415296, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_35_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 416656, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 416832, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_37_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 416720, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 416896, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_36_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 417744, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 417920, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_38_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 417808, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 417984, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_37_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 418832, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 419008, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_39_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 418896, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 419072, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_38_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 419920, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 420096, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__391 = builder.constant(
       { dataType: 'float32', shape: [16,1,3,3] },
-      new Float32Array(weights_array_buffer, 419984, 576 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 420160, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_9_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 420560, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 420736, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_316 = builder.constant(
@@ -668,67 +668,67 @@ export class SelfieSegmenterLandscape19 {
 
     const var_conv2d_40_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 420672, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 420848, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_39_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 421696, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 421872, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_41_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 421760, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 421936, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_40_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 422784, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 422960, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_42_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 422848, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 423024, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_41_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 423872, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 424048, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_43_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,16,1,1] },
-      new Float32Array(weights_array_buffer, 423936, 1024 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 424112, 1024 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_42_1_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 424960, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 425136, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__389 = builder.constant(
       { dataType: 'float32', shape: [16,1,3,3] },
-      new Float32Array(weights_array_buffer, 425024, 576 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 425200, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_depthwise_conv2d_10_y_0 = builder.constant(
       { dataType: 'float32', shape: [16] },
-      new Float32Array(weights_array_buffer, 425600, 64 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 425776, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const var_conv2d_transpose_filter_0 = builder.constant(
       { dataType: 'float32', shape: [16,1,2,2] },
-      new Float32Array(weights_array_buffer, 425664, 256 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 425840, 256 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const const_fold_opt__402 = builder.constant(
       { dataType: 'float32', shape: [1,1,1,1] },
-      new Float32Array(weights_array_buffer, 425920, 4 / Float32Array.BYTES_PER_ELEMENT)
+      new Float32Array(weights_array_buffer, 426096, 4 / Float32Array.BYTES_PER_ELEMENT)
     );
     
     const new_shape__369 = builder.constant(
       { dataType: 'int64', shape: [4] },
-      new BigInt64Array(weights_array_buffer.slice(425924, 425956))
+      new BigInt64Array(weights_array_buffer, 426104, 32 / BigInt64Array.BYTES_PER_ELEMENT)
     );
     
 
@@ -2035,7 +2035,7 @@ export class SelfieSegmenterLandscape19 {
     const segment_back = builder.reshape(
       var_segment_back_raw_output___4_0,
       (() => {
-        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(425924, 425956)), Number);
+        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(426104, 426136)), Number);
         // Calculate the concrete size for value -1.
         if (shape.includes(-1)) {
           const count = shape.filter(v => v === -1).length;
