@@ -3649,7 +3649,7 @@ export class Mobilenetv212QdqStaticSimplified {
     const var_472_quantizeinput = builder.reshape(
       var_464_reshape_103_dequantized,
       (() => {
-        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(2261696, 2261712)), Number);
+        const shape = Array.from(new BigInt64Array(weights_array_buffer, 2261696, 16 / BigInt64Array.BYTES_PER_ELEMENT), Number);
         // Calculate the concrete size for value -1.
         if (shape.includes(-1)) {
           const count = shape.filter(v => v === -1).length;

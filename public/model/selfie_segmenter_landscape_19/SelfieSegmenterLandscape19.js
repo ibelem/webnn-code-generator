@@ -2035,7 +2035,7 @@ export class SelfieSegmenterLandscape19 {
     const segment_back = builder.reshape(
       var_segment_back_raw_output___4_0,
       (() => {
-        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(426104, 426136)), Number);
+        const shape = Array.from(new BigInt64Array(weights_array_buffer, 426104, 32 / BigInt64Array.BYTES_PER_ELEMENT), Number);
         // Calculate the concrete size for value -1.
         if (shape.includes(-1)) {
           const count = shape.filter(v => v === -1).length;
