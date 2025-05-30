@@ -1,27 +1,23 @@
+import {
+  getInputVars,
+  getOutputVars
+} from '../../operation-utils';
+
 /**
  * Generate JavaScript code for a WebNN clamp operation from ONNX Clip node info.
- * @param node - The ONNX node object (with inputs, outputs)
- * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @returns JavaScript code string for the clamp operation
- */
-
-/**
- * WebNN Specification: https://www.w3.org/TR/webnn/
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-clamp
  */
-
-import { getNonEmptyStringAroundNewline } from '../../../../utils';
 export function Clip(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options?: { [key: string]: any } = {}
 ): string {
-  const inputs: any[] = node.inputs || [];
-  const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0].name)) || [];
-  const outputVar = toJsVarName(outputs[0]);
+  const inputVars = getInputVars(node, toJsVarName);
+  const outputVars = getOutputVars(node, toJsVarName);
 
   // Helper to extract scalar from initializer
   function getScalarFromInitializer(inputIdx: number): string | undefined {
-    const val = inputs[inputIdx]?.value?.[0];
+    const val = node.inputs?.[inputIdx]?.value?.[0];
     const dims = val?.initializer?.type?.shape?.dimensions;
     if (
       val?.initializer &&
@@ -36,17 +32,16 @@ export function Clip(
     return undefined;
   }
 
-  const inputVar = toJsVarName(inputs[0]?.value?.[0]?.name);
-  const minValue = inputs.length > 1
-    ? getScalarFromInitializer(1) ?? toJsVarName(inputs[1]?.value?.[0]?.name)
+  const minValue = node.inputs.length > 1
+    ? getScalarFromInitializer(1) ?? inputVars[1]
     : 'undefined';
-  const maxValue = inputs.length > 2
-    ? getScalarFromInitializer(2) ?? toJsVarName(inputs[2]?.value?.[0]?.name)
+  const maxValue = node.inputs.length > 2
+    ? getScalarFromInitializer(2) ?? inputVars[2]
     : 'undefined';
 
   return `
-    const ${outputVar} = builder.clamp(
-      ${inputVar},
+    const ${outputVars[0]} = builder.clamp(
+      ${inputVars[0]},
       {
         minValue: ${minValue},
         maxValue: ${maxValue}

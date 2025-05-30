@@ -1,26 +1,21 @@
 import {
-  getInputVars, getOutputVars, getShape, getDtype,
-  validateDtype, inlineReshape, zeroConstant
+  getInputVars, getOutputVars, getShape, getDtype, inlineReshape, zeroConstant
 } from '../../operation-utils';
 
 /**
  * Generate JavaScript code for WebNN dequantizeLinear operation from ONNX node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-dequantizelinear
  */
-
 export function DequantizeLinear(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options?: { [key: string]: any } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const inputShape = getShape(node, 0);
   const scaleShape = getShape(node, 1);
   const inputDtype = getDtype(node, 0);
-  const scaleDtype = getDtype(node, 1);
-
-  validateDtype(inputDtype, ['uint8', 'int8', 'uint32', 'int32'], 'DequantizeLinear');
-  validateDtype(scaleDtype, ['float32', 'float16'], 'DequantizeLinear');
 
   let axis = 1;
   for (const attr of node.attributes || []) {

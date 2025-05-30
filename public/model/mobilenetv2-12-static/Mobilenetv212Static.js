@@ -1597,7 +1597,7 @@ export class Mobilenetv212Static {
     const var_472 = builder.reshape(
       var_464,
       (() => {
-        const shape = Array.from(new BigInt64Array(weights_array_buffer.slice(8827824, 8827840)), Number);
+        const shape = Array.from(new BigInt64Array(weights_array_buffer, 8827824, 16 / BigInt64Array.BYTES_PER_ELEMENT), Number);
         // Calculate the concrete size for value -1.
         if (shape.includes(-1)) {
           const count = shape.filter(v => v === -1).length;

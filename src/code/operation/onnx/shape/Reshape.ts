@@ -1,26 +1,20 @@
+import {
+  getInputVars,
+  getOutputVars
+} from '../../operation-utils';
+import { getModelState } from '../../../../ui';
+
 /**
  * Generate JavaScript code for a WebNN reshape operation from ONNX Reshape node info.
- * @param node - The ONNX node object (with inputs, outputs)
- * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @returns JavaScript code string for the reshape operation
- */
-
-/**
- * WebNN Specification: https://www.w3.org/TR/webnn/
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-reshape-method
  */
-
-import { getModelState } from '../../../../ui';
-import { getNonEmptyStringAroundNewline } from '../../../../utils';
 export function Reshape(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options?: { [key: string]: any } = {}
 ): string {
-  // Get input and output variable names
-  const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0]?.name)) || [];
-  const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0]?.name)) || [];
-  const inputVars = inputs.map(toJsVarName);
-  const outputVar = toJsVarName(outputs[0]);
+  const inputVars = getInputVars(node, toJsVarName);
+  const outputVars = getOutputVars(node, toJsVarName);
 
   // Try ONNX style: shape input as tensor
   const shapeInput = node.inputs?.[1];
@@ -43,7 +37,6 @@ export function Reshape(
     }
     // Only support BigInt64Array for shape tensor
     const js_shape_array = `new BigInt64Array(weights_array_buffer, ${shape_offset}, ${shape_length} / BigInt64Array.BYTES_PER_ELEMENT)`;
-    // const js_shape_array = `new BigInt64Array(weights_array_buffer.slice(${shape_offset}, ${shape_offset + shape_length}))`;
 
     // Convert BigInt64Array to Number array for WebNN and handle -1
     const js_shape = `(() => {
@@ -63,7 +56,7 @@ export function Reshape(
       })()`;
 
     return `
-    const ${outputVar} = builder.reshape(
+    const ${outputVars[0]} = builder.reshape(
       ${inputVars[0]},
       ${js_shape}
     );`;
@@ -74,7 +67,7 @@ export function Reshape(
   if (newShapeAttr && Array.isArray(newShapeAttr.value)) {
     const shapeArr = newShapeAttr.value.map((v: any) => Number(v));
     return `
-      const ${outputVar} = builder.reshape(
+      const ${outputVars[0]} = builder.reshape(
         ${inputVars[0]},
         [${shapeArr.join(', ')}]
       );`;

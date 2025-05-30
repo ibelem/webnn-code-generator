@@ -1,22 +1,19 @@
+import {
+  getInputVars,
+  getOutputVars
+} from '../../operation-utils';
+
 /**
  * Generate JavaScript code for a WebNN gemm operation from ONNX Gemm node info.
- * @param node - The ONNX node object (with inputs, outputs, attributes)
- * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @returns JavaScript code string for the gemm operation
- */
-
-/**
- * WebNN Specification: https://www.w3.org/TR/webnn/
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-gemm
  */
-
-import { getNonEmptyStringAroundNewline } from '../../../../utils';
 export function Gemm(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  _options: { [key: string]: any } = {}
 ): string {
-  const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0].name)) || [];
-  const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0].name)) || [];
+  const inputVars = getInputVars(node, toJsVarName);
+  const outputVars = getOutputVars(node, toJsVarName);
   const attrs: any[] = node.attributes || [];
 
   // Map attribute array to a dictionary by name
@@ -24,9 +21,6 @@ export function Gemm(
   for (const attr of attrs) {
     attrDict[attr.name] = attr;
   }
-
-  const inputVars = inputs.map(toJsVarName);
-  const outputVar = toJsVarName(outputs[0]);
 
   function formatFloat(val: any, type: string | undefined): string {
     if (type === 'float16' || type === 'float32' || type === 'float64') {
@@ -48,22 +42,22 @@ export function Gemm(
 
   // WebNN: builder.gemm(A, B, options)
   // If C is present, pass as 'C' in options
-  const options: string[] = [
+  const opts: string[] = [
     `alpha: ${alpha}`,
     `beta: ${beta}`,
     `aTranspose: ${Boolean(transA)}`,
     `bTranspose: ${Boolean(transB)}`
   ];
   if (inputVars.length > 2) {
-    options.push(`C: ${inputVars[2]}`);
+    opts.push(`C: ${inputVars[2]}`);
   }
 
   return `
-    const ${outputVar} = builder.gemm(
+    const ${outputVars[0]} = builder.gemm(
       ${inputVars[0]},
       ${inputVars[1]},
       {
-        ${options.join(', ')}
+        ${opts.join(', ')}
       }
     );`;
 }

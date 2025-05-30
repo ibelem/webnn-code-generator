@@ -1,22 +1,24 @@
+import {
+  getOutputVars
+} from '../../operation-utils';
+
 /**
  * Generate JavaScript code for a WebNN constant operand.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-constant
  */
-
-import { getNonEmptyStringAroundNewline } from '../../../../utils';
-
 export function Constant(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options?: { [key: string]: any } = {}
 ): string {
   // Get output variable name
-  const outputs = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0]?.name)) || [];
-  const outputVar = toJsVarName(outputs[0]);
+  const outputVars = getOutputVars(node, toJsVarName);
+  const outputVar = outputVars[0];
 
   // Find the 'value' attribute
   const valueAttr = (node.attributes || []).find((attr: any) => attr.name === 'value' && attr.t);
   if (!valueAttr) {
-    return `// Constant node ${outputs[0]} missing value tensor.`;
+    return `// Constant node ${outputVar} missing value tensor.`;
   }
   const t = valueAttr.t;
 
@@ -34,17 +36,6 @@ export function Constant(
     11: { js: 'Float64Array', webnn: 'float64' },
     12: { js: 'Uint32Array', webnn: 'uint32' },
     13: { js: 'BigUint64Array', webnn: 'uint64' },
-
-    // https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/shared_library/provider_api.h#L56
-    // TensorProto_DataType_COMPLEX64 = 14,
-    // TensorProto_DataType_COMPLEX128 = 15,
-    // TensorProto_DataType_BFLOAT16 = 16,
-    // TensorProto_DataType_FLOAT8E4M3FN = 17,
-    // TensorProto_DataType_FLOAT8E4M3FNUZ = 18,
-    // TensorProto_DataType_FLOAT8E5M2 = 19,
-    // TensorProto_DataType_FLOAT8E5M2FNUZ = 20,
-    // TensorProto_DataType_UINT4 = 21,
-    // TensorProto_DataType_INT4 = 22,
   };
 
   const dataType = t.dataType ?? 1;

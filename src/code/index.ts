@@ -122,7 +122,7 @@ function buildCode() {
         const nodeIdentifierStr = nodeIdentifier ? `· identifier: ${nodeIdentifier}` : '';
         operatorsCode += `
     // Please file bug into https://github.com/ibelem/webnn-code-generator/issues
-    // [To do] Unsupported op: ${type} ${nodeNameStr}${nodeIdentifierStr}\n`;
+    // [Todo] Unsupported op: ${type} ${nodeNameStr}${nodeIdentifierStr}\n`;
       }
     }
   }

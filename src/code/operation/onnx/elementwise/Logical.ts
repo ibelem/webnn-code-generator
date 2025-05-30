@@ -1,56 +1,55 @@
-import { getNonEmptyStringAroundNewline } from '../../../../utils';
+import {
+  getInputVars,
+  getOutputVars
+} from '../../operation-utils';
 
 function Logical(
   node: any,
   toJsVarName: (name: string) => string,
-  opType: string
+  options: { [key: string]: any } = {}
 ): string {
-  // Extract input and output names
-  const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0].name)) || [];
-  const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0].name)) || [];
+  const inputVars = getInputVars(node, toJsVarName);
+  const outputVars = getOutputVars(node, toJsVarName);
+  const opType = options.opType;
 
-  const inputVars = inputs.map(toJsVarName);
-  const outputVar = toJsVarName(outputs[0]);
-
-  // logicalNot is unary, others are binary
   if (opType === 'logicalNot') {
     return `
-    const ${outputVar} = builder.logicalNot(
+    const ${outputVars[0]} = builder.logicalNot(
       ${inputVars[0]}
     );`;
   } else {
     return `
-    const ${outputVar} = builder.${opType}(
+    const ${outputVars[0]} = builder.${opType}(
       ${inputVars[0]},
       ${inputVars[1]}
     );`;
   }
 }
 
-export function Equal(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'equal');
+export function Equal(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'equal' });
 }
-export function Greater(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'greater');
+export function Greater(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'greater' });
 }
-export function GreaterOrEqual(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'greaterOrEqual');
+export function GreaterOrEqual(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'greaterOrEqual' });
 }
-export function Less(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'lesser');
+export function Less(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'lesser' });
 }
-export function LessOrEqual(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'lesserOrEqual');
+export function LessOrEqual(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'lesserOrEqual' });
 }
-export function Not(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'logicalNot');
+export function Not(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'logicalNot' });
 }
-export function And(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'logicalAnd');
+export function And(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'logicalAnd' });
 }
-export function Or(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'logicalOr');
+export function Or(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'logicalOr' });
 }
-export function Xor(node: any, toJsVarName: (name: string) => string): string {
-  return Logical(node, toJsVarName, 'logicalXor');
+export function Xor(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
+  return Logical(node, toJsVarName, { ...options, opType: 'logicalXor' });
 }

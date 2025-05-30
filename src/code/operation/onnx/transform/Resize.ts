@@ -1,20 +1,21 @@
+import {
+  getInputVars,
+  getOutputVars
+} from '../../operation-utils';
+
 /**
  * Generate JavaScript code for a WebNN resample2d operation from ONNX Resize node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-resample2d-method
  */
-
-import { getNonEmptyStringAroundNewline } from '../../../../utils';
-
 export function Resize(
   node: any,
   toJsVarName: (name: string) => string,
-  nhwc: boolean = false
+  options: { [key: string]: any } = {}
 ): string {
-  const inputs: string[] = node.inputs?.map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0]?.name)) || [];
-  const outputs: string[] = node.outputs?.map((o: any) => getNonEmptyStringAroundNewline(o.value?.[0]?.name)) || [];
+  const nhwc = !!options.nhwc;
+  const inputVars = getInputVars(node, toJsVarName);
+  const outputVars = getOutputVars(node, toJsVarName);
   const attrs: any[] = node.attributes || [];
-  const inputVar = toJsVarName(inputs[0]);
-  const outputVar = toJsVarName(outputs[0]);
 
   // Default mode is 'nearest'
   let mode = 'nearest';
@@ -32,13 +33,9 @@ export function Resize(
     throw new Error('WebNN does not support cubic mode for Resize.');
   }
 
-  // Handle scales and sizes
-  let scales_js: string | undefined = undefined;
-  let sizes_js: string | undefined = undefined;
-
   // Helper to extract initializer array from input index
   function getInitializerArr(idx: number): number[] | undefined {
-    if (inputs.length > idx && node.inputs[idx]?.value?.[0]?.initializer) {
+    if (node.inputs.length > idx && node.inputs[idx]?.value?.[0]?.initializer) {
       const init = node.inputs[idx].value[0].initializer;
       const arr = Object.keys(init.values)
         .sort((a, b) => Number(a) - Number(b))
@@ -49,44 +46,45 @@ export function Resize(
   }
 
   // sizes: usually input[3]
+  let sizes_js: string | undefined = undefined;
   const sizesArr = getInitializerArr(3);
   if (sizesArr && sizesArr.length >= 4) {
     sizes_js = `[${parseInt(sizesArr[2].toString())}, ${parseInt(sizesArr[3].toString())}]`;
-  } else if (inputs.length > 3 && inputs[3]) {
-    sizes_js = toJsVarName(inputs[3]);
+  } else if (node.inputs.length > 3 && node.inputs[3]) {
+    sizes_js = inputVars[3];
   }
 
   // scales: usually input[2]
+  let scales_js: string | undefined = undefined;
   const scalesArr = getInitializerArr(2);
   if (scalesArr && scalesArr.length >= 4) {
     scales_js = `[${parseFloat(scalesArr[2].toString())}, ${parseFloat(scalesArr[3].toString())}]`;
-  } else if (inputs.length > 2 && inputs[2]) {
-    scales_js = toJsVarName(inputs[2]);
+  } else if (node.inputs.length > 2 && node.inputs[2]) {
+    scales_js = inputVars[2];
   }
 
   // Axes: default per spec
   let axes_js = nhwc ? '[1, 2]' : '[2, 3]';
 
   // Build options
-  const options: string[] = [`mode: '${webnn_mode}'`];
+  const opts: string[] = [`mode: '${webnn_mode}'`];
   if (sizes_js) {
-    options.push(`sizes: ${sizes_js}`);
+    opts.push(`sizes: ${sizes_js}`);
   } else {
-    options.push(`sizes: undefined`);
-  } 
-  
-  if (scales_js) {
-    options.push(`scales: ${scales_js}`);
-  } else {
-    options.push('scales: [1.0, 1.0]');
+    opts.push(`sizes: undefined`);
   }
-  options.push(`axes: ${axes_js}`);
+  if (scales_js) {
+    opts.push(`scales: ${scales_js}`);
+  } else {
+    opts.push('scales: [1.0, 1.0]');
+  }
+  opts.push(`axes: ${axes_js}`);
 
   return `
-    const ${outputVar} = builder.resample2d(
-      ${inputVar},
+    const ${outputVars[0]} = builder.resample2d(
+      ${inputVars[0]},
       {
-        ${options.join(',\n        ')}
+        ${opts.join(',\n        ')}
       }
     );`;
 }
