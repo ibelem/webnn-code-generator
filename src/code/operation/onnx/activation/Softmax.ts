@@ -10,8 +10,7 @@ import {
  */
 export function Softmax(
   node: any,
-  toJsVarName: (name: string) => string,
-  options?: { [key: string]: any } = {}
+  toJsVarName: (name: string) => string
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);

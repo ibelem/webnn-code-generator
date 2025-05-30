@@ -8,8 +8,7 @@ import {
  */
 export function Constant(
   node: any,
-  toJsVarName: (name: string) => string,
-  options?: { [key: string]: any } = {}
+  toJsVarName: (name: string) => string
 ): string {
   // Get output variable name
   const outputVars = getOutputVars(node, toJsVarName);

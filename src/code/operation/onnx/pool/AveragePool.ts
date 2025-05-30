@@ -9,8 +9,7 @@ import {
  */
 export function AveragePool(
   node: any,
-  toJsVarName: (name: string) => string,
-  _options: { [key: string]: any } = {}
+  toJsVarName: (name: string) => string
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
