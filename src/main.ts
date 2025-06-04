@@ -45,15 +45,21 @@ const renderAppLayout = (): void => {
           <div class="step-icon">2</div>
           <div id="step-2">
             <div class="upload-item">
-              <label for="graph-file-input" class="upload-button">Choose Graph File</label>
+              <label for="graph-file-input" class="upload-button">Graph</label>
               <input type="file" id="graph-file-input" accept=".json">
               <span class="file-info" id="graph-file-info">No .json file selected</span>
             </div>
             
             <div class="upload-item">
-              <label for="weight-file-input" class="upload-button">Choose Weights File</label>
-              <input type="file" id="weight-file-input" accept=".json">
-              <span class="file-info" id="weight-file-info">No .json file selected</span>
+              <label for="weight-nchw-file-input" class="upload-button">Weights (nchw)</label>
+              <input type="file" id="weight-nchw-file-input" accept=".json">
+              <span class="file-info" id="weight-nchw-file-info">No .json file selected</span>
+            </div>
+
+            <div class="upload-item">
+              <label for="weight-nhwc-file-input" class="upload-button">Weights (nhwc)</label>
+              <input type="file" id="weight-nhwc-file-input" accept=".json">
+              <span class="file-info" id="weight-nhwc-file-info">No .json file selected</span>
             </div>
           </div>
         </div>

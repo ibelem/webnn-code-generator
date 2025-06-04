@@ -8,13 +8,15 @@ import * as monaco from 'monaco-editor';
 // Application state
 interface ModelState {
   graphModelData: Record<string, any> | null;
-  weightModelData: Record<string, any> | null
+  weightNchwModelData: Record<string, any> | null;
+  weightNhwcModelData: Record<string, any> | null;
 }
 
 // Initialize application state
 const modelFileState: ModelState = {
   graphModelData: null,
-  weightModelData: null
+  weightNchwModelData: null,
+  weightNhwcModelData: null
 };
 
 // File upload tracking
@@ -44,7 +46,10 @@ export const updateGenerateButtonState = (): void => {
   const generateBtn = document.querySelector<HTMLButtonElement>('#generate-btn');
   const generateDiv = document.querySelectorAll<HTMLDivElement>('.step-3')[0];
   if (!generateBtn) return;
-  const state = !(modelFileState.graphModelData && modelFileState.weightModelData);
+  const state = !(
+    modelFileState.graphModelData &&
+    (modelFileState.weightNchwModelData && modelFileState.weightNhwcModelData)
+  );
   generateDiv?.classList.toggle('disabled', state);
   generateBtn.disabled = state;
 };
@@ -93,29 +98,36 @@ const processFileContent = (file: File, callback: (data: any) => void): void => 
 export const fetchFilesFromUrl = async (): Promise<void> => {
   const params = new URLSearchParams(window.location.search);
   const graphUrl = params.get('graph');
-  const weightUrl = params.get('weights');
+  const weightNchwUrl = params.get('weights_nchw');
+  const weightNhwcUrl = params.get('weights_nhwc');
 
-  if (graphUrl && weightUrl) {
+  if (graphUrl && (weightNchwUrl || weightNhwcUrl)) {
     appendLogMessage('Fetching model graph and weights files from URL...');
     try {
-      // Fetch all files in parallel and get their responses
-      const [graphRes, weightRes] = await Promise.all([
-        fetch(graphUrl),
-        fetch(weightUrl)
-      ]);
+      // Fetch files in parallel if present
+      const fetches: Promise<Response>[] = [fetch(graphUrl)];
+      if (weightNchwUrl) fetches.push(fetch(weightNchwUrl));
+      if (weightNhwcUrl) fetches.push(fetch(weightNhwcUrl));
+
+      const responses = await Promise.all(fetches);
 
       // Parse contents
-      const [graphResponse, weightResponse] = await Promise.all([
-        graphRes.json(),
-        weightRes.json()
-      ]);
+      const graphResponse = await responses[0].json();
+      let weightNchwResponse = null;
+      let weightNhwcResponse = null;
+      let idx = 1;
+      if (weightNchwUrl) {
+        weightNchwResponse = await responses[idx++].json();
+      }
+      if (weightNhwcUrl) {
+        weightNhwcResponse = await responses[idx]?.json();
+      }
 
-      // Update file info with size and name
+      // Update file info
       const updateRemoteFileInfo = (elementId: string, res: Response, url: string, fallbackSize: number) => {
         const element = document.querySelector<HTMLSpanElement>(`#${elementId}`);
         if (!element) return;
         const fileName = url.split('/').pop() || '';
-        // Try to get size from header, fallback to content length
         let size = Number(res.headers.get('content-length')) || fallbackSize;
         const fileSizeInKB = size / 1024;
         const fileSize = fileSizeInKB < 1024
@@ -124,16 +136,27 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
         element.innerHTML = `${internetLogo} ${fileName} · ${fileSize}`;
       };
 
-      updateRemoteFileInfo('graph-file-info', graphRes, graphUrl, JSON.stringify(graphResponse).length);
-      updateRemoteFileInfo('weight-file-info', weightRes, weightUrl, JSON.stringify(weightResponse).length);
+      updateRemoteFileInfo('graph-file-info', responses[0], graphUrl, JSON.stringify(graphResponse).length);
+      if (weightNchwUrl && weightNchwResponse) {
+        updateRemoteFileInfo('weight-nchw-file-info', responses[1], weightNchwUrl, JSON.stringify(weightNchwResponse).length);
+      }
+      if (weightNhwcUrl && weightNhwcResponse) {
+        // The index for NHWC depends on whether NCHW was present
+        const nhwcIdx = weightNchwUrl ? 2 : 1;
+        updateRemoteFileInfo('weight-nhwc-file-info', responses[nhwcIdx], weightNhwcUrl, JSON.stringify(weightNhwcResponse).length);
+      }
 
       modelFileState.graphModelData = graphResponse;
-      modelFileState.weightModelData = weightResponse;
+      modelFileState.weightNchwModelData = weightNchwResponse;
+      modelFileState.weightNhwcModelData = weightNhwcResponse;
 
       appendLogMessage('Model graph and weights files fetched successfully.');
-      renderGraphDetails(modelFileState.graphModelData?.graph[0]); // Render graph details
-      if (modelFileState.weightModelData) {
-        renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
+      renderGraphDetails(modelFileState.graphModelData?.graph[0]);
+      if (modelFileState.weightNchwModelData) {
+        renderWeightDetails(modelFileState.weightNchwModelData as Record<string, any>);
+      }
+      if (modelFileState.weightNhwcModelData) {
+        renderWeightDetails(modelFileState.weightNhwcModelData as Record<string, any>);
       }
       updateStep1State(false);
       updateStep2State(false);
@@ -184,20 +207,49 @@ export const setupFileInputs = (): void => {
   });
 
   // Weight file upload
-  setupFileInput('weight-file-input', (file) => {
+  setupFileInput('weight-nchw-file-input', (file) => {
+    if (!file.name.toLowerCase().includes('nchw')) {
+      appendLogMessage('Please select a weights file with "nchw" in the name for NCHW weights.', true);
+      updateFileInfo('weight-nchw-file-info', file); // Optionally clear or mark as invalid
+      return;
+    }
     processFileContent(file, (data) => {
       try {
-        modelFileState.weightModelData = JSON.parse(data as string);
-        updateFileInfo('weight-file-info', file);
-        appendLogMessage('Weight file loaded successfully');
-        if (modelFileState.weightModelData) {
-          renderWeightDetails(modelFileState.weightModelData as Record<string, any>); // Render weight details
+        modelFileState.weightNchwModelData = JSON.parse(data as string);
+        updateFileInfo('weight-nchw-file-info', file);
+        appendLogMessage('NCHW weight file loaded successfully');
+        if (modelFileState.weightNchwModelData) {
+          renderWeightDetails(modelFileState.weightNchwModelData as Record<string, any>);
         }
         updateStep1State(false);
         updateStep2State(false);
         updateGenerateButtonState();
       } catch (error) {
-        appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);
+        appendLogMessage('Error parsing NCHW weight file: ' + (error as Error).message, true);
+      }
+    });
+  });
+  
+  // NHWC Weight file upload
+  setupFileInput('weight-nhwc-file-input', (file) => {
+    if (!file.name.toLowerCase().includes('nhwc')) {
+      appendLogMessage('Please select a weights file with "nhwc" in the name for NHWC weights.', true);
+      updateFileInfo('weight-nhwc-file-info', file); // Optionally clear or mark as invalid
+      return;
+    }
+    processFileContent(file, (data) => {
+      try {
+        modelFileState.weightNhwcModelData = JSON.parse(data as string);
+        updateFileInfo('weight-nhwc-file-info', file);
+        appendLogMessage('NHWC weight file loaded successfully');
+        if (modelFileState.weightNhwcModelData) {
+          renderWeightDetails(modelFileState.weightNhwcModelData as Record<string, any>);
+        }
+        updateStep1State(false);
+        updateStep2State(false);
+        updateGenerateButtonState();
+      } catch (error) {
+        appendLogMessage('Error parsing NHWC weight file: ' + (error as Error).message, true);
       }
     });
   });
@@ -489,8 +541,8 @@ function generateWebNNCode(): void {
   appendLogMessage('Starting code generation process...');
   
   try {
-    const { graphModelData, weightModelData} = getModelState();
-    if (!graphModelData || !weightModelData) {
+    const { graphModelData, weightNchwModelData, weightNhwcModelData} = getModelState();
+    if (!graphModelData || !weightNchwModelData) {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }

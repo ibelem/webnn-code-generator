@@ -55,7 +55,8 @@ function runCode() {
 }
 
 function buildCodeWithLayout(nhwc: boolean) {
-  const { graphModelData, weightModelData } = getModelState();
+  const { graphModelData, weightNchwModelData, weightNhwcModelData } = getModelState();
+  const weightModelData = nhwc ? weightNhwcModelData : weightNchwModelData;
   const inputs = graphModelData?.graph?.[0].inputs;
   const outputs = graphModelData?.graph?.[0].outputs;
 
