@@ -16,7 +16,45 @@ function constructorCode() {
   }`;
 }
 
-function buildCode() {
+function runCode() {
+  return `
+  async run(inputs) {
+    // Set input buffers to input tensors using writeTensor (sync)
+    for (const name in inputs) {
+      if (!(name in this.inputTensors_)) throw new Error('Unknown input: ' + name);
+      this.context_.writeTensor(this.inputTensors_[name], inputs[name]);
+    }
+
+    // Compute the graph
+    await this.context_.dispatch(this.graph_, this.inputTensors_, this.outputTensors_);
+
+    // Read output tensors to buffers using readTensor (async)
+    const outputs = {};
+    for (const name in this.outputTensors_) {
+      const tensor = this.outputTensors_[name];
+      const buffer = await this.context_.readTensor(tensor);
+      let typedArrayCtor;
+      switch (tensor.dataType) {
+        case 'float32': typedArrayCtor = Float32Array; break;
+        case 'uint8': typedArrayCtor = Uint8Array; break;
+        case 'int8': typedArrayCtor = Int8Array; break;
+        case 'uint16': typedArrayCtor = Uint16Array; break;
+        case 'int16': typedArrayCtor = Int16Array; break;
+        case 'int32': typedArrayCtor = Int32Array; break;
+        case 'int64': typedArrayCtor = BigInt64Array; break;
+        case 'float16': typedArrayCtor = Float16Array; break;
+        case 'float64': typedArrayCtor = Float64Array; break;
+        case 'uint32': typedArrayCtor = Uint32Array; break;
+        case 'uint64': typedArrayCtor = BigUint64Array; break;
+        default: throw new Error('Unhandled tensor dataType: ' + tensor.dataType);
+      }
+      outputs[name] = new typedArrayCtor(buffer);
+    }
+    return outputs;
+  }`;
+}
+
+function buildCodeWithLayout(nhwc: boolean) {
   const { graphModelData, weightModelData } = getModelState();
   const inputs = graphModelData?.graph?.[0].inputs;
   const outputs = graphModelData?.graph?.[0].outputs;
@@ -113,7 +151,7 @@ function buildCode() {
       const type = node.type.name || '';
       const handler = opHandlers[type];
       if (handler) {
-        const jsCode = handler(node, toJsVarName);
+        const jsCode = handler(node, toJsVarName, { nhwc });
         operatorsCode += `    ${jsCode}\n`;
       } else {
         const nodeName = node.name || '';
@@ -163,11 +201,13 @@ function buildCode() {
     );`;
   }
 
+  const binFile = nhwc ? 'weights_nhwc.bin' : 'weights_nchw.bin';
   return `
   async build(options) {
     // Load weights ArrayBuffer from .bin file
     async function loadWeightsArrayBuffer() {
-      const response = await fetch('weights.bin');
+      const binFile = '${binFile}';
+      const response = await fetch(binFile);
       if (!response.ok) {
           throw new Error('Failed to fetch weights: ' + response.statusText);
       }
@@ -196,44 +236,6 @@ function buildCode() {
   }`;
 }
 
-function runCode() {
-  return `
-  async run(inputs) {
-    // Set input buffers to input tensors using writeTensor (sync)
-    for (const name in inputs) {
-      if (!(name in this.inputTensors_)) throw new Error('Unknown input: ' + name);
-      this.context_.writeTensor(this.inputTensors_[name], inputs[name]);
-    }
-
-    // Compute the graph
-    await this.context_.dispatch(this.graph_, this.inputTensors_, this.outputTensors_);
-    
-    // Read output tensors to buffers using readTensor (async)
-    const outputs = {};
-    for (const name in this.outputTensors_) {
-      const tensor = this.outputTensors_[name];
-      const buffer = await this.context_.readTensor(tensor);
-      let typedArrayCtor;
-      switch (tensor.dataType) {
-        case 'float32': typedArrayCtor = Float32Array; break;
-        case 'uint8': typedArrayCtor = Uint8Array; break;
-        case 'int8': typedArrayCtor = Int8Array; break;
-        case 'uint16': typedArrayCtor = Uint16Array; break;
-        case 'int16': typedArrayCtor = Int16Array; break;
-        case 'int32': typedArrayCtor = Int32Array; break;
-        case 'int64': typedArrayCtor = BigInt64Array; break;
-        case 'float16': typedArrayCtor = Float16Array; break;
-        case 'float64': typedArrayCtor = Float64Array; break;
-        case 'uint32': typedArrayCtor = Uint32Array; break;
-        case 'uint64': typedArrayCtor = BigUint64Array; break;
-        default: throw new Error('Unhandled tensor dataType: ' + tensor.dataType);
-      }
-      outputs[name] = new typedArrayCtor(buffer);
-    }
-    return outputs;
-  }`;
-}
-
 export function generateJS() {
   const name = modelName();
   let freeDimsOverridesStr = '';
@@ -247,16 +249,36 @@ export function generateJS() {
 `;
   }
 
-  return `// WebNN Code Generator
-// Todo: NCHW, NHWC layouts for BatchNormalization, InstanceNormalization, Conv, ConvInteger, 
-// QLinearConv, ConvTranspose, AveragePool, LpPool, MaxPool, MaxUnpool, GlobalAveragePool, 
-// GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth
+  // Todo: NCHW, NHWC layouts for BatchNormalization, InstanceNormalization, Conv, ConvInteger, 
+  // QLinearConv, ConvTranspose, AveragePool, LpPool, MaxPool, MaxUnpool, GlobalAveragePool, 
+  // GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth
 
-export class ${name} {
+  // NCHW version
+  const nchwClass = `
+export class ${name}Nchw {
 ${freeDimsOverridesStr}${constructorCode()}
-${buildCode()}
+${buildCodeWithLayout(false)}
 ${runCode()}
 }`;
+
+  // NHWC version
+  const nhwcClass = `
+export class ${name}Nhwc {
+${freeDimsOverridesStr}${constructorCode()}
+${buildCodeWithLayout(true)}
+${runCode()}
+}`;
+
+  return {
+    nchw: `// WebNN Code Generator (NCHW)\n${nchwClass}`,
+    nhwc: `// WebNN Code Generator (NHWC)\n${nhwcClass}`
+  };
+}
+
+export function downloadJS() {
+  const jsFiles = generateJS();
+  downloadFile(modelName() + '_nchw.js', 'application/javascript', jsFiles.nchw);
+  downloadFile(modelName() + '_nhwc.js', 'application/javascript', jsFiles.nhwc);
 }
 
 export function generateHTML() {
@@ -266,10 +288,10 @@ export function generateHTML() {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test ${name}</title>
+  <title>Test ${name} in nchw and nhwc layouts</title>
 </head>
 <body>
-  <h1>Test ${name}.js</h1>
+  <h1>Test ${name}.js in nchw and nhwc layouts</h1>
   <button id="run-btn">Build & Run Model</button>
   <label for="deviceType">Device:</label>
   <select id="deviceType">
@@ -281,15 +303,22 @@ export function generateHTML() {
   <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
   <pre id="output"></pre>
   <script type="module">
-    import { ${name} } from './${name}.js';
+    import { ${name}Nchw } from './${name}_nchw.js';
+    import { ${name}Nhwc } from './${name}_nhwc.js';
 
     document.getElementById('run-btn').onclick = async () => {
       const output = document.getElementById('output');
       output.textContent = 'Building model...\\n';
       try {
         const deviceType = document.getElementById('deviceType').value || 'gpu';
+        const layout = context.opSupportLimits().preferredInputLayout;
+        let model;
+        if (layout === 'nchw') {
+            model = new ${name}Nchw();
+        } else {
+            model = new ${name}Nhwc();
+        }
         const t0 = performance.now();
-        const model = new ${name}();
         await model.build({ deviceType: deviceType });
         const t1 = performance.now();
         output.textContent += \`Model built successfully. Build latency: \${(t1 - t0).toFixed(2)} ms\\n\`;
@@ -368,10 +397,6 @@ export function generateHTML() {
 </body>
 </html>
 `;
-}
-
-export function downloadJS() {
-  downloadFile(modelName() + '.js', 'application/javascript', generateJS());
 }
 
 export function downloadHTML() {

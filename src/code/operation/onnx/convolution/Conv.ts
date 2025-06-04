@@ -7,6 +7,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN conv2d operation from ONNX node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-conv2d
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/conv_op_builder.cc
  */
 export function Conv(
   node: any,
@@ -29,16 +30,17 @@ export function Conv(
     const stride_h = Number(attrDict['stride_h']?.value ?? 1);
     strides = [stride_h, stride_w];
   }
-  const strides_js = Array.isArray(strides) && strides.length === 2
-    ? `[${strides.map((s: any) => String(Number(s))).join(', ')}]`
-    : '[1, 1]';
+  if (!strides) strides = [1, 1];
+  if (strides.length === 1) strides = [strides[0], strides[0]];
+  const strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
 
-  // Pads
+  // Pads & auto_pad
   let pads = attrDict['pads']?.value?.value;
   let pads_js = '[0, 0, 0, 0]';
-  if (!pads && attrDict['padding']?.value) {
-    const padType = attrDict['padding'].value;
-    pads_js = padType === 'VALID' ? '[0, 0, 0, 0]' : `'${padType}'`;
+  let autoPad = attrDict['auto_pad']?.value || attrDict['padding']?.value;
+  if (autoPad && typeof autoPad === 'string' && autoPad !== 'NOTSET') {
+    // Pass autoPad string directly if present
+    pads_js = `'${autoPad}'`;
   } else if (Array.isArray(pads) && pads.length === 4) {
     // ONNX: [top, left, bottom, right] -> WebNN: [top, bottom, left, right]
     const pads_webnn = [pads[0], pads[2], pads[1], pads[3]];
@@ -52,9 +54,9 @@ export function Conv(
     const dilation_h = Number(attrDict['dilation_h_factor']?.value ?? 1);
     dilations = [dilation_h, dilation_w];
   }
-  const dilations_js = Array.isArray(dilations) && dilations.length === 2
-    ? `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`
-    : '[1, 1]';
+  if (!dilations) dilations = [1, 1];
+  if (dilations.length === 1) dilations = [dilations[0], dilations[0]];
+  const dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
 
   // Groups
   let groups = attrDict['group']?.value?.value ?? 1;
@@ -65,34 +67,24 @@ export function Conv(
 
   // Filter shape and layout
   const filterShape = getShape(node, 1);
-  let inputLayout = nhwc ? "'nhwc'" : "'nchw'";
-  let filterLayout = "'oihw'";
-  let filterVarName = inputVars[1];
 
-  // Depthwise detection
+  // Depthwise detection (NHWC: groups === inputChannels)
   let isDepthwise = false;
   if (groups !== 1 && filterShape.length === 4) {
-    const outputChannels = filterShape[0];
-    if (groups === outputChannels) isDepthwise = true;
+    const inputShape = getShape(node, 0);
+    const inputChannels = nhwc ? inputShape[3] : inputShape[1];
+    if (groups === inputChannels) isDepthwise = true;
   }
 
-  // Helper: transpose filter weights for NHWC (placeholder)
-  function getTransposedFilterVarName(originalVar: string, _permutation: number[]) {
-    return `${originalVar}_transposed`;
-  }
-
+  let filterLayout = "'oihw'";
+  let inputLayout = "'nchw'";
   if (nhwc) {
-    if (isDepthwise) {
-      // Depthwise: OIHW -> IHWO
-      filterVarName = getTransposedFilterVarName(filterVarName, [1, 2, 3, 0]);
-      filterLayout = "'ihwo'";
-    } else {
-      // Regular: OIHW -> OHWI
-      filterVarName = getTransposedFilterVarName(filterVarName, [0, 2, 3, 1]);
-      filterLayout = "'ohwi'";
-    }
     inputLayout = "'nhwc'";
+    filterLayout = isDepthwise ? "'ihwo'" : "'ohwi'";
   }
+
+  // Add label for debugging if node.name exists
+  const label = node.name ? `label: '${node.name}'` : undefined;
 
   // Build options
   const optionsArr: string[] = [
@@ -104,12 +96,14 @@ export function Conv(
   if (biasVar) optionsArr.push(`bias: ${biasVar}`);
   if (filterLayout) optionsArr.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) optionsArr.push(`inputLayout: ${inputLayout}`);
+  if (label) optionsArr.push(label);
 
   return `
     const ${outputVars[0]} = builder.conv2d(
-      ${inputVars[0]}, ${filterVarName},
+      ${inputVars[0]}, ${inputVars[1]},
       {
         ${optionsArr.join(',\n        ')}
       }
-    );`;
+    );
+  `;
 }

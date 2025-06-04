@@ -2,7 +2,7 @@
 const modules = import.meta.glob('./operation/**/*.ts', { eager: true });
 
 // Build the opHandlers map
-const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => string) => string> = {};
+const opHandlers: Record<string, (node: any, toJsVarName: (name: string) => string, options?: { nhwc?: boolean }) => string> = {};
 
 for (const path in modules) {
   const mod = modules[path] as Record<string, any>;

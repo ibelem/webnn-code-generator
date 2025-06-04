@@ -94,7 +94,7 @@ body {
 }
 
 h1 {
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin: 0;
   font-weight: 500;
 }
@@ -107,7 +107,7 @@ header {
 }
 
 .logo {
-  height: 2.2em;
+  height: 2em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -216,10 +216,18 @@ header {
   padding: 0.5em;
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 1em;
 }
 
 .override span {
   margin-left: 1em;
+}
+
+.override span.glider {
+  margin-left: 0em;
 }
 
 .override input {
@@ -423,6 +431,64 @@ header {
   height: 100%;
 }
 
+.code-tab {
+  display: flex;
+  align-items: center;
+}
+.code-tab * {
+  z-index: 2;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  width: 80px;
+  padding: 0 0.5em;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+input[type=radio]:checked + label {
+  color: var(--primary);
+}
+
+input[id=nchw-js]:checked ~ .glider {
+  transform: translateX(0);
+}
+
+input[id=nhwc-js]:checked ~ .glider {
+  transform: translateX(100%);
+}
+
+input[id=webnn-html]:checked ~ .glider {
+  transform: translateX(200%);
+}
+
+.glider {
+  position: absolute;
+  display: flex;
+  height: 1em;
+  padding: 0.2em 0.5em;
+  width: 78px;
+  background-color: var(--primary-005);
+  z-index: 1;
+  border: var(--primary) 1px solid;
+  border-radius: 3px;
+  transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+  .code-tab {
+    transform: scale(0.6);
+  }
+}
+
 .pink {
   color: var(--pink);
 }
@@ -510,11 +576,6 @@ input[type="file"] {
   border: 1px solid var(--border-dark);
 }
 
-#output-code:hover {
-  border-left: 1px solid var(--border-dark);
-  border-right: 1px solid var(--border-dark);
-}
-
 #log-console p {
   margin: 0;
   padding: 0;
@@ -590,11 +651,11 @@ input[type="file"] {
 }
 
 .app-description {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 footer {
-  margin: 0.5em 0;
+  margin: 0.3em 0 0.5em 0;
 }
 
 .file-info svg { 

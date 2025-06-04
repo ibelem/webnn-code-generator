@@ -7,11 +7,6 @@ import {
  * Generate JavaScript code for a WebNN convTranspose2d operation from ONNX node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-convtranspose2d
  */
-function getTransposedFilterVarName(originalVar: string) {
-  // Placeholder for weight transposition logic
-  return `${originalVar}_transposed`;
-}
-
 export function ConvTranspose(
   node: any,
   toJsVarName: (name: string) => string,
@@ -27,25 +22,27 @@ export function ConvTranspose(
   for (const attr of attrs) attrDict[attr.name] = attr;
 
   // Strides
-  let strides = attrDict['strides']?.value?.value;
-  const strides_js = Array.isArray(strides) && strides.length === 2
-    ? `[${strides.map((s: any) => String(Number(s))).join(', ')}]`
-    : '[1, 1]';
+  let strides = attrDict['strides']?.value?.value || [1, 1];
+  if (strides.length === 1) strides = [strides[0], strides[0]];
+  const strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
 
-  // Pads
+  // Pads & auto_pad
   let pads = attrDict['pads']?.value?.value;
   let pads_js = '[0, 0, 0, 0]';
-  if (Array.isArray(pads) && pads.length === 4) {
+  let autoPad = attrDict['auto_pad']?.value;
+  if (autoPad && typeof autoPad === 'string' && autoPad !== 'NOTSET') {
+    // Pass autoPad string directly if present
+    pads_js = `'${autoPad}'`;
+  } else if (Array.isArray(pads) && pads.length === 4) {
     // ONNX: [top, left, bottom, right] -> WebNN: [top, bottom, left, right]
     const pads_webnn = [pads[0], pads[2], pads[1], pads[3]];
     pads_js = `[${pads_webnn.map((p: any) => String(Number(p))).join(', ')}]`;
   }
 
   // Dilations
-  let dilations = attrDict['dilations']?.value?.value;
-  const dilations_js = Array.isArray(dilations) && dilations.length === 2
-    ? `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`
-    : '[1, 1]';
+  let dilations = attrDict['dilations']?.value?.value || [1, 1];
+  if (dilations.length === 1) dilations = [dilations[0], dilations[0]];
+  const dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
 
   // Groups
   let groups = attrDict['group']?.value?.value ?? 1;
@@ -57,37 +54,46 @@ export function ConvTranspose(
     ? `[${output_shape.map((s: any) => String(Number(s))).join(', ')}]`
     : undefined;
 
+  // Output padding (optional)
+  let output_padding = attrDict['output_padding']?.value?.value;
+  if (!output_padding) output_padding = [0, 0];
+  if (output_padding.length === 1) output_padding.push(0);
+  const output_padding_js = `[${output_padding.map((p: any) => String(Number(p))).join(', ')}]`;
+
   // Bias input (optional)
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Filter layout and transposition for NHWC
   let filterLayout = undefined;
   let inputLayout = undefined;
-  let filterVarName = inputVars[1];
   if (nhwc) {
-    // ONNX IOHW -> WebNN OHWI for NHWC
-    filterVarName = getTransposedFilterVarName(filterVarName);
     filterLayout = "'ohwi'";
     inputLayout = "'nhwc'";
   }
+
+  // Add label for debugging if node.name exists
+  const label = node.name ? `label: '${node.name}'` : undefined;
 
   // Build options
   const optionsArr: string[] = [
     `strides: ${strides_js}`,
     `padding: ${pads_js}`,
     `dilations: ${dilations_js}`,
-    `groups: ${groups_js}`
+    `groups: ${groups_js}`,
+    `outputPadding: ${output_padding_js}`
   ];
   if (output_sizes_js) optionsArr.push(`outputSizes: ${output_sizes_js}`);
   if (biasVar) optionsArr.push(`bias: ${biasVar}`);
   if (filterLayout) optionsArr.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) optionsArr.push(`inputLayout: ${inputLayout}`);
+  if (label) optionsArr.push(label);
 
   return `
     const ${outputVars[0]} = builder.convTranspose2d(
-      ${inputVars[0]}, ${filterVarName},
+      ${inputVars[0]}, ${inputVars[1]},
       {
         ${optionsArr.join(',\n        ')}
       }
-    );`;
+    );
+  `;
 }

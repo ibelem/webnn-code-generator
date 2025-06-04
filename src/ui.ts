@@ -353,22 +353,24 @@ const renderGraphDetails = (graphData: any): void => {
     outputGraphElement.innerHTML += `<div class="graph-nodes">${nodesHTML}</div>`;
   }
 
+
+
   // Render free dimension overrides if needed
   if (freeDims.size > 0) {
     overrideDiv.className = 'override';
-    overrideDiv.innerHTML = `
+    overrideDiv.innerHTML = `<div class="override-config">
       Set <a href="https://webnn.io/en/learn/tutorials/onnx-runtime/free-dimension-overrides">free dimension overrides</a>: 
       ${Array.from(freeDims).map(dim => `
         <span>${dim}</span> <input type="text" id="override_${dim}" name="override_${dim}" required size="5" />
       `).join(' ')}
+      </div>
     `;
     // Pass freeDims to generator for validation
     import('./ui').then(mod => {
       if (mod.setFreeDims) mod.setFreeDims(Array.from(freeDims));
     });
   } else {
-    overrideDiv.className = 'override none';
-    overrideDiv.innerHTML = '';
+    overrideDiv.className = 'override';
     import('./ui').then(mod => {
       if (mod.setFreeDims) mod.setFreeDims([]);
     });
@@ -507,9 +509,46 @@ function generateWebNNCode(): void {
  * Display the generated code in the code element
  */
 function renderOutputCode(): void {
-  // Import generateJS dynamically to avoid circular dependency if needed
+  const codeTab = document.createElement('div');
+  codeTab.className = 'code-tab';
+  codeTab.innerHTML = `
+    <input type="radio" id="nchw-js" name="tabs" checked />
+    <label class="tab" for="nchw-js">nchw.js</label>
+    <input type="radio" id="nhwc-js" name="tabs" />
+    <label class="tab" for="nhwc-js">nhwc.js</label>
+    <input type="radio" id="webnn-html" name="tabs" />
+    <label class="tab" for="webnn-html">webnn.html</label>
+    <span class="glider"></span>
+  `;
+
+  const overrideDiv = document.getElementById('free-dimension-overrides');
+  overrideDiv?.appendChild(codeTab);
+
   import('./code').then(mod => {
     const code = mod.generateJS();
-    monaco.editor.getModels()[0].setValue(code);
+    const html = mod.generateHTML ? mod.generateHTML() : '';
+
+    // Set default to nchw.js
+    monaco.editor.getModels()[0].setValue(code.nchw);
+
+    // Add event listeners for tab switching
+    document.getElementById('nchw-js')?.addEventListener('change', function () {
+      if ((this as HTMLInputElement).checked) {
+        monaco.editor.getModels()[0].setValue(code.nchw);
+        monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
+      }
+    });
+    document.getElementById('nhwc-js')?.addEventListener('change', function () {
+      if ((this as HTMLInputElement).checked) {
+        monaco.editor.getModels()[0].setValue(code.nhwc);
+        monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
+      }
+    });
+    document.getElementById('webnn-html')?.addEventListener('change', function () {
+      if ((this as HTMLInputElement).checked) {
+        monaco.editor.getModels()[0].setValue(html);
+        monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'html');
+      }
+    });
   });
 }
