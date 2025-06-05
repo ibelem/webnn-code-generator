@@ -1719,7 +1719,11 @@ export class Mobilenetv212StaticNchw {
       var_472,
       var_classifier_1_weight,
       {
-        alpha: 1.0, beta: 1.0, aTranspose: false, bTranspose: true, C: var_classifier_1_bias
+        alpha: 1.0,
+        beta: 1.0,
+        aTranspose: false,
+        bTranspose: true,
+        C: var_classifier_1_bias
       }
     );
 

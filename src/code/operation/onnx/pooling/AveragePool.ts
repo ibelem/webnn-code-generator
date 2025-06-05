@@ -1,7 +1,4 @@
-import {
-  getInputVars,
-  getOutputVars
-} from '../../operation-utils';
+import { getInputVars, getOutputVars } from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN averagePool2d operation from ONNX AveragePool node info.
@@ -9,28 +6,35 @@ import {
  */
 export function AveragePool(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { nhwc?: boolean } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
+  const attrs: any[] = node.attributes || [];
+  const nhwc = !!options.nhwc;
 
-  // Extract attributes
-  const attrDict = Object.fromEntries(
-    (node.attributes || []).map((a: any) => [a.name, a])
-  );
-
-  const kernelShape = attrDict['kernel_shape']?.value;
-  const strides = attrDict['strides']?.value;
-  const pads = attrDict['pads']?.value;
-
-  const opts: string[] = [];
-  if (kernelShape) opts.push(`windowDimensions: [${kernelShape.join(', ')}]`);
-  if (strides) opts.push(`strides: [${strides.join(', ')}]`);
-  if (pads) opts.push(`padding: [${pads.join(', ')}]`);
-  const optsString = opts.length ? `, { ${opts.join(', ')} }` : '';
+  // Build options for builder.averagePool2d
+  const poolOpts: string[] = [];
+  for (const attr of attrs) {
+    if (attr.name === 'kernelShape') {
+      poolOpts.push(`windowDimensions: [${attr.value.value.join(', ')}]`);
+    } else if (attr.name === 'pads') {
+      poolOpts.push(`padding: [${attr.value.value.join(', ')}]`);
+    } else if (attr.name === 'strides') {
+      poolOpts.push(`strides: [${attr.value.value.join(', ')}]`);
+    }
+    // Add other attributes as needed
+  }
+  if (nhwc) {
+    poolOpts.push(`layout: 'nhwc'`);
+  }
 
   return `
-    const ${outputVars[0]} = builder.averagePool2d(
-      ${inputVars[0]}${optsString}
-    );`;
+const ${outputVars[0]} = builder.averagePool2d(
+  ${inputVars[0]},
+  {
+    ${poolOpts.join(',\n    ')}
+  }
+);`;
 }

@@ -12,7 +12,7 @@ import {
 export function GlobalLpPool(
   node: any,
   toJsVarName: (name: string) => string,
-  options: { [key: string]: any } = {}
+  options: { nhwc?: boolean } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);

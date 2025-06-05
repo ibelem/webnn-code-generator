@@ -1694,7 +1694,8 @@ export class Mobilenetv212StaticNhwc {
     );
     
     const var_464 = builder.averagePool2d(
-      var_463
+      var_463,
+      { layout: 'nhwc' }
     );
     
     const var_472 = builder.reshape(
@@ -1720,7 +1721,11 @@ export class Mobilenetv212StaticNhwc {
       var_472,
       var_classifier_1_weight,
       {
-        alpha: 1.0, beta: 1.0, aTranspose: false, bTranspose: true, C: var_classifier_1_bias
+        alpha: 1.0,
+        beta: 1.0,
+        aTranspose: false,
+        bTranspose: true,
+        C: var_classifier_1_bias
       }
     );
 

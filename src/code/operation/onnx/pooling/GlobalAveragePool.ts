@@ -9,13 +9,22 @@ import {
  */
 export function GlobalAveragePool(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { nhwc?: boolean } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
+  const nhwc = !!options.nhwc;
 
   // For GlobalAveragePool, just call averagePool2d with no options (global pooling)
-  return `
+  // Add layout: 'nhwc' if needed
+  return nhwc
+    ? `
+    const ${outputVars[0]} = builder.averagePool2d(
+      ${inputVars[0]},
+      { layout: 'nhwc' }
+    );`
+    : `
     const ${outputVars[0]} = builder.averagePool2d(
       ${inputVars[0]}
     );`;
