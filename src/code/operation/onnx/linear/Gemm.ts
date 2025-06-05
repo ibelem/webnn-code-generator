@@ -9,11 +9,13 @@ import {
  */
 export function Gemm(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { nhwc?: boolean } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const attrs: any[] = node.attributes || [];
+  const nhwc = !!options.nhwc;
 
   // Map attribute array to a dictionary by name
   const attrDict: Record<string, any> = {};
@@ -36,8 +38,31 @@ export function Gemm(
   const alpha = formatFloat(alphaVal, alphaType);
   const beta = formatFloat(betaVal, betaType);
 
-  const transA = Number(attrDict['transA']?.value?.value ?? 0);
-  const transB = Number(attrDict['transB']?.value?.value ?? 0);
+  let transA = Number(attrDict['transA']?.value?.value ?? 0);
+  let transB = Number(attrDict['transB']?.value?.value ?? 0);
+
+  let inputA = inputVars[0];
+  // If NHWC and input is 4D, flatten in NHWC order
+  const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
+  if (nhwc && Array.isArray(inputShape) && inputShape.length === 4) {
+    // Flatten NHWC: [N, H, W, C] -> [N, H*W*C]
+    const flattenShape = [inputShape[0], inputShape[1] * inputShape[2] * inputShape[3]];
+    const flatVar = `${inputA}_flat`;
+    inputA = flatVar;
+    // Insert flatten code before gemm
+    return `
+      const ${flatVar} = builder.reshape(${inputVars[0]}, [${flattenShape.join(', ')}]);
+      const ${outputVars[0]} = builder.gemm(
+        ${flatVar},
+        ${inputVars[1]},
+        {
+          alpha: ${alpha},
+          beta: ${beta},
+          aTranspose: ${Boolean(transA)},
+          bTranspose: true${inputVars.length > 2 ? `, C: ${inputVars[2]}` : ''}
+        }
+      );`;
+  }
 
   // WebNN: builder.gemm(A, B, options)
   // If C is present, pass as 'C' in options

@@ -127,7 +127,7 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
       const updateRemoteFileInfo = (elementId: string, res: Response, url: string, fallbackSize: number) => {
         const element = document.querySelector<HTMLSpanElement>(`#${elementId}`);
         if (!element) return;
-        const fileName = url.split('/').pop() || '';
+        const fileName = url.split('/').pop()?.replace('weights_', '') || '';
         let size = Number(res.headers.get('content-length')) || fallbackSize;
         const fileSizeInKB = size / 1024;
         const fileSize = fileSizeInKB < 1024
@@ -273,7 +273,7 @@ const updateFileInfo = (elementId: string, file: File): void => {
     : `${(fileSizeInKB / 1024).toFixed(2)} MB`;
 
   // Update the element with file size and name
-  element.innerHTML = `${localLogo} ${file.name} · ${fileSize}`;
+  element.innerHTML = `${localLogo} ${file.name?.replace('weights_', '')} · ${fileSize}`;
 };
 
 /**
@@ -542,7 +542,7 @@ function generateWebNNCode(): void {
   
   try {
     const { graphModelData, weightNchwModelData, weightNhwcModelData} = getModelState();
-    if (!graphModelData || !weightNchwModelData) {
+    if (!graphModelData || !weightNchwModelData  || !weightNhwcModelData) {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }
@@ -561,6 +561,9 @@ function generateWebNNCode(): void {
  * Display the generated code in the code element
  */
 function renderOutputCode(): void {
+  // Remove existing code-tab(s) before adding new ones
+  document.querySelectorAll('.code-tab').forEach(tab => tab.remove());
+
   const codeTab = document.createElement('div');
   codeTab.className = 'code-tab';
   codeTab.innerHTML = `
@@ -579,27 +582,38 @@ function renderOutputCode(): void {
   import('./code').then(mod => {
     const code = mod.generateJS();
     const html = mod.generateHTML ? mod.generateHTML() : '';
+    const { weightNchwModelData, weightNhwcModelData } = getModelState();
 
-    // Set default to nchw.js
+    // Set default to nchw.js and show NCHW weights
     monaco.editor.getModels()[0].setValue(code.nchw);
+    if (weightNchwModelData) {
+      renderWeightDetails(weightNchwModelData as Record<string, any>);
+    }
 
     // Add event listeners for tab switching
     document.getElementById('nchw-js')?.addEventListener('change', function () {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(code.nchw);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
+        if (weightNchwModelData) {
+          renderWeightDetails(weightNchwModelData as Record<string, any>);
+        }
       }
     });
     document.getElementById('nhwc-js')?.addEventListener('change', function () {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(code.nhwc);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
+        if (weightNhwcModelData) {
+          renderWeightDetails(weightNhwcModelData as Record<string, any>);
+        }
       }
     });
     document.getElementById('webnn-html')?.addEventListener('change', function () {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(html);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'html');
+        // Optionally, clear or keep the last shown weights panel
       }
     });
   });

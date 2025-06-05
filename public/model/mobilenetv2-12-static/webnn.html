@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test Mobilenetv212Static</title>
+  <title>Test Mobilenetv212Static in nchw and nhwc layouts</title>
 </head>
 <body>
-  <h1>Test Mobilenetv212Static.js</h1>
-  <button id="run-btn">Build & Run Model</button>
+  <h1>Test Mobilenetv212Static.js in nchw and nhwc layouts</h1>
   <label for="deviceType">Device:</label>
   <select id="deviceType">
     <option value="cpu">CPU</option>
@@ -15,17 +14,47 @@
   </select>
   <label for="numRuns">#Runs:</label>
   <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
+  <button id="run-btn">Build & Run Model</button>
   <pre id="output"></pre>
   <script type="module">
-    import { Mobilenetv212Static } from './Mobilenetv212Static.js';
+    import { Mobilenetv212StaticNchw } from './Mobilenetv212Static_nchw.js';
+    import { Mobilenetv212StaticNhwc } from './Mobilenetv212Static_nhwc.js';
+
+    const output = document.getElementById('output');
+    const deviceTypeSelect = document.getElementById('deviceType');
+
+    // Add event listener for deviceType change
+    deviceTypeSelect.addEventListener('change', async () => {
+      const deviceType = deviceTypeSelect.value || 'gpu';
+      let preferredInputLayout = 'nchw';
+      if (navigator.ml && navigator.ml.createContext) {
+        try {
+          const tmpContext = await navigator.ml.createContext({ deviceType });
+          preferredInputLayout = tmpContext.opSupportLimits().preferredInputLayout;
+        } catch (e) {}
+      }
+      output.textContent = `Selected ${deviceType} · preferredInputLayout: ${preferredInputLayout}
+`;
+    });
 
     document.getElementById('run-btn').onclick = async () => {
-      const output = document.getElementById('output');
       output.textContent = 'Building model...\n';
       try {
-        const deviceType = document.getElementById('deviceType').value || 'gpu';
+        const deviceType = deviceTypeSelect.value || 'gpu';
+        let layout = 'nchw';
+        if (navigator.ml && navigator.ml.createContext) {
+          try {
+            const tmpContext = await navigator.ml.createContext({ deviceType });
+            layout = tmpContext.opSupportLimits().preferredInputLayout;
+          } catch (e) {}
+        }
+        let model;
+        if (layout === 'nchw') {
+            model = new Mobilenetv212StaticNchw();
+        } else {
+            model = new Mobilenetv212StaticNhwc();
+        }
         const t0 = performance.now();
-        const model = new Mobilenetv212Static();
         await model.build({ deviceType: deviceType });
         const t1 = performance.now();
         output.textContent += `Model built successfully. Build latency: ${(t1 - t0).toFixed(2)} ms\n`;

@@ -5,6 +5,7 @@ import {
 } from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
 import { opHandlers } from './operation';
+import { permuteWeightShape } from './operation/operation-utils';
 
 function constructorCode() {
   return `
@@ -73,11 +74,22 @@ function buildCodeWithLayout(nhwc: boolean) {
         : dim
     );
 
-    inputsCode += `
+    if (nhwc && resolvedShape.length === 4) {
+      // NCHW -> NHWC permutation: [0, 2, 3, 1]
+      const inputNchwVar = `${name}_nchw`;
+      inputsCode += `
+    const ${inputNchwVar} = builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] });
+    const input = builder.transpose(${inputNchwVar}, { permutation: [0, 2, 3, 1] });
+    this.inputTensors_['${name}'] = await this.context_.createTensor(
+      { dataType: '${dataType}', shape: [${resolvedShape}], writable: true }
+    );`;
+    } else {
+      inputsCode += `
     const input = builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] });
     this.inputTensors_['${name}'] = await this.context_.createTensor(
       { dataType: '${dataType}', shape: [${resolvedShape}], writable: true }
     );`;
+    }
   }
 
   let initializersCode = ``;
@@ -99,7 +111,22 @@ function buildCodeWithLayout(nhwc: boolean) {
               if (emittedInitializers.has(varName)) continue; // Skip if already emitted
 
               const dataType = initializer.type.dataType;
-              const shape = initializer.type.shape.dimensions;
+              let shape = initializer.type.shape.dimensions;
+
+              // Detect if this initializer is a Conv/ConvTranspose filter
+              let nodeType = '';
+              let isDepthwise = false;
+              if (node && (node.type?.name === 'Conv' || node.type?.name === 'ConvTranspose')) {
+                nodeType = node.type.name;
+                // Depthwise: groups == inputChannels and shape[0] == groups
+                const groups = node.attributes?.find((attr: any) => attr.name === 'group')?.value?.value ?? 1;
+                const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
+                const inputChannels = nhwc ? inputShape?.[3] : inputShape?.[1];
+                isDepthwise = (groups === inputChannels && groups !== 1);
+                // shape is OIHW
+                shape = permuteWeightShape(shape, nhwc, nodeType, isDepthwise);
+              }
+
               let weightsDataOffset = weightModelData?.[name]?.dataOffset;
               let weightsByteLength = weightModelData?.[name]?.byteLength;
 
@@ -125,12 +152,11 @@ function buildCodeWithLayout(nhwc: boolean) {
                 initializer?.encoding === '|' &&
                 Array.isArray(initializer?.type.shape.dimensions)
               ) {
-                const dims = initializer.type.shape.dimensions;
                 const valueArr = Object.keys(initializer.values)
                   .sort((a, b) => Number(a) - Number(b))
                   .map(k => initializer.values[k]);
                 const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
-                const shapeStr = JSON.stringify(dims);
+                const shapeStr = JSON.stringify(shape); // This will output [32] for 1D, [O,H,W,I] for 4D, etc.
                 initializersCode += `
     const ${varName} = builder.constant(
       { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
@@ -152,7 +178,7 @@ function buildCodeWithLayout(nhwc: boolean) {
       const type = node.type.name || '';
       const handler = opHandlers[type];
       if (handler) {
-        const jsCode = handler(node, toJsVarName, { nhwc });
+        const jsCode = handler(node, toJsVarName, { nhwc, weightModelData });
         operatorsCode += `    ${jsCode}\n`;
       } else {
         const nodeName = node.name || '';
@@ -196,10 +222,23 @@ function buildCodeWithLayout(nhwc: boolean) {
         : dim
     );
 
-    outputsCode += `
+    if (nhwc && resolvedShape.length === 4) {
+      // NHWC output: [N, H, W, C]
+      const nhwcShape = [resolvedShape[0], resolvedShape[2], resolvedShape[3], resolvedShape[1]];
+      outputsCode += `
+    const ${name}_nhwc = builder.output('${name}', { dataType: '${dataType}', shape: [${nhwcShape}] });
+    // Optionally, after inference, transpose back to NCHW if you want to present in ONNX order
+    // const ${name}_nchw = builder.transpose(${name}_nhwc, { permutation: [0, 3, 1, 2] });
+    this.outputTensors_['${name}'] = await this.context_.createTensor(
+      { dataType: '${dataType}', shape: [${nhwcShape}], readable: true }
+    );`;
+    } else {
+      // NCHW or non-4D: use as-is
+      outputsCode += `
     this.outputTensors_['${name}'] = await this.context_.createTensor(
       { dataType: '${dataType}', shape: [${resolvedShape}], readable: true }
     );`;
+    }
   }
 
   const binFile = nhwc ? 'weights_nhwc.bin' : 'weights_nchw.bin';
@@ -293,7 +332,6 @@ export function generateHTML() {
 </head>
 <body>
   <h1>Test ${name}.js in nchw and nhwc layouts</h1>
-  <button id="run-btn">Build & Run Model</button>
   <label for="deviceType">Device:</label>
   <select id="deviceType">
     <option value="cpu">CPU</option>
@@ -302,17 +340,39 @@ export function generateHTML() {
   </select>
   <label for="numRuns">#Runs:</label>
   <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
+  <button id="run-btn">Build & Run Model</button>
   <pre id="output"></pre>
   <script type="module">
     import { ${name}Nchw } from './${name}_nchw.js';
     import { ${name}Nhwc } from './${name}_nhwc.js';
 
+    const output = document.getElementById('output');
+    const deviceTypeSelect = document.getElementById('deviceType');
+
+    // Add event listener for deviceType change
+    deviceTypeSelect.addEventListener('change', async () => {
+      const deviceType = deviceTypeSelect.value || 'gpu';
+      let preferredInputLayout = 'nchw';
+      if (navigator.ml && navigator.ml.createContext) {
+        try {
+          const tmpContext = await navigator.ml.createContext({ deviceType });
+          preferredInputLayout = tmpContext.opSupportLimits().preferredInputLayout;
+        } catch (e) {}
+      }
+      output.textContent = \`Selected \${deviceType} · preferredInputLayout: \${preferredInputLayout}\n\`;
+    });
+
     document.getElementById('run-btn').onclick = async () => {
-      const output = document.getElementById('output');
       output.textContent = 'Building model...\\n';
       try {
-        const deviceType = document.getElementById('deviceType').value || 'gpu';
-        const layout = context.opSupportLimits().preferredInputLayout;
+        const deviceType = deviceTypeSelect.value || 'gpu';
+        let layout = 'nchw';
+        if (navigator.ml && navigator.ml.createContext) {
+          try {
+            const tmpContext = await navigator.ml.createContext({ deviceType });
+            layout = tmpContext.opSupportLimits().preferredInputLayout;
+          } catch (e) {}
+        }
         let model;
         if (layout === 'nchw') {
             model = new ${name}Nchw();
@@ -403,3 +463,4 @@ export function generateHTML() {
 export function downloadHTML() {
   downloadFile('webnn.html', 'text/html', generateHTML());
 }
+

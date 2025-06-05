@@ -1,3 +1,22 @@
+export function permuteWeightShape(shape: number[], nhwc: boolean, nodeType: string, isDepthwise: boolean): number[] {
+  // Only permute for Conv/ConvTranspose weights in NHWC
+  if (!nhwc) return shape;
+  if ((nodeType === 'Conv' || nodeType === 'ConvTranspose') && shape.length === 4) {
+    // ONNX: OIHW
+    // Conv2D NHWC: OHWI, Depthwise: IHWO
+    if (isDepthwise) {
+      // OIHW -> IHWO
+      return [shape[1], shape[2], shape[3], shape[0]];
+    } else {
+      // OIHW -> OHWI
+      return [shape[0], shape[2], shape[3], shape[1]];
+    }
+  }
+  // For 1D or other shapes, return as-is
+  return shape;
+}
+
+
 // Extract variable names from ONNX node inputs/outputs
 export function getInputVars(node: any, toJsVarName: (name: string) => string): string[] {
   return (node.inputs || [])

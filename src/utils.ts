@@ -154,8 +154,7 @@ export function mlOperandDataType(onnxType: string): string {
   }
 }
 
-export function weightInfo(name: string) {
-  const { weightModelData } = getModelState();
+export function getWeightInfo(name: string, weightModelData:any) {
   if (!weightModelData || !weightModelData[name]) return null;
   const w = weightModelData[name];
   return {

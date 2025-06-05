@@ -2,7 +2,6 @@ import {
   getInputVars,
   getOutputVars
 } from '../../operation-utils';
-import { getModelState } from '../../../../ui';
 
 /**
  * Generate JavaScript code for a WebNN reshape operation from ONNX Reshape node info.
@@ -10,7 +9,8 @@ import { getModelState } from '../../../../ui';
  */
 export function Reshape(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { nhwc?: boolean, weightModelData?: Record<string, any> } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
@@ -20,7 +20,7 @@ export function Reshape(
   if (shapeInput && Array.isArray(shapeInput.value) && shapeInput.value[0]) {
     const shapeValue = shapeInput.value[0];
     const shapeName = shapeValue.name;
-    const { weightModelData } = getModelState();
+    const weightModelData = options.weightModelData;
     if (!weightModelData) {
       throw new Error('Weight model data is not available');
     }
