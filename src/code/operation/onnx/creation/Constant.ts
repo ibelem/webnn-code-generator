@@ -8,7 +8,8 @@ import {
  */
 export function Constant(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { nhwc?: boolean } = {}
 ): string {
   // Get output variable name
   const outputVars = getOutputVars(node, toJsVarName);
@@ -19,6 +20,8 @@ export function Constant(
   if (!valueAttr) {
     return `// Constant node ${outputVar} missing value tensor.`;
   }
+
+  // Todo
   const t = valueAttr.t;
 
   // Map ONNX/WebNN dataType to JS typed array and WebNN dtype
@@ -39,7 +42,7 @@ export function Constant(
 
   const dataType = t.dataType ?? 1;
   const { js: typedArray, webnn: webnn_dtype } = typeMap[dataType] || { js: 'Float32Array', webnn: 'float32' };
-  const shape = Array.isArray(t.dims) ? t.dims.map(Number) : [];
+  let shape = Array.isArray(t.dims) ? t.dims.map(Number) : [];
 
   // Find the data array
   let js_data = '';
@@ -71,6 +74,23 @@ export function Constant(
     js_data = `[${Array(size).fill(0).join(', ')}]`;
   }
 
+  const nhwc = !!options.nhwc;
+  
+  // Only permute shapes for 4D constants that might be convolution weights
+  if (nhwc && shape.length === 4) {
+    // For conv weights: OIHW -> OHWI
+    shape = [shape[0], shape[2], shape[3], shape[1]];
+    
+    // Add comment to indicate shape transformation
+    return `
+    // Original shape: [${t.dims.join(', ')}], transformed to NHWC: [${shape.join(', ')}]
+    const ${outputVar} = builder.constant(
+      { dataType: '${webnn_dtype}', shape: [${shape.join(', ')}] },
+      new ${typedArray}(${js_data})
+    );`;
+  }
+  
+  // Regular constant
   return `
     const ${outputVar} = builder.constant(
       { dataType: '${webnn_dtype}', shape: [${shape.join(', ')}] },

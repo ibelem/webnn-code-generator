@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -15,6 +16,36 @@ export function ConvTranspose(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
+
+  // Get shapes for debugging
+  const inputShape = getShape(node, 0, nhwc);
+  const filterShape = getShape(node, 1, nhwc);
+
+  // Debug information to confirm shapes
+  let debugComment = `
+    // ConvTranspose:
+    // Input shape: [${inputShape}]
+    // Filter shape: [${filterShape}]
+    // NHWC mode: ${nhwc}`;
+
+  let filterLayout = undefined;
+  let inputLayout = undefined;
+  let filterVar = inputVars[1];
+
+  if (nhwc) {
+    inputLayout = "'nhwc'";
+    filterLayout = "'ohwi'";
+    debugComment += `
+    // Using filterLayout: ${filterLayout}, inputLayout: ${inputLayout}`;
+
+    // Check if input channels match filter's input channels (last dim)
+    if (inputShape[3] !== filterShape[3]) {
+      debugComment += `
+    // ERROR: input channels (${inputShape[3]}) != filter input channels (${filterShape[3]}).
+    // This usually means your weights file or model export is incorrect.`;
+    // Continue to generate the code, but warn the user
+    }
+  }
 
   // Attribute extraction
   const attrs: any[] = node.attributes || [];
@@ -31,10 +62,8 @@ export function ConvTranspose(
   let pads_js = '[0, 0, 0, 0]';
   let autoPad = attrDict['auto_pad']?.value;
   if (autoPad && typeof autoPad === 'string' && autoPad !== 'NOTSET') {
-    // Pass autoPad string directly if present
     pads_js = `'${autoPad}'`;
   } else if (Array.isArray(pads) && pads.length === 4) {
-    // ONNX: [top, left, bottom, right] -> WebNN: [top, bottom, left, right]
     const pads_webnn = [pads[0], pads[2], pads[1], pads[3]];
     pads_js = `[${pads_webnn.map((p: any) => String(Number(p))).join(', ')}]`;
   }
@@ -63,14 +92,6 @@ export function ConvTranspose(
   // Bias input (optional)
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
-  // Filter layout and transposition for NHWC
-  let filterLayout = undefined;
-  let inputLayout = undefined;
-  if (nhwc) {
-    filterLayout = "'ohwi'";
-    inputLayout = "'nhwc'";
-  }
-
   // Add label for debugging if node.name exists
   const label = node.name ? `label: '${node.name}'` : undefined;
 
@@ -88,9 +109,9 @@ export function ConvTranspose(
   if (inputLayout) optionsArr.push(`inputLayout: ${inputLayout}`);
   if (label) optionsArr.push(label);
 
-  return `
+  return `${debugComment}
     const ${outputVars[0]} = builder.convTranspose2d(
-      ${inputVars[0]}, ${inputVars[1]},
+      ${inputVars[0]}, ${filterVar},
       {
         ${optionsArr.join(',\n        ')}
       }

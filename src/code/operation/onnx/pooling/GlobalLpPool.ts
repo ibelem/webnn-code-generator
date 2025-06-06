@@ -16,7 +16,7 @@ export function GlobalLpPool(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const nhwc = !!options.nhwc;
 
   // Only support p=2 (L2 norm)
   let p = 2;
@@ -30,8 +30,8 @@ export function GlobalLpPool(
     return `// Only L2 pooling (p=2) is supported by WebNN.`;
   }
 
-  const nhwc = !!options.nhwc;
   const layout = nhwc ? "'nhwc'" : "'nchw'";
+  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
   // For global pooling, windowDimensions is the spatial dims of the input
   // NCHW: [b, c, h, w] -> [h, w], NHWC: [b, h, w, c] -> [h, w]
   const windowDims = nhwc

@@ -15,10 +15,11 @@ export function GlobalMaxPool(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const nhwc = !!options.nhwc;
+
+  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
 
   // Layout
-  const nhwc = !!options.nhwc;
   const layout = nhwc ? "'nhwc'" : "'nchw'";
 
   // For global pooling, windowDimensions is the spatial dims of the input

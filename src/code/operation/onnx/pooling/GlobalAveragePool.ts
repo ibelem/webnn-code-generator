@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -15,6 +16,8 @@ export function GlobalAveragePool(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const nhwc = !!options.nhwc;
+
+  // const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
 
   // For GlobalAveragePool, just call averagePool2d with no options (global pooling)
   // Add layout: 'nhwc' if needed

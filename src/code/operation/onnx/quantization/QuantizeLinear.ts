@@ -8,12 +8,14 @@ import {
  */
 export function QuantizeLinear(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
-  const scaleShape = getShape(node, 1);
+  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
+  const scaleShape = getShape(node, 1, nhwc);  // Add nhwc parameter
   const outputDtype = node.outputs?.[0]?.value?.[0]?.type?.dataType || 'uint8';
 
   // Axis
@@ -36,7 +38,7 @@ export function QuantizeLinear(
   // Inline reshape or constant for zeroPoint
   let zeroPointExpr: string;
   if (node.inputs.length > 2 && node.inputs[2]?.value?.[0]) {
-    const zpShape = getShape(node, 2);
+    const zpShape = getShape(node, 2, nhwc); 
     zeroPointExpr = inlineReshape(inputVars[2], zpShape, (() => {
       if (zpShape.length === inputShape.length) return zpShape;
       const newShape = Array(inputShape.length).fill(1);

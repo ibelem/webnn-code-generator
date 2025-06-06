@@ -12,11 +12,13 @@ import {
  */
 export function Slice(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
 
   // Helper to extract initializer array from input index
   function getInitializerArr(idx: number): number[] | undefined {

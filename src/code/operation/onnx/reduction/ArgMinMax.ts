@@ -14,9 +14,10 @@ function ArgMinMax(
   toJsVarName: (name: string) => string,
   options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const inputShape = getShape(node, 0, nhwc);
 
   // Default axis is 0 for ONNX ArgMax/ArgMin
   let axis = 0;

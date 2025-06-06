@@ -10,11 +10,13 @@ import {
  */
 export function Softmax(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const inputShape = getShape(node, 0, nhwc);
 
   // Default axis is 1 for ONNX Softmax (but ONNX spec: axis=1 for opset <13, axis=-1 for opset >=13)
   let axis = 1;

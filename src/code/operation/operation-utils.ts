@@ -1,21 +1,21 @@
 export function permuteWeightShape(shape: number[], nhwc: boolean, nodeType: string, isDepthwise: boolean): number[] {
-  // Only permute for Conv/ConvTranspose weights in NHWC
-  if (!nhwc) return shape;
-  if ((nodeType === 'Conv' || nodeType === 'ConvTranspose') && shape.length === 4) {
-    // ONNX: OIHW
-    // Conv2D NHWC: OHWI, Depthwise: IHWO
+  if (!nhwc || shape.length !== 4) return shape;
+  
+  if (nodeType === 'Conv') {
     if (isDepthwise) {
-      // OIHW -> IHWO
+      // Depthwise: OIHW -> IHWO
       return [shape[1], shape[2], shape[3], shape[0]];
     } else {
-      // OIHW -> OHWI
+      // Regular: OIHW -> OHWI 
       return [shape[0], shape[2], shape[3], shape[1]];
     }
+  } else if (nodeType === 'ConvTranspose') {
+    // ConvTranspose: OIHW -> OHWI (same permutation as regular Conv)
+    return [shape[0], shape[2], shape[3], shape[1]];
   }
-  // For 1D or other shapes, return as-is
+  
   return shape;
 }
-
 
 // Extract variable names from ONNX node inputs/outputs
 export function getInputVars(node: any, toJsVarName: (name: string) => string): string[] {
@@ -31,8 +31,22 @@ export function getOutputVars(node: any, toJsVarName: (name: string) => string):
 }
 
 // Extract shape and dtype from a node input/output
-export function getShape(node: any, idx: number = 0): number[] {
-  return node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
+export function getShape(node: any, idx: number = 0, nhwc: boolean = false): number[] {
+  const shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
+  
+  // For 4D tensors, conditionally permute from NCHW to NHWC if needed
+  if (nhwc && shape.length === 4) {
+    const nodeType = node.type?.name;
+    
+    // For weights in ConvTranspose, we need special permutation
+    if (idx === 1 && nodeType === 'ConvTranspose') {
+      return [shape[0], shape[2], shape[3], shape[1]]; // OIHW -> OHWI
+    }
+    // For regular 4D tensors, do standard NCHW -> NHWC permutation
+    return [shape[0], shape[2], shape[3], shape[1]]; // NCHW -> NHWC
+  }
+  
+  return shape;
 }
 
 export function getDtype(node: any, idx: number = 0): string {

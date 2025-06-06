@@ -66,12 +66,12 @@ export function Conv(
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Filter shape and layout
-  const filterShape = getShape(node, 1);
+  const filterShape = getShape(node, 1, nhwc);  // Add nhwc parameter
 
   // Depthwise detection (NHWC: groups === inputChannels)
   let isDepthwise = false;
   if (groups !== 1 && filterShape.length === 4) {
-    const inputShape = getShape(node, 0);
+    const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
     const inputChannels = nhwc ? inputShape[3] : inputShape[1];
     if (groups === inputChannels) isDepthwise = true;
   }
