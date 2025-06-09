@@ -4,11 +4,9 @@ import {
 } from '../../operation-utils';
 
 /**
- * Generate JavaScript code for a WebNN binary operation (add, sub, mul, div, max, min, pow).
- * @param node - The ONNX node object (with inputs, outputs)
- * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @param opType - The binary operation type (e.g. 'add', 'sub', 'mul', etc.)
- * @returns JavaScript code string for the binary operation
+ * Generate JavaScript code for a WebNN binary operation (add, sub, mul, div, max, min, pow, prelu).
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-binary
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/binary_op_builder.cc
  */
 function Binary(
   node: any,
@@ -19,10 +17,14 @@ function Binary(
   const outputVars = getOutputVars(node, toJsVarName);
   const opType = options.opType;
 
+  // Add label for debugging
+  const opts = node.name ? `{ label: '${node.name}' }` : '';
+
   return `
     const ${outputVars[0]} = builder.${opType}(
       ${inputVars[0]},
-      ${inputVars[1]}
+      ${inputVars[1]},
+      ${opts}
     );`;
 }
 

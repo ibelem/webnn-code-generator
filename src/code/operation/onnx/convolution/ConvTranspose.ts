@@ -6,6 +6,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN convTranspose2d operation from ONNX node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-convtranspose2d
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/conv_op_builder.cc
  */
 export function ConvTranspose(
   node: any,

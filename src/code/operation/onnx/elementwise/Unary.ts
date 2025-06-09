@@ -5,10 +5,8 @@ import {
 
 /**
  * Generate JavaScript code for a WebNN unary operation (abs, ceil, cos, exp, floor, log, neg, relu, round, sigmoid, sin, sqrt, tanh).
- * @param node - The ONNX node object (with inputs, outputs)
- * @param toJsVarName - Function to convert ONNX names to JS variable names
- * @param options - Options object, must include opType
- * @returns JavaScript code string for the unary operation
+ * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-unary
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/unary_op_builder.cc
  */
 function Unary(
   node: any,
@@ -18,10 +16,12 @@ function Unary(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const opType = options.opType;
+  const opts = node.name ? `{ label: '${node.name}' }` : '{}';
 
   return `
     const ${outputVars[0]} = builder.${opType}(
-      ${inputVars[0]}
+      ${inputVars[0]},
+      ${opts}
     );`;
 }
 

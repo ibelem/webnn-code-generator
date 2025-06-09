@@ -6,6 +6,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN clamp operation from ONNX Clip node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-clamp
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/clip_op_builder.cc
  */
 export function Clip(
   node: any,
@@ -31,19 +32,19 @@ export function Clip(
     return undefined;
   }
 
-  const minValue = node.inputs.length > 1
-    ? getScalarFromInitializer(1) ?? inputVars[1]
-    : 'undefined';
-  const maxValue = node.inputs.length > 2
-    ? getScalarFromInitializer(2) ?? inputVars[2]
-    : 'undefined';
+  const minValue = node.inputs.length > 1 ? getScalarFromInitializer(1) : undefined;
+  const maxValue = node.inputs.length > 2 ? getScalarFromInitializer(2) : undefined;
+  const label = node.name ? node.name : undefined;
+
+  // Build options object only with defined values
+  const optsArr = [];
+  if (minValue !== undefined) optsArr.push(`minValue: ${minValue}`);
+  if (maxValue !== undefined) optsArr.push(`maxValue: ${maxValue}`);
+  if (label) optsArr.push(`label: '${label}'`);
 
   return `
     const ${outputVars[0]} = builder.clamp(
       ${inputVars[0]},
-      {
-        minValue: ${minValue},
-        maxValue: ${maxValue}
-      }
+      { ${optsArr.join(', ')} }
     );`;
 }
