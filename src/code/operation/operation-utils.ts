@@ -1,19 +1,22 @@
-export function permuteWeightShape(shape: number[], nhwc: boolean, nodeType: string, isDepthwise: boolean): number[] {
+export function permuteWeightShape(
+  shape: number[],
+  nhwc: boolean,
+  nodeType: string,
+  isDepthwise: boolean
+): number[] {
   if (!nhwc || shape.length !== 4) return shape;
-  
+
+  // Depthwise Conv or ConvTranspose: OIHW -> IHWO (perm [1,2,3,0])
+  if ((nodeType === 'Conv' && isDepthwise) || nodeType === 'ConvTranspose') {
+    return [shape[1], shape[2], shape[3], shape[0]];
+  }
+
+  // Regular Conv: OIHW -> OHWI (perm [0,2,3,1])
   if (nodeType === 'Conv') {
-    if (isDepthwise) {
-      // Depthwise: OIHW -> IHWO
-      return [shape[1], shape[2], shape[3], shape[0]];
-    } else {
-      // Regular: OIHW -> OHWI 
-      return [shape[0], shape[2], shape[3], shape[1]];
-    }
-  } else if (nodeType === 'ConvTranspose') {
-    // ConvTranspose: OIHW -> OHWI (same permutation as regular Conv)
     return [shape[0], shape[2], shape[3], shape[1]];
   }
-  
+
+  // Default: no permutation
   return shape;
 }
 

@@ -438,10 +438,10 @@
     "byteLength": 512,
     "dataType": "float32",
     "shape": [
-      8,
+      16,
       1,
       1,
-      16
+      8
     ]
   },
   "conv2d_2_1/y:0": {
@@ -469,10 +469,10 @@
     "byteLength": 512,
     "dataType": "float32",
     "shape": [
-      16,
+      8,
       1,
       1,
-      8
+      16
     ]
   },
   "conv2d_3_1/y:0": {
@@ -531,10 +531,10 @@
     "byteLength": 4608,
     "dataType": "float32",
     "shape": [
-      72,
+      16,
       1,
       1,
-      16
+      72
     ]
   },
   "conv2d_5_1/y:0": {
@@ -593,10 +593,10 @@
     "byteLength": 6912,
     "dataType": "float32",
     "shape": [
-      24,
+      72,
       1,
       1,
-      72
+      24
     ]
   },
   "conv2d_6_1/y:0": {
@@ -624,10 +624,10 @@
     "byteLength": 8448,
     "dataType": "float32",
     "shape": [
-      88,
+      24,
       1,
       1,
-      24
+      88
     ]
   },
   "conv2d_7_1/y:0": {
@@ -686,10 +686,10 @@
     "byteLength": 8448,
     "dataType": "float32",
     "shape": [
-      24,
+      88,
       1,
       1,
-      88
+      24
     ]
   },
   "conv2d_8_1/y:0": {
@@ -717,10 +717,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      96,
+      24,
       1,
       1,
-      24
+      96
     ]
   },
   "conv2d_9_1/y:0": {
@@ -779,10 +779,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      24,
+      96,
       1,
       1,
-      96
+      24
     ]
   },
   "conv2d_10_1/y:0": {
@@ -810,10 +810,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      96,
+      24,
       1,
       1,
-      24
+      96
     ]
   },
   "conv2d_11_1/y:0": {
@@ -841,10 +841,10 @@
     "byteLength": 12288,
     "dataType": "float32",
     "shape": [
-      32,
+      96,
       1,
       1,
-      96
+      32
     ]
   },
   "conv2d_12_1/y:0": {
@@ -872,10 +872,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      128,
+      32,
       1,
       1,
-      32
+      128
     ]
   },
   "conv2d_13_1/y:0": {
@@ -934,10 +934,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      32,
+      128,
       1,
       1,
-      128
+      32
     ]
   },
   "conv2d_14_1/y:0": {
@@ -965,10 +965,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      128,
+      32,
       1,
       1,
-      32
+      128
     ]
   },
   "conv2d_15_1/y:0": {
@@ -996,10 +996,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      32,
+      128,
       1,
       1,
-      128
+      32
     ]
   },
   "conv2d_16_1/y:0": {
@@ -1027,10 +1027,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      128,
+      32,
       1,
       1,
-      32
+      128
     ]
   },
   "conv2d_17_1/y:0": {
@@ -1089,10 +1089,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      32,
+      128,
       1,
       1,
-      128
+      32
     ]
   },
   "conv2d_18_1/y:0": {
@@ -1120,10 +1120,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      128,
+      32,
       1,
       1,
-      32
+      128
     ]
   },
   "conv2d_19_1/y:0": {
@@ -1151,10 +1151,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      32,
+      128,
       1,
       1,
-      128
+      32
     ]
   },
   "conv2d_20_1/y:0": {
@@ -1182,10 +1182,10 @@
     "byteLength": 12288,
     "dataType": "float32",
     "shape": [
-      96,
+      32,
       1,
       1,
-      32
+      96
     ]
   },
   "conv2d_21_1/y:0": {
@@ -1244,10 +1244,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      24,
+      96,
       1,
       1,
-      96
+      24
     ]
   },
   "conv2d_22_1/y:0": {
@@ -1275,10 +1275,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      96,
+      24,
       1,
       1,
-      24
+      96
     ]
   },
   "conv2d_23_1/y:0": {
@@ -1306,10 +1306,10 @@
     "byteLength": 12288,
     "dataType": "float32",
     "shape": [
-      32,
+      96,
       1,
       1,
-      96
+      32
     ]
   },
   "conv2d_24_1/y:0": {
@@ -1337,10 +1337,10 @@
     "byteLength": 12288,
     "dataType": "float32",
     "shape": [
-      96,
+      32,
       1,
       1,
-      32
+      96
     ]
   },
   "conv2d_25_1/y:0": {
@@ -1399,10 +1399,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      24,
+      96,
       1,
       1,
-      96
+      24
     ]
   },
   "conv2d_26_1/y:0": {
@@ -1430,10 +1430,10 @@
     "byteLength": 9216,
     "dataType": "float32",
     "shape": [
-      96,
+      24,
       1,
       1,
-      24
+      96
     ]
   },
   "conv2d_27_1/y:0": {
@@ -1461,10 +1461,10 @@
     "byteLength": 12288,
     "dataType": "float32",
     "shape": [
-      32,
+      96,
       1,
       1,
-      96
+      32
     ]
   },
   "conv2d_28_1/y:0": {
@@ -1492,10 +1492,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      128,
+      32,
       1,
       1,
-      32
+      128
     ]
   },
   "conv2d_30_1/y:0": {
@@ -1523,10 +1523,10 @@
     "byteLength": 16384,
     "dataType": "float32",
     "shape": [
-      128,
+      32,
       1,
       1,
-      32
+      128
     ]
   },
   "conv2d_29_1/y:0": {
@@ -1568,10 +1568,10 @@
     "byteLength": 12288,
     "dataType": "float32",
     "shape": [
-      24,
+      128,
       1,
       1,
-      128
+      24
     ]
   },
   "conv2d_31_1/y:0": {
@@ -1723,10 +1723,10 @@
     "byteLength": 1536,
     "dataType": "float32",
     "shape": [
-      16,
+      24,
       1,
       1,
-      24
+      16
     ]
   },
   "conv2d_35_1/y:0": {
@@ -2033,10 +2033,10 @@
     "byteLength": 256,
     "dataType": "float32",
     "shape": [
-      16,
+      1,
       2,
       2,
-      1
+      16
     ]
   },
   "const_fold_opt__402": {

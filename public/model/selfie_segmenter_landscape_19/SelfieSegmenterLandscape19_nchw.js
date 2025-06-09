@@ -2321,10 +2321,6 @@ export class SelfieSegmenterLandscape19Nchw {
       var_re_lu_21_0
     );
     
-    // ConvTranspose:
-    // Input shape: [1,16,72,128]
-    // Filter shape: [16,1,2,2]
-    // NHWC mode: false
     const var_conv2d_transpose_0 = builder.convTranspose2d(
       var_add_13__xeno_compat__1_0, var_conv2d_transpose_filter_0,
       {

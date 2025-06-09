@@ -1,7 +1,6 @@
 import {
   getInputVars,
-  getOutputVars,
-  getShape
+  getOutputVars
 } from '../../operation-utils';
 
 /**
@@ -17,17 +16,6 @@ export function ConvTranspose(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Get shapes for debugging
-  const inputShape = getShape(node, 0, nhwc);
-  const filterShape = getShape(node, 1, nhwc);
-
-  // Debug information to confirm shapes
-  let debugComment = `
-    // ConvTranspose:
-    // Input shape: [${inputShape}]
-    // Filter shape: [${filterShape}]
-    // NHWC mode: ${nhwc}`;
-
   let filterLayout = undefined;
   let inputLayout = undefined;
   let filterVar = inputVars[1];
@@ -35,16 +23,6 @@ export function ConvTranspose(
   if (nhwc) {
     inputLayout = "'nhwc'";
     filterLayout = "'ohwi'";
-    debugComment += `
-    // Using filterLayout: ${filterLayout}, inputLayout: ${inputLayout}`;
-
-    // Check if input channels match filter's input channels (last dim)
-    if (inputShape[3] !== filterShape[3]) {
-      debugComment += `
-    // ERROR: input channels (${inputShape[3]}) != filter input channels (${filterShape[3]}).
-    // This usually means your weights file or model export is incorrect.`;
-    // Continue to generate the code, but warn the user
-    }
   }
 
   // Attribute extraction
@@ -109,7 +87,7 @@ export function ConvTranspose(
   if (inputLayout) optionsArr.push(`inputLayout: ${inputLayout}`);
   if (label) optionsArr.push(label);
 
-  return `${debugComment}
+  return `
     const ${outputVars[0]} = builder.convTranspose2d(
       ${inputVars[0]}, ${filterVar},
       {

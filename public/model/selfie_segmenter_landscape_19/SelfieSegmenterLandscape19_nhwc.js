@@ -853,7 +853,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145
     const var_conv2d_transpose_filter_0 = builder.constant(
-      { dataType: 'float32', shape: [16,2,2,1] },
+      { dataType: 'float32', shape: [1,2,2,16] },
       new Float32Array(weights_array_buffer, 425840, 256 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -2332,13 +2332,6 @@ export class SelfieSegmenterLandscape19Nhwc {
       var_re_lu_21_0
     );
     
-    // ConvTranspose:
-    // Input shape: [1,72,128,16]
-    // Filter shape: [16,2,2,1]
-    // NHWC mode: true
-    // Using filterLayout: 'ohwi', inputLayout: 'nhwc'
-    // ERROR: input channels (16) != filter input channels (1).
-    // This usually means your weights file or model export is incorrect.
     const var_conv2d_transpose_0 = builder.convTranspose2d(
       var_add_13__xeno_compat__1_0, var_conv2d_transpose_filter_0,
       {
@@ -2388,15 +2381,13 @@ export class SelfieSegmenterLandscape19Nhwc {
 
     // Build graph with all outputs
     
-    this.graph_ = await builder.build({ 'segment_back': segment_back });
+    const segment_back_nchw = builder.transpose(segment_back, { permutation: [0, 3, 1, 2] });
+    this.graph_ = await builder.build({ 'segment_back': segment_back_nchw });
 
     // Create output tensors
     
-    const segment_back_nhwc = builder.output('segment_back', { dataType: 'float32', shape: [1,256,1,144] });
-    // Optionally, after inference, transpose back to NCHW if you want to present in ONNX order
-    // const segment_back_nchw = builder.transpose(segment_back_nhwc, { permutation: [0, 3, 1, 2] });
     this.outputTensors_['segment_back'] = await this.context_.createTensor(
-      { dataType: 'float32', shape: [1,256,1,144], readable: true }
+      { dataType: 'float32', shape: [1,1,144,256], readable: true }
     );
   }
 

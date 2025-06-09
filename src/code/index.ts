@@ -201,14 +201,25 @@ function buildCodeWithLayout(nhwc: boolean) {
     const outputVars = outputs.map((output: any) => toJsVarName(getNonEmptyStringAroundNewline(output.value[0]?.name)));
     const outputNames = outputs.map((output: any) => getNonEmptyStringAroundNewline(output.value[0]?.name));
 
-    if (outputVars.length === 1) {
-      buildGraphCode += `
-    this.graph_ = await builder.build({ '${outputNames[0]}': ${outputVars[0]} });`;
-    } else {
-      const outputsMap = outputNames.map((name: string, i: number) => `'${name}': ${outputVars[i]}`).join(', ');
-      buildGraphCode += `
+    // Prepare output variable references, appending _nchw if needed
+    const outputVarRefs = outputVars.map((varName: string, i: number) => {
+      const shapeArr = outputs[i].value[0]?.type?.shape?.dimensions;
+      const resolvedShape = shapeArr.map((dim: any) =>
+        typeof dim === 'string' && freeDimsOverrides && freeDimsOverrides[dim] != null
+          ? freeDimsOverrides[dim]
+          : dim
+      );
+      if (nhwc && resolvedShape.length === 4) {
+        buildGraphCode += `
+    const ${varName}_nchw = builder.transpose(${varName}, { permutation: [0, 3, 1, 2] });`;
+        return `${varName}_nchw`;
+      }
+      return varName;
+    });
+
+    const outputsMap = outputNames.map((name: string, i: number) => `'${name}': ${outputVarRefs[i]}`).join(', ');
+    buildGraphCode += `
     this.graph_ = await builder.build({ ${outputsMap} });`;
-    }
   }
 
   let outputsCode = ``;
@@ -225,14 +236,12 @@ function buildCodeWithLayout(nhwc: boolean) {
     );
 
     if (nhwc && resolvedShape.length === 4) {
-      // NHWC output: [N, H, W, C]
-      const nhwcShape = [resolvedShape[0], resolvedShape[2], resolvedShape[3], resolvedShape[1]];
+      // const nhwcShape = [resolvedShape[0], resolvedShape[2], resolvedShape[3], resolvedShape[1]];
+      // NHWC -> NCHW permutation: [0, 3, 1, 2]
+      const nchwShape = [resolvedShape[0], resolvedShape[3], resolvedShape[1], resolvedShape[2]];
       outputsCode += `
-    const ${name}_nhwc = builder.output('${name}', { dataType: '${dataType}', shape: [${nhwcShape}] });
-    // Optionally, after inference, transpose back to NCHW if you want to present in ONNX order
-    // const ${name}_nchw = builder.transpose(${name}_nhwc, { permutation: [0, 3, 1, 2] });
     this.outputTensors_['${name}'] = await this.context_.createTensor(
-      { dataType: '${dataType}', shape: [${nhwcShape}], readable: true }
+      { dataType: '${dataType}', shape: [${nchwShape}], readable: true }
     );`;
     } else {
       // NCHW or non-4D: use as-is
@@ -465,4 +474,3 @@ export function generateHTML() {
 export function downloadHTML() {
   downloadFile('webnn.html', 'text/html', generateHTML());
 }
-
