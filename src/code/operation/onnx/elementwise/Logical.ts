@@ -60,12 +60,12 @@ export function LessOrEqual(node: any, toJsVarName: (name: string) => string, op
 export function Not(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
   return Logical(node, toJsVarName, { ...options, opType: 'logicalNot' });
 }
-export function And(node: any, toJsVarName: (name: string) => string, options: { [key: string]?: any } = {}): string {
+export function And(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
   return Logical(node, toJsVarName, { ...options, opType: 'logicalAnd' });
 }
-export function Or(node: any, toJsVarName: (name: string) => string, options: { [key: string]?: any } = {}): string {
+export function Or(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
   return Logical(node, toJsVarName, { ...options, opType: 'logicalOr' });
 }
-export function Xor(node: any, toJsVarName: (name: string) => string, options: { [key: string]?: any } = {}): string {
+export function Xor(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
   return Logical(node, toJsVarName, { ...options, opType: 'logicalXor' });
 }

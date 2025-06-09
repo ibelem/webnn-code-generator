@@ -1,7 +1,6 @@
 import {
   getInputVars,
-  getOutputVars,
-  getShape
+  getOutputVars
 } from '../../operation-utils';
 
 /**
