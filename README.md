@@ -4,7 +4,7 @@ Visit [https://ibelem.github.io/webnn-code-generator/](https://ibelem.github.io/
 
 ## Overview
 
-The [WebNN Code Generator](https://ibelem.github.io/webnn-code-generator/) offers a user-friendly web interface for generating WebNN-compatible JavaScript code. The tool supports various model formats (ONNX, TensorFlow Lite, or others) and generates optimized code for browser-based machine learning inference.
+The [WebNN Code Generator](https://github.com/ibelem/webnn-code-generator/) offers a user-friendly web interface for generating WebNN-compatible JavaScript code. The tool supports various model formats (ONNX, TensorFlow Lite, or others) and generates optimized code for browser-based machine learning inference.
 
 ### 🔒 Client-Side Processing Only
 
