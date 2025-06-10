@@ -41,7 +41,7 @@ If your model contains symbolic dimensions, you'll see a **"Set free dimension o
 
 1. Enter specific values for each dynamic dimension
 2. This resolves variables like batch size or input dimensions to concrete values
-3. See [symbolic dimensions documentation](../onnx-runtime/free-dimension-overrides) for details
+3. See [symbolic dimensions documentation](https://webnn.io/en/learn/tutorials/onnx-runtime/free-dimension-overrides) for details
 
 ### Step 4: Generate and Download
 
