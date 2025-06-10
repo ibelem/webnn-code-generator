@@ -6,6 +6,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN reshape operation from ONNX Reshape node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-reshape-method
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/reshape_op_builder.cc
  */
 export function Reshape(
   node: any,
@@ -40,6 +41,11 @@ export function Reshape(
     // Convert BigInt64Array to Number array for WebNN and handle -1
     const js_shape = `(() => {
         const shape = Array.from(${js_shape_array}, Number);
+        // WebNN does not support 0 as a reshape dimension if allowzero is set
+        const allowzero = ${node.attributes?.find((attr: any) => attr.name === 'allowzero')?.value === 1 ? 'true' : 'false'};
+        if (allowzero && shape.some(v => v === 0)) {
+          throw new Error('WebNN reshape does not support 0 as a dimension when allowzero is enabled');
+        }
         // Calculate the concrete size for value -1.
         if (shape.includes(-1)) {
           const count = shape.filter(v => v === -1).length;
@@ -54,21 +60,27 @@ export function Reshape(
         return shape;
       })()`;
 
+    // Add label option
+    const labelOpt = node.name ? `{ label: '${node.name}' }` : '{}';
+
     return `
-    const ${outputVars[0]} = builder.reshape(
-      ${inputVars[0]},
-      ${js_shape}
-    );`;
+      const ${outputVars[0]} = builder.reshape(
+        ${inputVars[0]},
+        ${js_shape},
+        ${labelOpt}
+      );`;
   }
 
   // TFLite style: use new_shape attribute
   const newShapeAttr = node.attributes?.find((attr: any) => attr.name === 'new_shape');
   if (newShapeAttr && Array.isArray(newShapeAttr.value)) {
     const shapeArr = newShapeAttr.value.map((v: any) => Number(v));
+    const labelOpt = node.name ? `{ label: '${node.name}' }` : '{}';
     return `
       const ${outputVars[0]} = builder.reshape(
         ${inputVars[0]},
-        [${shapeArr.join(', ')}]
+        [${shapeArr.join(', ')}],
+        ${labelOpt}
       );`;
   }
 

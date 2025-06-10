@@ -1,11 +1,13 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN transpose operation from ONNX Transpose node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-transpose
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/transpose_op_builder.cc
  */
 export function Transpose(
   node: any,
@@ -14,6 +16,9 @@ export function Transpose(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const attrs: any[] = node.attributes || [];
+
+  // Get input shape to determine default permutation if needed
+  const inputShape = getShape(node, 0);
 
   // Default perm is reversed order if not specified
   let perm: number[] | null = null;
@@ -27,17 +32,20 @@ export function Transpose(
       break;
     }
   }
-
-  if (perm !== null) {
-    return `
-    const ${outputVars[0]} = builder.transpose(
-      ${inputVars[0]},
-      { permutation: [${perm.join(', ')}] }
-    );`;
-  } else {
-    return `
-    const ${outputVars[0]} = builder.transpose(
-      ${inputVars[0]}
-    );`;
+  if (!perm) {
+    // Default: reverse the axes
+    perm = [];
+    for (let i = inputShape.length - 1; i >= 0; i--) {
+      perm.push(i);
+    }
   }
+
+  // Add label option
+  const labelOpt = node.name ? `label: '${node.name}'` : '';
+
+  return `
+  const ${outputVars[0]} = builder.transpose(
+    ${inputVars[0]},
+    { ${labelOpt}, permutation: [${perm.join(', ')}] }
+  );`;
 }

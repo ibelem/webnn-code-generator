@@ -6,6 +6,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN averagePool2d operation from ONNX GlobalAveragePool node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-pool2d-average
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/pool_op_builder.cc
  */
 export function GlobalAveragePool(
   node: any,
@@ -16,18 +17,19 @@ export function GlobalAveragePool(
   const outputVars = getOutputVars(node, toJsVarName);
   const nhwc = !!options.nhwc;
 
-  // const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
+  // Always set layout and label for debugging
+  const opts: string[] = [
+    `layout: '${nhwc ? 'nhwc' : 'nchw'}'`
+  ];
+  if (node.name) {
+    opts.push(`label: '${node.name}'`);
+  }
 
-  // For GlobalAveragePool, just call averagePool2d with no options (global pooling)
-  // Add layout: 'nhwc' if needed
-  return nhwc
-    ? `
+  return `
     const ${outputVars[0]} = builder.averagePool2d(
       ${inputVars[0]},
-      { layout: 'nhwc' }
-    );`
-    : `
-    const ${outputVars[0]} = builder.averagePool2d(
-      ${inputVars[0]}
+      {
+        ${opts.join(',\n    ')}
+      }
     );`;
 }

@@ -5,7 +5,6 @@ import {
 
 /**
  * Generate JavaScript code for a WebNN equivalent of the ONNX Shape op using constant + slice workaround.
- * This creates a constant tensor of the input's shape, then slices it according to optional start/end attributes.
  * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/shape_op_builder.cc
  */
 export function Shape(
@@ -14,12 +13,11 @@ export function Shape(
   options: { [key: string]: any } = {}
 ): string {
   const nhwc = !!options.nhwc;
-  // const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
+  const inputShape = getShape(node, 0, nhwc);
 
-  // Determine dtype: prefer int64, fallback to int32 if not supported
-  // For codegen, we'll use int32 for compatibility
+  // Prefer int64, fallback to int32 for compatibility
+  // For codegen, use int32 for broad compatibility
   const dtype = 'int32';
 
   // Get start/end attributes if present (ONNX Shape-15+)
@@ -40,8 +38,10 @@ export function Shape(
   end = Math.min(end, rank);
   const sliceLength = end - start;
 
+  // Add label for slice op
+  const labelOpt = node.name ? `{ label: '${node.name}' }` : '';
+
   return `
-    // ONNX Shape op emulated using constant + slice in WebNN
     const ${outputVars[0]}_shapeConst = builder.constant(
       {type: '${dtype}', shape: [${rank}]},
       new Int32Array([${inputShape.join(', ')}])
@@ -49,7 +49,7 @@ export function Shape(
     const ${outputVars[0]} = builder.slice(
       ${outputVars[0]}_shapeConst,
       [${start}],
-      [${sliceLength}]
+      [${sliceLength}], ${labelOpt}
     );
-  `;
+`;
 }

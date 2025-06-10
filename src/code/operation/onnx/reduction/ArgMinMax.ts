@@ -8,6 +8,7 @@ import { mlOperandDataType } from '../../../../utils';
 /**
  * Generate JavaScript code for a WebNN argMax or argMin operation from ONNX node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-argminmax
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/argmax_min_op_builder.cc
  */
 function ArgMinMax(
   node: any,
@@ -44,20 +45,22 @@ function ArgMinMax(
     axis = inputShape.length + axis;
   }
 
-  // Set outputDataType to 'int32' as per WebNN default
-  let outputDataType = 'int32';
+  // Set outputDataType to 'int64' by default, fallback to 'int32' if not supported
+  let outputDataType = 'int64';
   if (node.outputs?.[0]?.value?.[0]?.type?.dataType) {
     const onnxType = node.outputs[0].value[0].type.dataType;
     outputDataType = mlOperandDataType(onnxType);
   }
+  // Optionally fallback to int32 if int64 is not supported by backend (user can override if needed)
 
   const opType = options.opType;
+  const labelOpt = node.name ? `, label: '${node.name}'` : '';
 
   return `
     const ${outputVars[0]} = builder.${opType}(
       ${inputVars[0]},
       ${axis},
-      { keepDimensions: ${keepDims}, outputDataType: '${outputDataType}' }
+      { keepDimensions: ${keepDims}, outputDataType: '${outputDataType}'${labelOpt} }
     );`;
 }
 

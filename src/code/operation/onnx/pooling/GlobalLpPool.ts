@@ -7,6 +7,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN global l2Pool2d operation from ONNX GlobalLpPool node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-pool2d-l2
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/pool_op_builder.cc
  * Only supports p=2 (L2 norm), as required by WebNN.
  */
 export function GlobalLpPool(
@@ -30,20 +31,26 @@ export function GlobalLpPool(
     return `// Only L2 pooling (p=2) is supported by WebNN.`;
   }
 
-  const layout = nhwc ? "'nhwc'" : "'nchw'";
-  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
-  // For global pooling, windowDimensions is the spatial dims of the input
+  // Get input shape and compute windowDimensions for global pooling
+  const inputShape = getShape(node, 0, nhwc);
   // NCHW: [b, c, h, w] -> [h, w], NHWC: [b, h, w, c] -> [h, w]
   const windowDims = nhwc
     ? [inputShape[1], inputShape[2]]
     : [inputShape[2], inputShape[3]];
 
+  const opts: string[] = [
+    `windowDimensions: [${windowDims.join(', ')}]`,
+    `layout: '${nhwc ? 'nhwc' : 'nchw'}'`
+  ];
+  if (node.name) {
+    opts.push(`label: '${node.name}'`);
+  }
+
   return `
     const ${outputVars[0]} = builder.l2Pool2d(
       ${inputVars[0]},
       {
-        windowDimensions: [${windowDims.join(', ')}],
-        layout: ${layout}
+        ${opts.join(',\n    ')}
       }
     );`;
 }

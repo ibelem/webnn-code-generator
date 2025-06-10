@@ -1,12 +1,5 @@
 /**
  * Generate JavaScript code for a WebNN conv2d operation from TFLite node info.
- * @param node - The TFLite node object (with inputs, outputs, attributes)
- * @param toJsVarName - Function to convert TFLite names to JS variable names
- * @param options - Optional options object (e.g. { nhwc: boolean })
- * @returns JavaScript code string for the conv2d operation
- */
-
-/**
  * WebNN Specification: https://www.w3.org/TR/webnn/
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-conv2d
  */
@@ -116,6 +109,7 @@ export function Conv2D(
   if (biasVar) optionsArr.push(`bias: ${biasVar}`);
   if (filterLayout) optionsArr.push(`filterLayout: ${filterLayout}`);
   if (inputLayout) optionsArr.push(`inputLayout: ${inputLayout}`);
+  if (node.name) optionsArr.push(`label: '${node.name}'`);
 
   return `
     const ${outputVars[0]} = builder.conv2d(

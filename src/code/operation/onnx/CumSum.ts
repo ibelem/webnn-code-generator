@@ -6,6 +6,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN cumulativeSum operation from ONNX CumSum node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-cumulativesum
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/cumsum_op_builder.cc
  */
 export function CumSum(
   node: any,
@@ -16,6 +17,7 @@ export function CumSum(
 
   // ONNX axis is usually input[1] as a constant or attribute
   let axis = 0;
+  let inputRank = node.inputs?.[0]?.shape?.length ?? 0;
   if (node.inputs.length > 1 && node.inputs[1]?.value?.[0]?.initializer) {
     // Extract axis from initializer
     const init = node.inputs[1].value[0].initializer;
@@ -23,10 +25,17 @@ export function CumSum(
       .sort((a, b) => Number(a) - Number(b))
       .map(k => init.values[k]);
     axis = Number(arr[0]);
+    // Handle negative axis
+    if (axis < 0 && inputRank > 0) {
+      axis = inputRank + axis;
+    }
   } else if (node.attributes) {
     for (const attr of node.attributes) {
       if (attr.name === 'axis') {
         axis = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
+        if (axis < 0 && inputRank > 0) {
+          axis = inputRank + axis;
+        }
         break;
       }
     }
@@ -44,10 +53,13 @@ export function CumSum(
     }
   }
 
+  // Add label option if node.name is present
+  const labelOpt = node.name ? `label: '${node.name}'` : '';
+
   return `
     const ${outputVars[0]} = builder.cumulativeSum(
       ${inputVars[0]},
       ${axis},
-      { exclusive: ${exclusive}, reversed: ${reversed} }
+      { exclusive: ${exclusive}, reversed: ${reversed}, ${labelOpt} }
     );`;
 }

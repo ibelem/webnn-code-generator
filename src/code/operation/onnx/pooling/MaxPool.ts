@@ -24,25 +24,29 @@ export function MaxPool(
   const pads = attrDict['pads']?.value;
   const dilations = attrDict['dilations']?.value;
   const ceilMode = attrDict['ceil_mode']?.value ?? 0;
-
-  // Layout
   const nhwc = !!options.nhwc;
-  const layout = nhwc ? "'nhwc'" : "'nchw'";
+
+  // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
+  let paddingStr = '';
+  if (pads && pads.length === 4) {
+    paddingStr = `padding: [${pads[0]}, ${pads[2]}, ${pads[1]}, ${pads[3]}]`;
+  }
 
   // Build options
   const opts: string[] = [];
   if (kernelShape) opts.push(`windowDimensions: [${kernelShape.join(', ')}]`);
-  if (pads) opts.push(`padding: [${pads.join(', ')}]`);
+  if (paddingStr) opts.push(paddingStr);
   if (strides) opts.push(`strides: [${strides.join(', ')}]`);
   if (dilations) opts.push(`dilations: [${dilations.join(', ')}]`);
-  opts.push(`layout: ${layout}`);
+  opts.push(`layout: '${nhwc ? 'nhwc' : 'nchw'}'`);
   opts.push(`roundingType: '${ceilMode ? 'ceil' : 'floor'}'`);
+  if (node.name) opts.push(`label: '${node.name}'`);
 
   return `
     const ${outputVars[0]} = builder.maxPool2d(
       ${inputVars[0]},
       {
-        ${opts.join(',\n        ')}
+        ${opts.join(',\n    ')}
       }
     );`;
 }

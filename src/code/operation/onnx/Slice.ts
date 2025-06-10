@@ -7,8 +7,8 @@ import {
 /**
  * Generate JavaScript code for a WebNN slice operation from ONNX Slice node info.
  * Handles negative steps (reverse), axes, and default values.
+ * Adds label for debugging.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-slice
- * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/slice_op_builder.cc
  */
 export function Slice(
   node: any,
@@ -18,7 +18,7 @@ export function Slice(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);  // Add nhwc parameter
+  const inputShape = getShape(node, 0, nhwc);
 
   // Helper to extract initializer array from input index
   function getInitializerArr(idx: number): number[] | undefined {
@@ -74,12 +74,11 @@ export function Slice(
 
   if (reverseAxes.length > 0) {
     code += `
-      // Reverse axes for negative steps
       const ${outputVars[0]}_reversed = builder.reverse(
         ${inputVars[0]},
-        { axes: [${reverseAxes.join(', ')}] }
+        { axes: [${reverseAxes.join(', ')}], label: '${node.name || ''}_reverse' }
       );
-    `;
+`;
     inputExpr = `${outputVars[0]}_reversed`;
   }
 
@@ -90,7 +89,7 @@ export function Slice(
       [${sizes.join(', ')}],
       { strides: [${fullSteps.join(', ')}], label: '${node.name || ''}' }
     );
-  `;
+`;
 
   return code;
 }

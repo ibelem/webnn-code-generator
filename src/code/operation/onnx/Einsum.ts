@@ -5,6 +5,7 @@ import {
 
 /**
  * Generate JavaScript code for a WebNN einsum operation from ONNX Einsum node info.
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/einsum_op_builder.cc
  * Note: WebNN does NOT have a native einsum operator. The closest is matmul, but einsum is more general.
  * This implementation only supports the common matmul-like cases (e.g. "ij,jk->ik").
  * For more complex einsum equations, you would need to implement additional logic or throw an error.
@@ -34,17 +35,17 @@ export function Einsum(
   const isMatmulLike = matmulPatterns.some(re => re.test(equation.replace(/\s/g, '')));
 
   if (isMatmulLike && inputVars.length === 2) {
-    // Use WebNN matmul for supported einsum patterns
+    // Use WebNN matmul for supported einsum patterns, add label
+    const labelOpt = node.name ? `{ label: '${node.name}_matmul' }` : '{}';
     return `
       const ${outputVars[0]} = builder.matmul(
         ${inputVars[0]},
-        ${inputVars[1]}
+        ${inputVars[1]},
+        ${labelOpt}
       );`;
   } else {
     // For general einsum, not supported by WebNN directly
     return `
-      // Einsum equation "${equation}" is not directly supported by WebNN.
-      // You need to implement this manually or decompose into supported ops.
       throw new Error('Einsum equation "${equation}" is not supported by WebNN codegen.');
     `;
   }
