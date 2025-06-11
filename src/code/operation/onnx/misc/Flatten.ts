@@ -2,11 +2,11 @@ import {
   getInputVars,
   getOutputVars,
   getShape
-} from '../operation-utils';
+} from '../../operation-utils';
 
 /**
  * Generate JavaScript code for WebNN from ONNX Flatten node.
- * Uses reshape to implement flatten. Adds label.
+ * Uses reshape to implement flatten.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-flatten
  * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/flatten_op_builder.cc
  */
@@ -32,7 +32,7 @@ export function Flatten(
   const before = inputShape.slice(0, axis).reduce((a, b) => a * b, 1);
   const after = inputShape.slice(axis).reduce((a, b) => a * b, 1);
 
-  const labelOpt = node.name ? ` { label: '${node.name}' }` : '';
+  const labelOpt = node.name ? `{ label: '${node.name}' }` : '';
 
   return `
     const ${outputVars[0]} = builder.reshape(

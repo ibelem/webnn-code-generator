@@ -1,7 +1,7 @@
 import {
   getOutputVars,
   getShape
-} from '../operation-utils';
+} from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN equivalent of the ONNX Shape op using constant + slice workaround.

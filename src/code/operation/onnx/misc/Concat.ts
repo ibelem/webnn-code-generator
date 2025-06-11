@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars
-} from '../operation-utils';
+} from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN concat operation from ONNX Concat node info.

@@ -300,6 +300,7 @@ export function generateJS() {
 `;
   }
 
+  // https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.cc#L3306-L3322
   // Todo: NCHW, NHWC layouts for BatchNormalization, InstanceNormalization, Conv, ConvInteger, 
   // QLinearConv, ConvTranspose, AveragePool, LpPool, MaxPool, MaxUnpool, GlobalAveragePool, 
   // GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth

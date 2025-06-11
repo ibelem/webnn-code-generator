@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars
-} from '../operation-utils';
+} from '../../operation-utils';
 
 /**
  * Generate JavaScript code for WebNN from ONNX Dropout node.

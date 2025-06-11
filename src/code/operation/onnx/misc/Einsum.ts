@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars
-} from '../operation-utils';
+} from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN einsum operation from ONNX Einsum node info.

@@ -2,7 +2,7 @@ import {
   getInputVars,
   getOutputVars,
   getShape
-} from '../operation-utils';
+} from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN slice operation from ONNX Slice node info.

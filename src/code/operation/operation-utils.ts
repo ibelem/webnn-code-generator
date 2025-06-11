@@ -69,6 +69,20 @@ export function validateRank(shape: number[], minRank: number, op: string) {
   }
 }
 
+export function getAttr(node: any, name: string, defaultValue: any): any {
+  if (!node || !node.attributes) return defaultValue;
+  const attr = node.attributes.find((a: any) => a.name === name);
+  if (attr === undefined) return defaultValue;
+  // Try attr.value, then attr.value.value, else default
+  if (attr.value !== undefined) {
+    if (attr.value.value !== undefined) {
+      return attr.value.value;
+    }
+    return attr.value;
+  }
+  return defaultValue;
+}
+
 // Utility for inlined reshape expression
 export function inlineReshape(varName: string, fromShape: number[], toShape: number[]): string {
   if (JSON.stringify(fromShape) === JSON.stringify(toShape)) return varName;
