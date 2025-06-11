@@ -6,7 +6,6 @@ import {
 
 /**
  * Generate JavaScript code for WebNN from ONNX Flatten node.
- * Uses reshape to implement flatten.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-flatten
  * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/flatten_op_builder.cc
  */

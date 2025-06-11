@@ -6,7 +6,9 @@ import {
 /**
  * Generate JavaScript code for a WebNN hardSigmoid operation from ONNX HardSigmoid node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-hard-sigmoid
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/activation_op_builder.cc
  */
+
 export function HardSigmoid(
   node: any,
   toJsVarName: (name: string) => string
@@ -38,7 +40,9 @@ export function HardSigmoid(
   }
 
   // Add label for debugging if node.name exists
-  const opts = `{ alpha: ${alpha}, beta: ${beta}, label: '${node.name || ''}' }`;
+  const opts = node.name
+    ? `{ alpha: ${alpha}, beta: ${beta}, label: '${node.name}' }`
+    : `{ alpha: ${alpha}, beta: ${beta} }`;
 
   return `
     const ${outputVars[0]} = builder.hardSigmoid(

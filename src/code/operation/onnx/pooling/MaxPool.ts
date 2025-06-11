@@ -6,12 +6,14 @@ import {
 /**
  * Generate JavaScript code for a WebNN maxPool2d operation from ONNX MaxPool node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-pool2d-max
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/pool_op_builder.cc
  */
 export function MaxPool(
   node: any,
   toJsVarName: (name: string) => string,
   options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const attrs: any[] = node.attributes || [];
@@ -24,7 +26,6 @@ export function MaxPool(
   const pads = attrDict['pads']?.value;
   const dilations = attrDict['dilations']?.value;
   const ceilMode = attrDict['ceil_mode']?.value ?? 0;
-  const nhwc = !!options.nhwc;
 
   // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
   let paddingStr = '';

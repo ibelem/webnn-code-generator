@@ -7,8 +7,8 @@ import {
 /**
  * Generate JavaScript code for a WebNN slice operation from ONNX Slice node info.
  * Handles negative steps (reverse), axes, and default values.
- * Adds label for debugging.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-slice
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/slice_op_builder.cc
  */
 export function Slice(
   node: any,
@@ -38,7 +38,7 @@ export function Slice(
   let axes = getInitializerArr(3);
   let steps = getInitializerArr(4);
 
-  // Default axes: [0, 1, ..., rank-1]
+  // Default axes: [0, 1, ..., starts.length-1]
   if (!axes) axes = Array.from({ length: starts.length }, (_, i) => i);
   // Default steps: all 1
   if (!steps) steps = Array(starts.length).fill(1);
@@ -50,8 +50,9 @@ export function Slice(
 
   for (let i = 0; i < axes.length; ++i) {
     const axis = axes[i];
-    fullStarts[axis] = starts[i];
-    fullEnds[axis] = ends[i];
+    // Handle negative indices for starts/ends
+    fullStarts[axis] = starts[i] < 0 ? inputShape[axis] + starts[i] : starts[i];
+    fullEnds[axis] = ends[i] < 0 ? inputShape[axis] + ends[i] : ends[i];
     fullSteps[axis] = steps[i];
   }
 
@@ -66,23 +67,27 @@ export function Slice(
     }
   }
 
-  // Compute sizes for WebNN slice
-  const sizes = fullEnds.map((end, i) => end - fullStarts[i]);
+  // Compute sizes for WebNN slice, ensure non-negative
+  const sizes = fullEnds.map((end, i) => Math.max(0, end - fullStarts[i]));
+
+  // Only emit slice if needed
+  const isSliceRequired = fullSteps.some((s, i) => s !== 1 || fullStarts[i] !== 0 || fullEnds[i] !== inputShape[i]);
 
   let code = '';
   let inputExpr = inputVars[0];
 
   if (reverseAxes.length > 0) {
     code += `
-      const ${outputVars[0]}_reversed = builder.reverse(
-        ${inputVars[0]},
-        { axes: [${reverseAxes.join(', ')}], label: '${node.name || ''}_reverse' }
-      );
+    const ${outputVars[0]}_reversed = builder.reverse(
+      ${inputVars[0]},
+      { axes: [${reverseAxes.join(', ')}], label: '${node.name || ''}_reverse' }
+    );
 `;
     inputExpr = `${outputVars[0]}_reversed`;
   }
 
-  code += `
+  if (isSliceRequired) {
+    code += `
     const ${outputVars[0]} = builder.slice(
       ${inputExpr},
       [${fullStarts.join(', ')}],
@@ -90,6 +95,11 @@ export function Slice(
       { strides: [${fullSteps.join(', ')}], label: '${node.name || ''}' }
     );
 `;
+  } else {
+    code += `
+    const ${outputVars[0]} = ${inputExpr};
+`;
+  }
 
   return code;
 }

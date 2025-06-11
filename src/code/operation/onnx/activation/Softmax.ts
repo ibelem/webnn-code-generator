@@ -7,7 +7,9 @@ import {
 /**
  * Generate JavaScript code for a WebNN softmax operation from ONNX Softmax node info.
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-softmax-method
+ * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/softmax_op_builder.cc
  */
+
 export function Softmax(
   node: any,
   toJsVarName: (name: string) => string,
@@ -18,11 +20,8 @@ export function Softmax(
   const outputVars = getOutputVars(node, toJsVarName);
   const inputShape = getShape(node, 0, nhwc);
 
-  // Default axis is 1 for ONNX Softmax (but ONNX spec: axis=1 for opset <13, axis=-1 for opset >=13)
-  let axis = 1;
-  if (typeof node.opset === 'number' && node.opset >= 13) {
-    axis = -1;
-  }
+  // Default axis is 1 for ONNX Softmax (opset <13), -1 for opset >=13
+  let axis = (typeof node.opset === 'number' && node.opset >= 13) ? -1 : 1;
   for (const attr of node.attributes || []) {
     if (attr.name === 'axis') {
       if (attr.value && typeof attr.value.value === 'string') {
@@ -39,13 +38,11 @@ export function Softmax(
     axis = inputShape.length + axis;
   }
 
-  // Add label for debugging if node.name exists
-  const opts = `{ axis: ${axis}, label: '${node.name || ''}' }`;
-
   return `
     const ${outputVars[0]} = builder.softmax(
       ${inputVars[0]},
-      ${opts}
+      ${axis},
+      { label: '${node.name || ''}' }
     );
-  `;
+`;
 }
