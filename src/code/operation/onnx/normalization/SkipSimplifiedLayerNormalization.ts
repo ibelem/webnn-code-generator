@@ -9,35 +9,54 @@ import {
  * Implements: Y = scale * (X + skip - mean) / sqrt(variance + epsilon)
  * where mean and variance are computed across the specified axes.
  * No bias is used in SkipSimplifiedLayerNormalization.
- * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/normalization_op_builder.cc
+ * 
+ * Note: This operation is layout-sensitive as normalization axes differ between NCHW and NHWC.
+ * For 4D tensors in NCHW format, normalization is typically over axes=[1] (channels).
+ * For 4D tensors in NHWC format, normalization is typically over axes=[3] (channels).
  */
 export function SkipSimplifiedLayerNormalization(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { nhwc?: boolean } = {}
 ): string {
   // ONNX: [input, skip, scale]
   // WebNN: not supported directly, decompose using add, div, mul, pow, reduceMean, sqrt
   const inputVars = getInputVars(node, toJsVarName); // [input, skip, scale]
   const outputVars = getOutputVars(node, toJsVarName);
+  const nhwc = !!options.nhwc;
 
   // Get epsilon attribute, default 1e-5
   const epsilon = getAttr(node, 'epsilon', 1e-5);
 
-  // Get axes attribute, default to [1, 2, ..., rank-1] if not present
+  // Get axes attribute
   let axes = getAttr(node, 'axes', undefined);
   const shape = node.inputs?.[0]?.shape;
+  
   if (!axes) {
-    if (shape && shape.length > 1) {
-      axes = Array.from({length: shape.length - 1}, (_, i) => i + 1);
+    // Handle layout-specific axis selection for 4D tensors (image data)
+    if (shape && shape.length === 4) {
+      if (nhwc) {
+        // For NHWC, normalize over channels (axis=3)
+        axes = [3];
+      } else {
+        // For NCHW, normalize over channels (axis=1)
+        axes = [1];
+      }
     } else {
-      axes = [1];
+      // Default: normalize over feature dimensions (all but batch)
+      if (shape && shape.length > 1) {
+        axes = Array.from({length: shape.length - 1}, (_, i) => i + 1);
+      } else {
+        // Fallback if shape is unknown
+        axes = [1];
+      }
     }
   }
 
   // Compose code for decomposition
   return `
     // == ${node.name} · start ==
-    // Decompose ${node.name} into WebNN ops
+    // Decompose ${node.name} into WebNN ops (${nhwc ? 'NHWC' : 'NCHW'} layout)
     const ${outputVars[0]}_input_skip = builder.add(
       ${inputVars[0]},
       ${inputVars[1]},
