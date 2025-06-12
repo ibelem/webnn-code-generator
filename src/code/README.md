@@ -96,7 +96,7 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 9 | log | Log | Natural logarithm |
 | 10 | neg | Neg | Negation (multiply by -1) |
 | 11 | reciprocal | Reciprocal | 1/x operation |
-| 12  | round 🚧 | Round | Rounds to nearest integer |
+| 12 | roundEven | Round | Rounds to nearest integer |
 | 13 | sign | Sign | Returns sign of the input |
 | 14 | sin | Sin | Sine function |
 | 15 | sqrt | Sqrt | Square root function |
@@ -217,7 +217,6 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 ## Others 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-
 | | | QLinearConv | |
 | | | MaxUnpool | |
 | | | GridSample | |

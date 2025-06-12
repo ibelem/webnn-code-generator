@@ -53,7 +53,7 @@ export function Neg(node: any, toJsVarName: (name: string) => string, options: {
   return Unary(node, toJsVarName, { ...options, opType: 'neg' });
 }
 export function Round(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
-  return Unary(node, toJsVarName, { ...options, opType: 'round' });
+  return Unary(node, toJsVarName, { ...options, opType: 'roundEven' });
 }
 export function Reciprocal(node: any, toJsVarName: (name: string) => string, options: { [key: string]: any } = {}): string {
   return Unary(node, toJsVarName, { ...options, opType: 'reciprocal' });
