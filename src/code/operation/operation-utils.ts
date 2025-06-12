@@ -1,3 +1,5 @@
+import { freeDimsOverrides } from '../../ui'
+
 export function permuteWeightShape(
   shape: number[],
   nhwc: boolean,
@@ -33,10 +35,21 @@ export function getOutputVars(node: any, toJsVarName: (name: string) => string):
     .map(toJsVarName);
 }
 
+function applyFreeDimsOverrides(shape: (string|number)[], freeDimsOverrides: Record<string, number | null>): (string|number)[] {
+  return shape.map(dim => {
+    if (typeof dim === 'string' && freeDimsOverrides.hasOwnProperty(dim)) {
+      const override = freeDimsOverrides[dim];
+      return override !== null ? override : dim;
+    }
+    return dim;
+  });
+}
+
 // Extract shape and dtype from a node input/output
 export function getShape(node: any, idx: number = 0, nhwc: boolean = false): number[] {
-  const shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
-  
+  let shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
+  shape = applyFreeDimsOverrides(shape, freeDimsOverrides);
+
   // For 4D tensors, conditionally permute from NCHW to NHWC if needed
   if (nhwc && shape.length === 4) {
     const nodeType = node.type?.name;

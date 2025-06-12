@@ -422,7 +422,7 @@ header {
 }
 
 #output-code {
-  font-family: 'Intel One Mono', 'Geist', Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Intel One Mono', "Consolas", "Lucida Console", monospace;
   text-align: left;
   overflow-y: auto;
   padding: 0 1em;
@@ -498,7 +498,7 @@ input[id=webnn-html]:checked ~ .glider {
 }
 
 #output-code pre code {
-  font-family: 'Intel One Mono', 'Geist', Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Intel One Mono', "Consolas", "Lucida Console", monospace;
 }
 
 .step-2:hover .upload-button {

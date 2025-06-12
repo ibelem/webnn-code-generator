@@ -1,5 +1,6 @@
 import {
-  getOutputVars
+  getOutputVars,
+  getAttr
 } from '../../operation-utils';
 
 /**
@@ -15,14 +16,13 @@ export function Constant(
   const outputVars = getOutputVars(node, toJsVarName);
   const outputVar = outputVars[0];
 
-  // Find the 'value' attribute
-  const valueAttr = (node.attributes || []).find((attr: any) => attr.name === 'value' && attr.t);
-  if (!valueAttr) {
+  // Todo
+  // Use getAttr to get the 'value' attribute (tensor)
+  const valueAttr = getAttr(node, 'value', undefined);
+  const t = valueAttr?.t ?? valueAttr;
+  if (!t) {
     return `// Constant node ${outputVar} missing value tensor.`;
   }
-
-  // Todo
-  const t = valueAttr.t;
 
   // Map ONNX/WebNN dataType to JS typed array and WebNN dtype
   const typeMap: Record<number | string, { js: string; webnn: string }> = {
@@ -80,8 +80,6 @@ export function Constant(
   if (nhwc && shape.length === 4) {
     // For conv weights: OIHW -> OHWI
     shape = [shape[0], shape[2], shape[3], shape[1]];
-    
-    // Add comment to indicate shape transformation
     return `
     // Original shape: [${t.dims.join(', ')}], transformed to NHWC: [${shape.join(', ')}]
     const ${outputVar} = builder.constant(

@@ -214,20 +214,6 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 5 | resample2d | Resize | |
 | | | Shape | Decomposed to WebNN ops |
 
-## Others 
-| # | WebNN Op | ONNX Op | Note |
-|---|----------|---------|------|
-| | | QLinearConv | |
-| | | MaxUnpool | |
-| | | GridSample | |
-| | | DepthToSpace | |
-| | | SpaceToDepth | |
-| | |  | |
-| | | CenterCropPad | |
-| | | ThresholdedRelu | |
-| | | OneHot | |
-| | | ConstantOfShape | |
-
 ---
 
 This comprehensive mapping covers all operations implemented in the webnn-code-generator project across all subdirectories. Some ONNX operators that don't have direct WebNN counterparts are implemented through decomposition into multiple WebNN operations or special handling.

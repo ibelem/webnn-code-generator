@@ -142,7 +142,7 @@ function buildCodeWithLayout(nhwc: boolean) {
               if (initializer?.encoding === '<') {
                 const constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)`
                 initializersCode += `
-    // index.ts line 145
+    // index.ts line 145 '<'
     const ${varName} = builder.constant(
       { dataType: '${dataType}', shape: [${shape}] },
       ${constantBuffer}
@@ -159,7 +159,7 @@ function buildCodeWithLayout(nhwc: boolean) {
                 const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
                 const shapeStr = JSON.stringify(shape); // This will output [32] for 1D, [O,H,W,I] for 4D, etc.
                 initializersCode += `
-    // index.ts line 162
+    // index.ts line 162 '|'
     const ${varName} = builder.constant(
       { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
       new ${typedArrayCtor}([${valueArr.join(', ')}])
