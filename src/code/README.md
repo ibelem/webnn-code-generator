@@ -20,7 +20,7 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 - [Tensor](#tensor)
 - [Misc](#misc)
 
-## Activation
+## Activation (12)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
@@ -37,24 +37,25 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 11 | softsign | Softsign | Direct mapping |
 | 12 | tanh | Tanh | Direct mapping |
 
-## Attention
+## Attention (0)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-| 1 | N/A | GroupQueryAttention | Decomposed to WebNN subgraph |
-| 2 | N/A | MultiHeadAttention | Decomposed to WebNN subgraph |
-| 3 | N/A | RotaryEmbedding | Decomposed to WebNN subgraph |
-| 4 | N/A | ScaledDotProductAttention | Helper function for attention ops |
+|| N/A | GroupQueryAttention | Decomposed to WebNN subgraph |
+|| N/A | MultiHeadAttention | Decomposed to WebNN subgraph |
+|| N/A | RotaryEmbedding | Decomposed to WebNN subgraph |
+|| N/A | ScaledDotProductAttention | Helper function for attention ops |
 
-## Convolution
+## Convolution (2)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
 | 1 | conv2d | Conv | Support for NCHW/NHWC layouts |
-| 2 | conv2d | DepthwiseConv2d | Implemented using groups parameter |
-| 3 | N/A | ConvTranspose | Not directly supported, requires decomposition |
+| | conv2d | DepthwiseConv2d | Implemented using groups parameter |
+| | conv2d | ConvInteger | Decomposed |
+| 2 | convTranspose2d | ConvTranspose | |
 
-## Elementwise Binary
+## Elementwise Binary (7)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
@@ -66,7 +67,7 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 6 | pow | Pow | Element-wise power operation |
 | 7 | sub | Sub | Subtraction of two tensors |
 
-## Elementwise Logical
+## Elementwise Logical (10)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
@@ -79,8 +80,9 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 7 | logicalNot | Not | Logical NOT operation |
 | 8 | logicalOr | Or | Logical OR operation |
 | 9 | logicalXor | Xor | Logical XOR operation |
+| 10 | notEqual | 🚧 | Not equal operation |
 
-## Elementwise Unary
+## Elementwise Unary (16)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
@@ -94,63 +96,64 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 9 | log | Log | Natural logarithm |
 | 10 | neg | Neg | Negation (multiply by -1) |
 | 11 | reciprocal | Reciprocal | 1/x operation |
-| 12 | round | Round | Rounds to nearest integer |
+| 12  | round 🚧 | Round | Rounds to nearest integer |
 | 13 | sign | Sign | Returns sign of the input |
 | 14 | sin | Sin | Sine function |
 | 15 | sqrt | Sqrt | Square root function |
 | 16 | tan | Tan | Tangent function |
 
-## Elementwise Others
+## Elementwise Others (6)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-| 3 | clamp | Clip | Clamps values between min and max |
-| 1 | where | Where | Ternary operation (condition ? x : y) |
+| 1 | clamp | Clip | Clamps values between min and max |
+| 2 | expand | Expand | Broadcasts tensor to new shape  |
+| 3 | pad | Pad | Supports constant, reflection, and edge modes |
+| 4 | slice | Slice | Extracts slice with optional steps |
+| 5 | tile | Tile | Repeats tensor along dimensions |
+| 6 | where | Ternary | |
 
-## Linear
+## Linear (3)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-| 1 | clamp | Clamp | Clamps values between min and max |
-| 2 | gemm | Gemm | General matrix multiplication with bias |
-| 3 | matmul | MatMul | Matrix multiplication |
-| 4 | N/A | MatMulInteger | Quantized matmul, decomposed |
-| 5 | N/A | MatMulNBits | Decomposed to dequantizeLinear + matmul |
-| 6 | triangular | Triangular | Upper or lower triangular matrix |
+| 1 | gemm | Gemm | General matrix multiplication with bias |
+| 2 | matmul | MatMul | Matrix multiplication |
+| | N/A | MatMulInteger 🚧 | Quantized matmul, decomposed |
+| | N/A | MatMulNBits | Decomposed to dequantizeLinear + matmul |
+| 3 | triangular | Triangular | Upper or lower triangular matrix |
 
-## Normalization
+## Normalization (3)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
 | 1 | batchNormalization | BatchNormalization | `axis` option set based on layout |
 | 2 | instanceNormalization | InstanceNormalization | `layout` and `epsilon` options supported |
 | 3 | layerNormalization | LayerNormalization | Supports axes and epsilon options |
-| 4 | N/A | LRN | Decomposed to multiple WebNN ops |
-| 5 | N/A | MeanVarianceNormalization | Decomposed to WebNN ops |
-| 6 | N/A | SimplifiedLayerNormalization | Decomposed to WebNN ops |
-| 7 | N/A | SkipLayerNormalization | Decomposed to WebNN ops |
-| 8 | N/A | SkipSimplifiedLayerNormalization | Decomposed to WebNN ops |
+| | N/A | LRN | Decomposed to multiple WebNN ops |
+| | N/A | SimplifiedLayerNormalization | Decomposed to WebNN ops |
+| | N/A | SkipLayerNormalization 🚧 | Decomposed to WebNN ops |
+| | N/A | SkipSimplifiedLayerNormalization | Decomposed to WebNN ops |
 
-## Pooling
+## Pooling (3)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
 | 1 | averagePool2d | AveragePool | 2D only, layout sensitive |
-| 2 | averagePool2d | GlobalAveragePool | Uses input shape as window dimensions |
-| 3 | l2Pool2d | GlobalLpPool | Only p=2 supported |
-| 4 | l2Pool2d | LpPool | Only p=2 supported |
-| 5 | maxPool2d | GlobalMaxPool | Uses input shape as window dimensions |
-| 6 | maxPool2d | MaxPool | 2D only, layout sensitive |
+| | averagePool2d | GlobalAveragePool | Uses input shape as window dimensions |
+| 2 | l2Pool2d | GlobalLpPool | Only p=2 supported |
+| | l2Pool2d | LpPool | Only p=2 supported |
+| 3 | maxPool2d | GlobalMaxPool | Uses input shape as window dimensions |
+| | maxPool2d | MaxPool | 2D only, layout sensitive |
 
-## Quantization
+## Quantization (2)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-| 1 | cast | Cast | Data type conversion |
-| 2 | dequantizeLinear | DequantizeLinear | Converts quantized to float |
-| 3 | quantizeLinear | QuantizeLinear | Converts float to quantized |
+| 1 | dequantizeLinear | DequantizeLinear | Converts quantized to float |
+| 2 | quantizeLinear | QuantizeLinear | Converts float to quantized |
 
-## Reduction
+## Reduction (12)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
@@ -164,55 +167,67 @@ This comprehensive mapping document lists all WebNN operators with their corresp
 | 8 | reduceProduct | ReduceProd | Product reduction |
 | 9 | reduceSum | ReduceSum | Sum reduction |
 | 10 | reduceSumSquare | ReduceSumSquare | Sum of squares reduction |
+| 11 | argMax | ArgMax | |
+| 12 | argMin | ArgMin | |
 
-## RNN
+## RNN (2 / 4)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
 | 1 | gru | GRU | Support for bidirectional, activations |
+| | gruCell |||
 | 2 | lstm | LSTM | Support for bidirectional, peephole, activations |
+| | lstmCell |||
 
-## Shape
 
-| # | WebNN Op | ONNX Op | Note |
-|---|----------|---------|------|
-| 1 | expand | Expand | Broadcasts tensor to new shape |
-| 2 | reshape | Flatten | Flattens input to 2D |
-| 3 | reshape | Reshape | Direct shape manipulation |
-| 4 | reshape | Squeeze | Removes dimensions of size 1 |
-| 5 | reshape | Unsqueeze | Inserts dimensions of size 1 |
-
-## Tensor
+## Shape (4)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-| 1 | concat | Concat | Concatenates tensors along specified axis |
-| 2 | constantOfShape | ConstantOfShape | Creates tensor of given shape with constant values |
-| 3 | expand | Expand | Broadcasts tensor to new shape |
-| 4 | gather | Gather | Gathers elements along an axis |
-| 5 | gatherElements | GatherElements | Gathers elements based on indices tensor |
-| 6 | gatherND | GatherND | Only batch_dims=0 supported |
-| 7 | nonMaxSuppression | NonMaxSuppression | Filters bounding boxes based on scores |
-| 8 | pad | Pad | Supports constant, reflection, and edge modes |
-| 9 | scatterElements | ScatterElements | Only reduction='none' supported |
-| 10 | scatterND | ScatterND | Only reduction='none' supported |
-| 11 | slice | Slice | Extracts slice with optional steps |
-| 12 | split | Split | Splits tensor into multiple parts |
-| 13 | tile | Tile | Repeats tensor along dimensions |
-| 14 | transpose | Transpose | Permutes dimensions |
+| 1 | flatten (reshape emulation) | Flatten | Flattens input to 2D |
+| 2 | reshape | Reshape | Direct shape manipulation |
+| 3 | squeeze (reshape emulation) | Squeeze | Removes dimensions of size 1 |
+| 4 | unsqueeze (reshape emulation) | Unsqueeze | Inserts dimensions of size 1 |
 
-## Misc
+## Tensor (7)
 
 | # | WebNN Op | ONNX Op | Note |
 |---|----------|---------|------|
-| 1 | constant | Constant | Creates constant tensor |
-| 2 | N/A | CenterCropPad | Not directly supported |
-| 3 | N/A | DepthToSpace | Decomposed to WebNN ops |
-| 4 | N/A | OneHot | Not directly supported |
-| 5 | N/A | Range | Decomposed to WebNN ops |
-| 6 | N/A | Resize | Decomposed to WebNN ops for various resize modes |
-| 7 | N/A | SpaceToDepth | Not directly supported |
-| 8 | N/A | ThresholdedRelu | Emulated with where, constant |
+| 1 | gather | Gather | Gathers elements along an axis |
+| 2 | gatherElements | GatherElements | Gathers elements based on indices tensor |
+| 3 | gatherND | GatherND | Only batch_dims=0 supported |
+| 4 | scatterElements | ScatterElements | Only reduction='none' supported |
+| 5 | scatterND | ScatterND | Only reduction='none' supported |
+| 6 | split | Split | Splits tensor into multiple parts |
+| 7 | transpose | Transpose | Permutes dimensions |
+
+## Misc (5)
+
+| # | WebNN Op | ONNX Op | Note |
+|---|----------|---------|------|
+| 1 | cast | Cast | |
+| 2 | concat | Concat | Concatenates tensors along specified axis |
+| 3 | constant | Constant | Creates constant tensor |
+| 4 | cumulativeSum | CumSum | |
+| | | Dropout | Decomposed to WebNN ops |
+| | | Einsum | Matmul-like einsum equations for direct mapping |
+| 5 | resample2d | Resize | |
+| | | Shape | Decomposed to WebNN ops |
+
+## Others 
+| # | WebNN Op | ONNX Op | Note |
+|---|----------|---------|------|
+
+| | | QLinearConv | |
+| | | MaxUnpool | |
+| | | GridSample | |
+| | | DepthToSpace | |
+| | | SpaceToDepth | |
+| | |  | |
+| | | CenterCropPad | |
+| | | ThresholdedRelu | |
+| | | OneHot | |
+| | | ConstantOfShape | |
 
 ---
 
