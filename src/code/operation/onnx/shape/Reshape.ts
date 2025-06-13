@@ -11,7 +11,7 @@ import {
 export function Reshape(
   node: any,
   toJsVarName: (name: string) => string,
-  options: { nhwc?: boolean, weightModelData?: Record<string, any> } = {}
+  options: { [key: string]: any } = {}
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
@@ -35,6 +35,7 @@ export function Reshape(
     if (shape_length === null) {
       throw new Error(`Reshape shape initializer '${shapeName}' missing length`);
     }
+    
     // Only support BigInt64Array for shape tensor
     const js_shape_array = `new BigInt64Array(weights_array_buffer, ${shape_offset}, ${shape_length} / BigInt64Array.BYTES_PER_ELEMENT)`;
 
@@ -64,11 +65,11 @@ export function Reshape(
     const labelOpt = node.name ? `{ label: '${node.name}' }` : '{}';
 
     return `
-      const ${outputVars[0]} = builder.reshape(
-        ${inputVars[0]},
-        ${js_shape},
-        ${labelOpt}
-      );`;
+    const ${outputVars[0]} = builder.reshape(
+      ${inputVars[0]},
+      ${js_shape},
+      ${labelOpt}
+    );`;
   }
 
   // TFLite style: use new_shape attribute
@@ -77,11 +78,11 @@ export function Reshape(
     const shapeArr = newShapeAttr.value.map((v: any) => Number(v));
     const labelOpt = node.name ? `{ label: '${node.name}' }` : '{}';
     return `
-      const ${outputVars[0]} = builder.reshape(
-        ${inputVars[0]},
-        [${shapeArr.join(', ')}],
-        ${labelOpt}
-      );`;
+    const ${outputVars[0]} = builder.reshape(
+      ${inputVars[0]},
+      [${shapeArr.join(', ')}],
+      ${labelOpt}
+    );`;
   }
 
   throw new Error('Reshape node missing shape input or new_shape attribute');

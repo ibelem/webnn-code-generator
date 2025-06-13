@@ -121,7 +121,7 @@ header {
 .file-upload-panel {
   margin-top: 0.5em;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 3fr 2fr 2fr;
   grid-template-rows: 1fr;
   grid-row-gap: 0;
   grid-column-gap: 0;
@@ -199,7 +199,7 @@ header {
 
 #step-2 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-row-gap: 0em;
   grid-column-gap: 1em;

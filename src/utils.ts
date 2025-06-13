@@ -1,5 +1,13 @@
 import { getModelState } from './ui';
 
+export async function loadWeightsArrayBuffer(binFile: string): Promise<ArrayBuffer> {
+  const response = await fetch(binFile);
+  if (!response.ok) {
+      throw new Error('Failed to fetch weights: ' + response.statusText);
+  }
+  return await response.arrayBuffer();
+}
+
 export function toJsVarName(name: string): string {
   // Prefix with 'var_' if not a valid identifier or starts with a digit
   let jsVarName = name;
@@ -154,14 +162,14 @@ export function mlOperandDataType(onnxType: string): string {
   }
 }
 
-export function getWeightInfo(name: string, weightModelData:any) {
+export function getWeightInfo(name: string, weightModelData: any, nhwc: boolean) {
   if (!weightModelData || !weightModelData[name]) return null;
   const w = weightModelData[name];
   return {
     dataOffset: w.dataOffset,
     byteLength: w.byteLength,
     dataType: w.dataType,
-    shape: w.shape
+    shape: nhwc ? w.nhwc?.shape : w.nchw?.shape
   };
 }
 

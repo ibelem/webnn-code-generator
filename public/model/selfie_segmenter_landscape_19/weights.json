@@ -1,0 +1,3449 @@
+{
+  "292": {
+    "nodeName": "Relu6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "292",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 1800,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "293": {
+    "nodeName": "Relu6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "293",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 1808,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "294": {
+    "nodeName": "Relu6_1",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "294",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 51016,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "295": {
+    "nodeName": "Relu6_1",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "295",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 51024,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "296": {
+    "nodeName": "Relu6_2",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "296",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 61032,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "297": {
+    "nodeName": "Relu6_2",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "297",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 61040,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "298": {
+    "nodeName": "Relu6_3",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "298",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 109288,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "299": {
+    "nodeName": "Relu6_3",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "299",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 109296,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "300": {
+    "nodeName": "Relu6_4",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "300",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 122632,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "301": {
+    "nodeName": "Relu6_4",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "301",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 122640,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "302": {
+    "nodeName": "Relu6_5",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "302",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 189480,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "303": {
+    "nodeName": "Relu6_5",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "303",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 189488,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "304": {
+    "nodeName": "Relu6_6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "304",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 202824,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "305": {
+    "nodeName": "Relu6_6",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "305",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 202832,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "306": {
+    "nodeName": "Relu6_7",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "306",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 265448,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "307": {
+    "nodeName": "Relu6_7",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "307",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 265456,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "308": {
+    "nodeName": "Relu6_8",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "308",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 275464,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "309": {
+    "nodeName": "Relu6_8",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "309",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 275472,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "310": {
+    "nodeName": "Relu6_9",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "310",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 319496,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "311": {
+    "nodeName": "Relu6_9",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "311",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 319504,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "312": {
+    "nodeName": "Relu6_10",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "min",
+    "name": "312",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 329512,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "313": {
+    "nodeName": "Relu6_10",
+    "nodeIdentifier": "",
+    "nodeType": "Clip",
+    "input": "max",
+    "name": "313",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 329520,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "314": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "roi",
+    "name": "314",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 394656,
+    "byteLength": 32,
+    "nchw": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "315": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "roi",
+    "name": "315",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 415248,
+    "byteLength": 32,
+    "nchw": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "316": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "roi",
+    "name": "316",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 420800,
+    "byteLength": 32,
+    "nchw": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D/filter:0": {
+    "nodeName": "Conv__158",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 0,
+    "byteLength": 1728,
+    "nchw": {
+      "shape": [
+        16,
+        3,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        3,
+        3,
+        3
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_1/y:0": {
+    "nodeName": "Conv__158",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 1728,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__408": {
+    "nodeName": "add_10",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "const_fold_opt__408",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 329504,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "mul_3/y:0": {
+    "nodeName": "mul_20",
+    "nodeIdentifier": "",
+    "nodeType": "Mul",
+    "input": "A",
+    "name": "mul_3/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 329528,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_2/filter:0": {
+    "nodeName": "Conv__161",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_2/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 1824,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_1_1/y:0": {
+    "nodeName": "Conv__161",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_1_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 2848,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__377": {
+    "nodeName": "Conv__162",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__377",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 2912,
+    "byteLength": 576,
+    "nchw": {
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        3,
+        3,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d/y:0": {
+    "nodeName": "Conv__162",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 3488,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_3/filter:0": {
+    "nodeName": "Conv__165",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_3/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 3552,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        8,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        8
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_2_1/y:0": {
+    "nodeName": "Conv__165",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_2_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 4064,
+    "byteLength": 32,
+    "nchw": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        8
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_4/filter:0": {
+    "nodeName": "Conv__166",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_4/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 4096,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        16,
+        8,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        8,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_3_1/y:0": {
+    "nodeName": "Conv__166",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_3_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 4608,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_5/filter:0": {
+    "nodeName": "Conv__167",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_5/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 4672,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_4_1/y:0": {
+    "nodeName": "Conv__167",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_4_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 5696,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_6/filter:0": {
+    "nodeName": "Conv__171",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_6/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 5760,
+    "byteLength": 4608,
+    "nchw": {
+      "shape": [
+        72,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        72
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_5_1/y:0": {
+    "nodeName": "Conv__171",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_5_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 10368,
+    "byteLength": 288,
+    "nchw": {
+      "shape": [
+        72
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        72
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__387": {
+    "nodeName": "Conv__172",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__387",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 10656,
+    "byteLength": 2592,
+    "nchw": {
+      "shape": [
+        72,
+        1,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        72,
+        3,
+        3,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_1/y:0": {
+    "nodeName": "Conv__172",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 13248,
+    "byteLength": 288,
+    "nchw": {
+      "shape": [
+        72
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        72
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_7/filter:0": {
+    "nodeName": "Conv__173",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_7/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 13536,
+    "byteLength": 6912,
+    "nchw": {
+      "shape": [
+        24,
+        72,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        72,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_6_1/y:0": {
+    "nodeName": "Conv__173",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_6_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 20448,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_8/filter:0": {
+    "nodeName": "Conv__176",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_8/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 20544,
+    "byteLength": 8448,
+    "nchw": {
+      "shape": [
+        88,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        88
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_7_1/y:0": {
+    "nodeName": "Conv__176",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_7_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 28992,
+    "byteLength": 352,
+    "nchw": {
+      "shape": [
+        88
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        88
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__385": {
+    "nodeName": "Conv__177",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__385",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 29344,
+    "byteLength": 3168,
+    "nchw": {
+      "shape": [
+        88,
+        1,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        88,
+        3,
+        3,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_2/y:0": {
+    "nodeName": "Conv__177",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_2/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 32512,
+    "byteLength": 352,
+    "nchw": {
+      "shape": [
+        88
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        88
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_9/filter:0": {
+    "nodeName": "Conv__178",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_9/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 32864,
+    "byteLength": 8448,
+    "nchw": {
+      "shape": [
+        24,
+        88,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        88,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_8_1/y:0": {
+    "nodeName": "Conv__178",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_8_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 41312,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_10/filter:0": {
+    "nodeName": "Conv__183",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_10/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 41408,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        96,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        96
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_9_1/y:0": {
+    "nodeName": "Conv__183",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_9_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 50624,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__383": {
+    "nodeName": "Conv__186",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__383",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 51040,
+    "byteLength": 9600,
+    "nchw": {
+      "shape": [
+        96,
+        1,
+        5,
+        5
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        5,
+        5,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_3/y:0": {
+    "nodeName": "Conv__186",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_3/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 60640,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_11/filter:0": {
+    "nodeName": "Conv__189",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_11/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 61056,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        24,
+        96,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_10_1/y:0": {
+    "nodeName": "Conv__189",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_10_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 70272,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_12/filter:0": {
+    "nodeName": "Conv__190",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_12/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 70368,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        96,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        96
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_11_1/y:0": {
+    "nodeName": "Conv__190",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_11_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 79584,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_13/filter:0": {
+    "nodeName": "Conv__191",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_13/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 79968,
+    "byteLength": 12288,
+    "nchw": {
+      "shape": [
+        32,
+        96,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_12_1/y:0": {
+    "nodeName": "Conv__191",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_12_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 92256,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_14/filter:0": {
+    "nodeName": "Conv__194",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_14/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 92384,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        128,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        128
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_13_1/y:0": {
+    "nodeName": "Conv__194",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_13_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 108768,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__381": {
+    "nodeName": "Conv__197",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__381",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 109312,
+    "byteLength": 12800,
+    "nchw": {
+      "shape": [
+        128,
+        1,
+        5,
+        5
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        5,
+        5,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_4/y:0": {
+    "nodeName": "Conv__197",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_4/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 122112,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_15/filter:0": {
+    "nodeName": "Conv__200",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_15/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 122656,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        32,
+        128,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_14_1/y:0": {
+    "nodeName": "Conv__200",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_14_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 139040,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_16/filter:0": {
+    "nodeName": "Conv__201",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_16/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 139168,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        128,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        128
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_15_1/y:0": {
+    "nodeName": "Conv__201",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_15_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 155552,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_17/filter:0": {
+    "nodeName": "Conv__202",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_17/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 156064,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        32,
+        128,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_16_1/y:0": {
+    "nodeName": "Conv__202",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_16_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 172448,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_18/filter:0": {
+    "nodeName": "Conv__205",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_18/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 172576,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        128,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        128
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_17_1/y:0": {
+    "nodeName": "Conv__205",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_17_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 188960,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__379": {
+    "nodeName": "Conv__208",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__379",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 189504,
+    "byteLength": 12800,
+    "nchw": {
+      "shape": [
+        128,
+        1,
+        5,
+        5
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        5,
+        5,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_5/y:0": {
+    "nodeName": "Conv__208",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_5/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 202304,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_19/filter:0": {
+    "nodeName": "Conv__211",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_19/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 202848,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        32,
+        128,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_18_1/y:0": {
+    "nodeName": "Conv__211",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_18_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 219232,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_20/filter:0": {
+    "nodeName": "Conv__212",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_20/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 219360,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        128,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        128
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_19_1/y:0": {
+    "nodeName": "Conv__212",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_19_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 235744,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_21/filter:0": {
+    "nodeName": "Conv__213",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_21/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 236256,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        32,
+        128,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_20_1/y:0": {
+    "nodeName": "Conv__213",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_20_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 252640,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_22/filter:0": {
+    "nodeName": "Conv__216",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_22/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 252768,
+    "byteLength": 12288,
+    "nchw": {
+      "shape": [
+        96,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        96
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_21_1/y:0": {
+    "nodeName": "Conv__216",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_21_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 265056,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__395": {
+    "nodeName": "Conv__219",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__395",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 265472,
+    "byteLength": 9600,
+    "nchw": {
+      "shape": [
+        96,
+        1,
+        5,
+        5
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        5,
+        5,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_6/y:0": {
+    "nodeName": "Conv__219",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_6/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 275072,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_23/filter:0": {
+    "nodeName": "Conv__222",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_23/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 275488,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        24,
+        96,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_22_1/y:0": {
+    "nodeName": "Conv__222",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_22_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 284704,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_24/filter:0": {
+    "nodeName": "Conv__223",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_24/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 284800,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        96,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        96
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_23_1/y:0": {
+    "nodeName": "Conv__223",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_23_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 294016,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_25/filter:0": {
+    "nodeName": "Conv__224",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_25/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 294400,
+    "byteLength": 12288,
+    "nchw": {
+      "shape": [
+        32,
+        96,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_24_1/y:0": {
+    "nodeName": "Conv__224",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_24_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 306688,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_26/filter:0": {
+    "nodeName": "Conv__227",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_26/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 306816,
+    "byteLength": 12288,
+    "nchw": {
+      "shape": [
+        96,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        96
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_25_1/y:0": {
+    "nodeName": "Conv__227",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_25_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 319104,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__407": {
+    "nodeName": "Conv__230",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__407",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 319520,
+    "byteLength": 9600,
+    "nchw": {
+      "shape": [
+        96,
+        1,
+        5,
+        5
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        5,
+        5,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_7/y:0": {
+    "nodeName": "Conv__230",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_7/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 329120,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_27/filter:0": {
+    "nodeName": "Conv__233",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_27/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 329536,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        24,
+        96,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_26_1/y:0": {
+    "nodeName": "Conv__233",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_26_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 338752,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_28/filter:0": {
+    "nodeName": "Conv__234",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_28/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 338848,
+    "byteLength": 9216,
+    "nchw": {
+      "shape": [
+        96,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        96
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_27_1/y:0": {
+    "nodeName": "Conv__234",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_27_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 348064,
+    "byteLength": 384,
+    "nchw": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        96
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_29/filter:0": {
+    "nodeName": "Conv__235",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_29/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 348448,
+    "byteLength": 12288,
+    "nchw": {
+      "shape": [
+        32,
+        96,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        96,
+        1,
+        1,
+        32
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_28_1/y:0": {
+    "nodeName": "Conv__235",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_28_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 360736,
+    "byteLength": 128,
+    "nchw": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        32
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_31/filter:0": {
+    "nodeName": "Conv__238",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_31/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 360864,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        128,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        128
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_30_1/y:0": {
+    "nodeName": "Conv__238",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_30_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 377248,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_30/filter:0": {
+    "nodeName": "Conv__239",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_30/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 377760,
+    "byteLength": 16384,
+    "nchw": {
+      "shape": [
+        128,
+        32,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        32,
+        1,
+        1,
+        128
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_29_1/y:0": {
+    "nodeName": "Conv__239",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_29_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 394144,
+    "byteLength": 512,
+    "nchw": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        128
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "scales__125": {
+    "nodeName": "",
+    "nodeIdentifier": "",
+    "nodeType": "Resize",
+    "input": "scales",
+    "name": "scales__125",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 420832,
+    "byteLength": 16,
+    "nchw": {
+      "shape": [
+        4
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        4
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_32/filter:0": {
+    "nodeName": "Conv__240",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_32/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 394704,
+    "byteLength": 12288,
+    "nchw": {
+      "shape": [
+        24,
+        128,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        128,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_31_1/y:0": {
+    "nodeName": "Conv__240",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_31_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 406992,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_33/filter:0": {
+    "nodeName": "Conv__243",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_33/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 407088,
+    "byteLength": 2304,
+    "nchw": {
+      "shape": [
+        24,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_32_1/y:0": {
+    "nodeName": "Conv__243",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_32_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 409392,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_34/filter:0": {
+    "nodeName": "Conv__244",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_34/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 409488,
+    "byteLength": 2304,
+    "nchw": {
+      "shape": [
+        24,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_33_1/y:0": {
+    "nodeName": "Conv__244",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_33_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 411792,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_35/filter:0": {
+    "nodeName": "Conv__245",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_35/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 411888,
+    "byteLength": 2304,
+    "nchw": {
+      "shape": [
+        24,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        24
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_34_1/y:0": {
+    "nodeName": "Conv__245",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_34_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 414192,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__394": {
+    "nodeName": "Conv__248",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__394",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 414288,
+    "byteLength": 864,
+    "nchw": {
+      "shape": [
+        24,
+        1,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        3,
+        3,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_8/y:0": {
+    "nodeName": "Conv__248",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_8/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 415152,
+    "byteLength": 96,
+    "nchw": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        24
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_36/filter:0": {
+    "nodeName": "Conv__249",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_36/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 415296,
+    "byteLength": 1536,
+    "nchw": {
+      "shape": [
+        16,
+        24,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        24,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_35_1/y:0": {
+    "nodeName": "Conv__249",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_35_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 416832,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_37/filter:0": {
+    "nodeName": "Conv__252",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_37/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 416896,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_36_1/y:0": {
+    "nodeName": "Conv__252",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_36_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 417920,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_38/filter:0": {
+    "nodeName": "Conv__253",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_38/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 417984,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_37_1/y:0": {
+    "nodeName": "Conv__253",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_37_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 419008,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_39/filter:0": {
+    "nodeName": "Conv__254",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_39/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 419072,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_38_1/y:0": {
+    "nodeName": "Conv__254",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_38_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 420096,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__391": {
+    "nodeName": "Conv__257",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__391",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 420160,
+    "byteLength": 576,
+    "nchw": {
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        3,
+        3,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_9/y:0": {
+    "nodeName": "Conv__257",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_9/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 420736,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_40/filter:0": {
+    "nodeName": "Conv__258",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_40/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 420848,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_39_1/y:0": {
+    "nodeName": "Conv__258",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_39_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 421872,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_41/filter:0": {
+    "nodeName": "Conv__261",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_41/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 421936,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_40_1/y:0": {
+    "nodeName": "Conv__261",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_40_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 422960,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_42/filter:0": {
+    "nodeName": "Conv__262",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_42/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 423024,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_41_1/y:0": {
+    "nodeName": "Conv__262",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_41_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 424048,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "Conv2D_43/filter:0": {
+    "nodeName": "Conv__263",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "Conv2D_43/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 424112,
+    "byteLength": 1024,
+    "nchw": {
+      "shape": [
+        16,
+        16,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        1,
+        1,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "conv2d_42_1/y:0": {
+    "nodeName": "Conv__263",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "conv2d_42_1/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 425136,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "const_fold_opt__389": {
+    "nodeName": "Conv__266",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "W",
+    "name": "const_fold_opt__389",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 425200,
+    "byteLength": 576,
+    "nchw": {
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        16,
+        3,
+        3,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "depthwise_conv2d_10/y:0": {
+    "nodeName": "Conv__266",
+    "nodeIdentifier": "",
+    "nodeType": "Conv",
+    "input": "B",
+    "name": "depthwise_conv2d_10/y:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 425776,
+    "byteLength": 64,
+    "nchw": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        16
+      ],
+      "kernel_layout": ""
+    }
+  },
+  "conv2d_transpose/filter:0": {
+    "nodeName": "conv2d_transpose",
+    "nodeIdentifier": "",
+    "nodeType": "ConvTranspose",
+    "input": "W",
+    "name": "conv2d_transpose/filter:0",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 425840,
+    "byteLength": 256,
+    "nchw": {
+      "shape": [
+        16,
+        1,
+        2,
+        2
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        1,
+        2,
+        2,
+        16
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "const_fold_opt__402": {
+    "nodeName": "conv2d_transpose_add",
+    "nodeIdentifier": "",
+    "nodeType": "Add",
+    "input": "B",
+    "name": "const_fold_opt__402",
+    "identifier": "",
+    "dataType": "float32",
+    "dataOffset": 426096,
+    "byteLength": 4,
+    "nchw": {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "kernel_layout": "OIHW"
+    },
+    "nhwc": {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "kernel_layout": "OHWI"
+    }
+  },
+  "new_shape__369": {
+    "nodeName": "Transpose__272",
+    "nodeIdentifier": "",
+    "nodeType": "Reshape",
+    "input": "shape",
+    "name": "new_shape__369",
+    "identifier": "",
+    "dataType": "int64",
+    "dataOffset": 426104,
+    "byteLength": 32,
+    "nchw": {
+      "shape": [
+        4
+      ],
+      "kernel_layout": ""
+    },
+    "nhwc": {
+      "shape": [
+        4
+      ],
+      "kernel_layout": ""
+    }
+  }
+}

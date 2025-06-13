@@ -8,15 +8,13 @@ import * as monaco from 'monaco-editor';
 // Application state
 interface ModelState {
   graphModelData: Record<string, any> | null;
-  weightNchwModelData: Record<string, any> | null;
-  weightNhwcModelData: Record<string, any> | null;
+  weightModelData: Record<string, any> | null; // Only one weights file now
 }
 
 // Initialize application state
 const modelFileState: ModelState = {
   graphModelData: null,
-  weightNchwModelData: null,
-  weightNhwcModelData: null
+  weightModelData: null
 };
 
 // File upload tracking
@@ -48,7 +46,7 @@ export const updateGenerateButtonState = (): void => {
   if (!generateBtn) return;
   const state = !(
     modelFileState.graphModelData &&
-    (modelFileState.weightNchwModelData && modelFileState.weightNhwcModelData)
+    modelFileState.weightModelData
   );
   generateDiv?.classList.toggle('disabled', state);
   generateBtn.disabled = state;
@@ -98,30 +96,19 @@ const processFileContent = (file: File, callback: (data: any) => void): void => 
 export const fetchFilesFromUrl = async (): Promise<void> => {
   const params = new URLSearchParams(window.location.search);
   const graphUrl = params.get('graph');
-  const weightNchwUrl = params.get('weights_nchw');
-  const weightNhwcUrl = params.get('weights_nhwc');
+  const weightUrl = params.get('weights'); // Only one weight URL now
 
-  if (graphUrl && (weightNchwUrl || weightNhwcUrl)) {
+  if (graphUrl && weightUrl) {
     appendLogMessage('Fetching model graph and weights files from URL...');
     try {
       // Fetch files in parallel if present
-      const fetches: Promise<Response>[] = [fetch(graphUrl)];
-      if (weightNchwUrl) fetches.push(fetch(weightNchwUrl));
-      if (weightNhwcUrl) fetches.push(fetch(weightNhwcUrl));
+      const fetches: Promise<Response>[] = [fetch(graphUrl), fetch(weightUrl)];
 
       const responses = await Promise.all(fetches);
 
       // Parse contents
       const graphResponse = await responses[0].json();
-      let weightNchwResponse = null;
-      let weightNhwcResponse = null;
-      let idx = 1;
-      if (weightNchwUrl) {
-        weightNchwResponse = await responses[idx++].json();
-      }
-      if (weightNhwcUrl) {
-        weightNhwcResponse = await responses[idx]?.json();
-      }
+      const weightResponse = await responses[1].json();
 
       // Update file info
       const updateRemoteFileInfo = (elementId: string, res: Response, url: string, fallbackSize: number) => {
@@ -137,26 +124,17 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
       };
 
       updateRemoteFileInfo('graph-file-info', responses[0], graphUrl, JSON.stringify(graphResponse).length);
-      if (weightNchwUrl && weightNchwResponse) {
-        updateRemoteFileInfo('weight-nchw-file-info', responses[1], weightNchwUrl, JSON.stringify(weightNchwResponse).length);
-      }
-      if (weightNhwcUrl && weightNhwcResponse) {
-        // The index for NHWC depends on whether NCHW was present
-        const nhwcIdx = weightNchwUrl ? 2 : 1;
-        updateRemoteFileInfo('weight-nhwc-file-info', responses[nhwcIdx], weightNhwcUrl, JSON.stringify(weightNhwcResponse).length);
+      if (weightResponse) {
+        updateRemoteFileInfo('weight-file-info', responses[1], weightUrl, JSON.stringify(weightResponse).length);
       }
 
       modelFileState.graphModelData = graphResponse;
-      modelFileState.weightNchwModelData = weightNchwResponse;
-      modelFileState.weightNhwcModelData = weightNhwcResponse;
+      modelFileState.weightModelData = weightResponse;
 
       appendLogMessage('Model graph and weights files fetched successfully.');
       renderGraphDetails(modelFileState.graphModelData?.graph[0]);
-      if (modelFileState.weightNchwModelData) {
-        renderWeightDetails(modelFileState.weightNchwModelData as Record<string, any>);
-      }
-      if (modelFileState.weightNhwcModelData) {
-        renderWeightDetails(modelFileState.weightNhwcModelData as Record<string, any>);
+      if (modelFileState.weightModelData) {
+        renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
       }
       updateStep1State(false);
       updateStep2State(false);
@@ -206,50 +184,21 @@ export const setupFileInputs = (): void => {
     });
   });
 
-  // Weight file upload
-  setupFileInput('weight-nchw-file-input', (file) => {
-    if (!file.name.toLowerCase().includes('nchw')) {
-      appendLogMessage('Please select a weights file with "nchw" in the name for NCHW weights.', true);
-      updateFileInfo('weight-nchw-file-info', file); // Optionally clear or mark as invalid
-      return;
-    }
+  // Only one weight file input handler needed
+  setupFileInput('weight-file-input', (file) => {
     processFileContent(file, (data) => {
       try {
-        modelFileState.weightNchwModelData = JSON.parse(data as string);
-        updateFileInfo('weight-nchw-file-info', file);
-        appendLogMessage('NCHW weight file loaded successfully');
-        if (modelFileState.weightNchwModelData) {
-          renderWeightDetails(modelFileState.weightNchwModelData as Record<string, any>);
+        modelFileState.weightModelData = JSON.parse(data as string);
+        updateFileInfo('weight-file-info', file);
+        appendLogMessage('Weight file loaded successfully');
+        if (modelFileState.weightModelData) {
+          renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
         }
         updateStep1State(false);
         updateStep2State(false);
         updateGenerateButtonState();
       } catch (error) {
-        appendLogMessage('Error parsing NCHW weight file: ' + (error as Error).message, true);
-      }
-    });
-  });
-  
-  // NHWC Weight file upload
-  setupFileInput('weight-nhwc-file-input', (file) => {
-    if (!file.name.toLowerCase().includes('nhwc')) {
-      appendLogMessage('Please select a weights file with "nhwc" in the name for NHWC weights.', true);
-      updateFileInfo('weight-nhwc-file-info', file); // Optionally clear or mark as invalid
-      return;
-    }
-    processFileContent(file, (data) => {
-      try {
-        modelFileState.weightNhwcModelData = JSON.parse(data as string);
-        updateFileInfo('weight-nhwc-file-info', file);
-        appendLogMessage('NHWC weight file loaded successfully');
-        if (modelFileState.weightNhwcModelData) {
-          renderWeightDetails(modelFileState.weightNhwcModelData as Record<string, any>);
-        }
-        updateStep1State(false);
-        updateStep2State(false);
-        updateGenerateButtonState();
-      } catch (error) {
-        appendLogMessage('Error parsing NHWC weight file: ' + (error as Error).message, true);
+        appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);
       }
     });
   });
@@ -432,8 +381,9 @@ const renderGraphDetails = (graphData: any): void => {
 /**
  * Render weight details (node type, node name, inputs) in the output-weight element
  * @param weightData - The weight data from the uploaded or fetched file
+ * @param nhwc - Whether to show NHWC shape (default: false, show NCHW)
  */
-const renderWeightDetails = (weightData: Record<string, any>): void => {
+const renderWeightDetails = (weightData: Record<string, any>, nhwc: boolean = false): void => {
   const outputWeightElement = document.querySelector<HTMLDivElement>('#output-weight');
   if (!outputWeightElement) return;
 
@@ -449,6 +399,7 @@ const renderWeightDetails = (weightData: Record<string, any>): void => {
   const orderedNodes = [...nodes, ...noIdNodes];
 
   const nodesHTML = orderedNodes.map((node) => {
+    const shape = nhwc ? node.nhwc?.shape : node.nchw?.shape;
     return `
       <div class="weight-section">
         <span class="type" title="${node.nodeType || ''}">${node.nodeType || ''}</span>
@@ -456,7 +407,7 @@ const renderWeightDetails = (weightData: Record<string, any>): void => {
         <span class="inputoutput" title="${node.input || ''}">${node.input || ''}</span>
         <span class="green name" title="${node.name || ''}">${node.name || ''}</span>
         <span></span>
-        <span class="tensor" title="${node.dataType || ''}[${node.shape?.join(', ') || ''}]">${node.dataType || ''}[${node.shape?.join(', ') || ''}]</span>
+        <span class="tensor" title="${node.dataType || ''}[${shape?.join(', ') || ''}]">${node.dataType || ''}[${shape?.join(', ') || ''}]</span>
       </div>
     `;
   }).join('');
@@ -541,8 +492,8 @@ function generateWebNNCode(): void {
   appendLogMessage('Starting code generation process...');
   
   try {
-    const { graphModelData, weightNchwModelData, weightNhwcModelData} = getModelState();
-    if (!graphModelData || !weightNchwModelData  || !weightNhwcModelData) {
+    const { graphModelData, weightModelData} = getModelState();
+    if (!graphModelData || !weightModelData) {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }
@@ -582,12 +533,12 @@ function renderOutputCode(): void {
   import('./code').then(mod => {
     const code = mod.generateJS();
     const html = mod.generateHTML ? mod.generateHTML() : '';
-    const { weightNchwModelData, weightNhwcModelData } = getModelState();
+    const { weightModelData } = getModelState();
 
-    // Set default to nchw.js and show NCHW weights
+    // Show NCHW by default
     monaco.editor.getModels()[0].setValue(code.nchw);
-    if (weightNchwModelData) {
-      renderWeightDetails(weightNchwModelData as Record<string, any>);
+    if (weightModelData) {
+      renderWeightDetails(weightModelData as Record<string, any>, false);
     }
 
     // Add event listeners for tab switching
@@ -595,8 +546,8 @@ function renderOutputCode(): void {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(code.nchw);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
-        if (weightNchwModelData) {
-          renderWeightDetails(weightNchwModelData as Record<string, any>);
+        if (weightModelData) {
+          renderWeightDetails(weightModelData as Record<string, any>, false);
         }
       }
     });
@@ -604,8 +555,8 @@ function renderOutputCode(): void {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(code.nhwc);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
-        if (weightNhwcModelData) {
-          renderWeightDetails(weightNhwcModelData as Record<string, any>);
+        if (weightModelData) {
+          renderWeightDetails(weightModelData as Record<string, any>, true);
         }
       }
     });

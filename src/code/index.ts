@@ -56,8 +56,7 @@ function runCode() {
 }
 
 function buildCodeWithLayout(nhwc: boolean) {
-  const { graphModelData, weightNchwModelData, weightNhwcModelData } = getModelState();
-  const weightModelData = nhwc ? weightNhwcModelData : weightNchwModelData;
+  const { graphModelData, weightModelData } = getModelState();
   const inputs = graphModelData?.graph?.[0].inputs;
   const outputs = graphModelData?.graph?.[0].outputs;
 
@@ -76,10 +75,12 @@ function buildCodeWithLayout(nhwc: boolean) {
 
     if (nhwc && resolvedShape.length === 4) {
       // NCHW -> NHWC permutation: [0, 2, 3, 1]
-      const inputNchwVar = `${name}_nchw`;
       inputsCode += `
-    const ${inputNchwVar} = builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] });
-    const input = builder.transpose(${inputNchwVar}, { permutation: [0, 2, 3, 1] });
+    const input = builder.transpose(
+      builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] }),
+      { permutation: [0, 2, 3, 1] }
+    );
+
     this.inputTensors_['${name}'] = await this.context_.createTensor(
       { dataType: '${dataType}', shape: [${resolvedShape}], writable: true }
     );`;
@@ -273,7 +274,7 @@ function buildCodeWithLayout(nhwc: boolean) {
     // Create graph input operands and tensors
     ${inputsCode}
 
-    // Create graph constant operands
+    // Initializers, create graph constant operands
     ${initializersCode}
 
     // Create graph operators
