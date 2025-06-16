@@ -46,18 +46,6 @@ export class Mobilenetv212StaticNchw {
       new Float32Array(weights_array_buffer, 3456, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 162 '|'
-    const clip_3min = builder.constant(
-      { dataType: 'float32', shape: [1] },
-      new Float32Array([0])
-    );
-
-    // index.ts line 162 '|'
-    const clip_19max = builder.constant(
-      { dataType: 'float32', shape: [1] },
-      new Float32Array([6])
-    );
-
     // index.ts line 145 '<'
     const var_478 = builder.constant(
       { dataType: 'float32', shape: [32,1,3,3] },
@@ -1714,7 +1702,7 @@ export class Mobilenetv212StaticNchw {
     const var_472 = builder.reshape(
       var_464,
       (() => {
-        const shape = Array.from(new BigInt64Array(weights_array_buffer, 8827824, 16 / BigInt64Array.BYTES_PER_ELEMENT), Number);
+        const shape = [1,-1];
         // WebNN does not support 0 as a reshape dimension if allowzero is set
         const allowzero = false;
         if (allowzero && shape.some(v => v === 0)) {

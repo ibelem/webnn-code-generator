@@ -1,11 +1,12 @@
 // import { getModelState } from './ui';
 import {
   modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues,
-  getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile
+  getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile,
+  getWeightInfo
 } from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
 import { opHandlers } from './operation';
-import { permuteWeightShape } from './operation/operation-utils';
+// import { permuteWeightShape } from './operation/operation-utils';
 
 function constructorCode() {
   return `
@@ -108,25 +109,27 @@ function buildCodeWithLayout(nhwc: boolean) {
                 name = val.name;
               }
               name = getNonEmptyStringAroundNewline(name);
+              const binShape = getWeightInfo(name, weightModelData, nhwc);
               const varName = toJsVarName(name);
               if (emittedInitializers.has(varName)) continue; // Skip if already emitted
 
               const dataType = initializer.type.dataType;
-              let shape = initializer.type.shape.dimensions;
+              let shape;
+              binShape && binShape.shape ? shape = binShape.shape : shape = initializer.type.shape.dimensions;
 
-              // Detect if this initializer is a Conv/ConvTranspose filter
-              let nodeType = '';
-              let isDepthwise = false;
-              if (node && (node.type?.name === 'Conv' || node.type?.name === 'ConvTranspose')) {
-                nodeType = node.type.name;
-                // Depthwise: groups == inputChannels and shape[0] == groups
-                const groups = node.attributes?.find((attr: any) => attr.name === 'group')?.value?.value ?? 1;
-                const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
-                const inputChannels = nhwc ? inputShape?.[3] : inputShape?.[1];
-                isDepthwise = (groups === inputChannels && groups !== 1);
-                // shape is OIHW
-                shape = permuteWeightShape(shape, nhwc, nodeType, isDepthwise);
-              }
+              // // Detect if this initializer is a Conv/ConvTranspose filter
+              // let nodeType = '';
+              // let isDepthwise = false;
+              // if (node && (node.type?.name === 'Conv' || node.type?.name === 'ConvTranspose')) {
+              //   nodeType = node.type.name;
+              //   // Depthwise: groups == inputChannels and shape[0] == groups
+              //   const groups = node.attributes?.find((attr: any) => attr.name === 'group')?.value?.value ?? 1;
+              //   const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
+              //   const inputChannels = nhwc ? inputShape?.[3] : inputShape?.[1];
+              //   isDepthwise = (groups === inputChannels && groups !== 1);
+              //   // shape is OIHW
+              //   shape = permuteWeightShape(shape, nhwc, nodeType, isDepthwise);
+              // }
 
               let weightsDataOffset = weightModelData?.[name]?.dataOffset;
               let weightsByteLength = weightModelData?.[name]?.byteLength;
@@ -150,24 +153,25 @@ function buildCodeWithLayout(nhwc: boolean) {
     );
     `;
                 emittedInitializers.add(varName);
-              } else if (
-                initializer?.encoding === '|' &&
-                Array.isArray(initializer?.type.shape.dimensions)
-              ) {
-                const valueArr = Object.keys(initializer.values)
-                  .sort((a, b) => Number(a) - Number(b))
-                  .map(k => initializer.values[k]);
-                const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
-                const shapeStr = JSON.stringify(shape); // This will output [32] for 1D, [O,H,W,I] for 4D, etc.
-                initializersCode += `
-    // index.ts line 162 '|'
-    const ${varName} = builder.constant(
-      { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
-      new ${typedArrayCtor}([${valueArr.join(', ')}])
-    );
-`;
-                emittedInitializers.add(varName);
-              }
+              } 
+//               else if (
+//                 initializer?.encoding === '|' &&
+//                 Array.isArray(initializer?.type.shape.dimensions)
+//               ) {
+//                 const valueArr = Object.keys(initializer.values)
+//                   .sort((a, b) => Number(a) - Number(b))
+//                   .map(k => initializer.values[k]);
+//                 const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
+//                 const shapeStr = JSON.stringify(shape); // This will output [32] for 1D, [O,H,W,I] for 4D, etc.
+//                 initializersCode += `
+//     // index.ts line 162 '|'
+//     const ${varName} = builder.constant(
+//       { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
+//       new ${typedArrayCtor}([${valueArr.join(', ')}])
+//     );
+// `;
+//                 emittedInitializers.add(varName);
+//               }
             }
           }
         }

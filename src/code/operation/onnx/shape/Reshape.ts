@@ -2,6 +2,9 @@ import {
   getInputVars,
   getOutputVars
 } from '../../operation-utils';
+import {
+  getModelState 
+} from '../../../../ui/';
 
 /**
  * Generate JavaScript code for a WebNN reshape operation from ONNX Reshape node info.
@@ -13,6 +16,10 @@ export function Reshape(
   toJsVarName: (name: string) => string,
   options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
+  const { weightNchwBin, weightNhwcBin } = getModelState();
+  const weights_array_buffer = nhwc ? weightNhwcBin : weightNchwBin;
+
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
@@ -37,11 +44,12 @@ export function Reshape(
     }
     
     // Only support BigInt64Array for shape tensor
-    const js_shape_array = `new BigInt64Array(weights_array_buffer, ${shape_offset}, ${shape_length} / BigInt64Array.BYTES_PER_ELEMENT)`;
+    const js_shape_array = new BigInt64Array(weights_array_buffer, shape_offset, shape_length / BigInt64Array.BYTES_PER_ELEMENT);
+    const array = Array.from(js_shape_array, Number);
 
     // Convert BigInt64Array to Number array for WebNN and handle -1
     const js_shape = `(() => {
-        const shape = Array.from(${js_shape_array}, Number);
+        const shape = [${array}];
         // WebNN does not support 0 as a reshape dimension if allowzero is set
         const allowzero = ${node.attributes?.find((attr: any) => attr.name === 'allowzero')?.value === 1 ? 'true' : 'false'};
         if (allowzero && shape.some(v => v === 0)) {

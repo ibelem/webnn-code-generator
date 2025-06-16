@@ -38,7 +38,7 @@ const renderAppLayout = (): void => {
         <div class="step step-1 disabled">
           <div class="step-icon">1</div>
           <div id="step-1" title="Convert your ONNX, TensorFlow Lite, or other model formats into graph, weights and bin files">
-            Donwload graph and weights files by using <a href="https://ibelem.github.io/netron">WebNN Netron</a>
+            Donwload graph &amp; weights from <a href="https://ibelem.github.io/netron">WebNN Netron</a>
           </div>
         </div>
         <div class="step step-2 disabled">
@@ -53,6 +53,16 @@ const renderAppLayout = (): void => {
               <label for="weight-file-input" class="upload-button">Weights</label>
               <input type="file" id="weight-file-input" accept=".json">
               <span class="file-info" id="weight-file-info">No .json file selected</span>
+            </div>
+            <div class="upload-item">
+              <label for="weight-nchw-bin-file-input" class="upload-button">Weights NCHW</label>
+              <input type="file" id="weight-nchw-bin-file-input" accept=".bin">
+              <span class="file-info" id="weight-nchw-bin-file-info">No .bin file selected</span>
+            </div>
+            <div class="upload-item">
+              <label for="weight-nhwc-bin-file-input" class="upload-button">Weights NHWC</label>
+              <input type="file" id="weight-nhwc-bin-file-input" accept=".bin">
+              <span class="file-info" id="weight-nhwc-bin-file-info">No .bin file selected</span>
             </div>
           </div>
         </div>

@@ -90,6 +90,7 @@ export function Constant(
   
   // Regular constant
   return `
+    // Constant.ts line 93
     const ${outputVar} = builder.constant(
       { dataType: '${webnn_dtype}', shape: [${shape.join(', ')}] },
       new ${typedArray}(${js_data})

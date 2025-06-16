@@ -8,13 +8,17 @@ import * as monaco from 'monaco-editor';
 // Application state
 interface ModelState {
   graphModelData: Record<string, any> | null;
-  weightModelData: Record<string, any> | null; // Only one weights file now
+  weightModelData: Record<string, any> | null; 
+  weightNchwBin: ArrayBuffer | null;
+  weightNhwcBin: ArrayBuffer | null;
 }
 
 // Initialize application state
 const modelFileState: ModelState = {
   graphModelData: null,
-  weightModelData: null
+  weightModelData: null,
+  weightNchwBin: null,
+  weightNhwcBin: null
 };
 
 // File upload tracking
@@ -41,15 +45,13 @@ export const appendLogMessage = (message: string, isError = false): void => {
  * Enable/disable the generate button based on whether all required files are loaded
  */
 export const updateGenerateButtonState = (): void => {
-  const generateBtn = document.querySelector<HTMLButtonElement>('#generate-btn');
-  const generateDiv = document.querySelectorAll<HTMLDivElement>('.step-3')[0];
+  const { graphModelData, weightModelData, weightNchwBin, weightNhwcBin } = getModelState();
+  const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement | null;
   if (!generateBtn) return;
-  const state = !(
-    modelFileState.graphModelData &&
-    modelFileState.weightModelData
-  );
-  generateDiv?.classList.toggle('disabled', state);
-  generateBtn.disabled = state;
+
+  // Require all four files: graph.json, weights.json, weights_nchw.bin, weights_nhwc.bin
+  const ready = !!(graphModelData && weightModelData && weightNchwBin && weightNhwcBin);
+  generateBtn.disabled = !ready;
 };
 
 /**
@@ -96,46 +98,46 @@ const processFileContent = (file: File, callback: (data: any) => void): void => 
 export const fetchFilesFromUrl = async (): Promise<void> => {
   const params = new URLSearchParams(window.location.search);
   const graphUrl = params.get('graph');
-  const weightUrl = params.get('weights'); // Only one weight URL now
+  const weightUrl = params.get('weights');
+  const weightNchwBinUrl = params.get('weights_nchw');
+  const weightNhwcBinUrl = params.get('weights_nhwc');
 
-  if (graphUrl && weightUrl) {
-    appendLogMessage('Fetching model graph and weights files from URL...');
+  const fetches: Promise<Response>[] = [];
+  if (graphUrl) fetches.push(fetch(graphUrl));
+  if (weightUrl) fetches.push(fetch(weightUrl));
+  if (weightNchwBinUrl) fetches.push(fetch(weightNchwBinUrl));
+  if (weightNhwcBinUrl) fetches.push(fetch(weightNhwcBinUrl));
+
+  if (fetches.length > 0) {
+    appendLogMessage('Fetching model files from URL...');
     try {
-      // Fetch files in parallel if present
-      const fetches: Promise<Response>[] = [fetch(graphUrl), fetch(weightUrl)];
-
       const responses = await Promise.all(fetches);
 
-      // Parse contents
-      const graphResponse = await responses[0].json();
-      const weightResponse = await responses[1].json();
-
-      // Update file info
-      const updateRemoteFileInfo = (elementId: string, res: Response, url: string, fallbackSize: number) => {
-        const element = document.querySelector<HTMLSpanElement>(`#${elementId}`);
-        if (!element) return;
-        const fileName = url.split('/').pop()?.replace('weights_', '') || '';
-        let size = Number(res.headers.get('content-length')) || fallbackSize;
-        const fileSizeInKB = size / 1024;
-        const fileSize = fileSizeInKB < 1024
-          ? `${fileSizeInKB.toFixed(2)} KB`
-          : `${(fileSizeInKB / 1024).toFixed(2)} MB`;
-        element.innerHTML = `${internetLogo} ${fileName} · ${fileSize}`;
-      };
-
-      updateRemoteFileInfo('graph-file-info', responses[0], graphUrl, JSON.stringify(graphResponse).length);
-      if (weightResponse) {
-        updateRemoteFileInfo('weight-file-info', responses[1], weightUrl, JSON.stringify(weightResponse).length);
+      let idx = 0;
+      if (graphUrl) {
+        const graphResponse = await responses[idx++].json();
+        modelFileState.graphModelData = graphResponse;
+        updateFileInfo('graph-file-info', { name: graphUrl, size: JSON.stringify(graphResponse).length } as File);
+        renderGraphDetails(modelFileState.graphModelData?.graph[0]);
       }
-
-      modelFileState.graphModelData = graphResponse;
-      modelFileState.weightModelData = weightResponse;
-
-      appendLogMessage('Model graph and weights files fetched successfully.');
-      renderGraphDetails(modelFileState.graphModelData?.graph[0]);
-      if (modelFileState.weightModelData) {
+      if (weightUrl) {
+        const weightResponse = await responses[idx++].json();
+        modelFileState.weightModelData = weightResponse;
+        updateFileInfo('weight-file-info', { name: weightUrl, size: JSON.stringify(weightResponse).length } as File);
         renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
       }
+      if (weightNchwBinUrl) {
+        const bin = await responses[idx++].arrayBuffer();
+        modelFileState.weightNchwBin = bin;
+        updateFileInfo('weight-nchw-bin-file-info', { name: weightNchwBinUrl, size: bin.byteLength } as File);
+      }
+      if (weightNhwcBinUrl) {
+        const bin = await responses[idx++].arrayBuffer();
+        modelFileState.weightNhwcBin = bin;
+        updateFileInfo('weight-nhwc-bin-file-info', { name: weightNhwcBinUrl, size: bin.byteLength } as File);
+      }
+
+      appendLogMessage('Model files fetched successfully.');
       updateStep1State(false);
       updateStep2State(false);
       updateGenerateButtonState();
@@ -200,6 +202,25 @@ export const setupFileInputs = (): void => {
       } catch (error) {
         appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);
       }
+    });
+  });
+  
+  // New handlers for binary weight files
+  setupFileInput('weight-nchw-bin-file-input', (file) => {
+    processFileContent(file, (data) => {
+      modelFileState.weightNchwBin = data as ArrayBuffer;
+      updateFileInfo('weight-nchw-bin-file-info', file);
+      appendLogMessage('NCHW bin file loaded successfully');
+      updateGenerateButtonState();
+    });
+  });
+
+  setupFileInput('weight-nhwc-bin-file-input', (file) => {
+    processFileContent(file, (data) => {
+      modelFileState.weightNhwcBin = data as ArrayBuffer;
+      updateFileInfo('weight-nhwc-bin-file-info', file);
+      appendLogMessage('NHWC bin file loaded successfully');
+      updateGenerateButtonState();
     });
   });
   

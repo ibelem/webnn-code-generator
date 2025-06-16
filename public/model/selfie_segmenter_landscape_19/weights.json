@@ -711,10 +711,10 @@
     },
     "nhwc": {
       "shape": [
-        16,
+        8,
         1,
         1,
-        8
+        16
       ],
       "kernel_layout": "OHWI"
     }
@@ -763,10 +763,10 @@
     },
     "nhwc": {
       "shape": [
-        8,
+        16,
         1,
         1,
-        16
+        8
       ],
       "kernel_layout": "OHWI"
     }
@@ -867,10 +867,10 @@
     },
     "nhwc": {
       "shape": [
-        16,
+        72,
         1,
         1,
-        72
+        16
       ],
       "kernel_layout": "OHWI"
     }
@@ -971,10 +971,10 @@
     },
     "nhwc": {
       "shape": [
-        72,
+        24,
         1,
         1,
-        24
+        72
       ],
       "kernel_layout": "OHWI"
     }
@@ -1023,10 +1023,10 @@
     },
     "nhwc": {
       "shape": [
-        24,
+        88,
         1,
         1,
-        88
+        24
       ],
       "kernel_layout": "OHWI"
     }
@@ -1127,10 +1127,10 @@
     },
     "nhwc": {
       "shape": [
-        88,
+        24,
         1,
         1,
-        24
+        88
       ],
       "kernel_layout": "OHWI"
     }
@@ -1179,10 +1179,10 @@
     },
     "nhwc": {
       "shape": [
-        24,
+        96,
         1,
         1,
-        96
+        24
       ],
       "kernel_layout": "OHWI"
     }
@@ -1283,10 +1283,10 @@
     },
     "nhwc": {
       "shape": [
-        96,
+        24,
         1,
         1,
-        24
+        96
       ],
       "kernel_layout": "OHWI"
     }
@@ -1335,10 +1335,10 @@
     },
     "nhwc": {
       "shape": [
-        24,
+        96,
         1,
         1,
-        96
+        24
       ],
       "kernel_layout": "OHWI"
     }
@@ -1387,10 +1387,10 @@
     },
     "nhwc": {
       "shape": [
-        96,
+        32,
         1,
         1,
-        32
+        96
       ],
       "kernel_layout": "OHWI"
     }
@@ -1439,10 +1439,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        128,
         1,
         1,
-        128
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -1543,10 +1543,10 @@
     },
     "nhwc": {
       "shape": [
-        128,
+        32,
         1,
         1,
-        32
+        128
       ],
       "kernel_layout": "OHWI"
     }
@@ -1595,10 +1595,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        128,
         1,
         1,
-        128
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -1647,10 +1647,10 @@
     },
     "nhwc": {
       "shape": [
-        128,
+        32,
         1,
         1,
-        32
+        128
       ],
       "kernel_layout": "OHWI"
     }
@@ -1699,10 +1699,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        128,
         1,
         1,
-        128
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -1803,10 +1803,10 @@
     },
     "nhwc": {
       "shape": [
-        128,
+        32,
         1,
         1,
-        32
+        128
       ],
       "kernel_layout": "OHWI"
     }
@@ -1855,10 +1855,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        128,
         1,
         1,
-        128
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -1907,10 +1907,10 @@
     },
     "nhwc": {
       "shape": [
-        128,
+        32,
         1,
         1,
-        32
+        128
       ],
       "kernel_layout": "OHWI"
     }
@@ -1959,10 +1959,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        96,
         1,
         1,
-        96
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -2063,10 +2063,10 @@
     },
     "nhwc": {
       "shape": [
-        96,
+        24,
         1,
         1,
-        24
+        96
       ],
       "kernel_layout": "OHWI"
     }
@@ -2115,10 +2115,10 @@
     },
     "nhwc": {
       "shape": [
-        24,
+        96,
         1,
         1,
-        96
+        24
       ],
       "kernel_layout": "OHWI"
     }
@@ -2167,10 +2167,10 @@
     },
     "nhwc": {
       "shape": [
-        96,
+        32,
         1,
         1,
-        32
+        96
       ],
       "kernel_layout": "OHWI"
     }
@@ -2219,10 +2219,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        96,
         1,
         1,
-        96
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -2323,10 +2323,10 @@
     },
     "nhwc": {
       "shape": [
-        96,
+        24,
         1,
         1,
-        24
+        96
       ],
       "kernel_layout": "OHWI"
     }
@@ -2375,10 +2375,10 @@
     },
     "nhwc": {
       "shape": [
-        24,
+        96,
         1,
         1,
-        96
+        24
       ],
       "kernel_layout": "OHWI"
     }
@@ -2427,10 +2427,10 @@
     },
     "nhwc": {
       "shape": [
-        96,
+        32,
         1,
         1,
-        32
+        96
       ],
       "kernel_layout": "OHWI"
     }
@@ -2479,10 +2479,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        128,
         1,
         1,
-        128
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -2531,10 +2531,10 @@
     },
     "nhwc": {
       "shape": [
-        32,
+        128,
         1,
         1,
-        128
+        32
       ],
       "kernel_layout": "OHWI"
     }
@@ -2606,10 +2606,10 @@
     },
     "nhwc": {
       "shape": [
-        128,
+        24,
         1,
         1,
-        24
+        128
       ],
       "kernel_layout": "OHWI"
     }
@@ -2866,10 +2866,10 @@
     },
     "nhwc": {
       "shape": [
-        24,
+        16,
         1,
         1,
-        16
+        24
       ],
       "kernel_layout": "OHWI"
     }
