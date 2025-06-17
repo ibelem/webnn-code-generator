@@ -242,7 +242,19 @@ function updateFileInfo(
   if (!element) return;
   const fileSize = typeof file.size === 'number' ? `${(file.size / 1024).toFixed(1)} KB` : '';
   const logo = isInternet ? internetLogo : localLogo;
-  element.innerHTML = `${logo} ${file.name?.replace('weights_', '')} · ${fileSize}`;
+    // Extract only the file name (after the last "/")
+  let displayName = file.name || '';
+  const lastSlash = displayName.lastIndexOf('/');
+  if (lastSlash !== -1) {
+    displayName = displayName.substring(lastSlash + 1);
+  }
+  // Remove trailing "/" if any (shouldn't happen, but just in case)
+  displayName = displayName.replace(/\/$/, '');
+
+  // Optionally, remove "weights_" prefix if you want
+  displayName = displayName.replace(/^weights_/, '');
+
+  element.innerHTML = `${logo} ${displayName} · ${fileSize}`;
 }
 
 /**
