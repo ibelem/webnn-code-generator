@@ -1,5 +1,5 @@
 import {
-  getInputVars, getOutputVars, getShape, getDtype, inlineReshape, zeroConstant
+  getInputVars, getOutputVars, getShape, getDataType, inlineReshape, zeroConstant
 } from '../../operation-utils';
 
 /**
@@ -17,7 +17,7 @@ export function DequantizeLinear(
   const outputVars = getOutputVars(node, toJsVarName);
   const inputShape = getShape(node, 0, nhwc);
   const scaleShape = getShape(node, 1, nhwc);
-  const inputDtype = getDtype(node, 0);
+  const inputDtype = getDataType(node, 0);
 
   // Axis attribute (default 1, handle negative axis)
   let axis = 1;

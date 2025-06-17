@@ -6,7 +6,7 @@ import {
 } from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
 import { opHandlers } from './operation';
-// import { permuteWeightShape } from './operation/operation-utils';
+import { applyFreeDimsOverrides } from './operation/operation-utils';
 
 function constructorCode() {
   return `
@@ -66,13 +66,7 @@ function buildCodeWithLayout(nhwc: boolean) {
     const name = getNonEmptyStringAroundNewline(input.value[0]?.name);
     const dataType = input.value[0]?.type?.dataType;
     const shapeArr = input.value[0]?.type?.shape?.dimensions;
-
-    // Replace symbolic dims with values from freeDimsOverrides if present
-    const resolvedShape = shapeArr.map((dim: any) =>
-      typeof dim === 'string' && freeDimsOverrides && freeDimsOverrides[dim] != null
-        ? freeDimsOverrides[dim]
-        : dim
-    );
+    const resolvedShape = applyFreeDimsOverrides(shapeArr, freeDimsOverrides);
 
     if (nhwc && resolvedShape.length === 4) {
       // NCHW -> NHWC permutation: [0, 2, 3, 1]
@@ -209,11 +203,8 @@ function buildCodeWithLayout(nhwc: boolean) {
     // Prepare output variable references, appending _nchw if needed
     const outputVarRefs = outputVars.map((varName: string, i: number) => {
       const shapeArr = outputs[i].value[0]?.type?.shape?.dimensions;
-      const resolvedShape = shapeArr.map((dim: any) =>
-        typeof dim === 'string' && freeDimsOverrides && freeDimsOverrides[dim] != null
-          ? freeDimsOverrides[dim]
-          : dim
-      );
+      const resolvedShape = applyFreeDimsOverrides(shapeArr, freeDimsOverrides);
+
       if (nhwc && resolvedShape.length === 4) {
         buildGraphCode += `
     const ${varName}_nchw = builder.transpose(${varName}, { permutation: [0, 3, 1, 2] });`;

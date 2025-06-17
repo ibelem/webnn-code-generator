@@ -35,7 +35,7 @@ export function getOutputVars(node: any, toJsVarName: (name: string) => string):
     .map(toJsVarName);
 }
 
-function applyFreeDimsOverrides(shape: (string|number)[], freeDimsOverrides: Record<string, number | null>): (string|number)[] {
+export function applyFreeDimsOverrides(shape: (string|number)[], freeDimsOverrides: Record<string, number | null>): (string|number)[] {
   return shape.map(dim => {
     if (typeof dim === 'string' && freeDimsOverrides.hasOwnProperty(dim)) {
       const override = freeDimsOverrides[dim];
@@ -50,22 +50,37 @@ export function getShape(node: any, idx: number = 0, nhwc: boolean = false): num
   let shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
   shape = applyFreeDimsOverrides(shape, freeDimsOverrides);
 
-  // For 4D tensors, conditionally permute from NCHW to NHWC if needed
+  // Align with https://github.com/ibelem/netron/blob/webnn-netron-2/source/view.js#L1108
   if (nhwc && shape.length === 4) {
-    const nodeType = node.type?.name;
-    
-    // For weights in ConvTranspose, we need special permutation
-    if (idx === 1 && nodeType === 'ConvTranspose') {
-      return [shape[0], shape[2], shape[3], shape[1]]; // OIHW -> OHWI
+    const nodeType = node.type?.name?.toLowerCase() || '';
+    const isConv = nodeType.includes('conv');
+    const isConvTranspose = nodeType.includes('convtranspose') || nodeType.includes('transposeconv');
+    const groupsAttr = node.attributes?.find((a: any) => a.name === 'group' || a.name === 'groups');
+    const groups = groupsAttr ? Number(Array.isArray(groupsAttr.value) ? groupsAttr.value[0] : groupsAttr.value) : 1;
+    const inChannels = shape[1];
+    const outChannels = shape[0];
+    const isDepthwise = isConv && groups === inChannels && (outChannels % inChannels === 0);
+
+    if (isDepthwise) {
+      // Depthwise Conv: OIHW -> IHWO
+      return [shape[1], shape[2], shape[3], shape[0]];
     }
-    // For regular 4D tensors, do standard NCHW -> NHWC permutation
-    return [shape[0], shape[2], shape[3], shape[1]]; // NCHW -> NHWC
+    if (isConvTranspose) {
+      // ConvTranspose: OIHW -> HWIO (common for TF, check your framework)
+      return [shape[2], shape[3], shape[1], shape[0]];
+    }
+    if (isConv) {
+      // Regular Conv: OIHW -> OHWI
+      return [shape[0], shape[2], shape[3], shape[1]];
+    }
+    // Default: NCHW -> NHWC
+    return [shape[0], shape[2], shape[3], shape[1]];
   }
-  
+
   return shape;
 }
 
-export function getDtype(node: any, idx: number = 0): string {
+export function getDataType(node: any, idx: number = 0): string {
   return node.inputs?.[idx]?.value?.[0]?.type?.dataType || '';
 }
 
