@@ -7,6 +7,7 @@ import {
 /**
  * Generate JavaScript code for a WebNN lpPool2d operation from ONNX LpPool node info.
  */
+
 export function LpPool(
   node: any,
   toJsVarName: (name: string) => string,
@@ -15,14 +16,13 @@ export function LpPool(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const attrs: any[] = node.attributes || [];
 
   // Use getAttrValue for robust extraction
-  const kernelShape = getAttrValue(attrs, 'kernel_shape', [0, 0]);
-  const strides = getAttrValue(attrs, 'strides', [1, 1]);
-  const pads = getAttrValue(attrs, 'pads', [0, 0, 0, 0]);
-  const p = getAttrValue(attrs, 'p', 2); // Default to 2 for L2 norm
-  const ceilMode = getAttrValue(attrs, 'ceil_mode', 0);
+  const kernelShape = getAttrValue(node, 'kernel_shape', [0, 0]);
+  const strides = getAttrValue(node, 'strides', [1, 1]);
+  const pads = getAttrValue(node, 'pads', [0, 0, 0, 0]);
+  const p = getAttrValue(node, 'p', 2); // Default to 2 for L2 norm
+  const ceilMode = getAttrValue(node, 'ceil_mode', 0);
 
   // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
   let paddingOpt = '';

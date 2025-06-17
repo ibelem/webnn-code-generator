@@ -15,14 +15,13 @@ export function MaxPool(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const attrs: any[] = node.attributes || [];
 
   // Use getAttrValue for robust extraction
-  const kernelShape = getAttrValue(attrs, 'kernel_shape', [0, 0]);
-  const strides = getAttrValue(attrs, 'strides', [1, 1]);
-  const pads = getAttrValue(attrs, 'pads', [0, 0, 0, 0]);
-  const dilations = getAttrValue(attrs, 'dilations', [1, 1]);
-  const ceilMode = getAttrValue(attrs, 'ceil_mode', 0);
+  const kernelShape = getAttrValue(node, 'kernel_shape', [0, 0]);
+  const strides = getAttrValue(node, 'strides', [1, 1]);
+  const pads = getAttrValue(node, 'pads', [0, 0, 0, 0]);
+  const dilations = getAttrValue(node, 'dilations', [1, 1]);
+  const ceilMode = getAttrValue(node, 'ceil_mode', 0);
 
   // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
   let paddingOpt = '';

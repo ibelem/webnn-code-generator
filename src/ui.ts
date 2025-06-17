@@ -403,7 +403,7 @@ const renderGraphDetails = (graphData: any): void => {
       if (mod.setFreeDims) mod.setFreeDims(Array.from(freeDims));
     });
   } else {
-    overrideDiv.className = 'override';
+    overrideDiv.className = 'override none';
     import('./ui').then(mod => {
       if (mod.setFreeDims) mod.setFreeDims([]);
     });
@@ -560,7 +560,10 @@ function renderOutputCode(): void {
   `;
 
   const overrideDiv = document.getElementById('free-dimension-overrides');
-  overrideDiv?.appendChild(codeTab);
+  if (overrideDiv) {
+    overrideDiv.appendChild(codeTab);
+    overrideDiv.className = 'override';
+  }
 
   import('./code').then(mod => {
     const code = mod.generateJS();

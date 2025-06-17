@@ -45,8 +45,10 @@ export function applyFreeDimsOverrides(shape: (string|number)[], freeDimsOverrid
   });
 }
 
-export function getAttrValue(attrs: any[], name: string, defaultValue: any = undefined): any {
-  const attr = attrs.find(a => a.name === name);
+// Update getAttrValue to take node, not attrs
+export function getAttrValue(node: any, name: string, defaultValue: any = undefined): any {
+  const attrs = node?.attributes || [];
+  const attr = attrs.find((a: any) => a.name === name);
   if (!attr) return defaultValue;
   if (attr.value && typeof attr.value === 'object' && 'value' in attr.value) {
     // Handle bigint or bigint[]
@@ -109,20 +111,6 @@ export function validateRank(shape: number[], minRank: number, op: string) {
   if (shape.length < minRank) {
     throw new Error(`${op}: rank must be >= ${minRank}, got ${shape.length}`);
   }
-}
-
-export function getAttr(node: any, name: string, defaultValue: any): any {
-  if (!node || !node.attributes) return defaultValue;
-  const attr = node.attributes.find((a: any) => a.name === name);
-  if (attr === undefined) return defaultValue;
-  // Try attr.value, then attr.value.value, else default
-  if (attr.value !== undefined) {
-    if (attr.value.value !== undefined) {
-      return attr.value.value;
-    }
-    return attr.value;
-  }
-  return defaultValue;
 }
 
 // Utility for inlined reshape expression

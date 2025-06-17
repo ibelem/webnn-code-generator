@@ -17,11 +17,10 @@ export function ScatterND(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Only reduction='none' is supported
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'reduction' && attr.value !== 'none') {
-      throw new Error('WebNN scatterND only supports reduction type "none" (default).');
-    }
-  }
+  // let reduction = getAttrValue(node, 'reduction', undefined);
+  // if (reduction !== 'none') {
+  //   throw new Error('WebNN scatterND only supports reduction type "none" (default).');
+  // }
 
   const labelOpt = node.name ? `{ label: '${node.name}' }` : `{}`;
 

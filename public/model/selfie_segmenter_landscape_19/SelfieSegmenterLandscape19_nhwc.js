@@ -719,10 +719,11 @@ export class SelfieSegmenterLandscape19Nhwc {
 
     // Create graph operators
         
-  const var_conv2d__6_0 = builder.transpose(
-    input,
-    { label: 'Conv2D__6', permutation: [0, 3, 1, 2] }
-  );
+    const var_conv2d__6_0 = builder.transpose(
+      input,
+      { permutation: [0, 3, 1, 2], label: 'Conv2D__6' }
+    );
+  
     
     const var_conv__158_0 = builder.conv2d(
       var_conv2d__6_0, var_conv2d_filter_0,
@@ -791,7 +792,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 16,
         bias: var_depthwise_conv2d_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__162'
       }
@@ -901,7 +902,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 72,
         bias: var_depthwise_conv2d_1_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__172'
       }
@@ -958,7 +959,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 88,
         bias: var_depthwise_conv2d_2_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__177'
       }
@@ -1038,7 +1039,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 96,
         bias: var_depthwise_conv2d_3_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__186'
       }
@@ -1182,7 +1183,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 128,
         bias: var_depthwise_conv2d_4_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__197'
       }
@@ -1332,7 +1333,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 128,
         bias: var_depthwise_conv2d_5_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__208'
       }
@@ -1482,7 +1483,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 96,
         bias: var_depthwise_conv2d_6_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__219'
       }
@@ -1632,7 +1633,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 96,
         bias: var_depthwise_conv2d_7_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__230'
       }
@@ -1907,7 +1908,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 24,
         bias: var_depthwise_conv2d_8_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__248'
       }
@@ -2044,7 +2045,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 16,
         bias: var_depthwise_conv2d_9_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__257'
       }
@@ -2181,7 +2182,7 @@ export class SelfieSegmenterLandscape19Nhwc {
         dilations: [1, 1],
         groups: 16,
         bias: var_depthwise_conv2d_10_y_0,
-        filterLayout: 'ohwi',
+        filterLayout: 'ihwo',
         inputLayout: 'nhwc',
         label: 'Conv__266'
       }

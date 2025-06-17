@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -42,13 +42,13 @@ export function Reduction(
   }
 
   // Axes: from attribute or initializer
-  let axes = getAttr(node, 'axes', undefined);
+  let axes = getAttrValue(node, 'axes', undefined);
   // Try to get axes from input[1] if not present in attributes
   if (!axes && node.inputs?.[1]?.initializer) {
     axes = node.inputs[1].initializer;
   }
   // keepdims: ONNX default is 1 (true)
-  const keepDims = !!getAttr(node, 'keepdims', 1);
+  const keepDims = !!getAttrValue(node, 'keepdims', 1);
 
   // Compose options
   let opts: string[] = [`keepDimensions: ${keepDims}`];

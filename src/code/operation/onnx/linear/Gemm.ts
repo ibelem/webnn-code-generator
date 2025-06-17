@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -33,15 +34,16 @@ export function Gemm(
 
   const alphaType = attrDict['alpha']?.type;
   const betaType = attrDict['beta']?.type;
-  const alphaVal = attrDict['alpha']?.value?.value ?? 1.0;
-  const betaVal = attrDict['beta']?.value?.value ?? 1.0;
 
+  const alphaVal = getAttrValue(node, 'alpha', 1.0);
+  const betaVal = getAttrValue(node, 'beta', 1.0);
+ 
   const alpha = formatFloat(alphaVal, alphaType);
   const beta = formatFloat(betaVal, betaType);
 
   // Get transA/transB from ONNX attributes
-  let transA = Number(attrDict['transA']?.value?.value ?? 0);
-  let transB = Number(attrDict['transB']?.value?.value ?? 0);
+  const transA = !!getAttrValue(node, 'transA', 0);
+  const transB = !!getAttrValue(node, 'transB', 0);
 
   // Get input and weight shapes
   const inputShape = getShape(node, 0, nhwc);

@@ -17,15 +17,8 @@ export function GatherND(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Only batch_dims = 0 is supported by WebNN
-  let batchDims = 0;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'batch_dims') {
-      batchDims = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-    }
-  }
-  if (batchDims !== 0) {
-    throw new Error('WebNN gatherND only supports batch_dims = 0');
-  }
+  // let batchDims = getAttrValue(node, 'batch_dims', 0);
+  // WebNN gatherND only supports batch_dims = 0');
 
   const labelOpt = node.name ? `{ label: '${node.name}' }` : '';
 

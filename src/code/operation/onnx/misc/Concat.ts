@@ -1,6 +1,8 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -15,27 +17,28 @@ export function Concat(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Find axis and handle negative axis
-  let axis = 0;
-  let inputRank = node.inputs?.[0]?.shape?.length ?? 0;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'axis') {
-      let val = typeof attr.value === 'number' ? attr.value : attr.value?.value;
-      axis = Number(val);
-      if (axis < 0 && inputRank > 0) {
-        axis = inputRank + axis;
-      }
-      break;
-    }
+  // Use getAttrValue for robust attribute extraction
+  let axis = getAttrValue(node, 'axis', 0);
+
+  // Try to get input rank for negative axis handling
+  let inputRank = 0;
+  if (node.inputs && node.inputs.length > 0) {
+    const shape = getShape(node, 0, false);
+    if (Array.isArray(shape)) inputRank = shape.length;
   }
 
-  // Add label option if node.name is present
-  const labelOpt = node.name ? `{ label: '${node.name}' }` : '';
+  // Handle negative axis
+  if (axis < 0 && inputRank > 0) {
+    axis = inputRank + axis;
+  }
+
+  const opts = [`axis: ${axis}`];
+  if (node.name) opts.push(`label: '${node.name}'`);
 
   return `
     const ${outputVars[0]} = builder.concat(
       [${inputVars.join(', ')}],
-      ${axis},
-      ${labelOpt}
-    );`;
+      { ${opts.join(', ')} }
+    );
+  `;
 }

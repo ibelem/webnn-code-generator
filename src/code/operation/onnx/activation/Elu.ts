@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -16,20 +17,8 @@ export function Elu(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Default alpha is 1.0 for ONNX Elu
-  let alpha = 1.0;
-  for (const attr of node.attributes || []) {
-    // Todo: Handle attr.f attribute correctly from json file
-    if (attr.name === 'alpha') {
-      alpha =
-        typeof attr.f === 'number'
-          ? attr.f
-          : (typeof attr.value === 'number'
-              ? attr.value
-              : Number(attr.value?.value ?? 1.0));
-      break;
-    }
-  }
+  // Use getAttrValue for robust alpha extraction (default 1.0)
+  const alpha = getAttrValue(node, 'alpha', 1.0);
 
   // Add label for debugging if node.name exists
   const opts = `{ alpha: ${alpha}, label: '${node.name || ''}' }`;

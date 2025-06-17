@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -18,12 +19,8 @@ export function Flatten(
   const inputShape = getShape(node, 0);
 
   // Default axis is 1 (ONNX spec)
-  let axis = 1;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'axis') {
-      axis = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-    }
-  }
+  let axis = getAttrValue(node, 'axis', 1);
+
   const rank = inputShape.length;
   if (axis < 0) axis += rank;
 

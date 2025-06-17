@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -17,16 +18,8 @@ export function LeakyRelu(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Default alpha is 0.01 for ONNX LeakyRelu
-  let alpha = 0.01;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'alpha') {
-      // Todo
-      alpha = typeof attr.f === 'number'
-        ? attr.f
-        : (typeof attr.value === 'number' ? attr.value : Number(attr.value?.value ?? 0.01));
-      break;
-    }
-  }
+  // ONNX default alpha is 0.01
+  const alpha = getAttrValue(node, 'alpha', 0.01);
 
   // Add label for debugging if node.name exists
   const opts = node.name

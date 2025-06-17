@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -17,8 +17,8 @@ export function MatMulNBits(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Get attributes
-  const K = getAttr(node, 'K', 0);
-  const N = getAttr(node, 'N', 0);
+  const K = getAttrValue(node, 'K', 0);
+  const N = getAttrValue(node, 'N', 0);
 
   // Shapes for dequantization
   // B: [N, n_blocks_per_col, blob_size] (uint8) → [N, n_blocks_per_col, blob_size*2] (uint4)

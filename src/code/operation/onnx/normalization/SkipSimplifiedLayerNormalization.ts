@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr,
+  getAttrValue,
   getShape
 } from '../../operation-utils';
 
@@ -27,10 +27,10 @@ export function SkipSimplifiedLayerNormalization(
   const nhwc = !!options.nhwc;
 
   // Get epsilon attribute, default 1e-5
-  const epsilon = getAttr(node, 'epsilon', 1e-5);
+  const epsilon = getAttrValue(node, 'epsilon', 1e-5);
 
   // Get axes attribute
-  let axes = getAttr(node, 'axes', undefined);
+  let axes = getAttrValue(node, 'axes', undefined);
   const shape = getShape(node, 0, nhwc);
   
   if (!axes) {

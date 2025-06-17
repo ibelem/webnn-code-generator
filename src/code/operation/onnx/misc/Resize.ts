@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -16,17 +17,8 @@ export function Resize(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const attrs: any[] = node.attributes || [];
 
-  // Default mode is 'nearest'
-  let mode = 'nearest';
-  for (const attr of attrs) {
-    if (attr.name === 'mode' && typeof attr.value === 'string') {
-      mode = attr.value.toLowerCase();
-    }
-  }
-
-  // Map ONNX mode to WebNN mode
+  const mode = getAttrValue(node, 'mode', 'nearest');
   let webnn_mode = 'nearest-neighbor';
   if (mode === 'linear') {
     webnn_mode = 'linear';

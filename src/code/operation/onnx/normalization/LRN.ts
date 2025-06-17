@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -21,10 +21,10 @@ export function LRN(
   const nhwc = !!options.nhwc;
   
   // Get attributes with ONNX defaults
-  const alpha = getAttr(node, 'alpha', 0.0001);
-  const beta = getAttr(node, 'beta', 0.75);
-  const bias = getAttr(node, 'bias', 1.0);
-  const size = getAttr(node, 'size', 1);
+  const alpha = getAttrValue(node, 'alpha', 0.0001);
+  const beta = getAttrValue(node, 'beta', 0.75);
+  const bias = getAttrValue(node, 'bias', 1.0);
+  const size = getAttrValue(node, 'size', 1);
 
   // In NCHW, channels are at axis=1
   // In NHWC, channels are at axis=3

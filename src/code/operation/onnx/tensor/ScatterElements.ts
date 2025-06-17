@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -18,15 +19,8 @@ export function ScatterElements(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Default axis is 0
-  let axis = 0;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'axis') {
-      axis = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-    }
-    if (attr.name === 'reduction' && attr.value !== 'none') {
-      throw new Error('WebNN scatterElements only supports reduction type "none" (default).');
-    }
-  }
+  let axis = getAttrValue(node, 'axis', 0);
+  // WebNN scatterElements only supports reduction type "none" (default).
 
   // Handle negative axis
   const inputShape = getShape(node, 0, false);

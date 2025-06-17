@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr,
+  getAttrValue,
   getShape
 } from '../../operation-utils';
 
@@ -27,7 +27,7 @@ export function BatchNormalization(
   const inputShape = getShape(node, 0, nhwc);
   // Determine layout: default to NCHW, allow NHWC if requested
   // Axis: NCHW=1, NHWC=last dimension
-  let axis = getAttr(node, 'axis', undefined);
+  let axis = getAttrValue(node, 'axis', undefined);
   if (axis === undefined) {
     if (nhwc && inputShape && inputShape.length > 0) {
       axis = inputShape.length - 1;
@@ -36,7 +36,7 @@ export function BatchNormalization(
     }
   }
 
-  const epsilon = getAttr(node, 'epsilon', 1e-5);
+  const epsilon = getAttrValue(node, 'epsilon', 1e-5);
 
   // Compose options
   let opts = [

@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -16,31 +17,19 @@ export function Pad(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Default values
-  let mode = 'constant';
-  let value = 0;
-  let pads: number[] = [];
-  let constantValue = 0;
+  // Use getAttrValue for robust attribute extraction
+  // ONNX default: mode='constant', value=0, pads=[]
+  let mode = getAttrValue(node, 'mode', 'constant');
+  let pads = getAttrValue(node, 'pads', []);
+  let constantValue = getAttrValue(node, 'value', 0);
 
-  // Parse ONNX attributes
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'mode') {
-      // Map ONNX mode to WebNN mode
-      const modeMap: Record<string, string> = {
-        constant: 'constant',
-        reflect: 'reflection',
-        edge: 'edge'
-      };
-      const raw = typeof attr.value === 'string' ? attr.value : (attr.value?.value ?? 'constant');
-      mode = modeMap[raw.toLowerCase()] || 'constant';
-    }
-    if (attr.name === 'pads') {
-      pads = Array.isArray(attr.value) ? attr.value : attr.value?.value ?? [];
-    }
-    if (attr.name === 'value') {
-      constantValue = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value ?? 0);
-    }
-  }
+  // Map ONNX mode to WebNN mode
+  const modeMap: Record<string, string> = {
+    constant: 'constant',
+    reflect: 'reflection',
+    edge: 'edge'
+  };
+  mode = modeMap[String(mode).toLowerCase()] || 'constant';
 
   // ONNX pads: [begin_dim1, begin_dim2, ..., end_dim1, end_dim2, ...]
   // WebNN: beginningPadding, endingPadding (each of length N)
@@ -62,7 +51,7 @@ export function Pad(
   // WebNN pad options
   const padOpts: string[] = [];
   if (mode !== 'constant') padOpts.push(`mode: '${mode}'`);
-  if (mode === 'constant' && (constantValue !== 0 || value !== 0)) padOpts.push(`value: ${constantValue || value}`);
+  if (mode === 'constant' && constantValue !== 0) padOpts.push(`value: ${constantValue}`);
   if (node.name) padOpts.push(`label: '${node.name}'`);
 
   const optsString = padOpts.length ? `, { ${padOpts.join(', ')} }` : '';

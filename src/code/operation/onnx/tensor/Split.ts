@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr,
+  getAttrValue,
   getShape
 } from '../../operation-utils';
 
@@ -20,11 +20,11 @@ export function Split(
   // Get axis (default 0, handle negative axis)
   const inputShape = getShape(node, 0, false);
   const rank = inputShape ? inputShape.length : undefined;
-  let axis = getAttr(node, 'axis', 0);
+  let axis = getAttrValue(node, 'axis', 0);
   if (axis < 0 && rank !== undefined) axis += rank;
 
   // Get splits: can be a number (count) or an array (sizes)
-  let splits = getAttr(node, 'split', undefined);
+  let splits = getAttrValue(node, 'split', undefined);
   let splitArg: string;
   if (Array.isArray(splits) && splits.length > 0) {
     splitArg = `[${splits.join(', ')}]`;

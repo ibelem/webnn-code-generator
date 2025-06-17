@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -16,18 +17,10 @@ export function GRU(
   const inputVars = getInputVars(node, toJsVarName); // [input, weight, recurrentWeight, bias, sequence_lens, initialHiddenState]
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Required attributes
-  let hiddenSize = 0;
-  let direction = 'forward';
-  let activations: string[] | undefined = undefined;
-  let linearBeforeReset = 0;
-
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'hidden_size') hiddenSize = Number(attr.value);
-    if (attr.name === 'direction') direction = attr.value;
-    if (attr.name === 'activations') activations = attr.value;
-    if (attr.name === 'linear_before_reset') linearBeforeReset = Number(attr.value);
-  }
+  let direction = getAttrValue(node, 'direction', 'forward');
+  let hiddenSize = getAttrValue(node, 'hidden_size', undefined);
+  let linearBeforeReset = !!getAttrValue(node, 'linear_before_reset', 0);
+  let activations = getAttrValue(node, 'activations', undefined);
 
   // Get steps from input shape
   const inputShape = getShape(node, 0, false);

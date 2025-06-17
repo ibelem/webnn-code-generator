@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -16,33 +17,11 @@ export function HardSigmoid(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Default values per ONNX spec: alpha=0.2, beta=0.5
-  let alpha = 0.2;
-  let beta = 0.5;
-  for (const attr of node.attributes || []) {
-    // Todo: Handle attr.f attribute correctly from json file
-    if (attr.name === 'alpha') {
-      alpha =
-        typeof attr.f === 'number'
-          ? attr.f
-          : (typeof attr.value === 'number'
-              ? attr.value
-              : Number(attr.value?.value ?? 0.2));
-    }
-    if (attr.name === 'beta') {
-      beta =
-        typeof attr.f === 'number'
-          ? attr.f
-          : (typeof attr.value === 'number'
-              ? attr.value
-              : Number(attr.value?.value ?? 0.5));
-    }
-  }
+  // Use getAttrValue for robust extraction with ONNX defaults: alpha=0.2, beta=0.5
+  const alpha = getAttrValue(node, 'alpha', 0.2);
+  const beta = getAttrValue(node, 'beta', 0.5);
 
-  // Add label for debugging if node.name exists
-  const opts = node.name
-    ? `{ alpha: ${alpha}, beta: ${beta}, label: '${node.name}' }`
-    : `{ alpha: ${alpha}, beta: ${beta} }`;
+  const opts = `{ alpha: ${alpha}, beta: ${beta}${node.name ? `, label: '${node.name}'` : ''} }`;
 
   return `
     const ${outputVars[0]} = builder.hardSigmoid(

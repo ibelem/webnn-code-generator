@@ -1,6 +1,6 @@
 import {
   getOutputVars,
-  getAttr
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -18,7 +18,7 @@ export function Constant(
 
   // Todo
   // Use getAttr to get the 'value' attribute (tensor)
-  const valueAttr = getAttr(node, 'value', undefined);
+  const valueAttr = getAttrValue(node, 'value', undefined);
   const t = valueAttr?.t ?? valueAttr;
   if (!t) {
     return `// Constant node ${outputVar} missing value tensor.`;

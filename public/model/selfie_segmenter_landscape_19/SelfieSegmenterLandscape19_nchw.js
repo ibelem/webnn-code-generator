@@ -715,10 +715,11 @@ export class SelfieSegmenterLandscape19Nchw {
 
     // Create graph operators
         
-  const var_conv2d__6_0 = builder.transpose(
-    input,
-    { label: 'Conv2D__6', permutation: [0, 3, 1, 2] }
-  );
+    const var_conv2d__6_0 = builder.transpose(
+      input,
+      { permutation: [0, 3, 1, 2], label: 'Conv2D__6' }
+    );
+  
     
     const var_conv__158_0 = builder.conv2d(
       var_conv2d__6_0, var_conv2d_filter_0,

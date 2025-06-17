@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 import { mlOperandDataType } from '../../../../utils';
 
@@ -15,34 +16,35 @@ function ArgMinMax(
   toJsVarName: (name: string) => string,
   options: { [key: string]: any } = {}
 ): string {
-  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);
 
   // Default axis is 0 for ONNX ArgMax/ArgMin
-  let axis = 0;
-  let keepDims = true; // ONNX default is keepdims=1 (true)
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'axis') {
-      if (attr.value && typeof attr.value.value === 'string') {
-        axis = Number(attr.value.value);
-      } else if (typeof attr.value === 'number') {
-        axis = attr.value;
-      }
-    }
-    if (attr.name === 'keepdims') {
-      if (attr.value && typeof attr.value.value === 'string') {
-        keepDims = Number(attr.value.value) !== 0;
-      } else if (typeof attr.value === 'number') {
-        keepDims = attr.value !== 0;
-      }
-    }
+
+  let axis = getAttrValue(node, 'axis', 0);
+  let keepDims = !!getAttrValue(node, 'keepdims', 1);
+  const selectLastIndex = !!getAttrValue(node, 'select_last_index', 0);
+  if (selectLastIndex) {
+    // If select_last_index is true, we need to set keepDims to false
+    // because WebNN does not support this option.
+    // ONNX ArgMax/ArgMin with select_last_index always returns a scalar.
+    // so we set keepDims to false.
+    keepDims = false;
   }
 
-  // Handle negative axis
-  if (axis < 0) {
-    axis = inputShape.length + axis;
+  // Get input rank for negative axis handling and validation
+  let inputRank = 0;
+  if (node.inputs && node.inputs.length > 0) {
+    const shape = getShape(node, 0, false);
+    if (Array.isArray(shape)) inputRank = shape.length;
+  }
+
+  // Resolve negative axis and validate
+  if (axis < 0 && inputRank > 0) {
+    axis = inputRank + axis;
+  }
+  if (inputRank > 0 && (axis < 0 || axis >= inputRank)) {
+    throw new Error(`ArgMinMax: axis ${axis} is out of range for input rank ${inputRank}`);
   }
 
   // Set outputDataType to 'int64' by default, fallback to 'int32' if not supported

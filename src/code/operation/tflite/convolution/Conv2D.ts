@@ -7,7 +7,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 // Helper: transpose filter weights for NHWC (not implemented here, but you should handle this in your weight loader)
@@ -17,6 +18,10 @@ function getTransposedFilterVarName(originalVar: string, _permutation: number[])
   return `${originalVar}_transposed`;
 }
 
+/**
+ * Generate JavaScript code for a WebNN conv2d operation from TFLite node info.
+ * Keeps both NCHW and NHWC layout logic.
+ */
 export function Conv2D(
   node: any,
   toJsVarName: (name: string) => string,
@@ -25,27 +30,22 @@ export function Conv2D(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const attrs: any[] = node.attributes || [];
-  const attrDict: Record<string, any> = {};
-  for (const attr of attrs) attrDict[attr.name] = attr;
 
   // Strides
-  let strides = attrDict['strides']?.value?.value;
-  if (!strides && (attrDict['stride_w'] || attrDict['stride_h'])) {
-    const stride_w = Number(attrDict['stride_w']?.value ?? 1);
-    const stride_h = Number(attrDict['stride_h']?.value ?? 1);
+  let strides = getAttrValue(node, 'strides', undefined);
+  if (!strides) {
+    const stride_h = getAttrValue(node, 'stride_h', 1);
+    const stride_w = getAttrValue(node, 'stride_w', 1);
     strides = [stride_h, stride_w];
   }
-  const strides_js = Array.isArray(strides) && strides.length === 2
-    ? `[${strides.map((s: any) => String(Number(s))).join(', ')}]`
-    : '[1, 1]';
+  const strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
 
   // Pads
-  let pads = attrDict['pads']?.value?.value;
+  let pads = getAttrValue(node, 'pads', undefined);
   let pads_js = '[0, 0, 0, 0]';
-  if (!pads && attrDict['padding']?.value) {
-    const padType = attrDict['padding'].value;
-    pads_js = padType === 'VALID' ? '[0, 0, 0, 0]' : `'${padType}'`;
+  let paddingType = getAttrValue(node, 'padding', undefined);
+  if (!pads && paddingType) {
+    pads_js = paddingType === 'VALID' ? '[0, 0, 0, 0]' : `'${paddingType}'`;
   } else if (Array.isArray(pads) && pads.length === 4) {
     // ONNX: [top, left, bottom, right] -> WebNN: [top, bottom, left, right]
     const pads_webnn = [pads[0], pads[2], pads[1], pads[3]];
@@ -53,32 +53,30 @@ export function Conv2D(
   }
 
   // Dilations
-  let dilations = attrDict['dilations']?.value?.value;
-  if (!dilations && (attrDict['dilation_w_factor'] || attrDict['dilation_h_factor'])) {
-    const dilation_w = Number(attrDict['dilation_w_factor']?.value ?? 1);
-    const dilation_h = Number(attrDict['dilation_h_factor']?.value ?? 1);
+  let dilations = getAttrValue(node, 'dilations', undefined);
+  if (!dilations) {
+    const dilation_h = getAttrValue(node, 'dilation_h_factor', 1);
+    const dilation_w = getAttrValue(node, 'dilation_w_factor', 1);
     dilations = [dilation_h, dilation_w];
   }
-  const dilations_js = Array.isArray(dilations) && dilations.length === 2
-    ? `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`
-    : '[1, 1]';
+  const dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
 
   // Groups
-  let groups = attrDict['group']?.value?.value ?? 1;
+  let groups = getAttrValue(node, 'group', 1);
   const groups_js = String(Number(groups));
 
   // Bias input (optional)
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Extract filter shape
-  const filterShape = getShape(node, 1, nhwc);  // Add nhwc parameter
+  const filterShape = getShape(node, 1, nhwc);
 
   // Determine inputLayout and filterLayout
   let inputLayout = nhwc ? "'nhwc'" : "'nchw'";
   let filterLayout = "'oihw'";
   let filterVarName = inputVars[1];
 
-  // Try to detect depthwise conv
+  // Detect depthwise conv
   let isDepthwise = false;
   if (groups !== 1 && filterShape.length === 4) {
     const outputChannels = filterShape[0];

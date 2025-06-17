@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -17,14 +18,8 @@ export function Einsum(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Extract the equation string from ONNX node attributes
-  let equation = '';
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'equation') {
-      equation = typeof attr.value === 'string' ? attr.value : attr.value?.value;
-      break;
-    }
-  }
+  // Use getAttrValue for robust attribute extraction
+  const equation = getAttrValue(node, 'equation', '');
 
   // Only support matmul-like einsum equations for direct mapping
   // e.g. "ij,jk->ik" or "ab,bc->ac"
@@ -44,6 +39,9 @@ export function Einsum(
         ${labelOpt}
       );`;
   } else {
+    const opts = [`equation: '${equation}'`];
+    if (node.name) opts.push(`label: '${node.name}'`);
+
     // For general einsum, not supported by WebNN directly
     return `
       throw new Error('Einsum equation "${equation}" is not supported by WebNN codegen.');

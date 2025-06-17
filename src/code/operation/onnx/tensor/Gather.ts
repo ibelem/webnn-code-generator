@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -17,12 +18,7 @@ export function Gather(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Default axis is 0 for WebNN, ONNX default is 0, but C++ code uses 1 if not present.
-  let axis = 0;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'axis') {
-      axis = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-    }
-  }
+  let axis = getAttrValue(node, 'axis', 0);
 
   // Handle negative axis
   const inputShape = getShape(node, 0, false);

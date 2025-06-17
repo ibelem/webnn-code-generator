@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr,
+  getAttrValue,
   getShape
 } from '../../operation-utils';
 
@@ -26,10 +26,10 @@ export function LayerNormalization(
   const nhwc = !!options.nhwc;
 
   // Get epsilon attribute, default 1e-5
-  const epsilon = getAttr(node, 'epsilon', 1e-5);
+  const epsilon = getAttrValue(node, 'epsilon', 1e-5);
 
   // Get axes attribute. ONNX spec says default is to normalize over last axis.
-  let axes = getAttr(node, 'axes', undefined);
+  let axes = getAttrValue(node, 'axes', undefined);
   
   if (!axes) {
     // Try to infer rank from input shape if available

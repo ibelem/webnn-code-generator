@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -20,13 +21,8 @@ export function GlobalLpPool(
   const nhwc = !!options.nhwc;
 
   // Only support p=2 (L2 norm)
-  let p = 2;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'p') {
-      p = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-      break;
-    }
-  }
+  let p = getAttrValue(node, 'p', 2);
+
   if (p !== 2) {
     return `// Only L2 pooling (p=2) is supported by WebNN.`;
   }

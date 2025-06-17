@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 import { ScaledDotProductAttention } from './ScaledDotProductAttention';
 
@@ -17,18 +18,21 @@ export function MultiHeadAttention(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Extract attributes
-  const attrs = node.attributes || [];
-  const attrDict: Record<string, any> = {};
-  for (const attr of attrs) attrDict[attr.name] = attr.value;
-
-  const numHeads = Number(attrDict['num_heads'] || 0);
+  // Use getAttrValue for robust attribute extraction
+  const numHeads = getAttrValue(node, 'num_heads', 0);
   if (!numHeads) throw new Error('MultiHeadAttention: num_heads attribute is required');
 
   // Shapes
   const qShape = getShape(node, 0, false); // or true for NHWC if needed
   const batch = qShape[0], seq = qShape[1], hidden = qShape[2];
   const headSize = Math.floor(hidden / numHeads);
+
+  // Robust scale extraction: use attribute if present, else default to 1/Math.sqrt(headSize)
+  let scale = getAttrValue(node, 'scale', undefined);
+  if (scale === undefined || scale === null) {
+    scale = 1 / Math.sqrt(headSize);
+  }
+  const scaleConst = `${outputVars[0]}_scale`;
 
   // Reshape/transpose query, key, value
   const qReshaped = `${outputVars[0]}_q_reshape`;
@@ -68,12 +72,6 @@ export function MultiHeadAttention(
       ${vReshaped},
       { permutation: [0,2,1,3], label: '${node.name}_/MHA/value/transpose' }
     );
-    `;
-
-  // Scale
-  const scale = attrDict['scale'] || (1 / Math.sqrt(headSize));
-  const scaleConst = `${outputVars[0]}_scale`;
-  code += `
     const ${scaleConst} = builder.constant(
       { type: 'float32', shape: [1] },
       new Float32Array([${scale}])

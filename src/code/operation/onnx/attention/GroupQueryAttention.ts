@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 import { ScaledDotProductAttention } from './ScaledDotProductAttention';
 
@@ -17,13 +18,9 @@ export function GroupQueryAttention(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Extract attributes
-  const attrs = node.attributes || [];
-  const attrDict: Record<string, any> = {};
-  for (const attr of attrs) attrDict[attr.name] = attr.value;
-
-  const numHeads = Number(attrDict['num_heads'] || 0);
-  const kvNumHeads = Number(attrDict['kv_num_heads'] || 0);
+  // Use getAttrValue for robust extraction
+  const numHeads = getAttrValue(node, 'num_heads', 0);
+  const kvNumHeads = getAttrValue(node, 'kv_num_heads', 0);
   if (!numHeads || !kvNumHeads) throw new Error('GroupQueryAttention: num_heads and kv_num_heads are required');
 
   // Shapes
@@ -71,8 +68,11 @@ export function GroupQueryAttention(
     );
 `;
 
-  // Scale
-  const scale = attrDict['scale'] || (1 / Math.sqrt(headSize));
+  // Use getAttrValue for scale, fallback to 1/√headSize if not present
+  let scale = getAttrValue(node, 'scale', undefined);
+  if (scale === undefined) {
+    scale = 1 / Math.sqrt(headSize);
+  }
   const scaleConst = `${outputVars[0]}_scale`;
   code += `
     const ${scaleConst} = builder.constant(

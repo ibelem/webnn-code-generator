@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -20,7 +20,7 @@ export function InstanceNormalization(
   const inputVars = getInputVars(node, toJsVarName); // [input, scale, bias]
   const outputVars = getOutputVars(node, toJsVarName);
 
-  const epsilon = getAttr(node, 'epsilon', 1e-5);
+  const epsilon = getAttrValue(node, 'epsilon', 1e-5);
 
   // Determine layout: default to NCHW, but allow NHWC if requested
   const layout = options.nhwc ? 'nhwc' : 'nchw';

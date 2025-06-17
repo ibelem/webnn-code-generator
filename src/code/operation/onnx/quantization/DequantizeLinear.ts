@@ -1,5 +1,8 @@
 import {
-  getInputVars, getOutputVars, getShape, getDataType, inlineReshape, zeroConstant
+  getInputVars, getOutputVars, 
+  getShape, getDataType, 
+  inlineReshape, zeroConstant,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -20,13 +23,8 @@ export function DequantizeLinear(
   const inputDtype = getDataType(node, 0);
 
   // Axis attribute (default 1, handle negative axis)
-  let axis = 1;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'axis') {
-      axis = typeof attr.value?.value === 'string' ? Number(attr.value.value) : attr.value;
-      break;
-    }
-  }
+  
+  let axis = getAttrValue(node, 'axis', 0);
   if (axis < 0) {
     axis = inputShape.length + axis;
   }

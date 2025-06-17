@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -16,16 +17,11 @@ export function LSTM(
   const inputVars = getInputVars(node, toJsVarName); // [input, weight, recurrentWeight, bias, sequence_lens, initialHiddenState, initialCellState, peepholeWeight]
   const outputVars = getOutputVars(node, toJsVarName);
 
-  // Required attributes
-  let hiddenSize = 0;
-  let direction = 'forward';
-  let activations: string[] | undefined = undefined;
-
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'hidden_size') hiddenSize = Number(attr.value);
-    if (attr.name === 'direction') direction = attr.value;
-    if (attr.name === 'activations') activations = attr.value;
-  }
+  // Use getAttrValue for robust attribute extraction
+  const direction = getAttrValue(node, 'direction', 'forward');
+  const hiddenSize = getAttrValue(node, 'hidden_size', 0);
+  const activations = getAttrValue(node, 'activations', undefined);
+  // const inputForget = !!getAttrValue(node, 'input_forget', 0);
 
   // Get steps from input shape
   const inputShape = getShape(node, 0, false);

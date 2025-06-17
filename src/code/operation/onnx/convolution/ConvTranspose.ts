@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -26,20 +27,19 @@ export function ConvTranspose(
     filterLayout = "'ohwi'";
   }
 
-  // Attribute extraction
-  const attrs: any[] = node.attributes || [];
-  const attrDict: Record<string, any> = {};
-  for (const attr of attrs) attrDict[attr.name] = attr;
-
-  // Strides
-  let strides = attrDict['strides']?.value?.value || [1, 1];
+  let strides = getAttrValue(node, 'strides', undefined) || [1, 1];
+    if (!strides) {
+    const strideH = getAttrValue(node, 'stride_h', 1);
+    const strideW = getAttrValue(node, 'stride_w', 1);
+    strides = [strideH, strideW];
+  }
   if (strides.length === 1) strides = [strides[0], strides[0]];
   const strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
 
   // Pads & auto_pad
-  let pads = attrDict['pads']?.value?.value;
+  let pads = getAttrValue(node, 'pads', undefined);
   let pads_js = '[0, 0, 0, 0]';
-  let autoPad = attrDict['auto_pad']?.value;
+    let autoPad = getAttrValue(node, 'auto_pad', undefined) || getAttrValue(node, 'padding', undefined);
   if (autoPad && typeof autoPad === 'string' && autoPad !== 'NOTSET') {
     pads_js = `'${autoPad}'`;
   } else if (Array.isArray(pads) && pads.length === 4) {
@@ -47,23 +47,29 @@ export function ConvTranspose(
     pads_js = `[${pads_webnn.map((p: any) => String(Number(p))).join(', ')}]`;
   }
 
-  // Dilations
-  let dilations = attrDict['dilations']?.value?.value || [1, 1];
+  let dilations = getAttrValue(node, 'dilations', undefined);
+  if (!dilations) {
+    const dilationH = getAttrValue(node, 'dilation_h_factor', 1);
+    const dilationW = getAttrValue(node, 'dilation_w_factor', 1);
+    dilations = [dilationH, dilationW];
+  }
+
+  if (!dilations) dilations = [1, 1];
   if (dilations.length === 1) dilations = [dilations[0], dilations[0]];
   const dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
 
   // Groups
-  let groups = attrDict['group']?.value?.value ?? 1;
+  let groups = getAttrValue(node, 'group', 1);
   const groups_js = String(Number(groups));
 
   // Output shape (optional)
-  let output_shape = attrDict['output_shape']?.value?.value;
+  let output_shape = getAttrValue(node, 'output_shape', undefined);
   const output_sizes_js = Array.isArray(output_shape)
     ? `[${output_shape.map((s: any) => String(Number(s))).join(', ')}]`
     : undefined;
 
   // Output padding (optional)
-  let output_padding = attrDict['output_padding']?.value?.value;
+  let output_padding = getAttrValue(node, 'output_padding', undefined);
   if (!output_padding) output_padding = [0, 0];
   if (output_padding.length === 1) output_padding.push(0);
   const output_padding_js = `[${output_padding.map((p: any) => String(Number(p))).join(', ')}]`;

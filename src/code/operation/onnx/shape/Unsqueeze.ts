@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -26,18 +27,7 @@ export function Unsqueeze(
       .sort((a, b) => Number(a) - Number(b))
       .map(k => Number(init.values[k]));
   } else if (node.attributes) {
-    for (const attr of node.attributes) {
-      if (attr.name === 'axes') {
-        if (Array.isArray(attr.value)) {
-          axes = attr.value;
-          // Todo
-        } else if (attr.value?.ints) {
-          axes = attr.value.ints;
-        } else if (attr.value?.value) {
-          axes = Array.isArray(attr.value.value) ? attr.value.value : [attr.value.value];
-        }
-      }
-    }
+    axes = getAttrValue(node, 'axes', undefined);
   }
 
   // Insert 1 at each axis (ascending order)

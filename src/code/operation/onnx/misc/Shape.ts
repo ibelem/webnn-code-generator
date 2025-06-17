@@ -1,6 +1,7 @@
 import {
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -20,17 +21,9 @@ export function Shape(
   // For codegen, use int32 for broad compatibility
   const dtype = 'int32';
 
-  // Get start/end attributes if present (ONNX Shape-15+)
-  let start = 0;
-  let end = inputShape.length;
-  for (const attr of node.attributes || []) {
-    if (attr.name === 'start') {
-      start = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-    }
-    if (attr.name === 'end') {
-      end = typeof attr.value === 'number' ? attr.value : Number(attr.value?.value);
-    }
-  }
+  let start = getAttrValue(node, 'start', 0);
+  let end = getAttrValue(node, 'end', inputShape.length);
+
   // Clamp and handle negatives
   const rank = inputShape.length;
   start = Math.max(0, start < 0 ? start + rank : start);

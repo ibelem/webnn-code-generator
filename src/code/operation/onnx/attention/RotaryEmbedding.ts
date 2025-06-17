@@ -1,7 +1,7 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr,
+  getAttrValue,
   getShape
 } from '../../operation-utils';
 
@@ -23,9 +23,9 @@ export function RotaryEmbedding(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Attributes
-  const interleaved = !!getAttr(node, 'interleaved', 0);
-  let num_heads = getAttr(node, 'num_heads', 0);
-  let rotary_embedding_dim = getAttr(node, 'rotary_embedding_dim', 0);
+  const interleaved = !!getAttrValue(node, 'interleaved', 0);
+  let num_heads = getAttrValue(node, 'num_heads', 0);
+  let rotary_embedding_dim = getAttrValue(node, 'rotary_embedding_dim', 0);
 
   // Shapes
   const inputShape = getShape(node, 0, false);

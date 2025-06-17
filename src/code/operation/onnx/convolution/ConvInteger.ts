@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -31,25 +32,22 @@ export function ConvInteger(
   // Conv2d options (reuse Conv logic for strides, pads, dilations, groups, layouts)
   // You may want to refactor this if you want to share code with Conv
   // For now, copy the logic from Conv.ts
-  const attrs: any[] = node.attributes || [];
-  const attrDict: Record<string, any> = {};
-  for (const attr of attrs) attrDict[attr.name] = attr;
 
   // Strides
-  let strides = attrDict['strides']?.value?.value;
-  if (!strides && (attrDict['stride_w'] || attrDict['stride_h'])) {
-    const stride_w = Number(attrDict['stride_w']?.value ?? 1);
-    const stride_h = Number(attrDict['stride_h']?.value ?? 1);
-    strides = [stride_h, stride_w];
+  let strides = getAttrValue(node, 'strides', undefined);
+  if (!strides) {
+    const strideH = getAttrValue(node, 'stride_h', 1);
+    const strideW = getAttrValue(node, 'stride_w', 1);
+    strides = [strideH, strideW];
   }
   if (!strides) strides = [1, 1];
   if (strides.length === 1) strides = [strides[0], strides[0]];
   const strides_js = `[${strides.map((s: any) => String(Number(s))).join(', ')}]`;
 
   // Pads & auto_pad
-  let pads = attrDict['pads']?.value?.value;
+  let pads = getAttrValue(node, 'pads', undefined);
   let pads_js = '[0, 0, 0, 0]';
-  let autoPad = attrDict['auto_pad']?.value || attrDict['padding']?.value;
+    let autoPad = getAttrValue(node, 'auto_pad', undefined) || getAttrValue(node, 'padding', undefined);
   if (autoPad && typeof autoPad === 'string' && autoPad !== 'NOTSET') {
     pads_js = `'${autoPad}'`;
   } else if (Array.isArray(pads) && pads.length === 4) {
@@ -58,19 +56,19 @@ export function ConvInteger(
     pads_js = `[${pads_webnn.map((p: any) => String(Number(p))).join(', ')}]`;
   }
 
-  // Dilations
-  let dilations = attrDict['dilations']?.value?.value;
-  if (!dilations && (attrDict['dilation_w_factor'] || attrDict['dilation_h_factor'])) {
-    const dilation_w = Number(attrDict['dilation_w_factor']?.value ?? 1);
-    const dilation_h = Number(attrDict['dilation_h_factor']?.value ?? 1);
-    dilations = [dilation_h, dilation_w];
+  let dilations = getAttrValue(node, 'dilations', undefined);
+  if (!dilations) {
+    const dilationH = getAttrValue(node, 'dilation_h_factor', 1);
+    const dilationW = getAttrValue(node, 'dilation_w_factor', 1);
+    dilations = [dilationH, dilationW];
   }
+
   if (!dilations) dilations = [1, 1];
   if (dilations.length === 1) dilations = [dilations[0], dilations[0]];
   const dilations_js = `[${dilations.map((d: any) => String(Number(d))).join(', ')}]`;
 
   // Groups
-  let groups = attrDict['group']?.value?.value ?? 1;
+  let groups = getAttrValue(node, 'group', 1);
   const groups_js = String(Number(groups));
 
   // Filter shape and layout

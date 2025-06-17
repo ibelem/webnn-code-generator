@@ -5,6 +5,7 @@ import { getInputVars, getOutputVars, getAttrValue } from '../../operation-utils
  * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-pool2d-average
  * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/pool_op_builder.cc
  */
+
 export function AveragePool(
   node: any,
   toJsVarName: (name: string) => string,
@@ -12,16 +13,15 @@ export function AveragePool(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const attrs: any[] = node.attributes || [];
   const nhwc = !!options.nhwc;
 
   // Use the robust helper
-  const kernelShape = getAttrValue(attrs, 'kernel_shape', [0, 0]);
-  const pads = getAttrValue(attrs, 'pads', [0, 0, 0, 0]);
-  const strides = getAttrValue(attrs, 'strides', [1, 1]);
-  const dilations = getAttrValue(attrs, 'dilations', [1, 1]);
-  const ceilMode = getAttrValue(attrs, 'ceil_mode', 0);
-  const countIncludePad = getAttrValue(attrs, 'count_include_pad', 0);
+  const kernelShape = getAttrValue(node, 'kernel_shape', [0, 0]);
+  const pads = getAttrValue(node, 'pads', [0, 0, 0, 0]);
+  const strides = getAttrValue(node, 'strides', [1, 1]);
+  const dilations = getAttrValue(node, 'dilations', [1, 1]);
+  const ceilMode = getAttrValue(node, 'ceil_mode', 0);
+  const countIncludePad = getAttrValue(node, 'count_include_pad', 0);
 
   // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
   let webnnPads = [pads[0], pads[2], pads[1], pads[3]];

@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
@@ -15,37 +16,32 @@ export function Transpose(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const attrs: any[] = node.attributes || [];
-
-  // Get input shape to determine default permutation if needed
   const inputShape = getShape(node, 0);
 
-  // Default perm is reversed order if not specified
-  let perm: number[] | null = null;
-  for (const attr of attrs) {
-    if (attr.name === 'perm') {
-      if (attr.value.type === "int64[]" || attr.value.type === "bigint[]") {
-        perm = attr.value.value.map((v: string) => Number(v));
-      } else {
-        perm = attr.value.value.map((v: any) => Number(v));
-      }
-      break;
-    }
-  }
-  if (!perm) {
+  // Use getAttrValue for robust attribute extraction
+  let permutation = getAttrValue(node, 'perm', undefined);
+
+  if (!permutation) {
     // Default: reverse the axes
-    perm = [];
+    permutation = [];
     for (let i = inputShape.length - 1; i >= 0; i--) {
-      perm.push(i);
+      permutation.push(i);
     }
   }
 
-  // Add label option
-  const labelOpt = node.name ? `label: '${node.name}'` : '';
+  // Only add permutation if it's a non-empty array
+  const opts: string[] = [];
+  if (Array.isArray(permutation) && permutation.length > 0) {
+    opts.push(`permutation: [${permutation.map(Number).join(', ')}]`);
+  }
+  if (node.name) opts.push(`label: '${node.name}'`);
+
+  const optsString = opts.length ? `{ ${opts.join(', ')} }` : '';
 
   return `
-  const ${outputVars[0]} = builder.transpose(
-    ${inputVars[0]},
-    { ${labelOpt}, permutation: [${perm.join(', ')}] }
-  );`;
+    const ${outputVars[0]} = builder.transpose(
+      ${inputVars[0]},
+      ${optsString}
+    );
+  `;
 }
