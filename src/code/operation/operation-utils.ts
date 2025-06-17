@@ -45,6 +45,20 @@ export function applyFreeDimsOverrides(shape: (string|number)[], freeDimsOverrid
   });
 }
 
+export function getAttrValue(attrs: any[], name: string, defaultValue: any = undefined): any {
+  const attr = attrs.find(a => a.name === name);
+  if (!attr) return defaultValue;
+  if (attr.value && typeof attr.value === 'object' && 'value' in attr.value) {
+    // Handle bigint or bigint[]
+    if (Array.isArray(attr.value.value)) {
+      return attr.value.value.map((v: any) => Number(v));
+    }
+    return Number(attr.value.value);
+  }
+  // Fallback for direct value
+  return typeof attr.value !== 'undefined' ? attr.value : defaultValue;
+}
+
 // Extract shape and dtype from a node input/output
 export function getShape(node: any, idx: number = 0, nhwc: boolean = false): number[] {
   let shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];

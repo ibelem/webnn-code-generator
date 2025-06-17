@@ -1,12 +1,11 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getAttrValue
 } from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN maxPool2d operation from ONNX MaxPool node info.
- * https://www.w3.org/TR/webnn/#api-mlgraphbuilder-pool2d-max
- * https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/providers/webnn/builders/impl/pool_op_builder.cc
  */
 export function MaxPool(
   node: any,
@@ -17,26 +16,24 @@ export function MaxPool(
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
   const attrs: any[] = node.attributes || [];
-  const attrDict: Record<string, any> = {};
-  for (const attr of attrs) attrDict[attr.name] = attr;
 
-  // Extract ONNX attributes
-  const kernelShape = attrDict['kernel_shape']?.value;
-  const strides = attrDict['strides']?.value;
-  const pads = attrDict['pads']?.value;
-  const dilations = attrDict['dilations']?.value;
-  const ceilMode = attrDict['ceil_mode']?.value ?? 0;
+  // Use getAttrValue for robust extraction
+  const kernelShape = getAttrValue(attrs, 'kernel_shape', [0, 0]);
+  const strides = getAttrValue(attrs, 'strides', [1, 1]);
+  const pads = getAttrValue(attrs, 'pads', [0, 0, 0, 0]);
+  const dilations = getAttrValue(attrs, 'dilations', [1, 1]);
+  const ceilMode = getAttrValue(attrs, 'ceil_mode', 0);
 
   // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
-  let paddingStr = '';
+  let paddingOpt = '';
   if (pads && pads.length === 4) {
-    paddingStr = `padding: [${pads[0]}, ${pads[2]}, ${pads[1]}, ${pads[3]}]`;
+    paddingOpt = `padding: [${pads[0]}, ${pads[2]}, ${pads[1]}, ${pads[3]}]`;
   }
 
   // Build options
   const opts: string[] = [];
   if (kernelShape) opts.push(`windowDimensions: [${kernelShape.join(', ')}]`);
-  if (paddingStr) opts.push(paddingStr);
+  if (paddingOpt) opts.push(paddingOpt);
   if (strides) opts.push(`strides: [${strides.join(', ')}]`);
   if (dilations) opts.push(`dilations: [${dilations.join(', ')}]`);
   opts.push(`layout: '${nhwc ? 'nhwc' : 'nchw'}'`);

@@ -1,4 +1,4 @@
-import { getInputVars, getOutputVars } from '../../operation-utils';
+import { getInputVars, getOutputVars, getAttrValue } from '../../operation-utils';
 
 /**
  * Generate JavaScript code for a WebNN averagePool2d operation from ONNX AveragePool node info.
@@ -15,37 +15,47 @@ export function AveragePool(
   const attrs: any[] = node.attributes || [];
   const nhwc = !!options.nhwc;
 
-  // Build options for builder.averagePool2d
-  const poolOpts: string[] = [];
+  // Use the robust helper
+  const kernelShape = getAttrValue(attrs, 'kernel_shape', [0, 0]);
+  const pads = getAttrValue(attrs, 'pads', [0, 0, 0, 0]);
+  const strides = getAttrValue(attrs, 'strides', [1, 1]);
+  const dilations = getAttrValue(attrs, 'dilations', [1, 1]);
+  const ceilMode = getAttrValue(attrs, 'ceil_mode', 0);
+  const countIncludePad = getAttrValue(attrs, 'count_include_pad', 0);
 
-  for (const attr of attrs) {
-    if (attr.name === 'kernelShape') {
-      poolOpts.push(`windowDimensions: [${attr.value.value.join(', ')}]`);
-    } else if (attr.name === 'pads') {
-      // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
-      const pads = attr.value.value;
-      if (pads.length === 4) {
-        poolOpts.push(`padding: [${pads[0]}, ${pads[2]}, ${pads[1]}, ${pads[3]}]`);
-      }
-    } else if (attr.name === 'strides') {
-      poolOpts.push(`strides: [${attr.value.value.join(', ')}]`);
-    } else if (attr.name === 'dilations') {
-      poolOpts.push(`dilations: [${attr.value.value.join(', ')}]`);
-    } else if (attr.name === 'ceilMode') {
-      // ceilMode: 0=floor, 1=ceil
-      poolOpts.push(`roundingType: '${attr.value.value === 1 ? 'ceil' : 'floor'}'`);
+  // WebNN expects [beginH, endH, beginW, endW], ONNX is [beginH, beginW, endH, endW]
+  let webnnPads = [pads[0], pads[2], pads[1], pads[3]];
+
+  let inputExpr = inputVars[0];
+  let paddingOpt = `padding: [${webnnPads.join(', ')}]`;
+
+  // Emulate count_include_pad=1 by explicit pad op
+  if (countIncludePad === 1) {
+    let beginPad, endPad;
+    if (nhwc) {
+      beginPad = [0, pads[0], pads[1], 0];
+      endPad = [0, pads[2], pads[3], 0];
+    } else {
+      beginPad = [0, 0, pads[0], pads[1]];
+      endPad = [0, 0, pads[2], pads[3]];
     }
-    // Add other attributes as needed
+    inputExpr = `builder.pad(${inputVars[0]}, [${beginPad.join(', ')}], [${endPad.join(', ')}])`;
+    paddingOpt = ''; // Don't set padding in averagePool2d
   }
 
-  poolOpts.push(`layout: '${nhwc ? 'nhwc' : 'nchw'}'`);
-  if (node.name) {
-    poolOpts.push(`label: '${node.name}'`);
-  }
+  const poolOpts: string[] = [
+    `windowDimensions: [${kernelShape.join(', ')}]`,
+    `strides: [${strides.join(', ')}]`,
+    `dilations: [${dilations.join(', ')}]`,
+    `roundingType: '${ceilMode === 1 ? 'ceil' : 'floor'}'`,
+    `layout: '${nhwc ? 'nhwc' : 'nchw'}'`
+  ];
+  if (paddingOpt) poolOpts.push(paddingOpt);
+  if (node.name) poolOpts.push(`label: '${node.name}'`);
 
   return `
     const ${outputVars[0]} = builder.averagePool2d(
-      ${inputVars[0]},
+      ${inputExpr},
       { ${poolOpts.join(', ')} }
     );`;
 }
