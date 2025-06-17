@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttr,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -20,16 +21,15 @@ export function BatchNormalization(
   // WebNN: batchNormalization(input, mean, variance, {scale, bias, axis, epsilon, label})
   const inputVars = getInputVars(node, toJsVarName); // [input, scale, bias, mean, var]
   const outputVars = getOutputVars(node, toJsVarName);
+  const nhwc = !!options.nhwc;
 
   // Try to get input shape if available
-  const inputShape = node.inputs?.[0]?.shape;
+  const inputShape = getShape(node, 0, nhwc);
   // Determine layout: default to NCHW, allow NHWC if requested
-  const layout = options.nhwc ? 'nhwc' : 'nchw';
-
   // Axis: NCHW=1, NHWC=last dimension
   let axis = getAttr(node, 'axis', undefined);
   if (axis === undefined) {
-    if (layout === 'nhwc' && inputShape && inputShape.length > 0) {
+    if (nhwc && inputShape && inputShape.length > 0) {
       axis = inputShape.length - 1;
     } else {
       axis = 1;

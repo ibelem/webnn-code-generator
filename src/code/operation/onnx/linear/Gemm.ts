@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -43,9 +44,9 @@ export function Gemm(
   let transB = Number(attrDict['transB']?.value?.value ?? 0);
 
   // Get input and weight shapes
-  const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
-  const weightShape = node.inputs?.[1]?.value?.[0]?.type?.shape?.dimensions;
-  // const biasShape = node.inputs?.[2]?.value?.[0]?.type?.shape?.dimensions;
+  const inputShape = getShape(node, 0, nhwc);
+  const weightShape = getShape(node, 1, nhwc);
+  // const biasShape = getShape(node, 2, nhwc);
 
   // Debug string to include in output
   let debugComment = '';

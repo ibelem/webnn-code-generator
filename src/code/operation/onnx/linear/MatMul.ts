@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -17,8 +18,8 @@ export function MatMul(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Try to get input shapes if available
-  const aShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
-  const bShape = node.inputs?.[1]?.value?.[0]?.type?.shape?.dimensions;
+  const aShape = getShape(node, 0, false);
+  const bShape = getShape(node, 1, false);
   const outputShape = node.outputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
 
   let aVar = inputVars[0];

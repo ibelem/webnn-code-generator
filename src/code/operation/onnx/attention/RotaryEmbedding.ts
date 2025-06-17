@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttr,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -27,8 +28,8 @@ export function RotaryEmbedding(
   let rotary_embedding_dim = getAttr(node, 'rotary_embedding_dim', 0);
 
   // Shapes
-  const inputShape = node.inputs?.[0]?.shape || [];
-  const cosCacheShape = node.inputs?.[1]?.shape || [];
+  const inputShape = getShape(node, 0, false);
+  const cosCacheShape = getShape(node, 1, false);
   const hasPositionIds = !!node.inputs?.[3];
   // const positionIdsShape = node.inputs?.[3]?.shape || [];
   const inputIs4D = inputShape.length === 4;

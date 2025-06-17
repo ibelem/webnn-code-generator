@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttr,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -17,7 +18,7 @@ export function Split(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Get axis (default 0, handle negative axis)
-  const inputShape = node.inputs?.[0]?.shape;
+  const inputShape = getShape(node, 0, false);
   const rank = inputShape ? inputShape.length : undefined;
   let axis = getAttr(node, 'axis', 0);
   if (axis < 0 && rank !== undefined) axis += rank;

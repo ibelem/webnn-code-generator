@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -24,7 +25,7 @@ export function Gather(
   }
 
   // Handle negative axis
-  const inputShape = node.inputs?.[0]?.shape || [];
+  const inputShape = getShape(node, 0, false);
   const rank = inputShape.length;
   if (axis < 0) axis += rank;
 

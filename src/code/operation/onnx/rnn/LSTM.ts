@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -27,7 +28,7 @@ export function LSTM(
   }
 
   // Get steps from input shape
-  const inputShape = node.inputs?.[0]?.shape || [];
+  const inputShape = getShape(node, 0, false);
   const steps = inputShape[0];
 
   // Build options

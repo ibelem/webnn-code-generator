@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 import { ScaledDotProductAttention } from './ScaledDotProductAttention';
 
@@ -25,7 +26,7 @@ export function MultiHeadAttention(
   if (!numHeads) throw new Error('MultiHeadAttention: num_heads attribute is required');
 
   // Shapes
-  const qShape = node.inputs?.[0]?.shape || [];
+  const qShape = getShape(node, 0, false); // or true for NHWC if needed
   const batch = qShape[0], seq = qShape[1], hidden = qShape[2];
   const headSize = Math.floor(hidden / numHeads);
 

@@ -2,9 +2,7 @@ import {
   getInputVars,
   getOutputVars
 } from '../../operation-utils';
-import {
-  getModelState 
-} from '../../../../ui/';
+import { getModelState } from '../../../../ui';
 
 /**
  * Generate JavaScript code for a WebNN reshape operation from ONNX Reshape node info.
@@ -18,8 +16,6 @@ export function Reshape(
 ): string {
   const nhwc = !!options.nhwc;
   const { weightNchwBin, weightNhwcBin } = getModelState();
-  const weights_array_buffer = nhwc ? weightNhwcBin : weightNchwBin;
-
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
@@ -44,6 +40,10 @@ export function Reshape(
     }
     
     // Only support BigInt64Array for shape tensor
+    const weights_array_buffer = nhwc ? weightNhwcBin : weightNchwBin;
+    if (!weights_array_buffer) {
+      throw new Error('Weights array buffer is null');
+    }
     const js_shape_array = new BigInt64Array(weights_array_buffer, shape_offset, shape_length / BigInt64Array.BYTES_PER_ELEMENT);
     const array = Array.from(js_shape_array, Number);
 

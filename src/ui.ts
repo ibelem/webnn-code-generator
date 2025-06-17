@@ -117,24 +117,24 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
       if (graphUrl) {
         const graphResponse = await responses[idx++].json();
         modelFileState.graphModelData = graphResponse;
-        updateFileInfo('graph-file-info', { name: graphUrl, size: JSON.stringify(graphResponse).length } as File);
+        updateFileInfo('graph-file-info', { name: graphUrl, size: JSON.stringify(graphResponse).length }, true);
         renderGraphDetails(modelFileState.graphModelData?.graph[0]);
       }
       if (weightUrl) {
         const weightResponse = await responses[idx++].json();
         modelFileState.weightModelData = weightResponse;
-        updateFileInfo('weight-file-info', { name: weightUrl, size: JSON.stringify(weightResponse).length } as File);
+        updateFileInfo('weight-file-info', { name: weightUrl, size: JSON.stringify(weightResponse).length }, true);
         renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
       }
       if (weightNchwBinUrl) {
         const bin = await responses[idx++].arrayBuffer();
         modelFileState.weightNchwBin = bin;
-        updateFileInfo('weight-nchw-bin-file-info', { name: weightNchwBinUrl, size: bin.byteLength } as File);
+        updateFileInfo('weight-nchw-bin-file-info', { name: weightNchwBinUrl, size: bin.byteLength }, true);
       }
       if (weightNhwcBinUrl) {
         const bin = await responses[idx++].arrayBuffer();
         modelFileState.weightNhwcBin = bin;
-        updateFileInfo('weight-nhwc-bin-file-info', { name: weightNhwcBinUrl, size: bin.byteLength } as File);
+        updateFileInfo('weight-nhwc-bin-file-info', { name: weightNhwcBinUrl, size: bin.byteLength }, true);
       }
 
       appendLogMessage('Model files fetched successfully.');
@@ -176,7 +176,7 @@ export const setupFileInputs = (): void => {
     processFileContent(file, (data) => {
       try {
         modelFileState.graphModelData = JSON.parse(data as string);
-        updateFileInfo('graph-file-info', file);
+        updateFileInfo('graph-file-info', file, false); // local file
         appendLogMessage('Graph file loaded successfully');
         renderGraphDetails(modelFileState.graphModelData?.graph[0]); // Render graph details
         updateGenerateButtonState();
@@ -191,7 +191,7 @@ export const setupFileInputs = (): void => {
     processFileContent(file, (data) => {
       try {
         modelFileState.weightModelData = JSON.parse(data as string);
-        updateFileInfo('weight-file-info', file);
+        updateFileInfo('weight-file-info', file, false); // local file
         appendLogMessage('Weight file loaded successfully');
         if (modelFileState.weightModelData) {
           renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
@@ -209,7 +209,7 @@ export const setupFileInputs = (): void => {
   setupFileInput('weight-nchw-bin-file-input', (file) => {
     processFileContent(file, (data) => {
       modelFileState.weightNchwBin = data as ArrayBuffer;
-      updateFileInfo('weight-nchw-bin-file-info', file);
+      updateFileInfo('weight-nchw-bin-file-info', file, false); // local file
       appendLogMessage('NCHW bin file loaded successfully');
       updateGenerateButtonState();
     });
@@ -218,7 +218,7 @@ export const setupFileInputs = (): void => {
   setupFileInput('weight-nhwc-bin-file-input', (file) => {
     processFileContent(file, (data) => {
       modelFileState.weightNhwcBin = data as ArrayBuffer;
-      updateFileInfo('weight-nhwc-bin-file-info', file);
+      updateFileInfo('weight-nhwc-bin-file-info', file, false); // local file
       appendLogMessage('NHWC bin file loaded successfully');
       updateGenerateButtonState();
     });
@@ -228,23 +228,22 @@ export const setupFileInputs = (): void => {
 };
 
 /**
- * Update the displayed file information (size and name)
- * @param elementId - ID of the element to update
- * @param file - The file object
+ * Update the file info element with the file name, size, and source logo.
+ * @param elementId - The id of the element to update
+ * @param file - The File object or { name, size }
+ * @param isInternet - true if the file was fetched from the internet, false if local
  */
-const updateFileInfo = (elementId: string, file: File): void => {
-  const element = document.querySelector<HTMLSpanElement>(`#${elementId}`);
+function updateFileInfo(
+  elementId: string,
+  file: File | { name: string, size: number },
+  isInternet: boolean = false
+) {
+  const element = document.getElementById(elementId);
   if (!element) return;
-
-  // Determine file size in KB or MB
-  const fileSizeInKB = file.size / 1024;
-  const fileSize = fileSizeInKB < 1024
-    ? `${fileSizeInKB.toFixed(2)} KB`
-    : `${(fileSizeInKB / 1024).toFixed(2)} MB`;
-
-  // Update the element with file size and name
-  element.innerHTML = `${localLogo} ${file.name?.replace('weights_', '')} · ${fileSize}`;
-};
+  const fileSize = typeof file.size === 'number' ? `${(file.size / 1024).toFixed(1)} KB` : '';
+  const logo = isInternet ? internetLogo : localLogo;
+  element.innerHTML = `${logo} ${file.name?.replace('weights_', '')} · ${fileSize}`;
+}
 
 /**
  * Initialize the UI

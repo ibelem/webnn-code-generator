@@ -1,6 +1,7 @@
 import {
   getInputVars,
-  getOutputVars
+  getOutputVars,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -74,8 +75,8 @@ export function Pad(
     );`;
 
   // If negative padding, add a slice op after pad
-  if (needsSlice && node.inputs?.[0]?.shape) {
-    const inputShape = node.inputs[0].shape;
+  if (needsSlice && getShape(node, 0, false)) {
+    const inputShape = getShape(node, 0, false);
     const starts = beginningPadding.map((v) => v < 0 ? -v : 0);
     const sizes = inputShape.map((dim: number, i: number) =>
       dim + (beginningPadding[i] || 0) + (endingPadding[i] || 0)

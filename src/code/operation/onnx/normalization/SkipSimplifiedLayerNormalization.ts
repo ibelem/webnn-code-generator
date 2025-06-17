@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getAttr
+  getAttr,
+  getShape
 } from '../../operation-utils';
 
 /**
@@ -30,7 +31,7 @@ export function SkipSimplifiedLayerNormalization(
 
   // Get axes attribute
   let axes = getAttr(node, 'axes', undefined);
-  const shape = node.inputs?.[0]?.shape;
+  const shape = getShape(node, 0, nhwc);
   
   if (!axes) {
     // Handle layout-specific axis selection for 4D tensors (image data)
