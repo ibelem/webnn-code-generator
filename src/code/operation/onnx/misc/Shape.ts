@@ -15,7 +15,7 @@ export function Shape(
 ): string {
   const nhwc = !!options.nhwc;
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);
+  const { shape: inputShape } = getShape(node, 0, nhwc);
 
   // Prefer int64, fallback to int32 for compatibility
   // For codegen, use int32 for broad compatibility

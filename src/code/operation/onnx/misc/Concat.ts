@@ -23,7 +23,7 @@ export function Concat(
   // Try to get input rank for negative axis handling
   let inputRank = 0;
   if (node.inputs && node.inputs.length > 0) {
-    const shape = getShape(node, 0, false);
+    const { shape } = getShape(node, 0, false);
     if (Array.isArray(shape)) inputRank = shape.length;
   }
 

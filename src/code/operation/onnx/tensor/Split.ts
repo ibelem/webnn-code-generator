@@ -18,7 +18,7 @@ export function Split(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Get axis (default 0, handle negative axis)
-  const inputShape = getShape(node, 0, false);
+  const { shape: inputShape } = getShape(node, 0, false);
   const rank = inputShape ? inputShape.length : undefined;
   let axis = getAttrValue(node, 'axis', 0);
   if (axis < 0 && rank !== undefined) axis += rank;

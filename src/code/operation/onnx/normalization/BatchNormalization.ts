@@ -24,7 +24,7 @@ export function BatchNormalization(
   const nhwc = !!options.nhwc;
 
   // Try to get input shape if available
-  const inputShape = getShape(node, 0, nhwc);
+  const { shape: inputShape } = getShape(node, 0, nhwc);
   // Determine layout: default to NCHW, allow NHWC if requested
   // Axis: NCHW=1, NHWC=last dimension
   let axis = getAttrValue(node, 'axis', undefined);

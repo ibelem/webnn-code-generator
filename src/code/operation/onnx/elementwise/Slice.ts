@@ -18,7 +18,7 @@ export function Slice(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);
+  const { shape: inputShape} = getShape(node, 0, nhwc);
 
   // Helper to extract initializer array from input index
   function getInitializerArr(idx: number): number[] | undefined {

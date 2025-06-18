@@ -24,8 +24,8 @@ export function GroupQueryAttention(
   if (!numHeads || !kvNumHeads) throw new Error('GroupQueryAttention: num_heads and kv_num_heads are required');
 
   // Shapes
-  const qShape = getShape(node, 0, false); // or true for NHWC if needed
-  const batch = qShape[0], seq = qShape[1], hidden = qShape[2];
+  const { shape } = getShape(node, 0, false); // or true for NHWC if needed
+  const batch = shape[0], seq = shape[1], hidden = shape[2];
   const headSize = Math.floor(hidden / numHeads);
 
   // Reshape/transpose query, key, value

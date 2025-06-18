@@ -69,7 +69,7 @@ export function Conv2D(
   const biasVar = inputVars.length > 2 ? inputVars[2] : undefined;
 
   // Extract filter shape
-  const filterShape = getShape(node, 1, nhwc);
+  const { shape: filterShape } = getShape(node, 1, nhwc);
 
   // Determine inputLayout and filterLayout
   let inputLayout = nhwc ? "'nhwc'" : "'nchw'";

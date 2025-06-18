@@ -28,8 +28,8 @@ export function RotaryEmbedding(
   let rotary_embedding_dim = getAttrValue(node, 'rotary_embedding_dim', 0);
 
   // Shapes
-  const inputShape = getShape(node, 0, false);
-  const cosCacheShape = getShape(node, 1, false);
+  const { shape: inputShape } = getShape(node, 0, nhwc);
+  const { shape: cosCacheShape } = getShape(node, 1, nhwc);
   const hasPositionIds = !!node.inputs?.[3];
   // const positionIdsShape = node.inputs?.[3]?.shape || [];
   const inputIs4D = inputShape.length === 4;

@@ -23,7 +23,7 @@ export function ScatterElements(
   // WebNN scatterElements only supports reduction type "none" (default).
 
   // Handle negative axis
-  const inputShape = getShape(node, 0, false);
+  const { shape: inputShape } = getShape(node, 0, false);
   const rank = inputShape.length;
   if (axis < 0) axis += rank;
 

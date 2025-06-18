@@ -18,8 +18,8 @@ export function DequantizeLinear(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);
-  const scaleShape = getShape(node, 1, nhwc);
+  const { shape: inputShape } = getShape(node, 0, nhwc);
+  const { shape: scaleShape } = getShape(node, 1, nhwc);
   const inputDtype = getDataType(node, 0);
 
   // Axis attribute (default 1, handle negative axis)
@@ -61,7 +61,7 @@ export function DequantizeLinear(
     })());
 
     if (node.inputs.length > 2 && node.inputs[2]?.value?.[0]) {
-      const zpShape = getShape(node, 2, nhwc);
+      const { shape: zpShape } = getShape(node, 2, nhwc);
       zeroPointExpr = inlineReshape(inputVars[2], zpShape, (() => {
         if (zpShape.length === inputShape.length) return zpShape;
         const newShape = Array(inputShape.length).fill(1);

@@ -33,7 +33,7 @@ export function LayerNormalization(
   
   if (!axes) {
     // Try to infer rank from input shape if available
-    const shape = getShape(node, 0, nhwc);
+    const { shape } = getShape(node, 0, nhwc);
     if (shape && shape.length > 0) {
       // Default behavior: normalize over last axis (per ONNX spec)
       axes = [shape.length - 1];

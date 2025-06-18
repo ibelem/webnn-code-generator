@@ -23,8 +23,8 @@ export function MultiHeadAttention(
   if (!numHeads) throw new Error('MultiHeadAttention: num_heads attribute is required');
 
   // Shapes
-  const qShape = getShape(node, 0, false); // or true for NHWC if needed
-  const batch = qShape[0], seq = qShape[1], hidden = qShape[2];
+  const { shape } = getShape(node, 0, false); // or true for NHWC if needed
+  const batch = shape[0], seq = shape[1], hidden = shape[2];
   const headSize = Math.floor(hidden / numHeads);
 
   // Robust scale extraction: use attribute if present, else default to 1/Math.sqrt(headSize)

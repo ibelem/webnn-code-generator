@@ -16,7 +16,7 @@ export function Flatten(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const { shape: inputShape } = getShape(node, 0, false);
 
   // Default axis is 1 (ONNX spec)
   let axis = getAttrValue(node, 'axis', 1);

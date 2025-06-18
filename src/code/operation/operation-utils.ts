@@ -62,38 +62,43 @@ export function getAttrValue(node: any, name: string, defaultValue: any = undefi
 }
 
 // Extract shape and dtype from a node input/output
-export function getShape(node: any, idx: number = 0, nhwc: boolean = false): number[] {
+export function getShape(
+  node: any,
+  idx: number = 0,
+  nhwc: boolean = false
+): { shape: number[], info: { conv: boolean, depthwise: boolean, convTranspose: boolean } } {
   let shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
   shape = applyFreeDimsOverrides(shape, freeDimsOverrides);
 
-  // Align with https://github.com/ibelem/netron/blob/webnn-netron-2/source/view.js#L1108
+  let conv = false, depthwise = false, convTranspose = false;
+
   if (nhwc && shape.length === 4) {
     const nodeType = node.type?.name?.toLowerCase() || '';
-    const isConv = nodeType.includes('conv');
-    const isConvTranspose = nodeType.includes('convtranspose') || nodeType.includes('transposeconv');
+    conv = nodeType.includes('conv');
+    convTranspose = nodeType.includes('convtranspose') || nodeType.includes('transposeconv');
     const groupsAttr = node.attributes?.find((a: any) => a.name === 'group' || a.name === 'groups');
     const groups = groupsAttr ? Number(Array.isArray(groupsAttr.value) ? groupsAttr.value[0] : groupsAttr.value) : 1;
     const inChannels = shape[1];
     const outChannels = shape[0];
-    const isDepthwise = isConv && groups === inChannels && (outChannels % inChannels === 0);
+    depthwise = conv && groups === inChannels && (outChannels % inChannels === 0);
 
-    if (isDepthwise) {
+    if (depthwise) {
       // Depthwise Conv: OIHW -> IHWO
-      return [shape[1], shape[2], shape[3], shape[0]];
+      return { shape: [shape[1], shape[2], shape[3], shape[0]], info: { conv, depthwise, convTranspose } };
     }
-    if (isConvTranspose) {
-      // ConvTranspose: OIHW -> HWIO (common for TF, check your framework)
-      return [shape[2], shape[3], shape[1], shape[0]];
+    if (convTranspose) {
+      // ConvTranspose: OIHW -> HWIO
+      return { shape: [shape[2], shape[3], shape[1], shape[0]], info: { conv, depthwise, convTranspose } };
     }
-    if (isConv) {
+    if (conv) {
       // Regular Conv: OIHW -> OHWI
-      return [shape[0], shape[2], shape[3], shape[1]];
+      return { shape: [shape[0], shape[2], shape[3], shape[1]], info: { conv, depthwise, convTranspose } };
     }
     // Default: NCHW -> NHWC
-    return [shape[0], shape[2], shape[3], shape[1]];
+    return { shape: [shape[0], shape[2], shape[3], shape[1]], info: { conv, depthwise, convTranspose } };
   }
 
-  return shape;
+  return { shape, info: { conv: false, depthwise: false, convTranspose: false } };
 }
 
 export function getDataType(node: any, idx: number = 0): string {

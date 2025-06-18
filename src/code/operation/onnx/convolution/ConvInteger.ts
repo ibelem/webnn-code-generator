@@ -72,10 +72,11 @@ export function ConvInteger(
   const groups_js = String(Number(groups));
 
   // Filter shape and layout
-  const filterShape = getShape(node, 1, nhwc);
+  const { shape: inputShape } = getShape(node, 0, nhwc);
+  const { shape: filterShape } = getShape(node, 1, nhwc);
+
   let isDepthwise = false;
   if (groups !== 1 && filterShape.length === 4) {
-    const inputShape = getShape(node, 0, nhwc);
     const inputChannels = nhwc ? inputShape[3] : inputShape[1];
     if (groups === inputChannels) isDepthwise = true;
   }

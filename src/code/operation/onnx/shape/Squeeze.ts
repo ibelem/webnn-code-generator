@@ -16,7 +16,7 @@ export function Squeeze(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const { shape: inputShape } = getShape(node, 0, false);
 
   // Get axes from input[1] (opset >= 13) or attribute
   let axes: number[] | undefined;

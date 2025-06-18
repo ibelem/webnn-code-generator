@@ -16,7 +16,7 @@ export function Transpose(
 ): string {
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0);
+  const { shape: inputShape } = getShape(node, 0, false);
 
   // Use getAttrValue for robust attribute extraction
   let permutation = getAttrValue(node, 'perm', undefined);

@@ -28,7 +28,7 @@ export function GlobalLpPool(
   }
 
   // Get input shape and compute windowDimensions for global pooling
-  const inputShape = getShape(node, 0, nhwc);
+  const { shape: inputShape } = getShape(node, 0, nhwc);
   // NCHW: [b, c, h, w] -> [h, w], NHWC: [b, h, w, c] -> [h, w]
   const windowDims = nhwc
     ? [inputShape[1], inputShape[2]]

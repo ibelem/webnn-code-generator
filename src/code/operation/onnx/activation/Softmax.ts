@@ -19,7 +19,7 @@ export function Softmax(
   const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
-  const inputShape = getShape(node, 0, nhwc);
+  const { shape } = getShape(node, 0, nhwc);
 
   // Default axis is 1 for ONNX Softmax (opset <13), -1 for opset >=13
   const initAxis = (typeof node.opset === 'number' && node.opset >= 13) ? -1 : 1;
@@ -27,7 +27,7 @@ export function Softmax(
 
   // Handle negative axis
   if (axis < 0) {
-    axis = inputShape.length + axis;
+    axis = shape.length + axis;
   }
 
   return `

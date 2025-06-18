@@ -18,8 +18,8 @@ export function MatMul(
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Try to get input shapes if available
-  const aShape = getShape(node, 0, false);
-  const bShape = getShape(node, 1, false);
+  const { shape: aShape } = getShape(node, 0, false);
+  const { shape: bShape } = getShape(node, 1, false);
   const outputShape = node.outputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
 
   let aVar = inputVars[0];

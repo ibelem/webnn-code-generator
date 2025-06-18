@@ -35,7 +35,7 @@ function ArgMinMax(
   // Get input rank for negative axis handling and validation
   let inputRank = 0;
   if (node.inputs && node.inputs.length > 0) {
-    const shape = getShape(node, 0, false);
+    const { shape } = getShape(node, 0, false);
     if (Array.isArray(shape)) inputRank = shape.length;
   }
 

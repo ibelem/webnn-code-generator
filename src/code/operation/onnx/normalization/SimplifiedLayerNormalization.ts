@@ -30,7 +30,7 @@ export function SimplifiedLayerNormalization(
 
   // Get axes attribute
   let axes = getAttrValue(node, 'axes', undefined);
-  const shape = getShape(node, 0, nhwc);
+  const { shape } = getShape(node, 0, nhwc);
   
   if (!axes) {
     // Handle layout-specific axis selection for 4D tensors (image data)

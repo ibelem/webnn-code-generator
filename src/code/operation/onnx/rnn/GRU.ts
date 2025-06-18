@@ -23,7 +23,7 @@ export function GRU(
   let activations = getAttrValue(node, 'activations', undefined);
 
   // Get steps from input shape
-  const inputShape = getShape(node, 0, false);
+  const { shape: inputShape } = getShape(node, 0, false);
   const steps = inputShape[0];
 
   // Build options
