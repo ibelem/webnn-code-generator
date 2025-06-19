@@ -111,20 +111,6 @@ function buildCodeWithLayout(nhwc: boolean) {
               let shape;
               binShape && binShape.shape ? shape = binShape.shape : shape = initializer.type.shape.dimensions;
 
-              // // Detect if this initializer is a Conv/ConvTranspose filter
-              // let nodeType = '';
-              // let isDepthwise = false;
-              // if (node && (node.type?.name === 'Conv' || node.type?.name === 'ConvTranspose')) {
-              //   nodeType = node.type.name;
-              //   // Depthwise: groups == inputChannels and shape[0] == groups
-              //   const groups = node.attributes?.find((attr: any) => attr.name === 'group')?.value?.value ?? 1;
-              //   const inputShape = node.inputs?.[0]?.value?.[0]?.type?.shape?.dimensions;
-              //   const inputChannels = nhwc ? inputShape?.[3] : inputShape?.[1];
-              //   isDepthwise = (groups === inputChannels && groups !== 1);
-              //   // shape is OIHW
-              //   shape = permuteWeightShape(shape, nhwc, nodeType, isDepthwise);
-              // }
-
               let weightsDataOffset = weightModelData?.[name]?.dataOffset;
               let weightsByteLength = weightModelData?.[name]?.byteLength;
 

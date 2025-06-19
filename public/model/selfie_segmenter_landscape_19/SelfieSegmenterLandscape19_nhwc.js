@@ -76,7 +76,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__377 = builder.constant(
-      { dataType: 'float32', shape: [16,3,3,1] },
+      { dataType: 'float32', shape: [1,3,3,16] },
       new Float32Array(weights_array_buffer, 2912, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -136,7 +136,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__387 = builder.constant(
-      { dataType: 'float32', shape: [72,3,3,1] },
+      { dataType: 'float32', shape: [1,3,3,72] },
       new Float32Array(weights_array_buffer, 10656, 2592 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -172,7 +172,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__385 = builder.constant(
-      { dataType: 'float32', shape: [88,3,3,1] },
+      { dataType: 'float32', shape: [1,3,3,88] },
       new Float32Array(weights_array_buffer, 29344, 3168 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -208,7 +208,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__383 = builder.constant(
-      { dataType: 'float32', shape: [96,5,5,1] },
+      { dataType: 'float32', shape: [1,5,5,96] },
       new Float32Array(weights_array_buffer, 51040, 9600 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -268,7 +268,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__381 = builder.constant(
-      { dataType: 'float32', shape: [128,5,5,1] },
+      { dataType: 'float32', shape: [1,5,5,128] },
       new Float32Array(weights_array_buffer, 109312, 12800 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -328,7 +328,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__379 = builder.constant(
-      { dataType: 'float32', shape: [128,5,5,1] },
+      { dataType: 'float32', shape: [1,5,5,128] },
       new Float32Array(weights_array_buffer, 189504, 12800 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -388,7 +388,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__395 = builder.constant(
-      { dataType: 'float32', shape: [96,5,5,1] },
+      { dataType: 'float32', shape: [1,5,5,96] },
       new Float32Array(weights_array_buffer, 265472, 9600 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -448,7 +448,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__407 = builder.constant(
-      { dataType: 'float32', shape: [96,5,5,1] },
+      { dataType: 'float32', shape: [1,5,5,96] },
       new Float32Array(weights_array_buffer, 319520, 9600 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -568,7 +568,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__394 = builder.constant(
-      { dataType: 'float32', shape: [24,3,3,1] },
+      { dataType: 'float32', shape: [1,3,3,24] },
       new Float32Array(weights_array_buffer, 414288, 864 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -628,7 +628,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__391 = builder.constant(
-      { dataType: 'float32', shape: [16,3,3,1] },
+      { dataType: 'float32', shape: [1,3,3,16] },
       new Float32Array(weights_array_buffer, 420160, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
@@ -688,7 +688,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     
     // index.ts line 145 '<'
     const const_fold_opt__389 = builder.constant(
-      { dataType: 'float32', shape: [16,3,3,1] },
+      { dataType: 'float32', shape: [1,3,3,16] },
       new Float32Array(weights_array_buffer, 425200, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     

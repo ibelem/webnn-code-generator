@@ -1,27 +1,5 @@
 import { freeDimsOverrides } from '../../ui'
 
-export function permuteWeightShape(
-  shape: number[],
-  nhwc: boolean,
-  nodeType: string,
-  isDepthwise: boolean
-): number[] {
-  if (!nhwc || shape.length !== 4) return shape;
-
-  // Depthwise Conv or ConvTranspose: OIHW -> IHWO (perm [1,2,3,0])
-  if ((nodeType === 'Conv' && isDepthwise) || nodeType === 'ConvTranspose') {
-    return [shape[1], shape[2], shape[3], shape[0]];
-  }
-
-  // Regular Conv: OIHW -> OHWI (perm [0,2,3,1])
-  if (nodeType === 'Conv') {
-    return [shape[0], shape[2], shape[3], shape[1]];
-  }
-
-  // Default: no permutation
-  return shape;
-}
-
 // Extract variable names from ONNX node inputs/outputs
 export function getInputVars(node: any, toJsVarName: (name: string) => string): string[] {
   return (node.inputs || [])
@@ -70,18 +48,18 @@ export function getShape(
   let shape = node.inputs?.[idx]?.value?.[0]?.type?.shape?.dimensions || [];
   shape = applyFreeDimsOverrides(shape, freeDimsOverrides);
 
-  let conv = false, depthwise = false, convTranspose = false;
+  // Detect op type and depthwise regardless of layout
+  const nodeType = node.type?.name?.toLowerCase() || '';
+  const conv = nodeType.includes('conv');
+  const convTranspose = nodeType.includes('convtranspose') || nodeType.includes('transposeconv');
+  const groupsAttr = node.attributes?.find((a: any) => a.name === 'group' || a.name === 'groups');
+  const groups = groupsAttr ? Number(Array.isArray(groupsAttr.value) ? groupsAttr.value[0] : groupsAttr.value) : 1;
+  const inChannels = shape[1];
+  const outChannels = shape[0];
+  const depthwise = conv && groups === inChannels && (outChannels % inChannels === 0);
 
+  // Only the returned shape is impacted by layout
   if (nhwc && shape.length === 4) {
-    const nodeType = node.type?.name?.toLowerCase() || '';
-    conv = nodeType.includes('conv');
-    convTranspose = nodeType.includes('convtranspose') || nodeType.includes('transposeconv');
-    const groupsAttr = node.attributes?.find((a: any) => a.name === 'group' || a.name === 'groups');
-    const groups = groupsAttr ? Number(Array.isArray(groupsAttr.value) ? groupsAttr.value[0] : groupsAttr.value) : 1;
-    const inChannels = shape[1];
-    const outChannels = shape[0];
-    depthwise = conv && groups === inChannels && (outChannels % inChannels === 0);
-
     if (depthwise) {
       // Depthwise Conv: OIHW -> IHWO
       return { shape: [shape[1], shape[2], shape[3], shape[0]], info: { conv, depthwise, convTranspose } };
@@ -98,7 +76,8 @@ export function getShape(
     return { shape: [shape[0], shape[2], shape[3], shape[1]], info: { conv, depthwise, convTranspose } };
   }
 
-  return { shape, info: { conv: false, depthwise: false, convTranspose: false } };
+  // For NCHW or other layouts, just return the original shape and correct info
+  return { shape, info: { conv, depthwise, convTranspose } };
 }
 
 export function getDataType(node: any, idx: number = 0): string {

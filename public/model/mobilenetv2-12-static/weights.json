@@ -10,17 +10,11 @@
     "dataOffset": 8827824,
     "byteLength": 16,
     "nchw": {
-      "shape": [
-        2
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [2],
+      "kernel_layout": ""},
     "nhwc": {
-      "shape": [
-        2
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [2],
+      "kernel_layout": ""}
   },
   "475": {
     "nodeName": "Conv_0",
@@ -33,23 +27,11 @@
     "dataOffset": 0,
     "byteLength": 3456,
     "nchw": {
-      "shape": [
-        32,
-        3,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [32, 3, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32,
-        3,
-        3,
-        3
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [32, 3, 3, 3],
+      "kernel_layout": "OHWI"}
   },
   "476": {
     "nodeName": "Conv_0",
@@ -62,17 +44,11 @@
     "dataOffset": 3456,
     "byteLength": 128,
     "nchw": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [32],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [32],
+      "kernel_layout": "OHWI"}
   },
   "478": {
     "nodeName": "Conv_2",
@@ -85,23 +61,11 @@
     "dataOffset": 3600,
     "byteLength": 1152,
     "nchw": {
-      "shape": [
-        32,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [32, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [32, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "479": {
     "nodeName": "Conv_2",
@@ -114,17 +78,11 @@
     "dataOffset": 4752,
     "byteLength": 128,
     "nchw": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [32],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [32],
+      "kernel_layout": "OHWI"}
   },
   "481": {
     "nodeName": "Conv_4",
@@ -137,23 +95,11 @@
     "dataOffset": 4896,
     "byteLength": 2048,
     "nchw": {
-      "shape": [
-        16,
-        32,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [16, 32, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        16,
-        1,
-        1,
-        32
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [16, 1, 1, 32],
+      "kernel_layout": "OHWI"}
   },
   "482": {
     "nodeName": "Conv_4",
@@ -166,17 +112,11 @@
     "dataOffset": 6944,
     "byteLength": 64,
     "nchw": {
-      "shape": [
-        16
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [16],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        16
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [16],
+      "kernel_layout": "OHWI"}
   },
   "484": {
     "nodeName": "Conv_5",
@@ -189,23 +129,11 @@
     "dataOffset": 7008,
     "byteLength": 6144,
     "nchw": {
-      "shape": [
-        96,
-        16,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [96, 16, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96,
-        1,
-        1,
-        16
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [96, 1, 1, 16],
+      "kernel_layout": "OHWI"}
   },
   "485": {
     "nodeName": "Conv_5",
@@ -218,17 +146,11 @@
     "dataOffset": 13152,
     "byteLength": 384,
     "nchw": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [96],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [96],
+      "kernel_layout": "OHWI"}
   },
   "487": {
     "nodeName": "Conv_7",
@@ -241,23 +163,11 @@
     "dataOffset": 13552,
     "byteLength": 3456,
     "nchw": {
-      "shape": [
-        96,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [96, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [96, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "488": {
     "nodeName": "Conv_7",
@@ -270,17 +180,11 @@
     "dataOffset": 17008,
     "byteLength": 384,
     "nchw": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [96],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [96],
+      "kernel_layout": "OHWI"}
   },
   "490": {
     "nodeName": "Conv_9",
@@ -293,23 +197,11 @@
     "dataOffset": 17408,
     "byteLength": 9216,
     "nchw": {
-      "shape": [
-        24,
-        96,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [24, 96, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        24,
-        1,
-        1,
-        96
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [24, 1, 1, 96],
+      "kernel_layout": "OHWI"}
   },
   "491": {
     "nodeName": "Conv_9",
@@ -322,17 +214,11 @@
     "dataOffset": 26624,
     "byteLength": 96,
     "nchw": {
-      "shape": [
-        24
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [24],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        24
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [24],
+      "kernel_layout": "OHWI"}
   },
   "493": {
     "nodeName": "Conv_10",
@@ -345,23 +231,11 @@
     "dataOffset": 26720,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        144,
-        24,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [144, 24, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144,
-        1,
-        1,
-        24
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [144, 1, 1, 24],
+      "kernel_layout": "OHWI"}
   },
   "494": {
     "nodeName": "Conv_10",
@@ -374,17 +248,11 @@
     "dataOffset": 40544,
     "byteLength": 576,
     "nchw": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [144],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [144],
+      "kernel_layout": "OHWI"}
   },
   "496": {
     "nodeName": "Conv_12",
@@ -397,23 +265,11 @@
     "dataOffset": 41136,
     "byteLength": 5184,
     "nchw": {
-      "shape": [
-        144,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [144, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [144, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "497": {
     "nodeName": "Conv_12",
@@ -426,17 +282,11 @@
     "dataOffset": 46320,
     "byteLength": 576,
     "nchw": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [144],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [144],
+      "kernel_layout": "OHWI"}
   },
   "499": {
     "nodeName": "Conv_14",
@@ -449,23 +299,11 @@
     "dataOffset": 46912,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        24,
-        144,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [24, 144, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        24,
-        1,
-        1,
-        144
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [24, 1, 1, 144],
+      "kernel_layout": "OHWI"}
   },
   "500": {
     "nodeName": "Conv_14",
@@ -478,17 +316,11 @@
     "dataOffset": 60736,
     "byteLength": 96,
     "nchw": {
-      "shape": [
-        24
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [24],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        24
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [24],
+      "kernel_layout": "OHWI"}
   },
   "502": {
     "nodeName": "Conv_16",
@@ -501,23 +333,11 @@
     "dataOffset": 60832,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        144,
-        24,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [144, 24, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144,
-        1,
-        1,
-        24
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [144, 1, 1, 24],
+      "kernel_layout": "OHWI"}
   },
   "503": {
     "nodeName": "Conv_16",
@@ -530,17 +350,11 @@
     "dataOffset": 74656,
     "byteLength": 576,
     "nchw": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [144],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [144],
+      "kernel_layout": "OHWI"}
   },
   "505": {
     "nodeName": "Conv_18",
@@ -553,23 +367,11 @@
     "dataOffset": 75248,
     "byteLength": 5184,
     "nchw": {
-      "shape": [
-        144,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [144, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [144, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "506": {
     "nodeName": "Conv_18",
@@ -582,17 +384,11 @@
     "dataOffset": 80432,
     "byteLength": 576,
     "nchw": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [144],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        144
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [144],
+      "kernel_layout": "OHWI"}
   },
   "508": {
     "nodeName": "Conv_20",
@@ -605,23 +401,11 @@
     "dataOffset": 81024,
     "byteLength": 18432,
     "nchw": {
-      "shape": [
-        32,
-        144,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [32, 144, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32,
-        1,
-        1,
-        144
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [32, 1, 1, 144],
+      "kernel_layout": "OHWI"}
   },
   "509": {
     "nodeName": "Conv_20",
@@ -634,17 +418,11 @@
     "dataOffset": 99456,
     "byteLength": 128,
     "nchw": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [32],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [32],
+      "kernel_layout": "OHWI"}
   },
   "511": {
     "nodeName": "Conv_21",
@@ -657,23 +435,11 @@
     "dataOffset": 99584,
     "byteLength": 24576,
     "nchw": {
-      "shape": [
-        192,
-        32,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [192, 32, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192,
-        1,
-        1,
-        32
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [192, 1, 1, 32],
+      "kernel_layout": "OHWI"}
   },
   "512": {
     "nodeName": "Conv_21",
@@ -686,17 +452,11 @@
     "dataOffset": 124160,
     "byteLength": 768,
     "nchw": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [192],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [192],
+      "kernel_layout": "OHWI"}
   },
   "514": {
     "nodeName": "Conv_23",
@@ -709,23 +469,11 @@
     "dataOffset": 124944,
     "byteLength": 6912,
     "nchw": {
-      "shape": [
-        192,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [192, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [192, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "515": {
     "nodeName": "Conv_23",
@@ -738,17 +486,11 @@
     "dataOffset": 131856,
     "byteLength": 768,
     "nchw": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [192],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [192],
+      "kernel_layout": "OHWI"}
   },
   "517": {
     "nodeName": "Conv_25",
@@ -761,23 +503,11 @@
     "dataOffset": 132640,
     "byteLength": 24576,
     "nchw": {
-      "shape": [
-        32,
-        192,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [32, 192, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32,
-        1,
-        1,
-        192
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [32, 1, 1, 192],
+      "kernel_layout": "OHWI"}
   },
   "518": {
     "nodeName": "Conv_25",
@@ -790,17 +520,11 @@
     "dataOffset": 157216,
     "byteLength": 128,
     "nchw": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [32],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [32],
+      "kernel_layout": "OHWI"}
   },
   "520": {
     "nodeName": "Conv_27",
@@ -813,23 +537,11 @@
     "dataOffset": 157344,
     "byteLength": 24576,
     "nchw": {
-      "shape": [
-        192,
-        32,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [192, 32, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192,
-        1,
-        1,
-        32
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [192, 1, 1, 32],
+      "kernel_layout": "OHWI"}
   },
   "521": {
     "nodeName": "Conv_27",
@@ -842,17 +554,11 @@
     "dataOffset": 181920,
     "byteLength": 768,
     "nchw": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [192],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [192],
+      "kernel_layout": "OHWI"}
   },
   "523": {
     "nodeName": "Conv_29",
@@ -865,23 +571,11 @@
     "dataOffset": 182704,
     "byteLength": 6912,
     "nchw": {
-      "shape": [
-        192,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [192, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [192, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "524": {
     "nodeName": "Conv_29",
@@ -894,17 +588,11 @@
     "dataOffset": 189616,
     "byteLength": 768,
     "nchw": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [192],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [192],
+      "kernel_layout": "OHWI"}
   },
   "526": {
     "nodeName": "Conv_31",
@@ -917,23 +605,11 @@
     "dataOffset": 190400,
     "byteLength": 24576,
     "nchw": {
-      "shape": [
-        32,
-        192,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [32, 192, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32,
-        1,
-        1,
-        192
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [32, 1, 1, 192],
+      "kernel_layout": "OHWI"}
   },
   "527": {
     "nodeName": "Conv_31",
@@ -946,17 +622,11 @@
     "dataOffset": 214976,
     "byteLength": 128,
     "nchw": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [32],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        32
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [32],
+      "kernel_layout": "OHWI"}
   },
   "529": {
     "nodeName": "Conv_33",
@@ -969,23 +639,11 @@
     "dataOffset": 215104,
     "byteLength": 24576,
     "nchw": {
-      "shape": [
-        192,
-        32,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [192, 32, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192,
-        1,
-        1,
-        32
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [192, 1, 1, 32],
+      "kernel_layout": "OHWI"}
   },
   "530": {
     "nodeName": "Conv_33",
@@ -998,17 +656,11 @@
     "dataOffset": 239680,
     "byteLength": 768,
     "nchw": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [192],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [192],
+      "kernel_layout": "OHWI"}
   },
   "532": {
     "nodeName": "Conv_35",
@@ -1021,23 +673,11 @@
     "dataOffset": 240464,
     "byteLength": 6912,
     "nchw": {
-      "shape": [
-        192,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [192, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [192, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "533": {
     "nodeName": "Conv_35",
@@ -1050,17 +690,11 @@
     "dataOffset": 247376,
     "byteLength": 768,
     "nchw": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [192],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        192
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [192],
+      "kernel_layout": "OHWI"}
   },
   "535": {
     "nodeName": "Conv_37",
@@ -1073,23 +707,11 @@
     "dataOffset": 248160,
     "byteLength": 49152,
     "nchw": {
-      "shape": [
-        64,
-        192,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [64, 192, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64,
-        1,
-        1,
-        192
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [64, 1, 1, 192],
+      "kernel_layout": "OHWI"}
   },
   "536": {
     "nodeName": "Conv_37",
@@ -1102,17 +724,11 @@
     "dataOffset": 297312,
     "byteLength": 256,
     "nchw": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [64],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [64],
+      "kernel_layout": "OHWI"}
   },
   "538": {
     "nodeName": "Conv_38",
@@ -1125,23 +741,11 @@
     "dataOffset": 297568,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        384,
-        64,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 64, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        1,
-        1,
-        64
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 1, 1, 64],
+      "kernel_layout": "OHWI"}
   },
   "539": {
     "nodeName": "Conv_38",
@@ -1154,17 +758,11 @@
     "dataOffset": 395872,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "541": {
     "nodeName": "Conv_40",
@@ -1177,23 +775,11 @@
     "dataOffset": 397424,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        384,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "542": {
     "nodeName": "Conv_40",
@@ -1206,17 +792,11 @@
     "dataOffset": 411248,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "544": {
     "nodeName": "Conv_42",
@@ -1229,23 +809,11 @@
     "dataOffset": 412800,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        64,
-        384,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [64, 384, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64,
-        1,
-        1,
-        384
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [64, 1, 1, 384],
+      "kernel_layout": "OHWI"}
   },
   "545": {
     "nodeName": "Conv_42",
@@ -1258,17 +826,11 @@
     "dataOffset": 511104,
     "byteLength": 256,
     "nchw": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [64],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [64],
+      "kernel_layout": "OHWI"}
   },
   "547": {
     "nodeName": "Conv_44",
@@ -1281,23 +843,11 @@
     "dataOffset": 511360,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        384,
-        64,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 64, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        1,
-        1,
-        64
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 1, 1, 64],
+      "kernel_layout": "OHWI"}
   },
   "548": {
     "nodeName": "Conv_44",
@@ -1310,17 +860,11 @@
     "dataOffset": 609664,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "550": {
     "nodeName": "Conv_46",
@@ -1333,23 +877,11 @@
     "dataOffset": 611216,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        384,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "551": {
     "nodeName": "Conv_46",
@@ -1362,17 +894,11 @@
     "dataOffset": 625040,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "553": {
     "nodeName": "Conv_48",
@@ -1385,23 +911,11 @@
     "dataOffset": 626592,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        64,
-        384,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [64, 384, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64,
-        1,
-        1,
-        384
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [64, 1, 1, 384],
+      "kernel_layout": "OHWI"}
   },
   "554": {
     "nodeName": "Conv_48",
@@ -1414,17 +928,11 @@
     "dataOffset": 724896,
     "byteLength": 256,
     "nchw": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [64],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [64],
+      "kernel_layout": "OHWI"}
   },
   "556": {
     "nodeName": "Conv_50",
@@ -1437,23 +945,11 @@
     "dataOffset": 725152,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        384,
-        64,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 64, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        1,
-        1,
-        64
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 1, 1, 64],
+      "kernel_layout": "OHWI"}
   },
   "557": {
     "nodeName": "Conv_50",
@@ -1466,17 +962,11 @@
     "dataOffset": 823456,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "559": {
     "nodeName": "Conv_52",
@@ -1489,23 +979,11 @@
     "dataOffset": 825008,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        384,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "560": {
     "nodeName": "Conv_52",
@@ -1518,17 +996,11 @@
     "dataOffset": 838832,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "562": {
     "nodeName": "Conv_54",
@@ -1541,23 +1013,11 @@
     "dataOffset": 840384,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        64,
-        384,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [64, 384, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64,
-        1,
-        1,
-        384
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [64, 1, 1, 384],
+      "kernel_layout": "OHWI"}
   },
   "563": {
     "nodeName": "Conv_54",
@@ -1570,17 +1030,11 @@
     "dataOffset": 938688,
     "byteLength": 256,
     "nchw": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [64],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        64
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [64],
+      "kernel_layout": "OHWI"}
   },
   "565": {
     "nodeName": "Conv_56",
@@ -1593,23 +1047,11 @@
     "dataOffset": 938944,
     "byteLength": 98304,
     "nchw": {
-      "shape": [
-        384,
-        64,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 64, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        1,
-        1,
-        64
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 1, 1, 64],
+      "kernel_layout": "OHWI"}
   },
   "566": {
     "nodeName": "Conv_56",
@@ -1622,17 +1064,11 @@
     "dataOffset": 1037248,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "568": {
     "nodeName": "Conv_58",
@@ -1645,23 +1081,11 @@
     "dataOffset": 1038800,
     "byteLength": 13824,
     "nchw": {
-      "shape": [
-        384,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [384, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [384, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "569": {
     "nodeName": "Conv_58",
@@ -1674,17 +1098,11 @@
     "dataOffset": 1052624,
     "byteLength": 1536,
     "nchw": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [384],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        384
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [384],
+      "kernel_layout": "OHWI"}
   },
   "571": {
     "nodeName": "Conv_60",
@@ -1697,23 +1115,11 @@
     "dataOffset": 1054176,
     "byteLength": 147456,
     "nchw": {
-      "shape": [
-        96,
-        384,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [96, 384, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96,
-        1,
-        1,
-        384
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [96, 1, 1, 384],
+      "kernel_layout": "OHWI"}
   },
   "572": {
     "nodeName": "Conv_60",
@@ -1726,17 +1132,11 @@
     "dataOffset": 1201632,
     "byteLength": 384,
     "nchw": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [96],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [96],
+      "kernel_layout": "OHWI"}
   },
   "574": {
     "nodeName": "Conv_61",
@@ -1749,23 +1149,11 @@
     "dataOffset": 1202016,
     "byteLength": 221184,
     "nchw": {
-      "shape": [
-        576,
-        96,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [576, 96, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576,
-        1,
-        1,
-        96
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [576, 1, 1, 96],
+      "kernel_layout": "OHWI"}
   },
   "575": {
     "nodeName": "Conv_61",
@@ -1778,17 +1166,11 @@
     "dataOffset": 1423200,
     "byteLength": 2304,
     "nchw": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [576],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [576],
+      "kernel_layout": "OHWI"}
   },
   "577": {
     "nodeName": "Conv_63",
@@ -1801,23 +1183,11 @@
     "dataOffset": 1425520,
     "byteLength": 20736,
     "nchw": {
-      "shape": [
-        576,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [576, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [576, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "578": {
     "nodeName": "Conv_63",
@@ -1830,17 +1200,11 @@
     "dataOffset": 1446256,
     "byteLength": 2304,
     "nchw": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [576],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [576],
+      "kernel_layout": "OHWI"}
   },
   "580": {
     "nodeName": "Conv_65",
@@ -1853,23 +1217,11 @@
     "dataOffset": 1448576,
     "byteLength": 221184,
     "nchw": {
-      "shape": [
-        96,
-        576,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [96, 576, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96,
-        1,
-        1,
-        576
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [96, 1, 1, 576],
+      "kernel_layout": "OHWI"}
   },
   "581": {
     "nodeName": "Conv_65",
@@ -1882,17 +1234,11 @@
     "dataOffset": 1669760,
     "byteLength": 384,
     "nchw": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [96],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [96],
+      "kernel_layout": "OHWI"}
   },
   "583": {
     "nodeName": "Conv_67",
@@ -1905,23 +1251,11 @@
     "dataOffset": 1670144,
     "byteLength": 221184,
     "nchw": {
-      "shape": [
-        576,
-        96,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [576, 96, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576,
-        1,
-        1,
-        96
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [576, 1, 1, 96],
+      "kernel_layout": "OHWI"}
   },
   "584": {
     "nodeName": "Conv_67",
@@ -1934,17 +1268,11 @@
     "dataOffset": 1891328,
     "byteLength": 2304,
     "nchw": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [576],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [576],
+      "kernel_layout": "OHWI"}
   },
   "586": {
     "nodeName": "Conv_69",
@@ -1957,23 +1285,11 @@
     "dataOffset": 1893648,
     "byteLength": 20736,
     "nchw": {
-      "shape": [
-        576,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [576, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [576, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "587": {
     "nodeName": "Conv_69",
@@ -1986,17 +1302,11 @@
     "dataOffset": 1914384,
     "byteLength": 2304,
     "nchw": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [576],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [576],
+      "kernel_layout": "OHWI"}
   },
   "589": {
     "nodeName": "Conv_71",
@@ -2009,23 +1319,11 @@
     "dataOffset": 1916704,
     "byteLength": 221184,
     "nchw": {
-      "shape": [
-        96,
-        576,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [96, 576, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96,
-        1,
-        1,
-        576
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [96, 1, 1, 576],
+      "kernel_layout": "OHWI"}
   },
   "590": {
     "nodeName": "Conv_71",
@@ -2038,17 +1336,11 @@
     "dataOffset": 2137888,
     "byteLength": 384,
     "nchw": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [96],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        96
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [96],
+      "kernel_layout": "OHWI"}
   },
   "592": {
     "nodeName": "Conv_73",
@@ -2061,23 +1353,11 @@
     "dataOffset": 2138272,
     "byteLength": 221184,
     "nchw": {
-      "shape": [
-        576,
-        96,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [576, 96, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576,
-        1,
-        1,
-        96
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [576, 1, 1, 96],
+      "kernel_layout": "OHWI"}
   },
   "593": {
     "nodeName": "Conv_73",
@@ -2090,17 +1370,11 @@
     "dataOffset": 2359456,
     "byteLength": 2304,
     "nchw": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [576],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [576],
+      "kernel_layout": "OHWI"}
   },
   "595": {
     "nodeName": "Conv_75",
@@ -2113,23 +1387,11 @@
     "dataOffset": 2361776,
     "byteLength": 20736,
     "nchw": {
-      "shape": [
-        576,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [576, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [576, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "596": {
     "nodeName": "Conv_75",
@@ -2142,17 +1404,11 @@
     "dataOffset": 2382512,
     "byteLength": 2304,
     "nchw": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [576],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        576
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [576],
+      "kernel_layout": "OHWI"}
   },
   "598": {
     "nodeName": "Conv_77",
@@ -2165,23 +1421,11 @@
     "dataOffset": 2384832,
     "byteLength": 368640,
     "nchw": {
-      "shape": [
-        160,
-        576,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [160, 576, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        160,
-        1,
-        1,
-        576
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [160, 1, 1, 576],
+      "kernel_layout": "OHWI"}
   },
   "599": {
     "nodeName": "Conv_77",
@@ -2194,17 +1438,11 @@
     "dataOffset": 2753472,
     "byteLength": 640,
     "nchw": {
-      "shape": [
-        160
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [160],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        160
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [160],
+      "kernel_layout": "OHWI"}
   },
   "601": {
     "nodeName": "Conv_78",
@@ -2217,23 +1455,11 @@
     "dataOffset": 2754112,
     "byteLength": 614400,
     "nchw": {
-      "shape": [
-        960,
-        160,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [960, 160, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960,
-        1,
-        1,
-        160
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [960, 1, 1, 160],
+      "kernel_layout": "OHWI"}
   },
   "602": {
     "nodeName": "Conv_78",
@@ -2246,17 +1472,11 @@
     "dataOffset": 3368512,
     "byteLength": 3840,
     "nchw": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [960],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [960],
+      "kernel_layout": "OHWI"}
   },
   "604": {
     "nodeName": "Conv_80",
@@ -2269,23 +1489,11 @@
     "dataOffset": 3372368,
     "byteLength": 34560,
     "nchw": {
-      "shape": [
-        960,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [960, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [960, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "605": {
     "nodeName": "Conv_80",
@@ -2298,17 +1506,11 @@
     "dataOffset": 3406928,
     "byteLength": 3840,
     "nchw": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [960],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [960],
+      "kernel_layout": "OHWI"}
   },
   "607": {
     "nodeName": "Conv_82",
@@ -2321,23 +1523,11 @@
     "dataOffset": 3410784,
     "byteLength": 614400,
     "nchw": {
-      "shape": [
-        160,
-        960,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [160, 960, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        160,
-        1,
-        1,
-        960
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [160, 1, 1, 960],
+      "kernel_layout": "OHWI"}
   },
   "608": {
     "nodeName": "Conv_82",
@@ -2350,17 +1540,11 @@
     "dataOffset": 4025184,
     "byteLength": 640,
     "nchw": {
-      "shape": [
-        160
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [160],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        160
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [160],
+      "kernel_layout": "OHWI"}
   },
   "610": {
     "nodeName": "Conv_84",
@@ -2373,23 +1557,11 @@
     "dataOffset": 4025824,
     "byteLength": 614400,
     "nchw": {
-      "shape": [
-        960,
-        160,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [960, 160, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960,
-        1,
-        1,
-        160
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [960, 1, 1, 160],
+      "kernel_layout": "OHWI"}
   },
   "611": {
     "nodeName": "Conv_84",
@@ -2402,17 +1574,11 @@
     "dataOffset": 4640224,
     "byteLength": 3840,
     "nchw": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [960],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [960],
+      "kernel_layout": "OHWI"}
   },
   "613": {
     "nodeName": "Conv_86",
@@ -2425,23 +1591,11 @@
     "dataOffset": 4644080,
     "byteLength": 34560,
     "nchw": {
-      "shape": [
-        960,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [960, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [960, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "614": {
     "nodeName": "Conv_86",
@@ -2454,17 +1608,11 @@
     "dataOffset": 4678640,
     "byteLength": 3840,
     "nchw": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [960],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [960],
+      "kernel_layout": "OHWI"}
   },
   "616": {
     "nodeName": "Conv_88",
@@ -2477,23 +1625,11 @@
     "dataOffset": 4682496,
     "byteLength": 614400,
     "nchw": {
-      "shape": [
-        160,
-        960,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [160, 960, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        160,
-        1,
-        1,
-        960
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [160, 1, 1, 960],
+      "kernel_layout": "OHWI"}
   },
   "617": {
     "nodeName": "Conv_88",
@@ -2506,17 +1642,11 @@
     "dataOffset": 5296896,
     "byteLength": 640,
     "nchw": {
-      "shape": [
-        160
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [160],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        160
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [160],
+      "kernel_layout": "OHWI"}
   },
   "619": {
     "nodeName": "Conv_90",
@@ -2529,23 +1659,11 @@
     "dataOffset": 5297536,
     "byteLength": 614400,
     "nchw": {
-      "shape": [
-        960,
-        160,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [960, 160, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960,
-        1,
-        1,
-        160
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [960, 1, 1, 160],
+      "kernel_layout": "OHWI"}
   },
   "620": {
     "nodeName": "Conv_90",
@@ -2558,17 +1676,11 @@
     "dataOffset": 5911936,
     "byteLength": 3840,
     "nchw": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [960],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [960],
+      "kernel_layout": "OHWI"}
   },
   "622": {
     "nodeName": "Conv_92",
@@ -2581,23 +1693,11 @@
     "dataOffset": 5915792,
     "byteLength": 34560,
     "nchw": {
-      "shape": [
-        960,
-        1,
-        3,
-        3
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [960, 1, 3, 3],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960,
-        3,
-        3,
-        1
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [960, 3, 3, 1],
+      "kernel_layout": "OHWI"}
   },
   "623": {
     "nodeName": "Conv_92",
@@ -2610,17 +1710,11 @@
     "dataOffset": 5950352,
     "byteLength": 3840,
     "nchw": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [960],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        960
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [960],
+      "kernel_layout": "OHWI"}
   },
   "625": {
     "nodeName": "Conv_94",
@@ -2633,23 +1727,11 @@
     "dataOffset": 5954208,
     "byteLength": 1228800,
     "nchw": {
-      "shape": [
-        320,
-        960,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [320, 960, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        320,
-        1,
-        1,
-        960
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [320, 1, 1, 960],
+      "kernel_layout": "OHWI"}
   },
   "626": {
     "nodeName": "Conv_94",
@@ -2662,17 +1744,11 @@
     "dataOffset": 7183008,
     "byteLength": 1280,
     "nchw": {
-      "shape": [
-        320
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [320],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        320
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [320],
+      "kernel_layout": "OHWI"}
   },
   "628": {
     "nodeName": "Conv_95",
@@ -2685,23 +1761,11 @@
     "dataOffset": 7184288,
     "byteLength": 1638400,
     "nchw": {
-      "shape": [
-        1280,
-        320,
-        1,
-        1
-      ],
-      "kernel_layout": "OIHW"
-    },
+      "shape": [1280, 320, 1, 1],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        1280,
-        1,
-        1,
-        320
-      ],
-      "kernel_layout": "OHWI"
-    }
+      "shape": [1280, 1, 1, 320],
+      "kernel_layout": "OHWI"}
   },
   "629": {
     "nodeName": "Conv_95",
@@ -2714,17 +1778,11 @@
     "dataOffset": 8822688,
     "byteLength": 5120,
     "nchw": {
-      "shape": [
-        1280
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [1280],
+      "kernel_layout": "OIHW"},
     "nhwc": {
-      "shape": [
-        1280
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [1280],
+      "kernel_layout": "OHWI"}
   },
   "Clip_3min": {
     "nodeName": "Clip_96",
@@ -2737,17 +1795,11 @@
     "dataOffset": 8827808,
     "byteLength": 4,
     "nchw": {
-      "shape": [
-        1
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [1],
+      "kernel_layout": ""},
     "nhwc": {
-      "shape": [
-        1
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [1],
+      "kernel_layout": ""}
   },
   "Clip_19max": {
     "nodeName": "Clip_96",
@@ -2760,17 +1812,11 @@
     "dataOffset": 8827816,
     "byteLength": 4,
     "nchw": {
-      "shape": [
-        1
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [1],
+      "kernel_layout": ""},
     "nhwc": {
-      "shape": [
-        1
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [1],
+      "kernel_layout": ""}
   },
   "classifier.1.weight": {
     "nodeName": "Gemm_104",
@@ -2783,19 +1829,11 @@
     "dataOffset": 8827840,
     "byteLength": 5120000,
     "nchw": {
-      "shape": [
-        1000,
-        1280
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [1000, 1280],
+      "kernel_layout": ""},
     "nhwc": {
-      "shape": [
-        1000,
-        1280
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [1000, 1280],
+      "kernel_layout": ""}
   },
   "classifier.1.bias": {
     "nodeName": "Gemm_104",
@@ -2808,16 +1846,10 @@
     "dataOffset": 13947840,
     "byteLength": 4000,
     "nchw": {
-      "shape": [
-        1000
-      ],
-      "kernel_layout": ""
-    },
+      "shape": [1000],
+      "kernel_layout": ""},
     "nhwc": {
-      "shape": [
-        1000
-      ],
-      "kernel_layout": ""
-    }
+      "shape": [1000],
+      "kernel_layout": ""}
   }
 }
