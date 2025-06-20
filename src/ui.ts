@@ -165,6 +165,14 @@ export const updateStep2State = (disabled:boolean): void => {
 };
 
 /**
+ * Enable/disable the Step 3
+ */
+export const updateStep3State = (disabled:boolean): void => {
+  const step1Div = document.querySelectorAll<HTMLDivElement>('.step-3')[0];
+  (disabled === false) ? step1Div?.classList.remove('disabled') : step1Div?.classList.add('disabled');
+};
+
+/**
  * Set up file upload handlers for all file inputs
  */
 export const setupFileInputs = (): void => {
@@ -198,6 +206,7 @@ export const setupFileInputs = (): void => {
         }
         updateStep1State(false);
         updateStep2State(false);
+        updateStep3State(false);
         updateGenerateButtonState();
       } catch (error) {
         appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);
