@@ -70,11 +70,20 @@
                     "name": "475",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 0,
+                    "byteLength": 3456,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 3, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 3, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 3, 3, 3],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -95,11 +104,20 @@
                     "name": "476",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3456,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -213,12 +231,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -239,12 +266,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -311,11 +347,20 @@
                     "name": "478",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3600,
+                    "byteLength": 1152,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -336,11 +381,20 @@
                     "name": "479",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4752,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -454,12 +508,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -480,12 +543,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -552,11 +624,20 @@
                     "name": "481",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4896,
+                    "byteLength": 2048,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -577,11 +658,20 @@
                     "name": "482",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 6944,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -695,11 +785,20 @@
                     "name": "484",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 7008,
+                    "byteLength": 6144,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -720,11 +819,20 @@
                     "name": "485",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 13152,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -838,12 +946,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -864,12 +981,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -936,11 +1062,20 @@
                     "name": "487",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 13552,
+                    "byteLength": 3456,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -961,11 +1096,20 @@
                     "name": "488",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 17008,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1079,12 +1223,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -1105,12 +1258,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -1177,11 +1339,20 @@
                     "name": "490",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 17408,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1202,11 +1373,20 @@
                     "name": "491",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 26624,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1320,11 +1500,20 @@
                     "name": "493",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 26720,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1345,11 +1534,20 @@
                     "name": "494",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 40544,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1463,12 +1661,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -1489,12 +1696,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -1561,11 +1777,20 @@
                     "name": "496",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 41136,
+                    "byteLength": 5184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1586,11 +1811,20 @@
                     "name": "497",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 46320,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1704,12 +1938,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -1730,12 +1973,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -1802,11 +2054,20 @@
                     "name": "499",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 46912,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 144, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 144, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 144],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1827,11 +2088,20 @@
                     "name": "500",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 60736,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1995,11 +2265,20 @@
                     "name": "502",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 60832,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2020,11 +2299,20 @@
                     "name": "503",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 74656,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2138,12 +2426,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -2164,12 +2461,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -2236,11 +2542,20 @@
                     "name": "505",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 75248,
+                    "byteLength": 5184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2261,11 +2576,20 @@
                     "name": "506",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 80432,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [144]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [144],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [144],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2379,12 +2703,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -2405,12 +2738,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -2477,11 +2819,20 @@
                     "name": "508",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 81024,
+                    "byteLength": 18432,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 144, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 144, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 144],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2502,11 +2853,20 @@
                     "name": "509",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 99456,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2620,11 +2980,20 @@
                     "name": "511",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 99584,
+                    "byteLength": 24576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2645,11 +3014,20 @@
                     "name": "512",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 124160,
+                    "byteLength": 768,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2763,12 +3141,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -2789,12 +3176,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -2861,11 +3257,20 @@
                     "name": "514",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 124944,
+                    "byteLength": 6912,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2886,11 +3291,20 @@
                     "name": "515",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 131856,
+                    "byteLength": 768,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3004,12 +3418,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3030,12 +3453,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3102,11 +3534,20 @@
                     "name": "517",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 132640,
+                    "byteLength": 24576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 192, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 192, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3127,11 +3568,20 @@
                     "name": "518",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 157216,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3295,11 +3745,20 @@
                     "name": "520",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 157344,
+                    "byteLength": 24576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3320,11 +3779,20 @@
                     "name": "521",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 181920,
+                    "byteLength": 768,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3438,12 +3906,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3464,12 +3941,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3536,11 +4022,20 @@
                     "name": "523",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 182704,
+                    "byteLength": 6912,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3561,11 +4056,20 @@
                     "name": "524",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 189616,
+                    "byteLength": 768,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3679,12 +4183,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3705,12 +4218,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3777,11 +4299,20 @@
                     "name": "526",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 190400,
+                    "byteLength": 24576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 192, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 192, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3802,11 +4333,20 @@
                     "name": "527",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 214976,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3970,11 +4510,20 @@
                     "name": "529",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 215104,
+                    "byteLength": 24576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3995,11 +4544,20 @@
                     "name": "530",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 239680,
+                    "byteLength": 768,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4113,12 +4671,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4139,12 +4706,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4211,11 +4787,20 @@
                     "name": "532",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 240464,
+                    "byteLength": 6912,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4236,11 +4821,20 @@
                     "name": "533",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 247376,
+                    "byteLength": 768,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [192]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [192],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4354,12 +4948,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4380,12 +4983,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4452,11 +5064,20 @@
                     "name": "535",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 248160,
+                    "byteLength": 49152,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64, 192, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64, 192, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64, 1, 1, 192],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4477,11 +5098,20 @@
                     "name": "536",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 297312,
+                    "byteLength": 256,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4595,11 +5225,20 @@
                     "name": "538",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 297568,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 64, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 64, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 1, 1, 64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4620,11 +5259,20 @@
                     "name": "539",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 395872,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4738,12 +5386,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4764,12 +5421,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4836,11 +5502,20 @@
                     "name": "541",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 397424,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4861,11 +5536,20 @@
                     "name": "542",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 411248,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4979,12 +5663,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5005,12 +5698,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5077,11 +5779,20 @@
                     "name": "544",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 412800,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64, 384, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64, 384, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64, 1, 1, 384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5102,11 +5813,20 @@
                     "name": "545",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 511104,
+                    "byteLength": 256,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5270,11 +5990,20 @@
                     "name": "547",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 511360,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 64, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 64, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 1, 1, 64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5295,11 +6024,20 @@
                     "name": "548",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 609664,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5413,12 +6151,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5439,12 +6186,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5511,11 +6267,20 @@
                     "name": "550",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 611216,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5536,11 +6301,20 @@
                     "name": "551",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 625040,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5654,12 +6428,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5680,12 +6463,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5752,11 +6544,20 @@
                     "name": "553",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 626592,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64, 384, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64, 384, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64, 1, 1, 384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5777,11 +6578,20 @@
                     "name": "554",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 724896,
+                    "byteLength": 256,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5945,11 +6755,20 @@
                     "name": "556",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 725152,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 64, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 64, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 1, 1, 64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5970,11 +6789,20 @@
                     "name": "557",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 823456,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6088,12 +6916,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6114,12 +6951,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6186,11 +7032,20 @@
                     "name": "559",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 825008,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6211,11 +7066,20 @@
                     "name": "560",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 838832,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6329,12 +7193,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6355,12 +7228,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6427,11 +7309,20 @@
                     "name": "562",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 840384,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64, 384, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64, 384, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64, 1, 1, 384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6452,11 +7343,20 @@
                     "name": "563",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 938688,
+                    "byteLength": 256,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [64]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [64],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6620,11 +7520,20 @@
                     "name": "565",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 938944,
+                    "byteLength": 98304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 64, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 64, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 1, 1, 64],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6645,11 +7554,20 @@
                     "name": "566",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1037248,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6763,12 +7681,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6789,12 +7716,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6861,11 +7797,20 @@
                     "name": "568",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1038800,
+                    "byteLength": 13824,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6886,11 +7831,20 @@
                     "name": "569",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1052624,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [384]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [384],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7004,12 +7958,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7030,12 +7993,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7102,11 +8074,20 @@
                     "name": "571",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1054176,
+                    "byteLength": 147456,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 384, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 384, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 384],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7127,11 +8108,20 @@
                     "name": "572",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1201632,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7245,11 +8235,20 @@
                     "name": "574",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1202016,
+                    "byteLength": 221184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7270,11 +8269,20 @@
                     "name": "575",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1423200,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7388,12 +8396,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7414,12 +8431,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7486,11 +8512,20 @@
                     "name": "577",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1425520,
+                    "byteLength": 20736,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7511,11 +8546,20 @@
                     "name": "578",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1446256,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7629,12 +8673,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7655,12 +8708,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7727,11 +8789,20 @@
                     "name": "580",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1448576,
+                    "byteLength": 221184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 576, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 576, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7752,11 +8823,20 @@
                     "name": "581",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1669760,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7920,11 +9000,20 @@
                     "name": "583",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1670144,
+                    "byteLength": 221184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7945,11 +9034,20 @@
                     "name": "584",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1891328,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8063,12 +9161,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8089,12 +9196,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8161,11 +9277,20 @@
                     "name": "586",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1893648,
+                    "byteLength": 20736,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8186,11 +9311,20 @@
                     "name": "587",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1914384,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8304,12 +9438,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8330,12 +9473,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8402,11 +9554,20 @@
                     "name": "589",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1916704,
+                    "byteLength": 221184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 576, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 576, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8427,11 +9588,20 @@
                     "name": "590",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2137888,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8595,11 +9765,20 @@
                     "name": "592",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2138272,
+                    "byteLength": 221184,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8620,11 +9799,20 @@
                     "name": "593",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2359456,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8738,12 +9926,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8764,12 +9961,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8836,11 +10042,20 @@
                     "name": "595",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2361776,
+                    "byteLength": 20736,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8861,11 +10076,20 @@
                     "name": "596",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2382512,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [576]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [576],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8979,12 +10203,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9005,12 +10238,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9077,11 +10319,20 @@
                     "name": "598",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2384832,
+                    "byteLength": 368640,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [160, 576, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [160, 576, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [160, 1, 1, 576],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9102,11 +10353,20 @@
                     "name": "599",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2753472,
+                    "byteLength": 640,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [160]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [160],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [160],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9220,11 +10480,20 @@
                     "name": "601",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2754112,
+                    "byteLength": 614400,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960, 160, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960, 160, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960, 1, 1, 160],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9245,11 +10514,20 @@
                     "name": "602",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3368512,
+                    "byteLength": 3840,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9363,12 +10641,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9389,12 +10676,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9461,11 +10757,20 @@
                     "name": "604",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3372368,
+                    "byteLength": 34560,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9486,11 +10791,20 @@
                     "name": "605",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3406928,
+                    "byteLength": 3840,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9604,12 +10918,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9630,12 +10953,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9702,11 +11034,20 @@
                     "name": "607",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3410784,
+                    "byteLength": 614400,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [160, 960, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [160, 960, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [160, 1, 1, 960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9727,11 +11068,20 @@
                     "name": "608",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4025184,
+                    "byteLength": 640,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [160]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [160],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [160],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9895,11 +11245,20 @@
                     "name": "610",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4025824,
+                    "byteLength": 614400,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960, 160, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960, 160, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960, 1, 1, 160],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9920,11 +11279,20 @@
                     "name": "611",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4640224,
+                    "byteLength": 3840,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10038,12 +11406,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10064,12 +11441,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10136,11 +11522,20 @@
                     "name": "613",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4644080,
+                    "byteLength": 34560,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10161,11 +11556,20 @@
                     "name": "614",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4678640,
+                    "byteLength": 3840,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10279,12 +11683,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10305,12 +11718,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10377,11 +11799,20 @@
                     "name": "616",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4682496,
+                    "byteLength": 614400,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [160, 960, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [160, 960, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [160, 1, 1, 960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10402,11 +11833,20 @@
                     "name": "617",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5296896,
+                    "byteLength": 640,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [160]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [160],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [160],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10570,11 +12010,20 @@
                     "name": "619",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5297536,
+                    "byteLength": 614400,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960, 160, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960, 160, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960, 1, 1, 160],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10595,11 +12044,20 @@
                     "name": "620",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5911936,
+                    "byteLength": 3840,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10713,12 +12171,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10739,12 +12206,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10811,11 +12287,20 @@
                     "name": "622",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5915792,
+                    "byteLength": 34560,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960, 3, 3, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10836,11 +12321,20 @@
                     "name": "623",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5950352,
+                    "byteLength": 3840,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [960]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [960],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10954,12 +12448,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10980,12 +12483,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11052,11 +12564,20 @@
                     "name": "625",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5954208,
+                    "byteLength": 1228800,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [320, 960, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [320, 960, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [320, 1, 1, 960],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11077,11 +12598,20 @@
                     "name": "626",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 7183008,
+                    "byteLength": 1280,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [320]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [320],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [320],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11195,11 +12725,20 @@
                     "name": "628",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 7184288,
+                    "byteLength": 1638400,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1280, 320, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1280, 320, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1280, 1, 1, 320],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11220,11 +12759,20 @@
                     "name": "629",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 8822688,
+                    "byteLength": 5120,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1280]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1280],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1280],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11338,12 +12886,21 @@
                     "name": "Clip_3min",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827808,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11364,12 +12921,21 @@
                     "name": "Clip_19max",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 8827816,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11479,11 +13045,20 @@
                     "name": "471",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "int64",
+                    "dataOffset": 8827824,
+                    "byteLength": 16,
                     "type": {
                       "dataType": "int64",
                       "shape": {
                         "dimensions": [2]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [2],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [2],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11548,11 +13123,20 @@
                     "name": "classifier.1.weight",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 8827840,
+                    "byteLength": 5120000,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1000, 1280]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1000, 1280],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1000, 1280],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11573,11 +13157,20 @@
                     "name": "classifier.1.bias",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 13947840,
+                    "byteLength": 4000,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1000]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1000],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1000],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {

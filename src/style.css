@@ -121,7 +121,7 @@ header {
 .file-upload-panel {
   margin-top: 0.5em;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-row-gap: 0;
   grid-column-gap: 0;
@@ -199,7 +199,7 @@ header {
 
 #step-2 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   grid-row-gap: 0em;
   grid-column-gap: 1em;
@@ -241,7 +241,7 @@ header {
 
 .output-panel {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr;
   grid-row-gap: 1em;
   grid-column-gap: 0;
@@ -261,7 +261,7 @@ header {
 
 .graph-weight-panel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-row-gap: 0em;
   grid-column-gap: 0em;
@@ -351,10 +351,6 @@ header {
   display: inline-block;
 }
 
-.graph-section:hover, .node-inputs-outputs:hover {
-  background-color: var(--pink-005);
-}
-
 .graph-section:hover .inputs,
 .graph-section:hover .outputs {
   border: 1px solid var(--pink);
@@ -366,9 +362,20 @@ header {
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 2fr;
   grid-row-gap: 0em;
-  grid-column-gap: 0.1em;
+  padding: 0.2em 0;
   align-items: center;
   justify-items: start;
+  cursor: pointer;
+}
+
+.pink.name:hover {
+  cursor: pointer;
+  background-color: var(--pink-005);
+}
+
+.initializer:hover {
+  cursor: pointer;
+  background-color: var(--green-005);
 }
 
 #output-weight {

@@ -3,6 +3,7 @@ import {
   getOutputVars
 } from '../../operation-utils';
 import { getModelState } from '../../../../ui';
+import { extractTensorMetadataFromGraphJson } from '../../../../utils';
 
 /**
  * Generate JavaScript code for a WebNN reshape operation from ONNX Reshape node info.
@@ -15,7 +16,8 @@ export function Reshape(
   options: { [key: string]: any } = {}
 ): string {
   const nhwc = !!options.nhwc;
-  const { weightNchwBin, weightNhwcBin } = getModelState();
+  const { graphModelData, weightNchwBin, weightNhwcBin } = getModelState();
+  const tensorMap = extractTensorMetadataFromGraphJson(graphModelData);
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
@@ -24,18 +26,16 @@ export function Reshape(
   if (shapeInput && Array.isArray(shapeInput.value) && shapeInput.value[0]) {
     const shapeValue = shapeInput.value[0];
     const shapeName = shapeValue.name;
-    const weightModelData = options.weightModelData;
-    if (!weightModelData) {
-      throw new Error('Weight model data is not available');
+    const shapeInfo = tensorMap[shapeName];
+    if (!shapeInfo) {
+      throw new Error(`Reshape shape initializer '${shapeName}' not found in graphModelData`);
     }
-    let shape_offset: number | null = null;
-    let shape_length: number | null = null;
-    shape_offset = weightModelData?.[shapeName]?.dataOffset;
-    shape_length = weightModelData?.[shapeName]?.byteLength;
-    if (shape_offset === null) {
+    const shape_offset = shapeInfo.dataOffset;
+    const shape_length = shapeInfo.byteLength;
+    if (shape_offset == null) {
       throw new Error(`Reshape shape initializer '${shapeName}' missing offset`);
     }
-    if (shape_length === null) {
+    if (shape_length == null) {
       throw new Error(`Reshape shape initializer '${shapeName}' missing length`);
     }
     

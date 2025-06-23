@@ -3,7 +3,7 @@ import { getModelState } from './ui';
 export async function loadWeightsArrayBuffer(binFile: string): Promise<ArrayBuffer> {
   const response = await fetch(binFile);
   if (!response.ok) {
-      throw new Error('Failed to fetch weights: ' + response.statusText);
+    throw new Error('Failed to fetch weights: ' + response.statusText);
   }
   return await response.arrayBuffer();
 }
@@ -41,18 +41,6 @@ export function getNonEmptyStringAroundNewline(str: string): string {
   if (before.length > 0) return before;
   // Return the substring after the first '\n', trimmed
   return str.substring(idx + 1).trim();
-}
-
-/**
- * TFLite model
- * Find a weight node in weightModelData by its 'name' property.
- * @param weightModelData - The weights object (e.g. from weights.json)
- * @param name - The name to match (e.g. "conv2d/Kernel")
- * @returns The node value if found, otherwise undefined
- */
-export function findWeightNodeByName(weightModelData: Record<string, any> | null, name: string) {
-  if (!weightModelData || !name) return undefined;
-  return Object.values(weightModelData).find((node: any) => node && node.name === name);
 }
 
 /**
@@ -152,13 +140,13 @@ export function mlOperandDataType(onnxType: string): string {
   switch (onnxType.toLowerCase()) {
     case 'float32': return 'float32';
     case 'float16': return 'float16';
-    case 'int32':   return 'int32';
-    case 'uint32':  return 'uint32';
-    case 'int64':   return 'int64';
-    case 'uint64':  return 'uint64';
-    case 'int8':    return 'int8';
-    case 'uint8':   return 'uint8';
-    default:        return 'int32'; // fallback to int32
+    case 'int32': return 'int32';
+    case 'uint32': return 'uint32';
+    case 'int64': return 'int64';
+    case 'uint64': return 'uint64';
+    case 'int8': return 'int8';
+    case 'uint8': return 'uint8';
+    default: return 'int32'; // fallback to int32
   }
 }
 
@@ -169,7 +157,7 @@ export function getWeightInfo(name: string, weightModelData: any, nhwc: boolean)
     dataOffset: w.dataOffset,
     byteLength: w.byteLength,
     dataType: w.dataType,
-    shape: nhwc ? w.nhwc?.shape : w.nchw?.shape
+    dimensions: nhwc ? w.nhwc?.dimensions : w.nchw?.dimensions
   };
 }
 
@@ -220,4 +208,37 @@ export function downloadFile(name: string, type: string, code: string) {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+export function extractTensorMetadataFromGraphJson(graphJson: any) {
+  const tensorMap: { [key: string]: any } = {};
+  const graphs = Array.isArray(graphJson.graph) ? graphJson.graph : [graphJson.graph];
+  for (const graph of graphs) {
+    if (!graph || !graph.nodes) continue;
+    for (const node of graph.nodes) {
+      if (!node.inputs) continue;
+      for (const input of node.inputs) {
+        if (!input.value) continue;
+        for (const value of input.value) {
+          if (value && value.initializer) {
+            const init = value.initializer;
+            tensorMap[init.name] = {
+              nodeName: node.name || "",
+              nodeIdentifier: node.identifier || "",
+              nodeType: node.type && node.type.name ? node.type.name : "",
+              input: input.name || "",
+              name: init.name || "",
+              identifier: value.identifier || "",
+              dataType: init.dataType || (init.type && init.type.dataType) || "",
+              dataOffset: init.dataOffset,
+              byteLength: init.byteLength,
+              nchw: init.type && init.type.nchw ? init.type.nchw : undefined,
+              nhwc: init.type && init.type.nhwc ? init.type.nhwc : undefined
+            };
+          }
+        }
+      }
+    }
+  }
+  return tensorMap;
 }

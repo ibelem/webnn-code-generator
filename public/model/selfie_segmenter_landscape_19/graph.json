@@ -141,11 +141,20 @@
                     "name": "Conv2D/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 0,
+                    "byteLength": 1728,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 3, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 3, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 3, 3, 3],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -166,11 +175,20 @@
                     "name": "conv2d_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1728,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -299,11 +317,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -383,12 +410,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 1800,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -408,12 +444,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 1808,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -482,11 +527,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -655,11 +709,20 @@
                     "name": "Conv2D_2/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 1824,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -680,11 +743,20 @@
                     "name": "conv2d_1_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2848,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -872,11 +944,20 @@
                     "name": "const_fold_opt__377",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 2912,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 3, 3, 16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -897,11 +978,20 @@
                     "name": "depthwise_conv2d/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3488,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -1148,11 +1238,20 @@
                     "name": "Conv2D_3/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 3552,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [8, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [8, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [8, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1173,11 +1272,20 @@
                     "name": "conv2d_2_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4064,
+                    "byteLength": 32,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [8]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [8],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [8],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1357,11 +1465,20 @@
                     "name": "Conv2D_4/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4096,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 8, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 8, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 8],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1382,11 +1499,20 @@
                     "name": "conv2d_3_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4608,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1640,11 +1766,20 @@
                     "name": "Conv2D_5/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 4672,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1665,11 +1800,20 @@
                     "name": "conv2d_4_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5696,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1798,11 +1942,20 @@
                     "name": "Conv2D_6/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 5760,
+                    "byteLength": 4608,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [72, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [72, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [72, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -1823,11 +1976,20 @@
                     "name": "conv2d_5_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 10368,
+                    "byteLength": 288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [72]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [72],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [72],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2015,11 +2177,20 @@
                     "name": "const_fold_opt__387",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 10656,
+                    "byteLength": 2592,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [72, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [72, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 3, 3, 72],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -2040,11 +2211,20 @@
                     "name": "depthwise_conv2d_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 13248,
+                    "byteLength": 288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [72]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [72],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [72],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -2232,11 +2412,20 @@
                     "name": "Conv2D_7/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 13536,
+                    "byteLength": 6912,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 72, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 72, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 72],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2257,11 +2446,20 @@
                     "name": "conv2d_6_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 20448,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2390,11 +2588,20 @@
                     "name": "Conv2D_8/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 20544,
+                    "byteLength": 8448,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [88, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [88, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [88, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2415,11 +2622,20 @@
                     "name": "conv2d_7_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 28992,
+                    "byteLength": 352,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [88]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [88],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [88],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2607,11 +2823,20 @@
                     "name": "const_fold_opt__385",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 29344,
+                    "byteLength": 3168,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [88, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [88, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 3, 3, 88],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -2632,11 +2857,20 @@
                     "name": "depthwise_conv2d_2/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 32512,
+                    "byteLength": 352,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [88]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [88],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [88],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -2824,11 +3058,20 @@
                     "name": "Conv2D_9/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 32864,
+                    "byteLength": 8448,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 88, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 88, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 88],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -2849,11 +3092,20 @@
                     "name": "conv2d_8_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 41312,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3056,11 +3308,20 @@
                     "name": "Conv2D_10/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 41408,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3081,11 +3342,20 @@
                     "name": "conv2d_9_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 50624,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3214,11 +3484,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3298,12 +3577,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 51016,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3323,12 +3611,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 51024,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3397,11 +3694,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3570,11 +3876,20 @@
                     "name": "const_fold_opt__383",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 51040,
+                    "byteLength": 9600,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 1, 5, 5]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 1, 5, 5],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 5, 5, 96],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -3595,11 +3910,20 @@
                     "name": "depthwise_conv2d_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 60640,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -3728,11 +4052,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -3812,12 +4145,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 61032,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3837,12 +4179,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 61040,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3911,11 +4262,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4143,11 +4503,20 @@
                     "name": "Conv2D_11/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 61056,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4168,11 +4537,20 @@
                     "name": "conv2d_10_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 70272,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4352,11 +4730,20 @@
                     "name": "Conv2D_12/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 70368,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4377,11 +4764,20 @@
                     "name": "conv2d_11_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 79584,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4635,11 +5031,20 @@
                     "name": "Conv2D_13/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 79968,
+                    "byteLength": 12288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4660,11 +5065,20 @@
                     "name": "conv2d_12_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 92256,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4793,11 +5207,20 @@
                     "name": "Conv2D_14/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 92384,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4818,11 +5241,20 @@
                     "name": "conv2d_13_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 108768,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -4951,11 +5383,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5035,12 +5476,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 109288,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5060,12 +5510,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 109296,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5134,11 +5593,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5307,11 +5775,20 @@
                     "name": "const_fold_opt__381",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 109312,
+                    "byteLength": 12800,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 1, 5, 5]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 1, 5, 5],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 5, 5, 128],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -5332,11 +5809,20 @@
                     "name": "depthwise_conv2d_4/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 122112,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -5465,11 +5951,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5549,12 +6044,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 122632,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5574,12 +6078,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 122640,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5648,11 +6161,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5880,11 +6402,20 @@
                     "name": "Conv2D_15/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 122656,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 128, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 128, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -5905,11 +6436,20 @@
                     "name": "conv2d_14_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 139040,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6089,11 +6629,20 @@
                     "name": "Conv2D_16/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 139168,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6114,11 +6663,20 @@
                     "name": "conv2d_15_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 155552,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6372,11 +6930,20 @@
                     "name": "Conv2D_17/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 156064,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 128, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 128, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6397,11 +6964,20 @@
                     "name": "conv2d_16_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 172448,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6604,11 +7180,20 @@
                     "name": "Conv2D_18/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 172576,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6629,11 +7214,20 @@
                     "name": "conv2d_17_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 188960,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6762,11 +7356,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -6846,12 +7449,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 189480,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6871,12 +7483,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 189488,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -6945,11 +7566,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7118,11 +7748,20 @@
                     "name": "const_fold_opt__379",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 189504,
+                    "byteLength": 12800,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 1, 5, 5]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 1, 5, 5],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 5, 5, 128],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -7143,11 +7782,20 @@
                     "name": "depthwise_conv2d_5/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 202304,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -7276,11 +7924,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7360,12 +8017,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 202824,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7385,12 +8051,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 202832,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7459,11 +8134,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7691,11 +8375,20 @@
                     "name": "Conv2D_19/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 202848,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 128, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 128, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7716,11 +8409,20 @@
                     "name": "conv2d_18_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 219232,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7900,11 +8602,20 @@
                     "name": "Conv2D_20/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 219360,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -7925,11 +8636,20 @@
                     "name": "conv2d_19_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 235744,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8183,11 +8903,20 @@
                     "name": "Conv2D_21/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 236256,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 128, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 128, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8208,11 +8937,20 @@
                     "name": "conv2d_20_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 252640,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8415,11 +9153,20 @@
                     "name": "Conv2D_22/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 252768,
+                    "byteLength": 12288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8440,11 +9187,20 @@
                     "name": "conv2d_21_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 265056,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8573,11 +9329,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -8657,12 +9422,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 265448,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8682,12 +9456,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 265456,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8756,11 +9539,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -8929,11 +9721,20 @@
                     "name": "const_fold_opt__395",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 265472,
+                    "byteLength": 9600,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 1, 5, 5]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 1, 5, 5],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 5, 5, 96],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -8954,11 +9755,20 @@
                     "name": "depthwise_conv2d_6/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 275072,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -9087,11 +9897,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9171,12 +9990,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 275464,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9196,12 +10024,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 275472,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9270,11 +10107,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9502,11 +10348,20 @@
                     "name": "Conv2D_23/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 275488,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9527,11 +10382,20 @@
                     "name": "conv2d_22_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 284704,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9711,11 +10575,20 @@
                     "name": "Conv2D_24/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 284800,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9736,11 +10609,20 @@
                     "name": "conv2d_23_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 294016,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -9994,11 +10876,20 @@
                     "name": "Conv2D_25/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 294400,
+                    "byteLength": 12288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10019,11 +10910,20 @@
                     "name": "conv2d_24_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 306688,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10226,11 +11126,20 @@
                     "name": "Conv2D_26/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 306816,
+                    "byteLength": 12288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10251,11 +11160,20 @@
                     "name": "conv2d_25_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 319104,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10384,11 +11302,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10468,12 +11395,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 319496,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10493,12 +11429,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 319504,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10567,11 +11512,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -10740,11 +11694,20 @@
                     "name": "const_fold_opt__407",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 319520,
+                    "byteLength": 9600,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 1, 5, 5]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 1, 5, 5],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 5, 5, 96],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -10765,11 +11728,20 @@
                     "name": "depthwise_conv2d_7/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329120,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -10898,11 +11870,20 @@
                     "name": "const_fold_opt__408",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329504,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -10982,12 +11963,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 329512,
+                    "byteLength": 4,
                     "values": {"0": 0},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11007,12 +11997,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 329520,
+                    "byteLength": 4,
                     "values": {"0": 6},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11081,11 +12080,20 @@
                     "name": "mul_3/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329528,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": []
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11313,11 +12321,20 @@
                     "name": "Conv2D_27/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 329536,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11338,11 +12355,20 @@
                     "name": "conv2d_26_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 338752,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11522,11 +12548,20 @@
                     "name": "Conv2D_28/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 338848,
+                    "byteLength": 9216,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11547,11 +12582,20 @@
                     "name": "conv2d_27_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 348064,
+                    "byteLength": 384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [96]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [96],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11805,11 +12849,20 @@
                     "name": "Conv2D_29/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 348448,
+                    "byteLength": 12288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32, 96, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32, 96, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32, 1, 1, 96],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -11830,11 +12883,20 @@
                     "name": "conv2d_28_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 360736,
+                    "byteLength": 128,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [32]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [32],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -12096,11 +13158,20 @@
                     "name": "Conv2D_31/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 360864,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -12121,11 +13192,20 @@
                     "name": "conv2d_30_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 377248,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -12305,11 +13385,20 @@
                     "name": "Conv2D_30/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 377760,
+                    "byteLength": 16384,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128, 32, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128, 32, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128, 1, 1, 32],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -12330,11 +13419,20 @@
                     "name": "conv2d_29_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 394144,
+                    "byteLength": 512,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [128]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [128],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -12586,12 +13684,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 394656,
+                    "byteLength": 32,
                     "values": {"0": 0, "1": 0, "2": 0, "3": 0, "4": 1, "5": 1, "6": 1, "7": 1},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [8]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [8],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [8],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -12612,12 +13719,21 @@
                     "name": "scales__125",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 420832,
+                    "byteLength": 16,
                     "values": {"0": 1, "1": 1, "2": 2, "3": 2},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [4]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [4],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [4],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -12718,11 +13834,20 @@
                     "name": "Conv2D_32/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 394704,
+                    "byteLength": 12288,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 128, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 128, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 128],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -12743,11 +13868,20 @@
                     "name": "conv2d_31_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 406992,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13001,11 +14135,20 @@
                     "name": "Conv2D_33/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 407088,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13026,11 +14169,20 @@
                     "name": "conv2d_32_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 409392,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13210,11 +14362,20 @@
                     "name": "Conv2D_34/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 409488,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13235,11 +14396,20 @@
                     "name": "conv2d_33_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 411792,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13567,11 +14737,20 @@
                     "name": "Conv2D_35/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 411888,
+                    "byteLength": 2304,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13592,11 +14771,20 @@
                     "name": "conv2d_34_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 414192,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -13776,11 +14964,20 @@
                     "name": "const_fold_opt__394",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 414288,
+                    "byteLength": 864,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 3, 3, 24],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -13801,11 +14998,20 @@
                     "name": "depthwise_conv2d_8/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 415152,
+                    "byteLength": 96,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [24]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [24],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [24],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -14065,12 +15271,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 415248,
+                    "byteLength": 32,
                     "values": {"0": 0, "1": 0, "2": 0, "3": 0, "4": 1, "5": 1, "6": 1, "7": 1},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [8]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [8],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [8],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -14091,12 +15306,21 @@
                     "name": "scales__125",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 420832,
+                    "byteLength": 16,
                     "values": {"0": 1, "1": 1, "2": 2, "3": 2},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [4]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [4],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [4],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -14197,11 +15421,20 @@
                     "name": "Conv2D_36/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 415296,
+                    "byteLength": 1536,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 24, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 24, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 24],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -14222,11 +15455,20 @@
                     "name": "conv2d_35_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 416832,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -14480,11 +15722,20 @@
                     "name": "Conv2D_37/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 416896,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -14505,11 +15756,20 @@
                     "name": "conv2d_36_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 417920,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -14689,11 +15949,20 @@
                     "name": "Conv2D_38/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 417984,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -14714,11 +15983,20 @@
                     "name": "conv2d_37_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 419008,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -15046,11 +16324,20 @@
                     "name": "Conv2D_39/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 419072,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -15071,11 +16358,20 @@
                     "name": "conv2d_38_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 420096,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -15255,11 +16551,20 @@
                     "name": "const_fold_opt__391",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 420160,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 3, 3, 16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -15280,11 +16585,20 @@
                     "name": "depthwise_conv2d_9/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 420736,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -15544,12 +16858,21 @@
                   "initializer": {
                     "category": "Constant",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 420800,
+                    "byteLength": 32,
                     "values": {"0": 0, "1": 0, "2": 0, "3": 0, "4": 1, "5": 1, "6": 1, "7": 1},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [8]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [8],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [8],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -15570,12 +16893,21 @@
                     "name": "scales__125",
                     "category": "Initializer",
                     "encoding": "|",
+                    "dataType": "float32",
+                    "dataOffset": 420832,
+                    "byteLength": 16,
                     "values": {"0": 1, "1": 1, "2": 2, "3": 2},
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [4]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [4],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [4],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -15676,11 +17008,20 @@
                     "name": "Conv2D_40/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 420848,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -15701,11 +17042,20 @@
                     "name": "conv2d_39_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 421872,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -15959,11 +17309,20 @@
                     "name": "Conv2D_41/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 421936,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -15984,11 +17343,20 @@
                     "name": "conv2d_40_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 422960,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -16168,11 +17536,20 @@
                     "name": "Conv2D_42/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 423024,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -16193,11 +17570,20 @@
                     "name": "conv2d_41_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 424048,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -16525,11 +17911,20 @@
                     "name": "Conv2D_43/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 424112,
+                    "byteLength": 1024,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 16, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 16, 1, 1],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16, 1, 1, 16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -16550,11 +17945,20 @@
                     "name": "conv2d_42_1/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 425136,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -16734,11 +18138,20 @@
                     "name": "const_fold_opt__389",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 425200,
+                    "byteLength": 576,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 1, 3, 3]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 1, 3, 3],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 3, 3, 16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -16759,11 +18172,20 @@
                     "name": "depthwise_conv2d_10/y:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 425776,
+                    "byteLength": 64,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -17025,11 +18447,20 @@
                     "name": "conv2d_transpose/filter:0",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 425840,
+                    "byteLength": 256,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [16, 1, 2, 2]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [16, 1, 2, 2],
+                        "kernel_layout": "OIHW"},
+                      "nhwc": {
+                        "dimensions": [1, 2, 2, 16],
+                        "kernel_layout": "IHWO"}
                     }
                   },
                   "type": {
@@ -17155,11 +18586,20 @@
                     "name": "const_fold_opt__402",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "float32",
+                    "dataOffset": 426096,
+                    "byteLength": 4,
                     "type": {
                       "dataType": "float32",
                       "shape": {
                         "dimensions": [1, 1, 1, 1]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [1, 1, 1, 1],
+                        "kernel_layout": "OHWI"}
                     }
                   },
                   "type": {
@@ -17299,11 +18739,20 @@
                     "name": "new_shape__369",
                     "category": "Initializer",
                     "encoding": "<",
+                    "dataType": "int64",
+                    "dataOffset": 426104,
+                    "byteLength": 32,
                     "type": {
                       "dataType": "int64",
                       "shape": {
                         "dimensions": [4]
-                      }
+                      },
+                      "nchw": {
+                        "dimensions": [4],
+                        "kernel_layout": ""},
+                      "nhwc": {
+                        "dimensions": [4],
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {

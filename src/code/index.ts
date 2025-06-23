@@ -1,8 +1,7 @@
 // import { getModelState } from './ui';
 import {
   modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues,
-  getNonEmptyStringAroundNewline, findWeightNodeByName, downloadFile,
-  getWeightInfo
+  getNonEmptyStringAroundNewline, downloadFile
 } from '../utils';
 import { getModelState, freeDimsOverrides } from '../ui';
 import { opHandlers } from './operation';
@@ -57,7 +56,7 @@ function runCode() {
 }
 
 function buildCodeWithLayout(nhwc: boolean) {
-  const { graphModelData, weightModelData } = getModelState();
+  const { graphModelData } = getModelState();
   const inputs = graphModelData?.graph?.[0].inputs;
   const outputs = graphModelData?.graph?.[0].outputs;
 
@@ -103,25 +102,20 @@ function buildCodeWithLayout(nhwc: boolean) {
                 name = val.name;
               }
               name = getNonEmptyStringAroundNewline(name);
-              const binShape = getWeightInfo(name, weightModelData, nhwc);
+ 
               const varName = toJsVarName(name);
               if (emittedInitializers.has(varName)) continue; // Skip if already emitted
 
               const dataType = initializer.type.dataType;
-              let shape;
-              binShape && binShape.shape ? shape = binShape.shape : shape = initializer.type.shape.dimensions;
-
-              let weightsDataOffset = weightModelData?.[name]?.dataOffset;
-              let weightsByteLength = weightModelData?.[name]?.byteLength;
-
-              // TFLite case
-              if (weightsDataOffset === undefined || weightsByteLength === undefined) {
-                const weightInfo = findWeightNodeByName(weightModelData, name)
-                if (weightInfo) {
-                  weightsDataOffset = weightInfo.dataOffset;
-                  weightsByteLength = weightInfo.byteLength;
-                }
+              let shape = initializer.type?.shape?.dimensions || [];
+              if(nhwc && initializer.type?.nhwc) {
+                shape = initializer.type.nhwc.dimensions;
+              } else if (!nhwc && initializer.type?.nchw) {
+                shape = initializer.type.nchw.dimensions;
               }
+ 
+              let weightsDataOffset = initializer.dataOffset;
+              let weightsByteLength = initializer.byteLength;
 
               if (initializer?.encoding === '<') {
                 const constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)`
@@ -165,7 +159,7 @@ function buildCodeWithLayout(nhwc: boolean) {
       const type = node.type.name || '';
       const handler = opHandlers[type];
       if (handler) {
-        const jsCode = handler(node, toJsVarName, { nhwc, weightModelData });
+        const jsCode = handler(node, toJsVarName, { nhwc });
         operatorsCode += `    ${jsCode}\n`;
       } else {
         const nodeName = node.name || '';

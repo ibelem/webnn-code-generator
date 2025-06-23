@@ -1,6 +1,7 @@
 import internetLogo from '/logo/internet.svg?raw';
 import localLogo from '/logo/local.svg?raw';
 import * as monaco from 'monaco-editor';
+import { toJsVarName } from './utils';
 /**
  * UI state management and file handling for WebNN Code Generator
  */
@@ -8,7 +9,6 @@ import * as monaco from 'monaco-editor';
 // Application state
 interface ModelState {
   graphModelData: Record<string, any> | null;
-  weightModelData: Record<string, any> | null; 
   weightNchwBin: ArrayBuffer | null;
   weightNhwcBin: ArrayBuffer | null;
 }
@@ -16,7 +16,6 @@ interface ModelState {
 // Initialize application state
 const modelFileState: ModelState = {
   graphModelData: null,
-  weightModelData: null,
   weightNchwBin: null,
   weightNhwcBin: null
 };
@@ -45,12 +44,12 @@ export const appendLogMessage = (message: string, isError = false): void => {
  * Enable/disable the generate button based on whether all required files are loaded
  */
 export const updateGenerateButtonState = (): void => {
-  const { graphModelData, weightModelData, weightNchwBin, weightNhwcBin } = getModelState();
+  const { graphModelData, weightNchwBin, weightNhwcBin } = getModelState();
   const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement | null;
   if (!generateBtn) return;
 
   // Require all four files: graph.json, weights.json, weights_nchw.bin, weights_nhwc.bin
-  const ready = !!(graphModelData && weightModelData && weightNchwBin && weightNhwcBin);
+  const ready = !!(graphModelData && weightNchwBin && weightNhwcBin);
   generateBtn.disabled = !ready;
 };
 
@@ -98,13 +97,15 @@ const processFileContent = (file: File, callback: (data: any) => void): void => 
 export const fetchFilesFromUrl = async (): Promise<void> => {
   const params = new URLSearchParams(window.location.search);
   const graphUrl = params.get('graph');
-  const weightUrl = params.get('weights');
   const weightNchwBinUrl = params.get('weights_nchw');
   const weightNhwcBinUrl = params.get('weights_nhwc');
 
+  updateStep1State(true);
+  updateStep2State(true);
+  updateStep3State(true);
+
   const fetches: Promise<Response>[] = [];
   if (graphUrl) fetches.push(fetch(graphUrl));
-  if (weightUrl) fetches.push(fetch(weightUrl));
   if (weightNchwBinUrl) fetches.push(fetch(weightNchwBinUrl));
   if (weightNhwcBinUrl) fetches.push(fetch(weightNhwcBinUrl));
 
@@ -119,27 +120,23 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
         modelFileState.graphModelData = graphResponse;
         updateFileInfo('graph-file-info', { name: graphUrl, size: JSON.stringify(graphResponse).length }, true);
         renderGraphDetails(modelFileState.graphModelData?.graph[0]);
-      }
-      if (weightUrl) {
-        const weightResponse = await responses[idx++].json();
-        modelFileState.weightModelData = weightResponse;
-        updateFileInfo('weight-file-info', { name: weightUrl, size: JSON.stringify(weightResponse).length }, true);
-        renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
+        updateStep1State(false);
+        updateStep2State(false);
       }
       if (weightNchwBinUrl) {
         const bin = await responses[idx++].arrayBuffer();
         modelFileState.weightNchwBin = bin;
         updateFileInfo('weight-nchw-bin-file-info', { name: weightNchwBinUrl, size: bin.byteLength }, true);
+        updateStep3State(false);
       }
       if (weightNhwcBinUrl) {
         const bin = await responses[idx++].arrayBuffer();
         modelFileState.weightNhwcBin = bin;
         updateFileInfo('weight-nhwc-bin-file-info', { name: weightNhwcBinUrl, size: bin.byteLength }, true);
+        updateStep3State(false);
       }
 
       appendLogMessage('Model files fetched successfully.');
-      updateStep1State(false);
-      updateStep2State(false);
       updateGenerateButtonState();
     } catch (error) {
       console.error('Error fetching files from URL:', error);
@@ -160,16 +157,16 @@ export const updateStep1State = (disabled:boolean): void => {
  * Enable/disable the Step 2
  */
 export const updateStep2State = (disabled:boolean): void => {
-  const step1Div = document.querySelectorAll<HTMLDivElement>('.step-2')[0];
-  (disabled === false) ? step1Div?.classList.remove('disabled') : step1Div?.classList.add('disabled');
+  const step2Div = document.querySelectorAll<HTMLDivElement>('.step-2')[0];
+  (disabled === false) ? step2Div?.classList.remove('disabled') : step2Div?.classList.add('disabled');
 };
 
 /**
  * Enable/disable the Step 3
  */
 export const updateStep3State = (disabled:boolean): void => {
-  const step1Div = document.querySelectorAll<HTMLDivElement>('.step-3')[0];
-  (disabled === false) ? step1Div?.classList.remove('disabled') : step1Div?.classList.add('disabled');
+  const step3Div = document.querySelectorAll<HTMLDivElement>('.step-3')[0];
+  (disabled === false) ? step3Div?.classList.remove('disabled') : step3Div?.classList.add('disabled');
 };
 
 /**
@@ -188,28 +185,10 @@ export const setupFileInputs = (): void => {
         appendLogMessage('Graph file loaded successfully');
         renderGraphDetails(modelFileState.graphModelData?.graph[0]); // Render graph details
         updateGenerateButtonState();
-      } catch (error) {
-        appendLogMessage('Error parsing graph file: ' + (error as Error).message, true);
-      }
-    });
-  });
-
-  // Only one weight file input handler needed
-  setupFileInput('weight-file-input', (file) => {
-    processFileContent(file, (data) => {
-      try {
-        modelFileState.weightModelData = JSON.parse(data as string);
-        updateFileInfo('weight-file-info', file, false); // local file
-        appendLogMessage('Weight file loaded successfully');
-        if (modelFileState.weightModelData) {
-          renderWeightDetails(modelFileState.weightModelData as Record<string, any>);
-        }
         updateStep1State(false);
         updateStep2State(false);
-        updateStep3State(false);
-        updateGenerateButtonState();
       } catch (error) {
-        appendLogMessage('Error parsing weight file: ' + (error as Error).message, true);
+        appendLogMessage('Error parsing graph file: ' + (error as Error).message, true);
       }
     });
   });
@@ -221,6 +200,7 @@ export const setupFileInputs = (): void => {
       updateFileInfo('weight-nchw-bin-file-info', file, false); // local file
       appendLogMessage('NCHW bin file loaded successfully');
       updateGenerateButtonState();
+      updateStep3State(false);
     });
   });
 
@@ -230,6 +210,7 @@ export const setupFileInputs = (): void => {
       updateFileInfo('weight-nhwc-bin-file-info', file, false); // local file
       appendLogMessage('NHWC bin file loaded successfully');
       updateGenerateButtonState();
+      updateStep3State(false);
     });
   });
   
@@ -376,7 +357,9 @@ const renderGraphDetails = (graphData: any): void => {
               <span class="inputoutput" title="${input.name}">${input.name}</span> 
               <span class="green name" title="${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}">${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}</span> 
               <span></span>
-              <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}">
+              <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}"
+                data-nchw="${getShapeString(input.value[0]?.initializer?.type?.nchw?.dimensions)} ${input.value[0]?.initializer?.type?.nchw?.kernel_layout || ''}"
+                data-nhwc="${getShapeString(input.value[0]?.initializer?.type?.nhwc?.dimensions)} ${input.value[0]?.initializer?.type?.nhwc?.kernel_layout || ''}">
                 ${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}
               </span>
             </div>
@@ -393,9 +376,76 @@ const renderGraphDetails = (graphData: any): void => {
       </div>
     `).join('');
     outputGraphElement.innerHTML += `<div class="graph-nodes">${nodesHTML}</div>`;
+
+    // Track last match index for each variable name (move this outside the function so it's shared)
+    const lastMatchIndex: Record<string, number> = {};
+    outputGraphElement.querySelectorAll('.node-inputs-outputs').forEach(node => {
+      node.addEventListener('click', () => {
+        const nameSpan = node.querySelector('.pink.name');
+        if (!nameSpan) return;
+        const tensorName = nameSpan.textContent?.trim();
+        if (!tensorName) return;
+        const jsVarName = toJsVarName(tensorName);
+
+        if (monacoEditor) {
+          const code = monacoEditor.getValue();
+          const lines = code.split('\n');
+          // Find all matching lines
+          const matchLines = lines
+            .map((line, idx) => ({ line, idx }))
+            .filter(obj => obj.line.includes(jsVarName))
+            .map(obj => obj.idx);
+
+          if (matchLines.length > 0) {
+            // Get the next match index for this variable
+            let lastIdx = lastMatchIndex[jsVarName] ?? -1;
+            let nextIdx = matchLines.find(idx => idx > lastIdx);
+            if (nextIdx === undefined) nextIdx = matchLines[0]; // wrap around
+
+            monacoEditor.setPosition({ lineNumber: nextIdx + 1, column: 1 });
+            monacoEditor.revealLineInCenter(nextIdx + 1);
+            monacoEditor.focus();
+
+            lastMatchIndex[jsVarName] = nextIdx;
+          }
+        }
+      });
+    });
+
+    const lastMatchIndexInitializer: Record<string, number> = {};
+    outputGraphElement.querySelectorAll('.initializer').forEach(initializer => {
+      initializer.addEventListener('click', () => {
+        const nameSpan = initializer.querySelector('.green.name');
+        if (!nameSpan) return;
+        const tensorName = nameSpan.textContent?.trim();
+        if (!tensorName) return;
+        const jsVarName = toJsVarName(tensorName);
+
+        if (monacoEditor) {
+          const code = monacoEditor.getValue();
+          const lines = code.split('\n');
+          // Find all matching lines
+          const matchLines = lines
+            .map((line, idx) => ({ line, idx }))
+            .filter(obj => obj.line.includes(jsVarName))
+            .map(obj => obj.idx);
+
+          if (matchLines.length > 0) {
+            // Get the next match index for this variable
+            let lastIdx = lastMatchIndexInitializer[jsVarName] ?? -1;
+            let nextIdx = matchLines.find(idx => idx > lastIdx);
+            if (nextIdx === undefined) nextIdx = matchLines[0]; // wrap around
+
+            monacoEditor.setPosition({ lineNumber: nextIdx + 1, column: 1 });
+            monacoEditor.revealLineInCenter(nextIdx + 1);
+            monacoEditor.focus();
+
+            lastMatchIndexInitializer[jsVarName] = nextIdx;
+          }
+        }
+      });
+    });
   }
-
-
 
   // Render free dimension overrides if needed
   if (freeDims.size > 0) {
@@ -417,43 +467,6 @@ const renderGraphDetails = (graphData: any): void => {
       if (mod.setFreeDims) mod.setFreeDims([]);
     });
   }
-};
-
-/**
- * Render weight details (node type, node name, inputs) in the output-weight element
- * @param weightData - The weight data from the uploaded or fetched file
- * @param nhwc - Whether to show NHWC shape (default: false, show NCHW)
- */
-const renderWeightDetails = (weightData: Record<string, any>, nhwc: boolean = false): void => {
-  const outputWeightElement = document.querySelector<HTMLDivElement>('#output-weight');
-  if (!outputWeightElement) return;
-
-  // Convert weightData to array and sort by nodeIdentifier if present
-  const nodes = Object.values(weightData)
-    .filter(node => node && node.nodeIdentifier !== undefined)
-    .sort((a, b) => Number(a.nodeIdentifier) - Number(b.nodeIdentifier));
-
-  // If some nodes don't have nodeIdentifier, append them at the end
-  const noIdNodes = Object.values(weightData)
-    .filter(node => node && node.nodeIdentifier === undefined);
-
-  const orderedNodes = [...nodes, ...noIdNodes];
-
-  const nodesHTML = orderedNodes.map((node) => {
-    const shape = nhwc ? node.nhwc?.shape : node.nchw?.shape;
-    return `
-      <div class="weight-section">
-        <span class="type" title="${node.nodeType || ''}">${node.nodeType || ''}</span>
-        <span class="pink nodename" title="${node.nodeName || node.nodeIdentifier}">${node.nodeName || node.nodeIdentifier}</span>
-        <span class="inputoutput" title="${node.input || ''}">${node.input || ''}</span>
-        <span class="green name" title="${node.name || ''}">${node.name || ''}</span>
-        <span></span>
-        <span class="tensor" title="${node.dataType || ''}[${shape?.join(', ') || ''}]">${node.dataType || ''}[${shape?.join(', ') || ''}]</span>
-      </div>
-    `;
-  }).join('');
-
-  outputWeightElement.innerHTML = nodesHTML;
 };
 
 const getShapeString = (dims?: number[]) => {
@@ -533,8 +546,8 @@ function generateWebNNCode(): void {
   appendLogMessage('Starting code generation process...');
   
   try {
-    const { graphModelData, weightModelData} = getModelState();
-    if (!graphModelData || !weightModelData) {
+    const { graphModelData } = getModelState();
+    if (!graphModelData) {
       appendLogMessage('Missing required files for code generation', true);
       return;
     }
@@ -577,31 +590,22 @@ function renderOutputCode(): void {
   import('./code').then(mod => {
     const code = mod.generateJS();
     const html = mod.generateHTML ? mod.generateHTML() : '';
-    const { weightModelData } = getModelState();
-
     // Show NCHW by default
     monaco.editor.getModels()[0].setValue(code.nchw);
-    if (weightModelData) {
-      renderWeightDetails(weightModelData as Record<string, any>, false);
-    }
 
     // Add event listeners for tab switching
     document.getElementById('nchw-js')?.addEventListener('change', function () {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(code.nchw);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
-        if (weightModelData) {
-          renderWeightDetails(weightModelData as Record<string, any>, false);
-        }
+        updateTensorShapes('nchw');
       }
     });
     document.getElementById('nhwc-js')?.addEventListener('change', function () {
       if ((this as HTMLInputElement).checked) {
         monaco.editor.getModels()[0].setValue(code.nhwc);
         monaco.editor.setModelLanguage(monaco.editor.getModels()[0], 'javascript');
-        if (weightModelData) {
-          renderWeightDetails(weightModelData as Record<string, any>, true);
-        }
+        updateTensorShapes('nhwc');
       }
     });
     document.getElementById('webnn-html')?.addEventListener('change', function () {
@@ -611,5 +615,32 @@ function renderOutputCode(): void {
         // Optionally, clear or keep the last shown weights panel
       }
     });
+  });
+}
+
+function updateTensorShapes(layout: 'nchw' | 'nhwc') {
+  document.querySelectorAll('.tensor').forEach(span => {
+    const data = (span as HTMLElement).dataset;
+    // Get the base data type (e.g., float32)
+    const dataType = (span as HTMLElement).getAttribute('title')?.split('[')[0]?.trim() || '';
+    let dims = '';
+    let kernelLayout = '';
+    if (layout === 'nchw' && data.nchw) {
+      // data-nchw=" [16,3,3,3] OIHW"
+      const match = data.nchw.match(/(\[.*\])\s*(.*)/);
+      if (match) {
+        dims = match[1];
+        kernelLayout = match[2] ? ` ${match[2]}` : '';
+      }
+    } else if (layout === 'nhwc' && data.nhwc) {
+      // data-nhwc=" [3,3,3,16] OHWI"
+      const match = data.nhwc.match(/(\[.*\])\s*(.*)/);
+      if (match) {
+        dims = match[1];
+        kernelLayout = match[2] ? ` ${match[2]}` : '';
+      }
+    }
+    // Set the content to only show the current layout's shape and kernel layout
+    span.textContent = `${dataType}${dims}${kernelLayout}`;
   });
 }
