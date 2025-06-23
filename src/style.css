@@ -325,7 +325,7 @@ header {
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 3fr;
   grid-row-gap: 0em;
-  grid-column-gap: 0.5em;
+  grid-column-gap: 0;
   align-items: start;
   border-bottom: 1px solid var(--border);
   padding: 0.5em;
@@ -337,7 +337,7 @@ header {
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 2fr;
   grid-row-gap: 0em;
-  grid-column-gap: 0.5em;
+  grid-column-gap: 0em;
   align-items: center;
   padding: 0.5em;
   border-bottom: 1px solid var(--border);
@@ -360,9 +360,7 @@ header {
 .initializer {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 2fr;
   grid-row-gap: 0em;
-  padding: 0.2em 0;
   align-items: center;
   justify-items: start;
   cursor: pointer;
@@ -389,6 +387,7 @@ header {
 
 .inputs, .outputs {
   border-radius: 3px;
+  margin-top: 0.5em;
   padding: 0 0.2em;
   display: inline-block;
   border: 1px solid var(--border);
@@ -399,8 +398,23 @@ header {
   text-align: center;
 }
 
-.type, .inputoutput {
-  max-width: 36px;
+ .outputs {
+  margin-top: 0.1em;
+ }
+
+.type, .inputoutput, 
+.graph-inputs .name, 
+.graph-outputs .name {
+  width: 36px;
+  display: inline-grid;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.green.name {
+  width: 50px;
+  display: inline-grid;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

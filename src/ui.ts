@@ -316,12 +316,13 @@ const renderGraphDetails = (graphData: any): void => {
       return `
         <div class="graph-section">
           <span class="inputs" title="Inputs">I</span>
-          <span class="name" title="${input.name}">${input.name}</span>
-          <span></span>
-          <span class="tensor">
-            ${input.value[0]?.type?.dataType || ''}
-            ${getShapeString(dims)}
-          </span>
+          <div>
+            <span class="name" title="${input.name}">${input.name}</span>
+            <span class="tensor">
+              ${input.value[0]?.type?.dataType || ''}
+              ${getShapeString(dims)}
+            </span>
+          </div>
         </div>
       `;
     }).join('');
@@ -333,12 +334,13 @@ const renderGraphDetails = (graphData: any): void => {
     const outputsHTML = graphData.outputs.map((output: any) => `
       <div class="graph-section">
         <span class="outputs" title="Outputs">O</span>
-        <span class="name" title="${output.name}">${output.name}</span>
-        <span></span>
-        <span class="tensor" title="${output.value[0]?.type?.dataType || ''} ${getShapeString(output.value[0]?.type?.shape?.dimensions)}">
-          ${output.value[0]?.type?.dataType || ''}
-          ${getShapeString(output.value[0]?.type?.shape?.dimensions)}
-        </span>
+        <div>
+          <span class="name" title="${output.name}">${output.name}</span>
+          <span class="tensor" title="${output.value[0]?.type?.dataType || ''} ${getShapeString(output.value[0]?.type?.shape?.dimensions)}">
+            ${output.value[0]?.type?.dataType || ''}
+            ${getShapeString(output.value[0]?.type?.shape?.dimensions)}
+          </span>
+        </div>
       </div>
     `).join('');
     outputGraphElement.innerHTML += `<div class="graph-outputs">${outputsHTML}</div>`;
@@ -355,13 +357,15 @@ const renderGraphDetails = (graphData: any): void => {
           ${node.inputs.map((input: any) => `
             <div class="initializer">
               <span class="inputoutput" title="${input.name}">${input.name}</span> 
-              <span class="green name" title="${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}">${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}</span> 
-              <span></span>
-              <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}"
-                data-nchw="${getShapeString(input.value[0]?.initializer?.type?.nchw?.dimensions)} ${input.value[0]?.initializer?.type?.nchw?.kernel_layout || ''}"
-                data-nhwc="${getShapeString(input.value[0]?.initializer?.type?.nhwc?.dimensions)} ${input.value[0]?.initializer?.type?.nhwc?.kernel_layout || ''}">
-                ${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}
-              </span>
+              <div>
+                <span class="green name" title="${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}">${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}</span> 
+                <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}"
+                  data-default="${getShapeString(input.value[0]?.type?.shape?.dimensions || [])}"
+                  data-nchw="${getShapeString(input.value[0]?.initializer?.type?.nchw?.dimensions)} ${input.value[0]?.initializer?.type?.nchw?.kernel_layout || ''}"
+                  data-nhwc="${getShapeString(input.value[0]?.initializer?.type?.nhwc?.dimensions)} ${input.value[0]?.initializer?.type?.nhwc?.kernel_layout || ''}">
+                  ${input.value[0]?.type?.dataType || ''} ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
+                </span>
+              </div>
             </div>
           `).join('')}
         </div>
@@ -625,22 +629,25 @@ function updateTensorShapes(layout: 'nchw' | 'nhwc') {
     const dataType = (span as HTMLElement).getAttribute('title')?.split('[')[0]?.trim() || '';
     let dims = '';
     let kernelLayout = '';
-    if (layout === 'nchw' && data.nchw) {
-      // data-nchw=" [16,3,3,3] OIHW"
+
+    if (layout === 'nchw' && data.nchw && data.nchw.trim() !== '') {
+      // data-nchw exists and is not empty
       const match = data.nchw.match(/(\[.*\])\s*(.*)/);
       if (match) {
         dims = match[1];
         kernelLayout = match[2] ? ` ${match[2]}` : '';
+        // Set the content to only show the current layout's shape and kernel layout
+        span.textContent = `${dataType} ${dims}${kernelLayout}`;
       }
-    } else if (layout === 'nhwc' && data.nhwc) {
-      // data-nhwc=" [3,3,3,16] OHWI"
+    } else if (layout === 'nhwc' && data.nhwc && data.nhwc.trim() !== '') {
+      // data-nhwc exists and is not empty
       const match = data.nhwc.match(/(\[.*\])\s*(.*)/);
       if (match) {
         dims = match[1];
         kernelLayout = match[2] ? ` ${match[2]}` : '';
+        // Set the content to only show the current layout's shape and kernel layout
+        span.textContent = `${dataType} ${dims}${kernelLayout}`;
       }
     }
-    // Set the content to only show the current layout's shape and kernel layout
-    span.textContent = `${dataType}${dims}${kernelLayout}`;
   });
 }
