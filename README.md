@@ -25,15 +25,14 @@ The conversion process involves two complementary tools:
 2. Click the **"Open Model..."** button
 3. Select your model file (`.onnx`, `.tflite`, or other supported formats)
 4. Once loaded, download the required files:
-   - Click **"Graph"** → Download `graph.json`
-   - Click **"Weights"** → Download `weights.json`, `weights_nchw.bin` and `weights_nhwc.bin`
+   - Click **"Graph and Weights"** button → Download `graph.json`, `weights_nchw.bin` and `weights_nhwc.bin`
 
 ### Step 2: Generate WebNN Code
 
 1. Open [WebNN Code Generator](https://ibelem.github.io/webnn-code-generator/)
 2. Upload the extracted files:
    - Click **"Choose Graph"** → Select `graph.json`
-   - Click **"Choose Weights"** → Select `weights.json` and `weights.json`
+   - Click **"Choose Weights"** → Select `weights_nchw.bin` and `weights_nhwc.bin`
 
 ### Step 3: Configure Dynamic Dimensions (if needed)
 
