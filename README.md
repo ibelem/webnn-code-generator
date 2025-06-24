@@ -47,8 +47,8 @@ If your model contains symbolic dimensions, you'll see a **"Set free dimension o
 1. Click **"Generate WebNN Code"**
 2. Click **"Download Code Files"** to receive:
    - Generated JavaScript file with WebNN implementation
-   - `webnn.html` test file for validation
-3. Put the `weights_nchw.bin` and `weights_nhwc.bin` downloaded from [WebNN Netron](https://ibelem.github.io/netron/) together with `.js` and `webnn.html` in the same folder
+   - `index.html` test file for validation
+3. Put the `weights_nchw.bin` and `weights_nhwc.bin` downloaded from [WebNN Netron](https://ibelem.github.io/netron/) together with `.js` and `index.html` in the same folder
 
 ## Testing Your Generated Code
 
@@ -74,4 +74,4 @@ http-server
 # Navigate to http://localhost:8080 in your browser
 ```
 
-Open the generated `webnn.html` file in your browser to validate the conversion.
+Open the generated `index.html` file in your browser to validate the conversion.
