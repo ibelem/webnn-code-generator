@@ -37,7 +37,7 @@ const renderAppLayout = (): void => {
       <div class="file-upload-panel">
         <div class="step step-1 disabled">
           <div class="step-icon">1</div>
-          <div id="step-1" title="Convert your ONNX, TensorFlow Lite, or other model formats into graph, weights and bin files">
+          <div id="step-1" title="Convert your ONNX, TensorFlow Lite, or other model formats into graph (.json) and weights (.bin) files">
             Donwload graph &amp; weights from <a href="https://ibelem.github.io/netron">WebNN Netron</a>
           </div>
         </div>
