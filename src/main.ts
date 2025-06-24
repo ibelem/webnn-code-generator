@@ -95,11 +95,106 @@ const renderAppLayout = (): void => {
           &copy;2025 <a href="https://ibelem.github.io/webnn-code-generator/" title="WebNN Code Generator">WebNN Code Generator</a> · <a href="https://github.com/ibelem/webnn-code-generator/issues" title="WebNN Code Generator Issues">${githubLogo}</a>
         </div>
         <div class="footer-link">
-          <a class="pink-link" href="http://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights_nhwc.bin">Example</a> · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://ibelem.github.io/netron/reader.html" title="WebNN Netron">Bin Reader</a> · <a href="https://github.com/huningxin/onnx2webnn" title="Exports the ONNX file to a WebNN JavaScript file and a bin file containing the weights">ONNX2WebNN</a>
+          <div class="example-wrapper" style="position: relative;">
+            <span class="pink-link" id="example-menu-trigger">Example</span>
+            <div id="example-menu" class="example-menu">
+              <div class="example-menu-content">
+                <div>
+                  <div class="example-title">MobileNet V2</div>
+                    <div class="example-links">
+                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights_nhwc.bin">Code Generation</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/index.html?devicetype=gpu&layout=nchw&run=50">NCHW Test Page</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC Test Page</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="example-title">Selfie Segmenter Landscape</div>
+                    <div class="example-links">
+                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/weights_nhwc.bin">Code Generation</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/index.html?devicetype=gpu&layout=nchw&run=50">NCHW Test Page</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC Test Page</a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          · <a href="https://ibelem.github.io/netron/" title="WebNN Netron">WebNN Netron</a> · <a href="https://ibelem.github.io/netron/reader.html" title="WebNN Netron">Bin Reader</a> · <a href="https://github.com/huningxin/onnx2webnn" title="Exports the ONNX file to a WebNN JavaScript file and a bin file containing the weights">ONNX2WebNN</a>
         </div>
       </footer>
     </div>
   `;
+
+  setTimeout(() => {
+    const trigger = document.getElementById('example-menu-trigger');
+    const menu = document.getElementById('example-menu');
+    if (!trigger || !menu) return;
+
+    // Position menu properly relative to the trigger
+    function positionMenu() {
+      const rect = trigger.getBoundingClientRect();
+      const menuWidth = 340; // This should match your min-width in CSS
+      
+      // Check if we're too close to the right edge
+      const rightEdgeDistance = window.innerWidth - rect.right;
+      const bottomEdgeDistance = window.innerHeight - rect.bottom;
+      
+      // Default position (above and right-aligned)
+      menu.style.bottom = (rect.height + 8) + 'px';
+      menu.style.right = '0px';
+      
+      // If we're too close to the right edge, align left instead
+      if (rightEdgeDistance < menuWidth && rect.left > menuWidth) {
+        menu.style.right = '0px';
+      }
+      
+      // If we're too close to the bottom, show above instead of below
+      if (bottomEdgeDistance < 200 && rect.top > 250) {
+        menu.style.bottom = (rect.height + 8) + 'px'; 
+        menu.style.top = 'auto';
+      } else {
+        menu.style.top = (rect.height + 8) + 'px';
+        menu.style.bottom = 'auto';
+      }
+    }
+
+    // Show/hide functions
+    function showMenu() {
+      positionMenu();
+      menu.style.display = 'block';
+    }
+    
+    function hideMenu() {
+      menu.style.display = 'none';
+    }
+
+    // Event listeners for interactions
+    let timeoutId: number;
+    
+    trigger.addEventListener('mouseenter', () => {
+      clearTimeout(timeoutId);
+      showMenu();
+    });
+    
+    trigger.addEventListener('mouseleave', () => {
+      timeoutId = window.setTimeout(hideMenu, 300);
+    });
+    
+    menu.addEventListener('mouseenter', () => {
+      clearTimeout(timeoutId);
+    });
+    
+    menu.addEventListener('mouseleave', () => {
+      timeoutId = window.setTimeout(hideMenu, 300);
+    });
+
+    // Hide menu when clicking elsewhere
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target as Node) && e.target !== trigger) {
+        hideMenu();
+      }
+    });
+  }, 0);
+ 
 };
 
 // Initialize the application when the DOM is ready

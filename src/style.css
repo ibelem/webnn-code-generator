@@ -61,6 +61,7 @@
   --grey-02: rgba(213, 213, 213, 0.2);
   --grey-04: rgba(213, 213, 213, 0.4);
   --pink: rgba(255, 0, 129, 1);
+  --pink-01: rgba(255, 0, 129, 0.1);
   --pink-005: rgba(255, 0, 129, 0.05);
   --green: rgb(0, 130, 54);
   --green-005: rgb(0, 130, 54, 0.05);
@@ -257,6 +258,7 @@ header {
   flex-direction: column;
   align-items: stretch;
   border-right: 1px solid var(--border);
+  margin-right: -1px;
 }
 
 .graph-weight-panel {
@@ -320,21 +322,26 @@ header {
   background-color: var(--grey);
 }
 
-.node-inputs-outputs {
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 4fr;
-  grid-row-gap: 0em;
-  grid-column-gap: 0;
-  align-items: start;
-  border-bottom: 1px solid var(--border);
+.node-header {
+  justify-items: start;
+  align-items: center;
   padding: 0.5em;
   margin-top: -1px;
 }
 
+.node-inputs-outputs {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-row-gap: 0em;
+  grid-column-gap: 0;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+  padding: 0 0.5em 0.5em 0.5em;
+}
+
 .graph-section {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 9fr;
   grid-template-rows: 2fr;
   grid-row-gap: 0em;
   grid-column-gap: 0em;
@@ -357,16 +364,24 @@ header {
   color: var(--pink);
 }
 
+.node-inputs-outputs:hover .inputs,
+.node-inputs-outputs:hover .outputs,
+.node-inputs-outputs:hover .attributes {
+  border: 1px solid var(--pink);
+  color: var(--pink);
+}
+
 .initializer {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 6fr;
   grid-row-gap: 0em;
   align-items: center;
   justify-items: start;
   cursor: pointer;
+  padding: 0 0.5em;
 }
 
-.pink.name:hover {
+.node-header:hover {
   cursor: pointer;
   background-color: var(--pink-005);
 }
@@ -387,7 +402,7 @@ header {
 
 .inputs, .outputs, .attributes {
   border-radius: 3px;
-  margin-top: 0.3em;
+  margin-top: 0.2em;
   padding: 0 0.2em;
   display: inline-block;
   border: 1px solid var(--border);
@@ -398,26 +413,26 @@ header {
   text-align: center;
 }
 
-.inputs {
-  margin-top: 0.2em;
-}
-
- .outputs {
-  margin-top: 0.1em;
- }
-
-.type, .inputoutput, 
+.inputoutput, 
 .graph-inputs .name, 
 .graph-outputs .name {
-  width: 36px;
   display: inline-grid;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
+.graph-inputs .name, 
+.graph-outputs .name {
+  width: 111px;
+}
+
+.p-05 {
+  padding: 0 0.5em;
+}
+
 .attributes-name {
-  width: 100px;
+  width: 114px;
   display: inline-grid;
   overflow: hidden;
   white-space: nowrap;
@@ -425,7 +440,7 @@ header {
 }
 
 .green.name {
-  width: 50px;
+  width: 75px;
   display: inline-grid;
   overflow: hidden;
   white-space: nowrap;
@@ -436,6 +451,11 @@ header {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.inputoutput {
+  width: 32px;
+  margin-right: 4px;
 }
 
 .weight-section {
@@ -726,6 +746,69 @@ footer .footer-link {
 
 .pink-link {
   color: var(--pink);
+}
+
+.example-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.example-menu {
+  display: none;
+  position: absolute;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18), 1px 10px 20px var(--pink-01);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  min-width: 340px;
+  z-index: 1000;
+  padding: 1em;
+  animation: fadeInMenu 0.25s cubic-bezier(.4,2,.6,1) both;
+  right: 0;
+  bottom: calc(100% + 8px);
+  text-align: left;
+}
+
+.example-menu:hover {
+  border-color: var(--pink);
+}
+
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(10px) scale(0.98);}
+  to   { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+.example-menu-content > div {
+  margin-bottom: 10px;
+}
+
+.example-menu-content > div:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.example-title {
+  font-weight: bold;
+  color: var(--pink);
+}
+
+.example-links a {
+  margin-right: 12px;
+  color: #1976d2;
+  text-decoration: none;
+  transition: color 0.18s;
+  font-size: 0.98em;
+}
+
+.example-links a:hover {
+  color: var(--pink);
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.footer-link .pink-link {
+  cursor: pointer;
+  position: relative;
 }
 
 .app-description ul {

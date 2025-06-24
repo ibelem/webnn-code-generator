@@ -311,143 +311,183 @@ export function downloadJS() {
 
 export function generateHTML() {
   const name = modelName();
-
   return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Test ${name} in nchw and nhwc layouts</title>
-</head>
-<body>
-  <h1>Test ${name}.js in nchw and nhwc layouts</h1>
-  <label for="deviceType">Device:</label>
-  <select id="deviceType">
-    <option value="cpu">CPU</option>
-    <option value="gpu" selected>GPU</option>
-    <option value="npu">NPU</option>
-  </select>
-  <label for="numRuns">#Runs:</label>
-  <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
-  <button id="run-btn">Build & Run Model</button>
-  <pre id="output"></pre>
-  <script type="module">
-    import { ${name}Nchw } from './${name}_nchw.js';
-    import { ${name}Nhwc } from './${name}_nhwc.js';
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>WebNN - Test ${name} in nchw and nhwc layouts</title>
+  </head>
+  <body>
+    <h1>WebNN - Test ${name}.js in nchw and nhwc layouts</h1>
+    <label for="deviceType">Device:</label>
+    <select id="deviceType">
+      <option value="cpu">CPU</option>
+      <option value="gpu" selected>GPU</option>
+      <option value="npu">NPU</option>
+    </select>
+    <label for="numRuns">#Runs:</label>
+    <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
+    <button id="run-btn">Build & Run Model</button>
+    <pre id="output"></pre>
+    <script type="module">
+      import { ${name}Nchw } from './${name}_nchw.js';
+      import { ${name}Nhwc } from './${name}_nhwc.js';
 
-    const output = document.getElementById('output');
-    const deviceTypeSelect = document.getElementById('deviceType');
-
-    // Add event listener for deviceType change
-    deviceTypeSelect.addEventListener('change', async () => {
-      const deviceType = deviceTypeSelect.value || 'gpu';
-      let preferredInputLayout = 'nchw';
-      if (navigator.ml && navigator.ml.createContext) {
-        try {
-          const tmpContext = await navigator.ml.createContext({ deviceType });
-          preferredInputLayout = tmpContext.opSupportLimits().preferredInputLayout;
-        } catch (e) {}
+      // --- URL parameter parsing ---
+      function getUrlParam(name, def) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name) || def;
       }
-      output.textContent = \`Selected \${deviceType} · preferredInputLayout: \${preferredInputLayout}\n\`;
-    });
+      // Set deviceType, numRuns, and layout from URL if present
+      const deviceTypeParam = getUrlParam('devicetype', 'gpu');
+      const numRunsParam = getUrlParam('run', '1');
+      const layoutParam = getUrlParam('layout', '');
 
-    document.getElementById('run-btn').onclick = async () => {
-      output.textContent = 'Building model...\\n';
-      try {
-        const deviceType = deviceTypeSelect.value || 'gpu';
-        let layout = 'nchw';
+      const output = document.getElementById('output');
+      const deviceTypeSelect = document.getElementById('deviceType');
+      const numRunsInput = document.getElementById('numRuns');
+
+      // Set defaults from URL params if present
+      if (['cpu','gpu','npu'].includes(deviceTypeParam)) {
+        deviceTypeSelect.value = deviceTypeParam;
+      }
+      if (!isNaN(Number(numRunsParam)) && Number(numRunsParam) > 0) {
+        numRunsInput.value = numRunsParam;
+      }
+
+      // --- Detect preferredInputLayout and resolve layout ---
+      let deviceType = deviceTypeSelect.value || 'gpu';
+      let layout = 'nchw';
+      let preferredInputLayout = 'nchw';
+
+      async function detectPreferredLayoutAndShowSettings() {
+        deviceType = deviceTypeSelect.value || 'gpu';
         if (navigator.ml && navigator.ml.createContext) {
           try {
             const tmpContext = await navigator.ml.createContext({ deviceType });
-            layout = tmpContext.opSupportLimits().preferredInputLayout;
-          } catch (e) {}
-        }
-        let model;
-        if (layout === 'nchw') {
-            model = new ${name}Nchw();
+            preferredInputLayout = tmpContext.opSupportLimits().preferredInputLayout;
+            layout = preferredInputLayout;
+          } catch (e) {
+            preferredInputLayout = 'nchw';
+            layout = 'nchw';
+          }
         } else {
-            model = new ${name}Nhwc();
+          preferredInputLayout = 'nchw';
+          layout = 'nchw';
         }
-        const t0 = performance.now();
-        await model.build({ deviceType: deviceType });
-        const t1 = performance.now();
-        output.textContent += \`Model built successfully. Build latency: \${(t1 - t0).toFixed(2)} ms\\n\`;
-
-        // Output input tensor info
-        output.textContent += '\\nInput tensors:\\n';
-        for (const name in model.inputTensors_) {
-          const tensor = model.inputTensors_[name];
-          output.textContent += \`  \${name}: shape=[\${tensor.shape}], dataType=\${tensor.dataType}\\n\`;
+        // If layout param is set in URL, override preferredInputLayout
+        if (layoutParam === 'nchw' || layoutParam === 'nhwc') {
+          layout = layoutParam;
         }
-
-        // Output output tensor info
-        output.textContent += '\\nOutput tensors:\\n';
-        for (const name in model.outputTensors_) {
-          const tensor = model.outputTensors_[name];
-          output.textContent += \`  \${name}: shape=[\${tensor.shape}], dataType=\${tensor.dataType}\\n\`;
-        }
-        output.textContent += '\\n';
-
-        // Prepare dummy input data for testing (random values)
-        const inputs = {};
-        for (const name in model.inputTensors_) {
-          const tensor = model.inputTensors_[name];
-          let typedArrayCtor = Float32Array;
-          switch (tensor.dataType) {
-            case 'float32': typedArrayCtor = Float32Array; break;
-            case 'uint8': typedArrayCtor = Uint8Array; break;
-            case 'int8': typedArrayCtor = Int8Array; break;
-            case 'uint16': typedArrayCtor = Uint16Array; break;
-            case 'int16': typedArrayCtor = Int16Array; break;
-            case 'int32': typedArrayCtor = Int32Array; break;
-            case 'int64': typedArrayCtor = BigInt64Array; break;
-            case 'float16': typedArrayCtor = Float16Array; break;
-            case 'float64': typedArrayCtor = Float64Array; break;
-            case 'uint32': typedArrayCtor = Uint32Array; break;
-            case 'uint64': typedArrayCtor = BigUint64Array; break;
-            default: throw new Error(\`Unhandled input dataType: \${tensor.dataType}\`);
-          }
-          const size = tensor.shape.reduce((a, b) => a * b, 1);
-          const arr = new typedArrayCtor(size);
-          // Fill with random values
-          if (typedArrayCtor === Float32Array || typedArrayCtor === Float64Array) {
-            for (let i = 0; i < size; ++i) arr[i] = Math.random();
-          } else if (typedArrayCtor.BYTES_PER_ELEMENT === 8) {
-            // BigInt64Array/BigUint64Array
-            for (let i = 0; i < size; ++i) arr[i] = BigInt(Math.floor(Math.random() * 100));
-          } else {
-            for (let i = 0; i < size; ++i) arr[i] = Math.floor(Math.random() * 100);
-          }
-          inputs[name] = arr;
-        }
-
-        output.textContent += 'Running inference...\\n';
-        // Get number of runs from input
-        let numRuns = parseInt(document.getElementById('numRuns').value) || 1;
-        if (numRuns < 1) numRuns = 1;
-        // Time model.run and print median inference latency
-        const latencies = [];
-        let results = null;
-        for (let i = 0; i < numRuns; ++i) {
-          const t0 = performance.now();
-          results = await model.run(inputs);
-          const t1 = performance.now();
-          latencies.push(t1 - t0);
-        }
-        latencies.sort((a, b) => a - b);
-        const median = latencies[Math.floor(latencies.length / 2)];
-        output.textContent += \`Median inference latency (\${numRuns} runs): \${median.toFixed(2)} ms\\n\`;
-        output.textContent += '\\n';
-        output.textContent += 'Inference results:\\n' + JSON.stringify(results, null, 2);
-      } catch (e) {
-        output.textContent += 'Error: ' + e;
+        // Show current settings in output
+        let settingsMsg = 'Current settings from URL parameters and detection:\\n';
+        settingsMsg += '  Device type: ' + deviceType + '\\n';
+        settingsMsg += '  Preferred layout: ' + preferredInputLayout + '\\n';
+        settingsMsg += '  Using layout: ' + (layoutParam ? layout : layout + ' (preferred)') + '\\n';
+        settingsMsg += '  Runs: ' + numRunsInput.value + '\\n';
+        output.textContent = settingsMsg;
       }
-    };
-  </script>
-</body>
-</html>
-`;
+
+      // Run on page load
+      detectPreferredLayoutAndShowSettings();
+
+      // Update settings if deviceType changes
+      deviceTypeSelect.addEventListener('change', async () => {
+        await detectPreferredLayoutAndShowSettings();
+        output.textContent += '\\n(You may need to re-run the model to apply new device type)';
+      });
+
+      document.getElementById('run-btn').onclick = async () => {
+        output.textContent += '\\nBuilding model...\\n';
+        try {
+          // Use the resolved deviceType and layout from above
+          let model;
+          if (layout === 'nchw') {
+            model = new ${name}Nchw();
+          } else {
+            model = new ${name}Nhwc();
+          }
+          const t0 = performance.now();
+          await model.build({ deviceType: deviceType });
+          const t1 = performance.now();
+          output.textContent += \`Model built successfully. Build latency: \${(t1 - t0).toFixed(2)} ms\\n\`;
+
+          // Output input tensor info
+          output.textContent += '\\nInput tensors:\\n';
+          for (const name in model.inputTensors_) {
+            const tensor = model.inputTensors_[name];
+            output.textContent += \`  \${name}: shape=[\${tensor.shape}], dataType=\${tensor.dataType}\\n\`;
+          }
+
+          // Output output tensor info
+          output.textContent += '\\nOutput tensors:\\n';
+          for (const name in model.outputTensors_) {
+            const tensor = model.outputTensors_[name];
+            output.textContent += \`  \${name}: shape=[\${tensor.shape}], dataType=\${tensor.dataType}\\n\`;
+          }
+          output.textContent += '\\n';
+
+          // Prepare dummy input data for testing (random values)
+          const inputs = {};
+          for (const name in model.inputTensors_) {
+            const tensor = model.inputTensors_[name];
+            let typedArrayCtor = Float32Array;
+            switch (tensor.dataType) {
+              case 'float32': typedArrayCtor = Float32Array; break;
+              case 'uint8': typedArrayCtor = Uint8Array; break;
+              case 'int8': typedArrayCtor = Int8Array; break;
+              case 'uint16': typedArrayCtor = Uint16Array; break;
+              case 'int16': typedArrayCtor = Int16Array; break;
+              case 'int32': typedArrayCtor = Int32Array; break;
+              case 'int64': typedArrayCtor = BigInt64Array; break;
+              case 'float16': typedArrayCtor = Float16Array; break;
+              case 'float64': typedArrayCtor = Float64Array; break;
+              case 'uint32': typedArrayCtor = Uint32Array; break;
+              case 'uint64': typedArrayCtor = BigUint64Array; break;
+              default: throw new Error(\`Unhandled input dataType: \${tensor.dataType}\`);
+            }
+            const size = tensor.shape.reduce((a, b) => a * b, 1);
+            const arr = new typedArrayCtor(size);
+            // Fill with random values
+            if (typedArrayCtor === Float32Array || typedArrayCtor === Float64Array) {
+              for (let i = 0; i < size; ++i) arr[i] = Math.random();
+            } else if (typedArrayCtor.BYTES_PER_ELEMENT === 8) {
+              // BigInt64Array/BigUint64Array
+              for (let i = 0; i < size; ++i) arr[i] = BigInt(Math.floor(Math.random() * 100));
+            } else {
+              for (let i = 0; i < size; ++i) arr[i] = Math.floor(Math.random() * 100);
+            }
+            inputs[name] = arr;
+          }
+
+          output.textContent += 'Running inference...\\n';
+          // Get number of runs from input
+          let numRuns = parseInt(numRunsInput.value) || 1;
+          if (numRuns < 1) numRuns = 1;
+          // Time model.run and print median inference latency
+          const latencies = [];
+          let results = null;
+          for (let i = 0; i < numRuns; ++i) {
+            const t0 = performance.now();
+            results = await model.run(inputs);
+            const t1 = performance.now();
+            latencies.push(t1 - t0);
+          }
+          latencies.sort((a, b) => a - b);
+          const median = latencies[Math.floor(latencies.length / 2)];
+          output.textContent += \`Median inference latency (\${numRuns} runs): \${median.toFixed(2)} ms\\n\`;
+          output.textContent += '\\n';
+          output.textContent += 'Inference results:\\n' + JSON.stringify(results, null, 2);
+        } catch (e) {
+          output.textContent += 'Error: ' + e;
+        }
+      };
+    </script>
+  </body>
+  </html>
+  `;
 }
 
 export function downloadHTML() {
-  downloadFile('webnn.html', 'text/html', generateHTML());
+  downloadFile('index.html', 'text/html', generateHTML());
 }

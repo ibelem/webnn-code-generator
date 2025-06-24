@@ -316,7 +316,7 @@ const renderGraphDetails = (graphData: any): void => {
       return `
         <div class="graph-section">
           <span class="inputs" title="Inputs">I</span>
-          <div>
+          <div class="p-05">
             <span class="name" title="${input.name}">${input.name}</span>
             <span class="tensor">
               ${input.value[0]?.type?.dataType || ''}
@@ -334,7 +334,7 @@ const renderGraphDetails = (graphData: any): void => {
     const outputsHTML = graphData.outputs.map((output: any) => `
       <div class="graph-section">
         <span class="outputs" title="Outputs">O</span>
-        <div>
+        <div class="p-05">
           <span class="name" title="${output.name}">${output.name}</span>
           <span class="tensor" title="${output.value[0]?.type?.dataType || ''} ${getShapeString(output.value[0]?.type?.shape?.dimensions)}">
             ${output.value[0]?.type?.dataType || ''}
@@ -349,62 +349,66 @@ const renderGraphDetails = (graphData: any): void => {
   // Render graph nodes (unchanged)
   if (graphData.nodes) {
     const nodesHTML = graphData.nodes.map((node: any) => `
-      <div class="node-inputs-outputs">
-        <div class="type" title="${node.type?.name || ''}">${node.type?.name || ''}</div>
-        <div class="pink name" title="${node.name || node.identifier}">${node.name || node.identifier}</div>
-        <div class="inputs" title="Inputs">I</div>
-        <div>
-          ${node.inputs.map((input: any) => `
-            <div class="initializer">
-              <span class="inputoutput" title="${input.name}">${input.name}</span> 
-              <div>
-                <span class="green name" title="${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}">${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}</span> 
-                <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}"
-                  data-default="${getShapeString(input.value[0]?.type?.shape?.dimensions || [])}"
-                  data-nchw="${getShapeString(input.value[0]?.initializer?.type?.nchw?.dimensions)} ${input.value[0]?.initializer?.type?.nchw?.kernel_layout || ''}"
-                  data-nhwc="${getShapeString(input.value[0]?.initializer?.type?.nhwc?.dimensions)} ${input.value[0]?.initializer?.type?.nhwc?.kernel_layout || ''}">
-                  ${input.value[0]?.type?.dataType || ''} ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
-                </span>
-              </div>
-            </div>
-          `).join('')}
+      <div>
+        <div class="node-header">
+          <span title="${node.type?.name || ''}">${node.type?.name || ''}</span> ·  
+          <span class="pink" title="${node.name || node.identifier}">${node.name || node.identifier}</span>
         </div>
-        <div class="outputs" title="Outputs">O</div>
-        <div>
-          ${node.outputs.map((output: any) => `
-            <div class="initializer">
-              <span class="inputoutput" title="${output.name}">${output.name}</span> <span class="name" title="${output.value[0]?.name || ''}">${output.value[0]?.name || ''}</span>
-            </div>
-          `).join('')}
-        </div>
-        ${(() => {
-          const attrHTML = Object.entries(node.attributes || {}).map(([, value]) => {
-            if (typeof value === 'object' && value !== null && 'name' in value && 'type' in value) {
-              const v = value as { name: string; type: string; value?: { value?: string } };
-              return `
-                <div class="initializer">
-                  <span class="attributes-name" title="${v.name}">${v.name}</span> 
-                  <div>
-                    <span class="name" title="${v.type} ${v?.value?.value || ""}">${v.type} ${v?.value?.value || ""}</span>
-                  </div>
+        <div class="node-inputs-outputs">
+          <div class="inputs" title="Inputs">I</div>
+          <div>
+            ${node.inputs.map((input: any) => `
+              <div class="initializer">
+                <span class="inputoutput" title="${input.name}">${input.name}</span> 
+                <div>
+                  <span class="green name" title="${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}">${(input.value[0]?.initializer?.name || input.value[0]?.initializer?.identifier) ?? input.value[0]?.name ?? ''}</span> 
+                  <span class="tensor" title="${input.value[0]?.type?.dataType || ''}${getShapeString(input.value[0]?.type?.shape?.dimensions)}"
+                    data-default="${getShapeString(input.value[0]?.type?.shape?.dimensions || [])}"
+                    data-nchw="${getShapeString(input.value[0]?.initializer?.type?.nchw?.dimensions)} ${input.value[0]?.initializer?.type?.nchw?.kernel_layout || ''}"
+                    data-nhwc="${getShapeString(input.value[0]?.initializer?.type?.nhwc?.dimensions)} ${input.value[0]?.initializer?.type?.nhwc?.kernel_layout || ''}">
+                    ${input.value[0]?.type?.dataType || ''} ${getShapeString(input.value[0]?.type?.shape?.dimensions)}
+                  </span>
                 </div>
-              `;
-            }
-            return '';
-          }).join(' ');
-          return attrHTML.trim()
-            ? `<div class="attributes" title="Attributes">A</div><div>${attrHTML}</div>`
-            : '';
-        })()}
+              </div>
+            `).join('')}
+          </div>
+          <div class="outputs" title="Outputs">O</div>
+          <div>
+            ${node.outputs.map((output: any) => `
+              <div class="initializer">
+                <span class="inputoutput" title="${output.name}">${output.name}</span> <span class="name" title="${output.value[0]?.name || ''}">${output.value[0]?.name || ''}</span>
+              </div>
+            `).join('')}
+          </div>
+          ${(() => {
+            const attrHTML = Object.entries(node.attributes || {}).map(([, value]) => {
+              if (typeof value === 'object' && value !== null && 'name' in value && 'type' in value) {
+                const v = value as { name: string; type: string; value?: { value?: string } };
+                return `
+                  <div class="initializer">
+                    <span class="attributes-name" title="${v.name}">${v.name}</span> 
+                    <div>
+                      <span class="name" title="${v.type} ${v?.value?.value || ""}">${v.type} ${v?.value?.value || ""}</span>
+                    </div>
+                  </div>
+                `;
+              }
+              return '';
+            }).join(' ');
+            return attrHTML.trim()
+              ? `<div class="attributes" title="Attributes">A</div><div>${attrHTML}</div>`
+              : '';
+          })()}
+        </div>
       </div>
     `).join('');
     outputGraphElement.innerHTML += `<div class="graph-nodes">${nodesHTML}</div>`;
 
     // Track last match index for each variable name (move this outside the function so it's shared)
     const lastMatchIndex: Record<string, number> = {};
-    outputGraphElement.querySelectorAll('.node-inputs-outputs').forEach(node => {
+    outputGraphElement.querySelectorAll('.node-header').forEach(node => {
       node.addEventListener('click', () => {
-        const nameSpan = node.querySelector('.pink.name');
+        const nameSpan = node.querySelector('.pink');
         if (!nameSpan) return;
         const tensorName = nameSpan.textContent?.trim();
         if (!tensorName) return;
@@ -600,7 +604,7 @@ function renderOutputCode(): void {
     <input type="radio" id="nhwc-js" name="tabs" />
     <label class="tab" for="nhwc-js">nhwc.js</label>
     <input type="radio" id="webnn-html" name="tabs" />
-    <label class="tab" for="webnn-html">webnn.html</label>
+    <label class="tab" for="webnn-html">index.html</label>
     <span class="glider"></span>
   `;
 
