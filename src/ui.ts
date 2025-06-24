@@ -110,7 +110,7 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
   if (weightNhwcBinUrl) fetches.push(fetch(weightNhwcBinUrl));
 
   if (fetches.length > 0) {
-    appendLogMessage('Fetching model files from URL...');
+    appendLogMessage('Fetching model files from URL');
     try {
       const responses = await Promise.all(fetches);
 
@@ -120,6 +120,7 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
         modelFileState.graphModelData = graphResponse;
         updateFileInfo('graph-file-info', { name: graphUrl, size: JSON.stringify(graphResponse).length }, true);
         renderGraphDetails(modelFileState.graphModelData?.graph[0]);
+        appendLogMessage('Graph json file fetched successfully via URL');
         updateStep1State(false);
         updateStep2State(false);
       }
@@ -127,16 +128,18 @@ export const fetchFilesFromUrl = async (): Promise<void> => {
         const bin = await responses[idx++].arrayBuffer();
         modelFileState.weightNchwBin = bin;
         updateFileInfo('weight-nchw-bin-file-info', { name: weightNchwBinUrl, size: bin.byteLength }, true);
+        appendLogMessage('Weights NCHW bin file fetched successfully via URL');
         updateStep3State(false);
       }
       if (weightNhwcBinUrl) {
         const bin = await responses[idx++].arrayBuffer();
         modelFileState.weightNhwcBin = bin;
         updateFileInfo('weight-nhwc-bin-file-info', { name: weightNhwcBinUrl, size: bin.byteLength }, true);
+        appendLogMessage('Weights NHWC bin file fetched successfully via URL');
         updateStep3State(false);
       }
 
-      appendLogMessage('Model files fetched successfully.');
+      appendLogMessage('Model files fetched successfully');
       updateGenerateButtonState();
     } catch (error) {
       console.error('Error fetching files from URL:', error);
