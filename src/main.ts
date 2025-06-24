@@ -131,27 +131,31 @@ const renderAppLayout = (): void => {
 
     // Position menu properly relative to the trigger
     function positionMenu() {
-      const rect = trigger.getBoundingClientRect();
+      const rect = trigger?.getBoundingClientRect();
       const menuWidth = 340; // This should match your min-width in CSS
-      
+
+      if (!rect) return;
+
       // Check if we're too close to the right edge
       const rightEdgeDistance = window.innerWidth - rect.right;
       const bottomEdgeDistance = window.innerHeight - rect.bottom;
       
       // Default position (above and right-aligned)
-      menu.style.bottom = (rect.height + 8) + 'px';
-      menu.style.right = '0px';
+      if (menu) {
+        menu.style.bottom = (rect.height + 8) + 'px';
+        menu.style.right = '0px';
+      }
       
       // If we're too close to the right edge, align left instead
-      if (rightEdgeDistance < menuWidth && rect.left > menuWidth) {
+      if (rightEdgeDistance < menuWidth && rect.left > menuWidth && menu) {
         menu.style.right = '0px';
       }
       
       // If we're too close to the bottom, show above instead of below
-      if (bottomEdgeDistance < 200 && rect.top > 250) {
+      if (bottomEdgeDistance < 200 && rect.top > 250 && menu) {
         menu.style.bottom = (rect.height + 8) + 'px'; 
         menu.style.top = 'auto';
-      } else {
+      } else if (menu) {
         menu.style.top = (rect.height + 8) + 'px';
         menu.style.bottom = 'auto';
       }
@@ -160,11 +164,15 @@ const renderAppLayout = (): void => {
     // Show/hide functions
     function showMenu() {
       positionMenu();
-      menu.style.display = 'block';
+      if (menu) {
+        menu.style.display = 'block';
+      }
     }
     
     function hideMenu() {
-      menu.style.display = 'none';
+      if (menu) {
+        menu.style.display = 'none';
+      }
     }
 
     // Event listeners for interactions
