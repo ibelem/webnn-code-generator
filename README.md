@@ -31,8 +31,8 @@ The conversion process involves two complementary tools:
 
 1. Open [WebNN Code Generator](https://ibelem.github.io/webnn-code-generator/)
 2. Upload the extracted files:
-   - Click **"Choose Graph"** → Select `graph.json`
-   - Click **"Choose Weights"** → Select `weights_nchw.bin` and `weights_nhwc.bin`
+   - Choose **"Graph"** → Select `graph.json`
+   - Choose **"Weights"** → Select `weights_nchw.bin` and `weights_nhwc.bin`
 
 ### Step 3: Configure Dynamic Dimensions (if needed)
 

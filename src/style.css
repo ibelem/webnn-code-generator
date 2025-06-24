@@ -323,7 +323,7 @@ header {
 .node-inputs-outputs {
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-template-rows: 3fr;
+  grid-template-rows: 4fr;
   grid-row-gap: 0em;
   grid-column-gap: 0;
   align-items: start;
@@ -345,7 +345,7 @@ header {
 }
 
 .graph-section .inputs,
-.graph-section .outputs {
+.graph-section .outputs{
   border-radius: 3px;
   padding: 0 0.2em;
   display: inline-block;
@@ -385,9 +385,9 @@ header {
   margin-top: 0.5em;
 }
 
-.inputs, .outputs {
+.inputs, .outputs, .attributes {
   border-radius: 3px;
-  margin-top: 0.5em;
+  margin-top: 0.3em;
   padding: 0 0.2em;
   display: inline-block;
   border: 1px solid var(--border);
@@ -398,6 +398,10 @@ header {
   text-align: center;
 }
 
+.inputs {
+  margin-top: 0.2em;
+}
+
  .outputs {
   margin-top: 0.1em;
  }
@@ -406,6 +410,14 @@ header {
 .graph-inputs .name, 
 .graph-outputs .name {
   width: 36px;
+  display: inline-grid;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.attributes-name {
+  width: 100px;
   display: inline-grid;
   overflow: hidden;
   white-space: nowrap;
@@ -710,6 +722,10 @@ footer #copyright {
 footer .footer-link {
   text-align: right;
   color: var(--primary);
+}
+
+.pink-link {
+  color: var(--pink);
 }
 
 .app-description ul {

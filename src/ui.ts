@@ -377,6 +377,25 @@ const renderGraphDetails = (graphData: any): void => {
             </div>
           `).join('')}
         </div>
+        ${(() => {
+          const attrHTML = Object.entries(node.attributes || {}).map(([, value]) => {
+            if (typeof value === 'object' && value !== null && 'name' in value && 'type' in value) {
+              const v = value as { name: string; type: string; value?: { value?: string } };
+              return `
+                <div class="initializer">
+                  <span class="attributes-name" title="${v.name}">${v.name}</span> 
+                  <div>
+                    <span class="name" title="${v.type} ${v?.value?.value || ""}">${v.type} ${v?.value?.value || ""}</span>
+                  </div>
+                </div>
+              `;
+            }
+            return '';
+          }).join(' ');
+          return attrHTML.trim()
+            ? `<div class="attributes" title="Attributes">A</div><div>${attrHTML}</div>`
+            : '';
+        })()}
       </div>
     `).join('');
     outputGraphElement.innerHTML += `<div class="graph-nodes">${nodesHTML}</div>`;
