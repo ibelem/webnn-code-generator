@@ -23,6 +23,5 @@ export function Softsign(
     const ${outputVars[0]} = builder.softsign(
       ${inputVars[0]},
       ${opts}
-    );
-  `;
+    );`;
 }

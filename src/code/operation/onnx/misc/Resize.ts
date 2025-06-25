@@ -81,7 +81,7 @@ export function Resize(
     const ${outputVars[0]} = builder.resample2d(
       ${inputVars[0]},
       {
-        ${opts.join(',\n    ')}
+        ${opts.join(',\n        ')}
       }
     );`;
 }

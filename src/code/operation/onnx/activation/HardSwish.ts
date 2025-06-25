@@ -23,6 +23,5 @@ export function HardSwish(
     const ${outputVars[0]} = builder.hardSwish(
       ${inputVars[0]},
       ${opts}
-    );
-`;
+    );`;
 }

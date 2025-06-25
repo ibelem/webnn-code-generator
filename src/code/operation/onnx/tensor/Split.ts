@@ -48,6 +48,5 @@ export function Split(
       ${inputVars[0]},
       ${splitArg},
       ${opts}
-    );
-`;
+    );`;
 }

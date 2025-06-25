@@ -45,6 +45,5 @@ export function Unsqueeze(
       ${inputVars[0]},
       [${newShape.join(', ')}],
       ${labelOpt}
-    );
-`;
+    );`;
 }

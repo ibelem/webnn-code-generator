@@ -23,6 +23,5 @@ export function Softplus(
     const ${outputVars[0]} = builder.softplus(
       ${inputVars[0]},
       ${opts}
-    );
-`;
+    );`;
 }

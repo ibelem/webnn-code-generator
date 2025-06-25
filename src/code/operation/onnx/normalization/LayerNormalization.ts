@@ -77,6 +77,5 @@ export function LayerNormalization(
     const ${outputVars[0]} = builder.layerNormalization(
       ${inputVars[0]},
       { ${opts.join(', ')} }
-    );
-`;
+    );`;
 }

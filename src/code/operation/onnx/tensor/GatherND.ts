@@ -27,6 +27,5 @@ export function GatherND(
       ${inputVars[0]},
       ${inputVars[1]},
       ${labelOpt}
-    );
-`;
+    );`;
 }

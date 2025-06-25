@@ -32,6 +32,5 @@ const ${outputVars[0]} = builder.gatherElements(
   ${inputVars[0]},
   ${inputVars[1]},
   ${labelOpt}
-);
-`;
+);`;
 }

@@ -100,6 +100,5 @@ export function ConvTranspose(
       {
         ${optionsArr.join(',\n        ')}
       }
-    );
-  `;
+    );`;
 }

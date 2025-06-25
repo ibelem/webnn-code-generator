@@ -62,15 +62,13 @@ export function Reduction(
     return `
     const ${outputVars[0]} = builder.log(
       builder.reduceSum(${inputVars[0]}, { ${opts.join(', ')} })
-    );
-`;
+    );`;
   }
   if (builderMethod === 'reduceLogSumExp') {
     return `
     const ${outputVars[0]} = builder.log(
       builder.reduceSum(builder.exp(${inputVars[0]}), { ${opts.join(', ')} })
-    );
-`;
+    );`;
   }
 
   // Normal reduction op
@@ -78,6 +76,5 @@ export function Reduction(
     const ${outputVars[0]} = builder.${builderMethod}(
       ${inputVars[0]},
       { ${opts.join(', ')} }
-    );
-`;
+    );`;
 }

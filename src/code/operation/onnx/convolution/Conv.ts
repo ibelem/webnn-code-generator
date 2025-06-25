@@ -104,6 +104,5 @@ export function Conv(
       {
         ${optionsArr.join(',\n        ')}
       }
-    );
-  `;
+    );`;
 }

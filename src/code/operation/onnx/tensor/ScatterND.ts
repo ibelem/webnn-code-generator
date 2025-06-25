@@ -30,6 +30,5 @@ export function ScatterND(
       ${inputVars[1]},
       ${inputVars[2]},
       ${labelOpt}
-    );
-`;
+    );`;
 }

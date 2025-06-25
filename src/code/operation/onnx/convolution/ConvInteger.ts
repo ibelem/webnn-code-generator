@@ -125,6 +125,5 @@ export function ConvInteger(
       ${outputVars[0]}_float,
       'int32',
       { label: '${node.name || ''}_cast_output' }
-    );
-`;
+    );`;
 }

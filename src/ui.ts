@@ -196,8 +196,12 @@ export const setupFileInputs = (): void => {
     });
   });
   
-  // New handlers for binary weight files
+  // NCHW weights file upload
   setupFileInput('weight-nchw-bin-file-input', (file) => {
+    if (!file.name.toLowerCase().includes('nchw')) {
+      appendLogMessage('Selected NCHW bin file does not contain "nchw" in the file name.', true);
+      return;
+    }
     processFileContent(file, (data) => {
       modelFileState.weightNchwBin = data as ArrayBuffer;
       updateFileInfo('weight-nchw-bin-file-info', file, false); // local file
@@ -207,7 +211,12 @@ export const setupFileInputs = (): void => {
     });
   });
 
+  // NHWC weights file upload
   setupFileInput('weight-nhwc-bin-file-input', (file) => {
+    if (!file.name.toLowerCase().includes('nhwc')) {
+      appendLogMessage('Selected NHWC bin file does not contain "nhwc" in the file name.', true);
+      return;
+    }
     processFileContent(file, (data) => {
       modelFileState.weightNhwcBin = data as ArrayBuffer;
       updateFileInfo('weight-nhwc-bin-file-info', file, false); // local file

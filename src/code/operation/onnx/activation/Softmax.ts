@@ -35,6 +35,5 @@ export function Softmax(
       ${inputVars[0]},
       ${axis},
       { label: '${node.name || ''}' }
-    );
-`;
+    );`;
 }

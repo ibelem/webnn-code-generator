@@ -27,6 +27,5 @@ export function Elu(
     const ${outputVars[0]} = builder.elu(
       ${inputVars[0]},
       ${opts}
-    );
-  `;
+    );`;
 }

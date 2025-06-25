@@ -23,6 +23,5 @@ export function Tanh(
     const ${outputVars[0]} = builder.tanh(
       ${inputVars[0]},
       ${opts}
-    );
-  `;
+    );`;
 }

@@ -30,6 +30,5 @@ export function LeakyRelu(
     const ${outputVars[0]} = builder.leakyRelu(
       ${inputVars[0]},
       ${opts}
-    );
-`;
+    );`;
 }

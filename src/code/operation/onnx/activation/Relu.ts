@@ -23,6 +23,5 @@ export function Relu(
     const ${outputVars[0]} = builder.relu(
       ${inputVars[0]},
       ${opts}
-    );
-`;
+    );`;
 }

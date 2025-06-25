@@ -39,6 +39,5 @@ export function Concat(
     const ${outputVars[0]} = builder.concat(
       [${inputVars.join(', ')}],
       { ${opts.join(', ')} }
-    );
-  `;
+    );`;
 }

@@ -23,6 +23,5 @@ export function Gelu(
     const ${outputVars[0]} = builder.gelu(
       ${inputVars[0]},
       ${opts}
-    );
-`;
+    );`;
 }

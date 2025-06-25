@@ -27,6 +27,5 @@ export function HardSigmoid(
     const ${outputVars[0]} = builder.hardSigmoid(
       ${inputVars[0]},
       ${opts}
-    );
-  `;
+    );`;
 }

@@ -24,6 +24,5 @@ export function PRelu(
       ${inputVars[0]},
       ${inputVars[1]},
       ${opts}
-    );
-`;
+    );`;
 }

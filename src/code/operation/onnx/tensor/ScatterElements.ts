@@ -35,6 +35,5 @@ export function ScatterElements(
       ${inputVars[1]},
       ${inputVars[2]},
       ${labelOpt}
-    );
-`;
+    );`;
 }

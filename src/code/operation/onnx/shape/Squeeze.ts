@@ -52,6 +52,5 @@ export function Squeeze(
       ${inputVars[0]},
       [${newShape.join(', ')}],
       ${labelOpt}
-    );
-`;
+    );`;
 }

@@ -53,6 +53,5 @@ export function BatchNormalization(
       ${inputVars[3]}, // mean
       ${inputVars[4]}, // variance
       { ${opts.join(', ')} }
-    );
-`;
+    );`;
 }

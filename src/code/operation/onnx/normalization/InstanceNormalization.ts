@@ -37,6 +37,5 @@ export function InstanceNormalization(
     const ${outputVars[0]} = builder.instanceNormalization(
       ${inputVars[0]},
       { ${opts.join(', ')} }
-    );
-`;
+    );`;
 }

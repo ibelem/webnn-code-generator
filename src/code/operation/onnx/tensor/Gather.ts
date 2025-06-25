@@ -32,6 +32,5 @@ export function Gather(
       ${inputVars[0]},
       ${inputVars[1]},
       ${labelOpt}
-    );
-`;
+    );`;
 }

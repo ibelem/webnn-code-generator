@@ -23,6 +23,5 @@ export function Sigmoid(
     const ${outputVars[0]} = builder.sigmoid(
       ${inputVars[0]},
       ${opts}
-    );
-`;
+    );`;
 }

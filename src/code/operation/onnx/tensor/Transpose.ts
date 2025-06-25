@@ -42,6 +42,5 @@ export function Transpose(
     const ${outputVars[0]} = builder.transpose(
       ${inputVars[0]},
       ${optsString}
-    );
-  `;
+    );`;
 }

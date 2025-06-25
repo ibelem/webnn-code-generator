@@ -3,9 +3,48 @@ import {
   modelName, getTypedArrayName, toJsVarName, hasKeysandNumberValues,
   getNonEmptyStringAroundNewline, downloadFile
 } from '../utils';
-import { getModelState, freeDimsOverrides } from '../ui';
+import { getModelState, freeDimsOverrides, appendLogMessage } from '../ui';
 import { opHandlers } from './operation';
 import { applyFreeDimsOverrides } from './operation/operation-utils';
+
+function removeUnusedVarsAndLog(code: string, filename: string): string {
+  // Find all const variable declarations (e.g., const var_471 = ...)
+  const varDeclRegex = /const\s+([a-zA-Z0-9_]+)\s*=\s*[^;]+;/g;
+  let match;
+  const unusedVars: string[] = [];
+  const allVars: string[] = [];
+  let codeWithoutUnused = code;
+
+  // 1. Collect all variable declarations
+  while ((match = varDeclRegex.exec(code)) !== null) {
+    allVars.push(match[1]);
+  }
+
+  // 2. For each variable, check if it's used elsewhere (excluding its own declaration)
+  for (const varName of allVars) {
+    // Remove its own declaration for the search
+    const codeForSearch = codeWithoutUnused.replace(
+      new RegExp(`const\\s+${varName}\\s*=\\s*[^;]+;`, 'g'),
+      ''
+    );
+    // If not used elsewhere, mark as unused
+    const usageRegex = new RegExp(`\\b${varName}\\b`, 'g');
+    if (!usageRegex.test(codeForSearch)) {
+      unusedVars.push(varName);
+    }
+  }
+
+  // 3. Remove unused declarations and log
+  for (const varName of unusedVars) {
+    codeWithoutUnused = codeWithoutUnused.replace(
+      new RegExp(`^\\s*const\\s+${varName}\\s*=\\s*[^;]+;\\s*`, 'm'),
+      `
+    `
+    );
+    appendLogMessage(`Unused ${varName} was removed in ${filename}`);
+  }
+  return codeWithoutUnused;
+}
 
 function constructorCode() {
   return `
@@ -120,7 +159,6 @@ function buildCodeWithLayout(nhwc: boolean) {
               if (initializer?.encoding === '<') {
                 const constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)`
                 initializersCode += `
-    // index.ts line 145 '<'
     const ${varName} = builder.constant(
       { dataType: '${dataType}', shape: [${shape}] },
       ${constantBuffer}
@@ -251,10 +289,8 @@ function buildCodeWithLayout(nhwc: boolean) {
 
     // Initializers, create graph constant operands
     ${initializersCode}
-
     // Create graph operators
     ${operatorsCode}
-
     // Build graph with all outputs
     ${buildGraphCode}
 
@@ -282,7 +318,7 @@ export function generateJS() {
   // GlobalLpPool, GlobalMaxPool, LRN, GridSample, DepthToSpace, SpaceToDepth
 
   // NCHW version
-  const nchwClass = `
+  let nchwClass = `
 export class ${name}Nchw {
 ${freeDimsOverridesStr}${constructorCode()}
 ${buildCodeWithLayout(false)}
@@ -290,12 +326,15 @@ ${runCode()}
 }`;
 
   // NHWC version
-  const nhwcClass = `
+  let nhwcClass = `
 export class ${name}Nhwc {
 ${freeDimsOverridesStr}${constructorCode()}
 ${buildCodeWithLayout(true)}
 ${runCode()}
 }`;
+
+  nchwClass = removeUnusedVarsAndLog(nchwClass, modelName() + '_nchw.js');
+  nhwcClass = removeUnusedVarsAndLog(nhwcClass, modelName() + '_nhwc.js');
 
   return {
     nchw: `// WebNN Code Generator (NCHW)\n${nchwClass}`,

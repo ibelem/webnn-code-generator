@@ -38,649 +38,536 @@ export class Mobilenetv212StaticNhwc {
 
     // Initializers, create graph constant operands
     
-    // index.ts line 145 '<'
     const var_475 = builder.constant(
       { dataType: 'float32', shape: [32,3,3,3] },
       new Float32Array(weights_array_buffer, 0, 3456 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_476 = builder.constant(
       { dataType: 'float32', shape: [32] },
       new Float32Array(weights_array_buffer, 3456, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_478 = builder.constant(
       { dataType: 'float32', shape: [32,3,3,1] },
       new Float32Array(weights_array_buffer, 3600, 1152 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_479 = builder.constant(
       { dataType: 'float32', shape: [32] },
       new Float32Array(weights_array_buffer, 4752, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_481 = builder.constant(
       { dataType: 'float32', shape: [16,1,1,32] },
       new Float32Array(weights_array_buffer, 4896, 2048 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_482 = builder.constant(
       { dataType: 'float32', shape: [16] },
       new Float32Array(weights_array_buffer, 6944, 64 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_484 = builder.constant(
       { dataType: 'float32', shape: [96,1,1,16] },
       new Float32Array(weights_array_buffer, 7008, 6144 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_485 = builder.constant(
       { dataType: 'float32', shape: [96] },
       new Float32Array(weights_array_buffer, 13152, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_487 = builder.constant(
       { dataType: 'float32', shape: [96,3,3,1] },
       new Float32Array(weights_array_buffer, 13552, 3456 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_488 = builder.constant(
       { dataType: 'float32', shape: [96] },
       new Float32Array(weights_array_buffer, 17008, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_490 = builder.constant(
       { dataType: 'float32', shape: [24,1,1,96] },
       new Float32Array(weights_array_buffer, 17408, 9216 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_491 = builder.constant(
       { dataType: 'float32', shape: [24] },
       new Float32Array(weights_array_buffer, 26624, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_493 = builder.constant(
       { dataType: 'float32', shape: [144,1,1,24] },
       new Float32Array(weights_array_buffer, 26720, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_494 = builder.constant(
       { dataType: 'float32', shape: [144] },
       new Float32Array(weights_array_buffer, 40544, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_496 = builder.constant(
       { dataType: 'float32', shape: [144,3,3,1] },
       new Float32Array(weights_array_buffer, 41136, 5184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_497 = builder.constant(
       { dataType: 'float32', shape: [144] },
       new Float32Array(weights_array_buffer, 46320, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_499 = builder.constant(
       { dataType: 'float32', shape: [24,1,1,144] },
       new Float32Array(weights_array_buffer, 46912, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_500 = builder.constant(
       { dataType: 'float32', shape: [24] },
       new Float32Array(weights_array_buffer, 60736, 96 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_502 = builder.constant(
       { dataType: 'float32', shape: [144,1,1,24] },
       new Float32Array(weights_array_buffer, 60832, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_503 = builder.constant(
       { dataType: 'float32', shape: [144] },
       new Float32Array(weights_array_buffer, 74656, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_505 = builder.constant(
       { dataType: 'float32', shape: [144,3,3,1] },
       new Float32Array(weights_array_buffer, 75248, 5184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_506 = builder.constant(
       { dataType: 'float32', shape: [144] },
       new Float32Array(weights_array_buffer, 80432, 576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_508 = builder.constant(
       { dataType: 'float32', shape: [32,1,1,144] },
       new Float32Array(weights_array_buffer, 81024, 18432 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_509 = builder.constant(
       { dataType: 'float32', shape: [32] },
       new Float32Array(weights_array_buffer, 99456, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_511 = builder.constant(
       { dataType: 'float32', shape: [192,1,1,32] },
       new Float32Array(weights_array_buffer, 99584, 24576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_512 = builder.constant(
       { dataType: 'float32', shape: [192] },
       new Float32Array(weights_array_buffer, 124160, 768 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_514 = builder.constant(
       { dataType: 'float32', shape: [192,3,3,1] },
       new Float32Array(weights_array_buffer, 124944, 6912 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_515 = builder.constant(
       { dataType: 'float32', shape: [192] },
       new Float32Array(weights_array_buffer, 131856, 768 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_517 = builder.constant(
       { dataType: 'float32', shape: [32,1,1,192] },
       new Float32Array(weights_array_buffer, 132640, 24576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_518 = builder.constant(
       { dataType: 'float32', shape: [32] },
       new Float32Array(weights_array_buffer, 157216, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_520 = builder.constant(
       { dataType: 'float32', shape: [192,1,1,32] },
       new Float32Array(weights_array_buffer, 157344, 24576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_521 = builder.constant(
       { dataType: 'float32', shape: [192] },
       new Float32Array(weights_array_buffer, 181920, 768 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_523 = builder.constant(
       { dataType: 'float32', shape: [192,3,3,1] },
       new Float32Array(weights_array_buffer, 182704, 6912 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_524 = builder.constant(
       { dataType: 'float32', shape: [192] },
       new Float32Array(weights_array_buffer, 189616, 768 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_526 = builder.constant(
       { dataType: 'float32', shape: [32,1,1,192] },
       new Float32Array(weights_array_buffer, 190400, 24576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_527 = builder.constant(
       { dataType: 'float32', shape: [32] },
       new Float32Array(weights_array_buffer, 214976, 128 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_529 = builder.constant(
       { dataType: 'float32', shape: [192,1,1,32] },
       new Float32Array(weights_array_buffer, 215104, 24576 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_530 = builder.constant(
       { dataType: 'float32', shape: [192] },
       new Float32Array(weights_array_buffer, 239680, 768 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_532 = builder.constant(
       { dataType: 'float32', shape: [192,3,3,1] },
       new Float32Array(weights_array_buffer, 240464, 6912 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_533 = builder.constant(
       { dataType: 'float32', shape: [192] },
       new Float32Array(weights_array_buffer, 247376, 768 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_535 = builder.constant(
       { dataType: 'float32', shape: [64,1,1,192] },
       new Float32Array(weights_array_buffer, 248160, 49152 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_536 = builder.constant(
       { dataType: 'float32', shape: [64] },
       new Float32Array(weights_array_buffer, 297312, 256 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_538 = builder.constant(
       { dataType: 'float32', shape: [384,1,1,64] },
       new Float32Array(weights_array_buffer, 297568, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_539 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 395872, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_541 = builder.constant(
       { dataType: 'float32', shape: [384,3,3,1] },
       new Float32Array(weights_array_buffer, 397424, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_542 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 411248, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_544 = builder.constant(
       { dataType: 'float32', shape: [64,1,1,384] },
       new Float32Array(weights_array_buffer, 412800, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_545 = builder.constant(
       { dataType: 'float32', shape: [64] },
       new Float32Array(weights_array_buffer, 511104, 256 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_547 = builder.constant(
       { dataType: 'float32', shape: [384,1,1,64] },
       new Float32Array(weights_array_buffer, 511360, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_548 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 609664, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_550 = builder.constant(
       { dataType: 'float32', shape: [384,3,3,1] },
       new Float32Array(weights_array_buffer, 611216, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_551 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 625040, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_553 = builder.constant(
       { dataType: 'float32', shape: [64,1,1,384] },
       new Float32Array(weights_array_buffer, 626592, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_554 = builder.constant(
       { dataType: 'float32', shape: [64] },
       new Float32Array(weights_array_buffer, 724896, 256 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_556 = builder.constant(
       { dataType: 'float32', shape: [384,1,1,64] },
       new Float32Array(weights_array_buffer, 725152, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_557 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 823456, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_559 = builder.constant(
       { dataType: 'float32', shape: [384,3,3,1] },
       new Float32Array(weights_array_buffer, 825008, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_560 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 838832, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_562 = builder.constant(
       { dataType: 'float32', shape: [64,1,1,384] },
       new Float32Array(weights_array_buffer, 840384, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_563 = builder.constant(
       { dataType: 'float32', shape: [64] },
       new Float32Array(weights_array_buffer, 938688, 256 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_565 = builder.constant(
       { dataType: 'float32', shape: [384,1,1,64] },
       new Float32Array(weights_array_buffer, 938944, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_566 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 1037248, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_568 = builder.constant(
       { dataType: 'float32', shape: [384,3,3,1] },
       new Float32Array(weights_array_buffer, 1038800, 13824 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_569 = builder.constant(
       { dataType: 'float32', shape: [384] },
       new Float32Array(weights_array_buffer, 1052624, 1536 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_571 = builder.constant(
       { dataType: 'float32', shape: [96,1,1,384] },
       new Float32Array(weights_array_buffer, 1054176, 147456 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_572 = builder.constant(
       { dataType: 'float32', shape: [96] },
       new Float32Array(weights_array_buffer, 1201632, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_574 = builder.constant(
       { dataType: 'float32', shape: [576,1,1,96] },
       new Float32Array(weights_array_buffer, 1202016, 221184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_575 = builder.constant(
       { dataType: 'float32', shape: [576] },
       new Float32Array(weights_array_buffer, 1423200, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_577 = builder.constant(
       { dataType: 'float32', shape: [576,3,3,1] },
       new Float32Array(weights_array_buffer, 1425520, 20736 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_578 = builder.constant(
       { dataType: 'float32', shape: [576] },
       new Float32Array(weights_array_buffer, 1446256, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_580 = builder.constant(
       { dataType: 'float32', shape: [96,1,1,576] },
       new Float32Array(weights_array_buffer, 1448576, 221184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_581 = builder.constant(
       { dataType: 'float32', shape: [96] },
       new Float32Array(weights_array_buffer, 1669760, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_583 = builder.constant(
       { dataType: 'float32', shape: [576,1,1,96] },
       new Float32Array(weights_array_buffer, 1670144, 221184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_584 = builder.constant(
       { dataType: 'float32', shape: [576] },
       new Float32Array(weights_array_buffer, 1891328, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_586 = builder.constant(
       { dataType: 'float32', shape: [576,3,3,1] },
       new Float32Array(weights_array_buffer, 1893648, 20736 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_587 = builder.constant(
       { dataType: 'float32', shape: [576] },
       new Float32Array(weights_array_buffer, 1914384, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_589 = builder.constant(
       { dataType: 'float32', shape: [96,1,1,576] },
       new Float32Array(weights_array_buffer, 1916704, 221184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_590 = builder.constant(
       { dataType: 'float32', shape: [96] },
       new Float32Array(weights_array_buffer, 2137888, 384 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_592 = builder.constant(
       { dataType: 'float32', shape: [576,1,1,96] },
       new Float32Array(weights_array_buffer, 2138272, 221184 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_593 = builder.constant(
       { dataType: 'float32', shape: [576] },
       new Float32Array(weights_array_buffer, 2359456, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_595 = builder.constant(
       { dataType: 'float32', shape: [576,3,3,1] },
       new Float32Array(weights_array_buffer, 2361776, 20736 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_596 = builder.constant(
       { dataType: 'float32', shape: [576] },
       new Float32Array(weights_array_buffer, 2382512, 2304 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_598 = builder.constant(
       { dataType: 'float32', shape: [160,1,1,576] },
       new Float32Array(weights_array_buffer, 2384832, 368640 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_599 = builder.constant(
       { dataType: 'float32', shape: [160] },
       new Float32Array(weights_array_buffer, 2753472, 640 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_601 = builder.constant(
       { dataType: 'float32', shape: [960,1,1,160] },
       new Float32Array(weights_array_buffer, 2754112, 614400 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_602 = builder.constant(
       { dataType: 'float32', shape: [960] },
       new Float32Array(weights_array_buffer, 3368512, 3840 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_604 = builder.constant(
       { dataType: 'float32', shape: [960,3,3,1] },
       new Float32Array(weights_array_buffer, 3372368, 34560 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_605 = builder.constant(
       { dataType: 'float32', shape: [960] },
       new Float32Array(weights_array_buffer, 3406928, 3840 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_607 = builder.constant(
       { dataType: 'float32', shape: [160,1,1,960] },
       new Float32Array(weights_array_buffer, 3410784, 614400 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_608 = builder.constant(
       { dataType: 'float32', shape: [160] },
       new Float32Array(weights_array_buffer, 4025184, 640 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_610 = builder.constant(
       { dataType: 'float32', shape: [960,1,1,160] },
       new Float32Array(weights_array_buffer, 4025824, 614400 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_611 = builder.constant(
       { dataType: 'float32', shape: [960] },
       new Float32Array(weights_array_buffer, 4640224, 3840 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_613 = builder.constant(
       { dataType: 'float32', shape: [960,3,3,1] },
       new Float32Array(weights_array_buffer, 4644080, 34560 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_614 = builder.constant(
       { dataType: 'float32', shape: [960] },
       new Float32Array(weights_array_buffer, 4678640, 3840 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_616 = builder.constant(
       { dataType: 'float32', shape: [160,1,1,960] },
       new Float32Array(weights_array_buffer, 4682496, 614400 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_617 = builder.constant(
       { dataType: 'float32', shape: [160] },
       new Float32Array(weights_array_buffer, 5296896, 640 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_619 = builder.constant(
       { dataType: 'float32', shape: [960,1,1,160] },
       new Float32Array(weights_array_buffer, 5297536, 614400 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_620 = builder.constant(
       { dataType: 'float32', shape: [960] },
       new Float32Array(weights_array_buffer, 5911936, 3840 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_622 = builder.constant(
       { dataType: 'float32', shape: [960,3,3,1] },
       new Float32Array(weights_array_buffer, 5915792, 34560 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_623 = builder.constant(
       { dataType: 'float32', shape: [960] },
       new Float32Array(weights_array_buffer, 5950352, 3840 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_625 = builder.constant(
       { dataType: 'float32', shape: [320,1,1,960] },
       new Float32Array(weights_array_buffer, 5954208, 1228800 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_626 = builder.constant(
       { dataType: 'float32', shape: [320] },
       new Float32Array(weights_array_buffer, 7183008, 1280 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_628 = builder.constant(
       { dataType: 'float32', shape: [1280,1,1,320] },
       new Float32Array(weights_array_buffer, 7184288, 1638400 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_629 = builder.constant(
       { dataType: 'float32', shape: [1280] },
       new Float32Array(weights_array_buffer, 8822688, 5120 / Float32Array.BYTES_PER_ELEMENT)
     );
-    
-    // index.ts line 145 '<'
-    const var_471 = builder.constant(
-      { dataType: 'int64', shape: [2] },
-      new BigInt64Array(weights_array_buffer, 8827824, 16 / BigInt64Array.BYTES_PER_ELEMENT)
-    );
-    
-    // index.ts line 145 '<'
+
     const var_classifier_1_weight = builder.constant(
       { dataType: 'float32', shape: [1000,1280] },
       new Float32Array(weights_array_buffer, 8827840, 5120000 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-    // index.ts line 145 '<'
     const var_classifier_1_bias = builder.constant(
       { dataType: 'float32', shape: [1000] },
       new Float32Array(weights_array_buffer, 13947840, 4000 / Float32Array.BYTES_PER_ELEMENT)
     );
     
-
     // Create graph operators
         
     const var_474 = builder.conv2d(
@@ -696,7 +583,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_0'
       }
     );
-  
     
     const var_317 = builder.clamp(
       var_474,
@@ -716,7 +602,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_2'
       }
     );
-  
     
     const var_320 = builder.clamp(
       var_477,
@@ -736,7 +621,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_4'
       }
     );
-  
     
     const var_483 = builder.conv2d(
       var_480, var_484,
@@ -751,7 +635,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_5'
       }
     );
-  
     
     const var_325 = builder.clamp(
       var_483,
@@ -771,7 +654,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_7'
       }
     );
-  
     
     const var_328 = builder.clamp(
       var_486,
@@ -791,7 +673,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_9'
       }
     );
-  
     
     const var_492 = builder.conv2d(
       var_489, var_493,
@@ -806,7 +687,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_10'
       }
     );
-  
     
     const var_333 = builder.clamp(
       var_492,
@@ -826,7 +706,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_12'
       }
     );
-  
     
     const var_336 = builder.clamp(
       var_495,
@@ -846,7 +725,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_14'
       }
     );
-  
     
     const var_339 = builder.add(
       var_489,
@@ -867,7 +745,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_16'
       }
     );
-  
     
     const var_342 = builder.clamp(
       var_501,
@@ -887,7 +764,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_18'
       }
     );
-  
     
     const var_345 = builder.clamp(
       var_504,
@@ -907,7 +783,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_20'
       }
     );
-  
     
     const var_510 = builder.conv2d(
       var_507, var_511,
@@ -922,7 +797,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_21'
       }
     );
-  
     
     const var_350 = builder.clamp(
       var_510,
@@ -942,7 +816,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_23'
       }
     );
-  
     
     const var_353 = builder.clamp(
       var_513,
@@ -962,7 +835,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_25'
       }
     );
-  
     
     const var_356 = builder.add(
       var_507,
@@ -983,7 +855,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_27'
       }
     );
-  
     
     const var_359 = builder.clamp(
       var_519,
@@ -1003,7 +874,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_29'
       }
     );
-  
     
     const var_362 = builder.clamp(
       var_522,
@@ -1023,7 +893,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_31'
       }
     );
-  
     
     const var_365 = builder.add(
       var_356,
@@ -1044,7 +913,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_33'
       }
     );
-  
     
     const var_368 = builder.clamp(
       var_528,
@@ -1064,7 +932,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_35'
       }
     );
-  
     
     const var_371 = builder.clamp(
       var_531,
@@ -1084,7 +951,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_37'
       }
     );
-  
     
     const var_537 = builder.conv2d(
       var_534, var_538,
@@ -1099,7 +965,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_38'
       }
     );
-  
     
     const var_376 = builder.clamp(
       var_537,
@@ -1119,7 +984,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_40'
       }
     );
-  
     
     const var_379 = builder.clamp(
       var_540,
@@ -1139,7 +1003,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_42'
       }
     );
-  
     
     const var_382 = builder.add(
       var_534,
@@ -1160,7 +1023,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_44'
       }
     );
-  
     
     const var_385 = builder.clamp(
       var_546,
@@ -1180,7 +1042,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_46'
       }
     );
-  
     
     const var_388 = builder.clamp(
       var_549,
@@ -1200,7 +1061,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_48'
       }
     );
-  
     
     const var_391 = builder.add(
       var_382,
@@ -1221,7 +1081,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_50'
       }
     );
-  
     
     const var_394 = builder.clamp(
       var_555,
@@ -1241,7 +1100,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_52'
       }
     );
-  
     
     const var_397 = builder.clamp(
       var_558,
@@ -1261,7 +1119,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_54'
       }
     );
-  
     
     const var_400 = builder.add(
       var_391,
@@ -1282,7 +1139,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_56'
       }
     );
-  
     
     const var_403 = builder.clamp(
       var_564,
@@ -1302,7 +1158,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_58'
       }
     );
-  
     
     const var_406 = builder.clamp(
       var_567,
@@ -1322,7 +1177,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_60'
       }
     );
-  
     
     const var_573 = builder.conv2d(
       var_570, var_574,
@@ -1337,7 +1191,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_61'
       }
     );
-  
     
     const var_411 = builder.clamp(
       var_573,
@@ -1357,7 +1210,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_63'
       }
     );
-  
     
     const var_414 = builder.clamp(
       var_576,
@@ -1377,7 +1229,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_65'
       }
     );
-  
     
     const var_417 = builder.add(
       var_570,
@@ -1398,7 +1249,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_67'
       }
     );
-  
     
     const var_420 = builder.clamp(
       var_582,
@@ -1418,7 +1268,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_69'
       }
     );
-  
     
     const var_423 = builder.clamp(
       var_585,
@@ -1438,7 +1287,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_71'
       }
     );
-  
     
     const var_426 = builder.add(
       var_417,
@@ -1459,7 +1307,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_73'
       }
     );
-  
     
     const var_429 = builder.clamp(
       var_591,
@@ -1479,7 +1326,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_75'
       }
     );
-  
     
     const var_432 = builder.clamp(
       var_594,
@@ -1499,7 +1345,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_77'
       }
     );
-  
     
     const var_600 = builder.conv2d(
       var_597, var_601,
@@ -1514,7 +1359,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_78'
       }
     );
-  
     
     const var_437 = builder.clamp(
       var_600,
@@ -1534,7 +1378,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_80'
       }
     );
-  
     
     const var_440 = builder.clamp(
       var_603,
@@ -1554,7 +1397,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_82'
       }
     );
-  
     
     const var_443 = builder.add(
       var_597,
@@ -1575,7 +1417,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_84'
       }
     );
-  
     
     const var_446 = builder.clamp(
       var_609,
@@ -1595,7 +1436,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_86'
       }
     );
-  
     
     const var_449 = builder.clamp(
       var_612,
@@ -1615,7 +1455,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_88'
       }
     );
-  
     
     const var_452 = builder.add(
       var_443,
@@ -1636,7 +1475,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_90'
       }
     );
-  
     
     const var_455 = builder.clamp(
       var_618,
@@ -1656,7 +1494,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_92'
       }
     );
-  
     
     const var_458 = builder.clamp(
       var_621,
@@ -1676,7 +1513,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_94'
       }
     );
-  
     
     const var_627 = builder.conv2d(
       var_624, var_628,
@@ -1691,7 +1527,6 @@ export class Mobilenetv212StaticNhwc {
         label: 'Conv_95'
       }
     );
-  
     
     const var_463 = builder.clamp(
       var_627,
@@ -1739,7 +1574,6 @@ export class Mobilenetv212StaticNhwc {
         C: var_classifier_1_bias
       }
     );
-
 
     // Build graph with all outputs
     
