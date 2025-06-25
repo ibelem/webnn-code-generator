@@ -35,6 +35,5 @@ export function Flatten(
       ${inputVars[0]},
       [${before}, ${after}], 
       ${labelOpt}
-    );
-`;
+    );`;
 }
