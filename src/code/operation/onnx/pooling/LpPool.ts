@@ -44,7 +44,7 @@ export function LpPool(
     const ${outputVars[0]} = builder.lpPool2d(
       ${inputVars[0]},
       {
-        ${opts.join(',\n    ')}
+        ${opts.join(',\n        ')}
       }
     );`;
 }

@@ -28,6 +28,8 @@ export function GlobalAveragePool(
   return `
     const ${outputVars[0]} = builder.averagePool2d(
       ${inputVars[0]},
-      { ${opts.join(', ')} }
+      {
+        ${opts.join(',\n        ')}
+      }
     );`;
 }

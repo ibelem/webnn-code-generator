@@ -56,6 +56,8 @@ export function AveragePool(
   return `
     const ${outputVars[0]} = builder.averagePool2d(
       ${inputExpr},
-      { ${poolOpts.join(', ')} }
+      {
+        ${poolOpts.join(',\n        ')} 
+      }
     );`;
 }

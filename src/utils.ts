@@ -170,8 +170,8 @@ export function modelName() {
   }
   modelName = modelName.replaceAll('.tflite', '').replaceAll('.onnx', '');
 
-  // Replace "-" with "_" for consistent camelCase conversion
-  modelName = modelName.replace(/-/g, '_');
+  // Replace "." with "_" and "-" with "_" for consistent camelCase conversion
+  modelName = modelName.replace(/[\.\-]/g, '_');
 
   // Convert to camelCase: remove "_" and capitalize the first letter after each "_"
   modelName = modelName.replace(/_([a-zA-Z0-9])/g, (_: string, c: string) => c.toUpperCase());

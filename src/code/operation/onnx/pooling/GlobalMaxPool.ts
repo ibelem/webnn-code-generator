@@ -38,7 +38,7 @@ export function GlobalMaxPool(
     const ${outputVars[0]} = builder.maxPool2d(
       ${inputVars[0]},
       {
-        ${opts.join(',\n    ')}
+        ${opts.join(',\n        ')}
       }
     );`;
 }

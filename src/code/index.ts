@@ -109,7 +109,7 @@ function buildCodeWithLayout(nhwc: boolean) {
     if (nhwc && resolvedShape.length === 4) {
       // NCHW -> NHWC permutation: [0, 2, 3, 1]
       inputsCode += `
-    const input = builder.transpose(
+    const ${name} = builder.transpose(
       builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] }),
       { permutation: [0, 2, 3, 1] }
     );
@@ -119,7 +119,7 @@ function buildCodeWithLayout(nhwc: boolean) {
     );`;
     } else {
       inputsCode += `
-    const input = builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] });
+    const ${name} = builder.input('${name}', { dataType: '${dataType}', shape: [${resolvedShape}] });
     this.inputTensors_['${name}'] = await this.context_.createTensor(
       { dataType: '${dataType}', shape: [${resolvedShape}], writable: true }
     );`;
@@ -163,27 +163,33 @@ function buildCodeWithLayout(nhwc: boolean) {
       { dataType: '${dataType}', shape: [${shape}] },
       ${constantBuffer}
     );
-    `;
+`;
                 emittedInitializers.add(varName);
               } 
-//               else if (
-//                 initializer?.encoding === '|' &&
-//                 Array.isArray(initializer?.type.shape.dimensions)
-//               ) {
-//                 const valueArr = Object.keys(initializer.values)
-//                   .sort((a, b) => Number(a) - Number(b))
-//                   .map(k => initializer.values[k]);
-//                 const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
-//                 const shapeStr = JSON.stringify(shape); // This will output [32] for 1D, [O,H,W,I] for 4D, etc.
-//                 initializersCode += `
-//     // index.ts line 162 '|'
-//     const ${varName} = builder.constant(
-//       { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
-//       new ${typedArrayCtor}([${valueArr.join(', ')}])
-//     );
-// `;
-//                 emittedInitializers.add(varName);
-//               }
+              else if ( initializer?.encoding === '|' && Array.isArray(initializer?.type.shape.dimensions)) {
+                if (initializer?.byteLength < 128) {
+                  const valueArr = Object.keys(initializer.values)
+                    .sort((a, b) => Number(a) - Number(b))
+                    .map(k => initializer.values[k]);
+                  const typedArrayCtor = getTypedArrayName(initializer.type.dataType);
+                  const shapeStr = JSON.stringify(shape); // This will output [32] for 1D, [O,H,W,I] for 4D, etc.
+                  initializersCode += `
+    const ${varName} = builder.constant(
+      { dataType: '${initializer.type.dataType}', shape: ${shapeStr} },
+      new ${typedArrayCtor}([${valueArr.join(', ')}])
+    );
+`;
+                } else {
+                  const constantBuffer = `new ${getTypedArrayName(dataType)}(weights_array_buffer, ${weightsDataOffset}, ${weightsByteLength} / ${getTypedArrayName(dataType)}.BYTES_PER_ELEMENT)`;
+                  initializersCode += `
+    const ${varName} = builder.constant(
+      { dataType: '${dataType}', shape: [${shape}] },
+      ${constantBuffer}
+    );
+`;
+                }
+                emittedInitializers.add(varName);
+              }
             }
           }
         }

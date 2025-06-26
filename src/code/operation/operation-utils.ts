@@ -2,9 +2,26 @@ import { freeDimsOverrides } from '../../ui'
 
 // Extract variable names from ONNX node inputs/outputs
 export function getInputVars(node: any, toJsVarName: (name: string) => string): string[] {
-  return (node.inputs || [])
-    .map((i: any) => getNonEmptyStringAroundNewline(i.value?.[0]?.name))
-    .map(toJsVarName);
+  const result: string[] = [];
+  
+  // Handle both single-input case and array-of-inputs case (like Concat)
+  if (node.inputs) {
+    for (const input of node.inputs) {
+      if (input.name === "inputs" && Array.isArray(input.value)) {
+        // Special case for operations like Concat with multiple inputs
+        for (const val of input.value) {
+          if (val.name) {
+            result.push(toJsVarName(getNonEmptyStringAroundNewline(val.name)));
+          }
+        }
+      } else if (input.value?.[0]?.name) {
+        // Regular case - single input
+        result.push(toJsVarName(getNonEmptyStringAroundNewline(input.value[0].name)));
+      }
+    }
+  }
+  
+  return result;
 }
 
 export function getOutputVars(node: any, toJsVarName: (name: string) => string): string[] {

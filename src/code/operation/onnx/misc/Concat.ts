@@ -20,24 +20,25 @@ export function Concat(
   // Use getAttrValue for robust attribute extraction
   let axis = getAttrValue(node, 'axis', 0);
 
-  // Try to get input rank for negative axis handling
-  let inputRank = 0;
-  if (node.inputs && node.inputs.length > 0) {
-    const { shape } = getShape(node, 0, false);
-    if (Array.isArray(shape)) inputRank = shape.length;
-  }
-
-  // Handle negative axis
-  if (axis < 0 && inputRank > 0) {
-    axis = inputRank + axis;
-  }
-
-  const opts = [`axis: ${axis}`];
+  // Generate code that handles negative axis and ensures unsigned long at runtime
+  const opts = [];
   if (node.name) opts.push(`label: '${node.name}'`);
 
   return `
+    // Handle negative axis and ensure unsigned long for WebNN API
+    let axis_${outputVars[0]} = ${axis};
+    // If axis is negative, convert to positive based on input rank
+    if (axis_${outputVars[0]} < 0) {
+      // Use the first input's rank to resolve negative axis
+      const firstInputRank = ${inputVars[0]}.shape.length;
+      axis_${outputVars[0]} = firstInputRank + axis_${outputVars[0]};
+    }
+    // Ensure axis is a non-negative integer (unsigned long) as required by WebNN API
+    axis_${outputVars[0]} = Math.max(0, Math.floor(axis_${outputVars[0]}));
+
     const ${outputVars[0]} = builder.concat(
       [${inputVars.join(', ')}],
+      axis_${outputVars[0]},
       { ${opts.join(', ')} }
     );`;
 }

@@ -46,7 +46,7 @@ export function GlobalLpPool(
     const ${outputVars[0]} = builder.l2Pool2d(
       ${inputVars[0]},
       {
-        ${opts.join(',\n    ')}
+        ${opts.join(',\n        ')}
       }
     );`;
 }
