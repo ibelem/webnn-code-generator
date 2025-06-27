@@ -49,7 +49,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv1_weight = builder.constant(
-      { dataType: 'float32', shape: [16,64,1,1] },
+      { dataType: 'float32', shape: [16,1,1,64] },
       new Float32Array(weights_array_buffer, 7168, 4096 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -59,7 +59,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv2_weight = builder.constant(
-      { dataType: 'float32', shape: [64,16,1,1] },
+      { dataType: 'float32', shape: [64,1,1,16] },
       new Float32Array(weights_array_buffer, 11328, 4096 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -69,7 +69,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv3_weight = builder.constant(
-      { dataType: 'float32', shape: [64,16,3,3] },
+      { dataType: 'float32', shape: [64,3,3,16] },
       new Float32Array(weights_array_buffer, 15680, 36864 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -79,7 +79,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv4_weight = builder.constant(
-      { dataType: 'float32', shape: [16,128,1,1] },
+      { dataType: 'float32', shape: [16,1,1,128] },
       new Float32Array(weights_array_buffer, 52800, 8192 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -89,7 +89,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv5_weight = builder.constant(
-      { dataType: 'float32', shape: [64,16,1,1] },
+      { dataType: 'float32', shape: [64,1,1,16] },
       new Float32Array(weights_array_buffer, 61056, 4096 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -99,7 +99,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv6_weight = builder.constant(
-      { dataType: 'float32', shape: [64,16,3,3] },
+      { dataType: 'float32', shape: [64,3,3,16] },
       new Float32Array(weights_array_buffer, 65408, 36864 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -109,7 +109,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv7_weight = builder.constant(
-      { dataType: 'float32', shape: [32,128,1,1] },
+      { dataType: 'float32', shape: [32,1,1,128] },
       new Float32Array(weights_array_buffer, 102528, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -119,7 +119,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv8_weight = builder.constant(
-      { dataType: 'float32', shape: [128,32,1,1] },
+      { dataType: 'float32', shape: [128,1,1,32] },
       new Float32Array(weights_array_buffer, 119040, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -129,7 +129,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv9_weight = builder.constant(
-      { dataType: 'float32', shape: [128,32,3,3] },
+      { dataType: 'float32', shape: [128,3,3,32] },
       new Float32Array(weights_array_buffer, 135936, 147456 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -139,7 +139,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv10_weight = builder.constant(
-      { dataType: 'float32', shape: [32,256,1,1] },
+      { dataType: 'float32', shape: [32,1,1,256] },
       new Float32Array(weights_array_buffer, 283904, 32768 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -149,7 +149,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv11_weight = builder.constant(
-      { dataType: 'float32', shape: [128,32,1,1] },
+      { dataType: 'float32', shape: [128,1,1,32] },
       new Float32Array(weights_array_buffer, 316800, 16384 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -159,7 +159,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv12_weight = builder.constant(
-      { dataType: 'float32', shape: [128,32,3,3] },
+      { dataType: 'float32', shape: [128,3,3,32] },
       new Float32Array(weights_array_buffer, 333696, 147456 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -169,7 +169,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv13_weight = builder.constant(
-      { dataType: 'float32', shape: [48,256,1,1] },
+      { dataType: 'float32', shape: [48,1,1,256] },
       new Float32Array(weights_array_buffer, 481664, 49152 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -179,7 +179,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv14_weight = builder.constant(
-      { dataType: 'float32', shape: [192,48,1,1] },
+      { dataType: 'float32', shape: [192,1,1,48] },
       new Float32Array(weights_array_buffer, 531008, 36864 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -189,7 +189,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv15_weight = builder.constant(
-      { dataType: 'float32', shape: [192,48,3,3] },
+      { dataType: 'float32', shape: [192,3,3,48] },
       new Float32Array(weights_array_buffer, 568640, 331776 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -199,7 +199,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv16_weight = builder.constant(
-      { dataType: 'float32', shape: [48,384,1,1] },
+      { dataType: 'float32', shape: [48,1,1,384] },
       new Float32Array(weights_array_buffer, 901184, 73728 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -209,7 +209,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv17_weight = builder.constant(
-      { dataType: 'float32', shape: [192,48,1,1] },
+      { dataType: 'float32', shape: [192,1,1,48] },
       new Float32Array(weights_array_buffer, 975104, 36864 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -219,7 +219,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv18_weight = builder.constant(
-      { dataType: 'float32', shape: [192,48,3,3] },
+      { dataType: 'float32', shape: [192,3,3,48] },
       new Float32Array(weights_array_buffer, 1012736, 331776 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -229,7 +229,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv19_weight = builder.constant(
-      { dataType: 'float32', shape: [64,384,1,1] },
+      { dataType: 'float32', shape: [64,1,1,384] },
       new Float32Array(weights_array_buffer, 1345280, 98304 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -239,7 +239,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv20_weight = builder.constant(
-      { dataType: 'float32', shape: [256,64,1,1] },
+      { dataType: 'float32', shape: [256,1,1,64] },
       new Float32Array(weights_array_buffer, 1443840, 65536 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -249,7 +249,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv21_weight = builder.constant(
-      { dataType: 'float32', shape: [256,64,3,3] },
+      { dataType: 'float32', shape: [256,3,3,64] },
       new Float32Array(weights_array_buffer, 1510400, 589824 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -259,7 +259,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv22_weight = builder.constant(
-      { dataType: 'float32', shape: [64,512,1,1] },
+      { dataType: 'float32', shape: [64,1,1,512] },
       new Float32Array(weights_array_buffer, 2101248, 131072 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -269,7 +269,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv23_weight = builder.constant(
-      { dataType: 'float32', shape: [256,64,1,1] },
+      { dataType: 'float32', shape: [256,1,1,64] },
       new Float32Array(weights_array_buffer, 2232576, 65536 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -279,7 +279,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv24_weight = builder.constant(
-      { dataType: 'float32', shape: [256,64,3,3] },
+      { dataType: 'float32', shape: [256,3,3,64] },
       new Float32Array(weights_array_buffer, 2299136, 589824 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -289,7 +289,7 @@ export class Squeezenet117Nhwc {
     );
 
     const squeezenet0_conv25_weight = builder.constant(
-      { dataType: 'float32', shape: [1000,512,1,1] },
+      { dataType: 'float32', shape: [1000,1,1,512] },
       new Float32Array(weights_array_buffer, 2889984, 2048000 / Float32Array.BYTES_PER_ELEMENT)
     );
 
@@ -390,7 +390,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat0 = 1;
+    let axis_squeezenet0_concat0 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat0 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -464,7 +464,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat1 = 1;
+    let axis_squeezenet0_concat1 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat1 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -551,7 +551,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat2 = 1;
+    let axis_squeezenet0_concat2 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat2 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -625,7 +625,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat3 = 1;
+    let axis_squeezenet0_concat3 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat3 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -712,7 +712,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat4 = 1;
+    let axis_squeezenet0_concat4 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat4 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -786,7 +786,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat5 = 1;
+    let axis_squeezenet0_concat5 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat5 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -860,7 +860,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat6 = 1;
+    let axis_squeezenet0_concat6 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat6 < 0) {
       // Use the first input's rank to resolve negative axis
@@ -934,7 +934,7 @@ export class Squeezenet117Nhwc {
     );
     
     // Handle negative axis and ensure unsigned long for WebNN API
-    let axis_squeezenet0_concat7 = 1;
+    let axis_squeezenet0_concat7 = 3;
     // If axis is negative, convert to positive based on input rank
     if (axis_squeezenet0_concat7 < 0) {
       // Use the first input's rank to resolve negative axis

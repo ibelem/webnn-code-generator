@@ -760,7 +760,7 @@ footer .footer-link {
   box-shadow: 0 1px 3px rgba(0,0,0,0.18), 1px 10px 20px var(--pink-01);
   border: 1px solid var(--border);
   border-radius: 3px;
-  min-width: 260px;
+  min-width: 216px;
   z-index: 1000;
   padding: 1em;
   animation: fadeInMenu 0.25s cubic-bezier(.4,2,.6,1) both;

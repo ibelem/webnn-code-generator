@@ -11,13 +11,25 @@ import {
  */
 export function Concat(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { [key: string]: any } = {}
 ): string {
+  const nhwc = !!options.nhwc;
   const inputVars = getInputVars(node, toJsVarName);
   const outputVars = getOutputVars(node, toJsVarName);
 
   // Use getAttrValue for robust attribute extraction
   let axis = getAttrValue(node, 'axis', 0);
+
+  // NCHW to NHWC axis conversion
+  if (nhwc) {
+    // Convert from NCHW axis to NHWC axis
+    // NCHW: [N,C,H,W] → NHWC: [N,H,W,C]
+    // Map: 0→0, 1→3, 2→1, 3→2
+    if (axis === 0) axis = 0;      // N remains at 0
+    else if (axis === 1) axis = 3; // C moves from 1 to 3
+    else if (axis >= 2) axis = axis - 1; // H,W shift left
+  }
 
   // Generate code that handles negative axis and ensures unsigned long at runtime
   const opts = [];

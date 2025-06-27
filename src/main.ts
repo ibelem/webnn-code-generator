@@ -120,7 +120,7 @@ const renderAppLayout = (): void => {
                     <div class="example-links">
                       <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/weights_nhwc.bin">Code Generation</a>
                       <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=gpu&layout=nchw&run=50">NCHW</a>
-                      <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC (Bug in WebNN Netron)</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC</a>
                     </div>
                   </div>
               </div>

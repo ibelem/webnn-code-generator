@@ -364,7 +364,7 @@
                         "dimensions": [16, 64, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [16, 64, 1, 1],
+                        "dimensions": [16, 1, 1, 64],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -570,7 +570,7 @@
                         "dimensions": [64, 16, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [64, 16, 1, 1],
+                        "dimensions": [64, 1, 1, 16],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -777,7 +777,7 @@
                         "dimensions": [64, 16, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [64, 16, 3, 3],
+                        "dimensions": [64, 3, 3, 16],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -1038,7 +1038,7 @@
                         "dimensions": [16, 128, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [16, 128, 1, 1],
+                        "dimensions": [16, 1, 1, 128],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -1244,7 +1244,7 @@
                         "dimensions": [64, 16, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [64, 16, 1, 1],
+                        "dimensions": [64, 1, 1, 16],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -1451,7 +1451,7 @@
                         "dimensions": [64, 16, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [64, 16, 3, 3],
+                        "dimensions": [64, 3, 3, 16],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -1786,7 +1786,7 @@
                         "dimensions": [32, 128, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [32, 128, 1, 1],
+                        "dimensions": [32, 1, 1, 128],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -1993,7 +1993,7 @@
                         "dimensions": [128, 32, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [128, 32, 1, 1],
+                        "dimensions": [128, 1, 1, 32],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -2200,7 +2200,7 @@
                         "dimensions": [128, 32, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [128, 32, 3, 3],
+                        "dimensions": [128, 3, 3, 32],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -2461,7 +2461,7 @@
                         "dimensions": [32, 256, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [32, 256, 1, 1],
+                        "dimensions": [32, 1, 1, 256],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -2668,7 +2668,7 @@
                         "dimensions": [128, 32, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [128, 32, 1, 1],
+                        "dimensions": [128, 1, 1, 32],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -2875,7 +2875,7 @@
                         "dimensions": [128, 32, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [128, 32, 3, 3],
+                        "dimensions": [128, 3, 3, 32],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -3210,7 +3210,7 @@
                         "dimensions": [48, 256, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [48, 256, 1, 1],
+                        "dimensions": [48, 1, 1, 256],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -3417,7 +3417,7 @@
                         "dimensions": [192, 48, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [192, 48, 1, 1],
+                        "dimensions": [192, 1, 1, 48],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -3624,7 +3624,7 @@
                         "dimensions": [192, 48, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [192, 48, 3, 3],
+                        "dimensions": [192, 3, 3, 48],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -3885,7 +3885,7 @@
                         "dimensions": [48, 384, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [48, 384, 1, 1],
+                        "dimensions": [48, 1, 1, 384],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -4092,7 +4092,7 @@
                         "dimensions": [192, 48, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [192, 48, 1, 1],
+                        "dimensions": [192, 1, 1, 48],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -4299,7 +4299,7 @@
                         "dimensions": [192, 48, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [192, 48, 3, 3],
+                        "dimensions": [192, 3, 3, 48],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -4560,7 +4560,7 @@
                         "dimensions": [64, 384, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [64, 384, 1, 1],
+                        "dimensions": [64, 1, 1, 384],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -4767,7 +4767,7 @@
                         "dimensions": [256, 64, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [256, 64, 1, 1],
+                        "dimensions": [256, 1, 1, 64],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -4974,7 +4974,7 @@
                         "dimensions": [256, 64, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [256, 64, 3, 3],
+                        "dimensions": [256, 3, 3, 64],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -5235,7 +5235,7 @@
                         "dimensions": [64, 512, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [64, 512, 1, 1],
+                        "dimensions": [64, 1, 1, 512],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -5442,7 +5442,7 @@
                         "dimensions": [256, 64, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [256, 64, 1, 1],
+                        "dimensions": [256, 1, 1, 64],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -5649,7 +5649,7 @@
                         "dimensions": [256, 64, 3, 3],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [256, 64, 3, 3],
+                        "dimensions": [256, 3, 3, 64],
                         "kernel_layout": "OHWI"}
                     }
                   },
@@ -5960,7 +5960,7 @@
                         "dimensions": [1000, 512, 1, 1],
                         "kernel_layout": "OIHW"},
                       "nhwc": {
-                        "dimensions": [1000, 512, 1, 1],
+                        "dimensions": [1000, 1, 1, 512],
                         "kernel_layout": "OHWI"}
                     }
                   },
