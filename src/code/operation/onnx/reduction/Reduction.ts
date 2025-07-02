@@ -14,8 +14,10 @@ import {
 
 export function Reduction(
   node: any,
-  toJsVarName: (name: string) => string
+  toJsVarName: (name: string) => string,
+  options: { [key: string]: any } = {}
 ): string {
+    const nhwc = !!options.nhwc;
   // ONNX: input, (optional) axes, (optional) keepdims, (optional) noop_with_empty_axes
   // WebNN: reduceXXX(input, {axes, keepDimensions})
   const inputVars = getInputVars(node, toJsVarName); // [input, axes?]
@@ -47,6 +49,19 @@ export function Reduction(
   if (!axes && node.inputs?.[1]?.initializer) {
     axes = node.inputs[1].initializer;
   }
+
+  if (nhwc && Array.isArray(axes)) {
+    // NCHW: [N, C, H, W] → NHWC: [N, H, W, C]
+    axes = axes.map(axis => {
+      if (axis === 0) return 0;      // N stays at 0
+      if (axis === 1) return 3;      // C moves to 3
+      if (axis === 2) return 1;      // H moves to 1
+      if (axis === 3) return 2;      // W moves to 2
+      // For higher rank, generalize if needed
+      return axis;
+    });
+  }
+
   // keepdims: ONNX default is 1 (true)
   const keepDims = !!getAttrValue(node, 'keepdims', 1);
 
@@ -77,4 +92,35 @@ export function Reduction(
       ${inputVars[0]},
       { ${opts.join(', ')} }
     );`;
+}
+
+export function ReduceL1(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceL1' }, toJsVarName, options);
+}
+export function ReduceL2(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceL2' }, toJsVarName, options);
+}
+export function ReduceLogSum(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceLogSum' }, toJsVarName, options);
+}
+export function ReduceLogSumExp(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceLogSumExp' }, toJsVarName, options);
+}
+export function ReduceMax(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceMax' }, toJsVarName, options);
+}
+export function ReduceMean(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceMean' }, toJsVarName, options);
+}
+export function ReduceMin(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceMin' }, toJsVarName, options);
+}
+export function ReduceProd(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceProd' }, toJsVarName, options);
+}
+export function ReduceSum(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceSum' }, toJsVarName, options);
+}
+export function ReduceSumSquare(node: any, toJsVarName: (name: string) => string, options?: any) {
+  return Reduction({ ...node, opType: 'ReduceSumSquare' }, toJsVarName, options);
 }

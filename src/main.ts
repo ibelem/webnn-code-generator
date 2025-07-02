@@ -108,6 +108,14 @@ const renderAppLayout = (): void => {
                     </div>
                   </div>
                   <div>
+                    <div class="example-title">SqueezeNet 1.1</div>
+                    <div class="example-links">
+                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/weights_nhwc.bin">Code Generation</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=gpu&layout=nchw&run=50">NCHW</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC</a>
+                    </div>
+                  </div>
+                  <div>
                     <div class="example-title">Selfie Segmenter Landscape</div>
                     <div class="example-links">
                       <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/selfie_segmenter_landscape_19/weights_nhwc.bin">Code Generation</a>
@@ -116,11 +124,11 @@ const renderAppLayout = (): void => {
                     </div>
                   </div>
                   <div>
-                    <div class="example-title">SqueezeNet 1.1</div>
+                    <div class="example-title">MediaPipe Selfie Segmentation</div>
                     <div class="example-links">
-                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/weights_nhwc.bin">Code Generation</a>
-                      <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=gpu&layout=nchw&run=50">NCHW</a>
-                      <a href="https://ibelem.github.io/webnn-code-generator/model/squeezenet1.1-7/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mediapipe-selfie-segmentation-simplified/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/mediapipe-selfie-segmentation-simplified/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/mediapipe-selfie-segmentation-simplified/weights_nhwc.bin">Code Generation</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/mediapipe-selfie-segmentation-simplified/index.html?devicetype=gpu&layout=nchw&run=50">NCHW</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/mediapipe-selfie-segmentation-simplified/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC</a>
                     </div>
                   </div>
               </div>

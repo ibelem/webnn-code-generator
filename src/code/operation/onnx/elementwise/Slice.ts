@@ -1,7 +1,8 @@
 import {
   getInputVars,
   getOutputVars,
-  getShape
+  getShape,
+  getInitializerArr
 } from '../../operation-utils';
 
 /**
@@ -20,23 +21,11 @@ export function Slice(
   const outputVars = getOutputVars(node, toJsVarName);
   const { shape: inputShape} = getShape(node, 0, nhwc);
 
-  // Helper to extract initializer array from input index
-  function getInitializerArr(idx: number): number[] | undefined {
-    if (node.inputs.length > idx && node.inputs[idx]?.value?.[0]?.initializer) {
-      const init = node.inputs[idx].value[0].initializer;
-      const arr = Object.keys(init.values)
-        .sort((a, b) => Number(a) - Number(b))
-        .map(k => init.values[k]);
-      return arr;
-    }
-    return undefined;
-  }
-
   const rank = inputShape.length;
-  let starts = getInitializerArr(1) || [];
-  let ends = getInitializerArr(2) || [];
-  let axes = getInitializerArr(3);
-  let steps = getInitializerArr(4);
+  let starts = getInitializerArr(node, 1, nhwc) || [];
+  let ends = getInitializerArr(node, 2, nhwc) || [];
+  let axes = getInitializerArr(node, 3, nhwc);
+  let steps = getInitializerArr(node, 4, nhwc);
 
   // Default axes: [0, 1, ..., starts.length-1]
   if (!axes) axes = Array.from({ length: starts.length }, (_, i) => i);

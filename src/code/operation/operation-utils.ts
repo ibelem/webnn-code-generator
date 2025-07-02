@@ -1,4 +1,5 @@
-import { freeDimsOverrides } from '../../ui'
+import { freeDimsOverrides, getModelState } from '../../ui'
+import { getTypedArrayName } from '../../utils';
 
 // Extract variable names from ONNX node inputs/outputs
 export function getInputVars(node: any, toJsVarName: (name: string) => string): string[] {
@@ -136,3 +137,36 @@ export function zeroConstant(dtype: string, shape: number[]): string {
 
 // You may need to import getNonEmptyStringAroundNewline from your utils
 import { getNonEmptyStringAroundNewline } from '../../utils';
+
+export function getInitializerArr(node: any, idx: number, nhwc: boolean): number[] | undefined {
+    if (node.inputs.length > idx && node.inputs[idx]?.value?.[0]?.initializer) {
+      const init = node.inputs[idx].value[0].initializer;
+      let arr;
+      if (init.values) {
+        arr = Object.keys(init.values)
+          .sort((a, b) => Number(a) - Number(b))
+          .map(k => init.values[k]);
+        return arr;
+      } else {
+          const { weightNchwBin, weightNhwcBin } = getModelState();
+          const dataType = getDataType(node, idx);
+          let weightsDataOffset = init.dataOffset;
+          let weightsByteLength = init.byteLength;
+          const weights_array_buffer = nhwc ? weightNhwcBin : weightNchwBin;
+          if (!weights_array_buffer) {
+            throw new Error('Weights array buffer is null');
+          }
+          // Use getTypedArrayName to select the correct typed array constructor
+          const TypedArrayCtorName = getTypedArrayName(dataType);
+          if (!TypedArrayCtorName || !(TypedArrayCtorName in window)) {
+            throw new Error(`TypedArray constructor "${TypedArrayCtorName}" not found for dataType "${dataType}"`);
+          }
+          // @ts-ignore
+          const TypedArrayCtor = window[TypedArrayCtorName];
+          const js_shape_array = new TypedArrayCtor(weights_array_buffer, weightsDataOffset, weightsByteLength / TypedArrayCtor.BYTES_PER_ELEMENT);
+          return Array.from(js_shape_array, Number);
+      }
+ 
+    }
+    return undefined;
+  }
