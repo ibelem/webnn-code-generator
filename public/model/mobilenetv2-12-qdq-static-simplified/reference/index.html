@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Mobilenetv212QdqStaticSimplifiednhwc</title>
+</head>
+<body>
+    <h1>Test ../sample_models/mobilenetv2-12-qdq-static-simplified.onnx.nhwc.js</h1>
+    
+    
+    <button id="run-btn">Build & Run Model</button>
+    <label for="deviceType">Device:</label>
+    <select id="deviceType">
+        <option value="cpu">CPU</option>
+        <option value="gpu" selected>GPU</option>
+        <option value="npu">NPU</option>
+    </select>
+    <label for="numRuns">#Runs:</label>
+    <input type="number" id="numRuns" value="1" min="1" style="width: 4em;">
+    <pre id="output"></pre>
+    <div id="layout-info" style="margin-top:1em;color:#444;"></div>
+    <script type="module">
+        import { Mobilenetv212QdqStaticSimplifiednhwc } from './mobilenetv2-12-qdq-static-simplified.onnx.nhwc.js';
+
+        
+
+        async function getInputs(model) {
+            const inputs = {};
+            for (const name in model.inputTensors_) {
+                const tensor = model.inputTensors_[name];
+                if (false) {
+                    // Use image input
+                    inputs[name] = await getImageInputData(tensor.shape);
+                } else {
+                    let TypedArrayCtor = Float32Array;
+                    switch (tensor.dataType) {
+                        case 'float32': TypedArrayCtor = Float32Array; break;
+                        case 'float64': TypedArrayCtor = Float64Array; break;
+                        case 'int32': TypedArrayCtor = Int32Array; break;
+                        case 'uint8': TypedArrayCtor = Uint8Array; break;
+                        case 'int8': TypedArrayCtor = Int8Array; break;
+                        case 'uint16': TypedArrayCtor = Uint16Array; break;
+                        case 'int16': TypedArrayCtor = Int16Array; break;
+                        case 'uint32': TypedArrayCtor = Uint32Array; break;
+                        case 'int64': TypedArrayCtor = BigInt64Array; break;
+                        case 'uint64': TypedArrayCtor = BigUint64Array; break;
+                        default: throw new Error(`Unhandled input dataType: ${tensor.dataType}`);
+                    }
+                    const size = tensor.shape.reduce((a, b) => a * b, 1);
+                    const arr = new TypedArrayCtor(size);
+                    // Fill with random values
+                    if (TypedArrayCtor === Float32Array || TypedArrayCtor === Float64Array) {
+                        for (let i = 0; i < size; ++i) arr[i] = Math.random();
+                    } else if (TypedArrayCtor.BYTES_PER_ELEMENT === 8) {
+                        for (let i = 0; i < size; ++i) arr[i] = BigInt(Math.floor(Math.random() * 100));
+                    } else {
+                        for (let i = 0; i < size; ++i) arr[i] = Math.floor(Math.random() * 100);
+                    }
+                    inputs[name] = arr;
+                }
+            }
+            return inputs;
+        }
+
+        async function showTop5(results) {
+            // Fetch labels if not already loaded
+            if (!window.imagenetLabels) {
+                const resp = await fetch('labels1000.txt');
+                window.imagenetLabels = (await resp.text()).split('\n').map(s => s.trim()).filter(s => s.length > 0);
+            }
+            const labels = window.imagenetLabels;
+            // Assume single output
+            const output = Object.values(results)[0];
+            let arr = Array.from(output);
+            // Always apply softmax
+            function softmax(arr) {
+                const max = Math.max(...arr);
+                const exps = arr.map(x => Math.exp(x - max));
+                const sum = exps.reduce((a, b) => a + b, 0);
+                return exps.map(e => e / sum);
+            }
+            arr = softmax(arr);
+            let top5 = arr.map((v, i) => [v, i])
+                .sort((a, b) => b[0] - a[0])
+                .slice(0, 5);
+            let msg = "Top 5 results:\n";
+            for (const [score, idx] of top5) {
+                const label = labels && labels[idx] ? labels[idx] : `#${idx}`;
+                msg += `  ${label}: ${(score * 100).toFixed(2)}%\n`;
+            }
+            document.getElementById('output').textContent += msg;
+        }
+
+        // Draw segmentation mask on canvas
+        function showMask(results, outputTensors) {
+            // Get the first output tensor's shape
+            const outputName = Object.keys(results)[0];
+            const mask = results[outputName]; // Float32Array
+            const tensorInfo = outputTensors[outputName];
+            let n = 1, c = 1, h = 0, w = 0;
+            if (tensorInfo && tensorInfo.shape && tensorInfo.shape.length === 4) {
+                if (true) {
+                    [n, h, w, c] = tensorInfo.shape;
+                } else {
+                    [n, c, h, w] = tensorInfo.shape;
+                }
+            }
+            const imageCanvas = document.getElementById('imgcanvas');
+            const imageCtx = imageCanvas.getContext('2d');
+            const imageData = imageCtx.getImageData(0, 0, w, h);
+
+            const maskCanvas = document.getElementById('maskcanvas');
+            maskCanvas.width = w;
+            maskCanvas.height = h;
+            maskCanvas.style.display = '';
+            const maskCtx = maskCanvas.getContext('2d');
+            const maskData = maskCtx.createImageData(w, h);
+
+            const maskedcanvas = document.getElementById('maskedcanvas');
+            maskedcanvas.width = w;
+            maskedcanvas.height = h;
+            maskedcanvas.style.display = '';
+            const maskedCtx = maskedcanvas.getContext('2d');
+            const maskedData = maskedCtx.getImageData(0, 0, w, h);
+
+            for (let y = 0; y < h; ++y) {
+                for (let x = 0; x < w; ++x) {
+                    let idx = true
+                        ? y * w * c + x * c + 0
+                        : 0 * h * w + y * w + x;
+                    let cond = mask[idx] > 0.2;
+                    let idx4 = (y * w + x) * 4;
+                    maskData.data[idx4 + 0] = cond ? 255 : 0;
+                    maskData.data[idx4 + 1] = cond ? 255 : 0;
+                    maskData.data[idx4 + 2] = cond ? 255 : 0;
+                    maskData.data[idx4 + 3] = 255;
+
+                    maskedData.data[idx4 + 0] = cond ? imageData.data[idx4 + 0] : 0;
+                    maskedData.data[idx4 + 1] = cond ? imageData.data[idx4 + 1] : 255;
+                    maskedData.data[idx4 + 2] = cond ? imageData.data[idx4 + 2] : 0;
+                    maskedData.data[idx4 + 3] = 255;
+                }
+            }
+            maskCtx.putImageData(maskData, 0, 0);
+            maskedCtx.putImageData(maskedData, 0, 0);
+        }
+
+        async function runModel() {
+            const output = document.getElementById('output');
+            output.textContent = 'Building model...\n';
+            try {
+                const deviceType = document.getElementById('deviceType').value || 'gpu';
+                const t0 = performance.now();
+                const model = new Mobilenetv212QdqStaticSimplifiednhwc();
+                await model.build({ deviceType: deviceType });
+                const t1 = performance.now();
+                output.textContent += `Model built successfully. Build latency: ${(t1 - t0).toFixed(2)} ms\n`;
+
+                // Output input tensor info
+                output.textContent += '\nInput tensors:\n';
+                for (const name in model.inputTensors_) {
+                    const tensor = model.inputTensors_[name];
+                    output.textContent += `  ${name}: shape=[${tensor.shape}], dataType=${tensor.dataType}\n`;
+                }
+                output.textContent += '\n';
+
+                // Output output tensor info
+                output.textContent += '\nOutput tensors:\n';
+                for (const name in model.outputTensors_) {
+                    const tensor = model.outputTensors_[name];
+                    output.textContent += `  ${name}: shape=[${tensor.shape}], dataType=${tensor.dataType}\n`;
+                }
+                output.textContent += '\n';
+
+                // Prepare input data
+                const inputs = await getInputs(model);
+
+                output.textContent += 'Running inference...\n';
+                let numRuns = parseInt(document.getElementById('numRuns').value) || 1;
+                if (numRuns < 1) numRuns = 1;
+                const latencies = [];
+                let results = null;
+                for (let i = 0; i < numRuns; ++i) {
+                    const t0 = performance.now();
+                    results = await model.run(inputs);
+                    const t1 = performance.now();
+                    latencies.push(t1 - t0);
+                }
+                latencies.sort((a, b) => a - b);
+                const median = latencies[Math.floor(latencies.length / 2)];
+                output.textContent += `Median inference latency (${numRuns} runs): ${median.toFixed(2)} ms\n`;
+                output.textContent += '\n';
+                
+                
+                output.textContent += 'Inference results:\n' + JSON.stringify(results, null, 2) + '\n';
+
+            } catch (e) {
+                output.textContent += 'Error: ' + e;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('run-btn').onclick = runModel;
+        });
+    </script>
+</body>
+</html>

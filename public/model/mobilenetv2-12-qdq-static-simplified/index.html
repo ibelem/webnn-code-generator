@@ -2,10 +2,10 @@
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>WebNN - Test Mobilenetv212Static in nchw and nhwc layouts</title>
+    <title>WebNN - Test Mobilenetv212QdqStaticSimplified in nchw and nhwc layouts</title>
   </head>
   <body>
-    <h1>WebNN - Test Mobilenetv212Static.js in nchw and nhwc layouts</h1>
+    <h1>WebNN - Test Mobilenetv212QdqStaticSimplified.js in nchw and nhwc layouts</h1>
     <label for="deviceType">Device:</label>
     <select id="deviceType">
       <option value="cpu">CPU</option>
@@ -17,8 +17,8 @@
     <button id="run-btn">Build & Run Model</button>
     <pre id="output"></pre>
     <script type="module">
-      import { Mobilenetv212StaticNchw } from './Mobilenetv212Static_nchw.js';
-      import { Mobilenetv212StaticNhwc } from './Mobilenetv212Static_nhwc.js';
+      import { Mobilenetv212QdqStaticSimplifiedNchw } from './Mobilenetv212QdqStaticSimplified_nchw.js';
+      import { Mobilenetv212QdqStaticSimplifiedNhwc } from './Mobilenetv212QdqStaticSimplified_nhwc.js';
 
       // --- URL parameter parsing ---
       function getUrlParam(name, def) {
@@ -90,9 +90,9 @@
           // Use the resolved deviceType and layout from above
           let model;
           if (layout === 'nchw') {
-            model = new Mobilenetv212StaticNchw();
+            model = new Mobilenetv212QdqStaticSimplifiedNchw();
           } else {
-            model = new Mobilenetv212StaticNhwc();
+            model = new Mobilenetv212QdqStaticSimplifiedNhwc();
           }
           const t0 = performance.now();
           await model.build({ deviceType: deviceType });

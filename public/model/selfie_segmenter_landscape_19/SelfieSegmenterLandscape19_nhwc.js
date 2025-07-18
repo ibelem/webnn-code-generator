@@ -2127,7 +2127,7 @@ export class SelfieSegmenterLandscape19Nhwc {
     // Create output tensors
     
     this.outputTensors_['segment_back'] = await this.context_.createTensor(
-      { dataType: 'float32', shape: [1,144,256,1], readable: true }
+      { dataType: 'float32', shape: [1,1,144,256], readable: true }
     );
   }
 

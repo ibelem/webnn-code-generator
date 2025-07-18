@@ -1815,6 +1815,7 @@ export class MediapipeSelfieSegmentationSimplifiedNhwc {
     this.outputTensors_['alphas'] = await this.context_.createTensor(
       { dataType: 'float32', shape: [1,1,256,256], readable: true }
     );
+    
   }
 
   async run(inputs) {

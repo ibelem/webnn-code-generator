@@ -330,7 +330,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -3497,7 +3497,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -4065,7 +4065,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5396,7 +5396,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -5964,7 +5964,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7369,7 +7369,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -7937,7 +7937,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9342,7 +9342,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -9910,7 +9910,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11315,7 +11315,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -11883,7 +11883,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {
@@ -18599,7 +18599,7 @@
                         "kernel_layout": ""},
                       "nhwc": {
                         "dimensions": [1, 1, 1, 1],
-                        "kernel_layout": "OHWI"}
+                        "kernel_layout": ""}
                     }
                   },
                   "type": {

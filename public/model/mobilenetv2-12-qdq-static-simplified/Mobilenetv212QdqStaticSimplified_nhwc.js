@@ -1,0 +1,4103 @@
+// WebNN Code Generator (NHWC)
+
+export class Mobilenetv212QdqStaticSimplifiedNhwc {
+
+  constructor() {
+    this.context_ = null;
+    this.graph_ = null;
+    this.inputTensors_ = {};
+    this.outputTensors_ = {};
+  }
+
+  async build(options) {
+    // Load weights ArrayBuffer from .bin file
+    async function loadWeightsArrayBuffer() {
+      const binFile = 'weights_nhwc.bin';
+      const response = await fetch(binFile);
+      if (!response.ok) {
+          throw new Error('Failed to fetch weights: ' + response.statusText);
+      }
+      return await response.arrayBuffer();
+    }
+
+    const weights_array_buffer = await loadWeightsArrayBuffer();
+
+    this.context_ = await navigator.ml.createContext(options);
+    const builder = new MLGraphBuilder(this.context_);
+
+    // Create graph input operands and tensors
+    
+    const input = builder.transpose(
+      builder.input('input', { dataType: 'float32', shape: [1,3,224,224] }),
+      { permutation: [0, 2, 3, 1] }
+    );
+
+    this.inputTensors_['input'] = await this.context_.createTensor(
+      { dataType: 'float32', shape: [1,3,224,224], writable: true }
+    );
+
+    // Initializers, create graph constant operands
+    
+    const input_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01865844801068306])
+    );
+
+    const input_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([114])
+    );
+
+    const var_475_quantized = builder.constant(
+      { dataType: 'int8', shape: [32,3,3,3] },
+      new Int8Array(weights_array_buffer, 32, 864 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_475_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0028556426987051964])
+    );
+
+    const var_475_zero_point = builder.constant(
+      { dataType: 'int8', shape: [] },
+      new Int8Array([0])
+    );
+
+    const var_476_quantized = builder.constant(
+      { dataType: 'int32', shape: [32] },
+      new Int32Array(weights_array_buffer, 912, 128 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_476_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1040, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_623_zero_point = builder.constant(
+      { dataType: 'int32', shape: [1] },
+      new Int32Array(weights_array_buffer, 2261624, 4 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_474_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.017607755959033966])
+    );
+
+    const var_474_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([0])
+    );
+
+    const var_478_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,32] },
+      new Int8Array(weights_array_buffer, 1088, 288 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_478_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.11868368089199066])
+    );
+
+    const var_479_quantized = builder.constant(
+      { dataType: 'int32', shape: [32] },
+      new Int32Array(weights_array_buffer, 1392, 128 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_479_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1520, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_576_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0235294122248888])
+    );
+
+    const var_481_quantized = builder.constant(
+      { dataType: 'int8', shape: [16,1,1,32] },
+      new Int8Array(weights_array_buffer, 1568, 512 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_481_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.008153032511472702])
+    );
+
+    const var_482_quantized = builder.constant(
+      { dataType: 'int32', shape: [16] },
+      new Int32Array(weights_array_buffer, 2096, 64 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_482_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 2160, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_480_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.06564796715974808])
+    );
+
+    const var_480_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([119])
+    );
+
+    const var_484_quantized = builder.constant(
+      { dataType: 'int8', shape: [96,1,1,16] },
+      new Int8Array(weights_array_buffer, 2208, 1536 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_484_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.004745323210954666])
+    );
+
+    const var_485_quantized = builder.constant(
+      { dataType: 'int32', shape: [96] },
+      new Int32Array(weights_array_buffer, 3760, 384 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_485_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 4144, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_487_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,96] },
+      new Int8Array(weights_array_buffer, 4192, 864 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_487_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.050063420087099075])
+    );
+
+    const var_488_quantized = builder.constant(
+      { dataType: 'int32', shape: [96] },
+      new Int32Array(weights_array_buffer, 5072, 384 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_488_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 5456, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_490_quantized = builder.constant(
+      { dataType: 'int8', shape: [24,1,1,96] },
+      new Int8Array(weights_array_buffer, 5504, 2304 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_490_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.005946148186922073])
+    );
+
+    const var_491_quantized = builder.constant(
+      { dataType: 'int32', shape: [24] },
+      new Int32Array(weights_array_buffer, 7824, 96 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_491_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 7920, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_489_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.039710190147161484])
+    );
+
+    const var_489_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([107])
+    );
+
+    const var_493_quantized = builder.constant(
+      { dataType: 'int8', shape: [144,1,1,24] },
+      new Int8Array(weights_array_buffer, 7968, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_493_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0026336642913520336])
+    );
+
+    const var_494_quantized = builder.constant(
+      { dataType: 'int32', shape: [144] },
+      new Int32Array(weights_array_buffer, 11440, 576 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_494_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 12016, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_492_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.009025856852531433])
+    );
+
+    const var_496_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,144] },
+      new Int8Array(weights_array_buffer, 12064, 1296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_496_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.03783246502280235])
+    );
+
+    const var_497_quantized = builder.constant(
+      { dataType: 'int32', shape: [144] },
+      new Int32Array(weights_array_buffer, 13376, 576 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_497_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 13952, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_495_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.019913742318749428])
+    );
+
+    const var_499_quantized = builder.constant(
+      { dataType: 'int8', shape: [24,1,1,144] },
+      new Int8Array(weights_array_buffer, 14000, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_499_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.00954227615147829])
+    );
+
+    const var_500_quantized = builder.constant(
+      { dataType: 'int32', shape: [24] },
+      new Int32Array(weights_array_buffer, 17472, 96 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_500_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 17568, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_498_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.04609981179237366])
+    );
+
+    const var_498_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([127])
+    );
+
+    const var_339_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.05797167494893074])
+    );
+
+    const var_339_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([125])
+    );
+
+    const var_502_quantized = builder.constant(
+      { dataType: 'int8', shape: [144,1,1,24] },
+      new Int8Array(weights_array_buffer, 17648, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_502_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0024801704566925764])
+    );
+
+    const var_503_quantized = builder.constant(
+      { dataType: 'int32', shape: [144] },
+      new Int32Array(weights_array_buffer, 21120, 576 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_503_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 21696, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_501_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.013438905589282513])
+    );
+
+    const var_505_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,144] },
+      new Int8Array(weights_array_buffer, 21744, 1296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_505_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.046499304473400116])
+    );
+
+    const var_506_quantized = builder.constant(
+      { dataType: 'int32', shape: [144] },
+      new Int32Array(weights_array_buffer, 23056, 576 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_506_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 23632, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_504_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.014856177382171154])
+    );
+
+    const var_508_quantized = builder.constant(
+      { dataType: 'int8', shape: [32,1,1,144] },
+      new Int8Array(weights_array_buffer, 23680, 4608 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_508_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.006835097912698984])
+    );
+
+    const var_509_quantized = builder.constant(
+      { dataType: 'int32', shape: [32] },
+      new Int32Array(weights_array_buffer, 28304, 128 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_509_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 28432, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_507_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.03556208312511444])
+    );
+
+    const var_507_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([132])
+    );
+
+    const var_511_quantized = builder.constant(
+      { dataType: 'int8', shape: [192,1,1,32] },
+      new Int8Array(weights_array_buffer, 28480, 6144 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_511_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0015136110596358776])
+    );
+
+    const var_512_quantized = builder.constant(
+      { dataType: 'int32', shape: [192] },
+      new Int32Array(weights_array_buffer, 34640, 768 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_512_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 35408, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_510_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.00862774346023798])
+    );
+
+    const var_514_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,192] },
+      new Int8Array(weights_array_buffer, 35456, 1728 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_514_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0517183281481266])
+    );
+
+    const var_515_quantized = builder.constant(
+      { dataType: 'int32', shape: [192] },
+      new Int32Array(weights_array_buffer, 37200, 768 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_515_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 37968, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_513_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.012746858410537243])
+    );
+
+    const var_517_quantized = builder.constant(
+      { dataType: 'int8', shape: [32,1,1,192] },
+      new Int8Array(weights_array_buffer, 38016, 6144 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_517_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.00651885848492384])
+    );
+
+    const var_518_quantized = builder.constant(
+      { dataType: 'int32', shape: [32] },
+      new Int32Array(weights_array_buffer, 44176, 128 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_518_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 44304, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_516_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.028934277594089508])
+    );
+
+    const var_516_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([128])
+    );
+
+    const var_356_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.04353522136807442])
+    );
+
+    const var_356_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([108])
+    );
+
+    const var_520_quantized = builder.constant(
+      { dataType: 'int8', shape: [192,1,1,32] },
+      new Int8Array(weights_array_buffer, 44384, 6144 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_520_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0012169178808107972])
+    );
+
+    const var_521_quantized = builder.constant(
+      { dataType: 'int32', shape: [192] },
+      new Int32Array(weights_array_buffer, 50544, 768 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_521_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 51312, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_519_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0076584890484809875])
+    );
+
+    const var_523_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,192] },
+      new Int8Array(weights_array_buffer, 51360, 1728 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_523_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.03970986604690552])
+    );
+
+    const var_524_quantized = builder.constant(
+      { dataType: 'int32', shape: [192] },
+      new Int32Array(weights_array_buffer, 53104, 768 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_524_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 53872, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_522_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01057371310889721])
+    );
+
+    const var_526_quantized = builder.constant(
+      { dataType: 'int8', shape: [32,1,1,192] },
+      new Int8Array(weights_array_buffer, 53920, 6144 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_526_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.007441135589033365])
+    );
+
+    const var_527_quantized = builder.constant(
+      { dataType: 'int32', shape: [32] },
+      new Int32Array(weights_array_buffer, 60080, 128 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_527_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 60208, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_525_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.02606847509741783])
+    );
+
+    const var_525_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([126])
+    );
+
+    const var_365_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.04982887580990791])
+    );
+
+    const var_365_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([120])
+    );
+
+    const var_529_quantized = builder.constant(
+      { dataType: 'int8', shape: [192,1,1,32] },
+      new Int8Array(weights_array_buffer, 60288, 6144 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_529_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0017131756758317351])
+    );
+
+    const var_530_quantized = builder.constant(
+      { dataType: 'int32', shape: [192] },
+      new Int32Array(weights_array_buffer, 66448, 768 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_530_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 67216, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_528_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.011388028971850872])
+    );
+
+    const var_532_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,192] },
+      new Int8Array(weights_array_buffer, 67264, 1728 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_532_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01929706148803234])
+    );
+
+    const var_533_quantized = builder.constant(
+      { dataType: 'int32', shape: [192] },
+      new Int32Array(weights_array_buffer, 69008, 768 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_533_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 69776, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_531_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.014233097434043884])
+    );
+
+    const var_535_quantized = builder.constant(
+      { dataType: 'int8', shape: [64,1,1,192] },
+      new Int8Array(weights_array_buffer, 69824, 12288 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_535_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.005443144589662552])
+    );
+
+    const var_536_quantized = builder.constant(
+      { dataType: 'int32', shape: [64] },
+      new Int32Array(weights_array_buffer, 82128, 256 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_536_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 82384, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_534_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.028401868417859077])
+    );
+
+    const var_534_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([143])
+    );
+
+    const var_538_quantized = builder.constant(
+      { dataType: 'int8', shape: [384,1,1,64] },
+      new Int8Array(weights_array_buffer, 82432, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_538_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0011173795210197568])
+    );
+
+    const var_539_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 107024, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_539_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 108560, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_537_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.004354120697826147])
+    );
+
+    const var_541_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,384] },
+      new Int8Array(weights_array_buffer, 108608, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_541_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.043541185557842255])
+    );
+
+    const var_542_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 112080, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_542_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 113616, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_540_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.006769552361220121])
+    );
+
+    const var_544_quantized = builder.constant(
+      { dataType: 'int8', shape: [64,1,1,384] },
+      new Int8Array(weights_array_buffer, 113664, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_544_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.005489403381943703])
+    );
+
+    const var_545_quantized = builder.constant(
+      { dataType: 'int32', shape: [64] },
+      new Int32Array(weights_array_buffer, 138256, 256 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_545_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 138512, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_543_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.019568178802728653])
+    );
+
+    const var_543_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([130])
+    );
+
+    const var_382_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.02987072803080082])
+    );
+
+    const var_382_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([136])
+    );
+
+    const var_547_quantized = builder.constant(
+      { dataType: 'int8', shape: [384,1,1,64] },
+      new Int8Array(weights_array_buffer, 138592, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_547_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0008492199121974409])
+    );
+
+    const var_548_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 163184, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_548_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 164720, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_546_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0040292879566550255])
+    );
+
+    const var_550_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,384] },
+      new Int8Array(weights_array_buffer, 164768, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_550_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.08897167444229126])
+    );
+
+    const var_551_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 168240, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_551_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 169776, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_549_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.006989649031311274])
+    );
+
+    const var_553_quantized = builder.constant(
+      { dataType: 'int8', shape: [64,1,1,384] },
+      new Int8Array(weights_array_buffer, 169824, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_553_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.005529865622520447])
+    );
+
+    const var_554_quantized = builder.constant(
+      { dataType: 'int32', shape: [64] },
+      new Int32Array(weights_array_buffer, 194416, 256 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_554_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 194672, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_552_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01685042306780815])
+    );
+
+    const var_391_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.03107801266014576])
+    );
+
+    const var_556_quantized = builder.constant(
+      { dataType: 'int8', shape: [384,1,1,64] },
+      new Int8Array(weights_array_buffer, 194752, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_556_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0008293222053907812])
+    );
+
+    const var_557_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 219344, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_557_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 220880, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_555_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0050100889056921005])
+    );
+
+    const var_559_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,384] },
+      new Int8Array(weights_array_buffer, 220928, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_559_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.039976026862859726])
+    );
+
+    const var_560_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 224400, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_560_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 225936, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_558_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.021815652027726173])
+    );
+
+    const var_562_quantized = builder.constant(
+      { dataType: 'int8', shape: [64,1,1,384] },
+      new Int8Array(weights_array_buffer, 225984, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_562_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.006337489001452923])
+    );
+
+    const var_563_quantized = builder.constant(
+      { dataType: 'int32', shape: [64] },
+      new Int32Array(weights_array_buffer, 250576, 256 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_563_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 250832, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_561_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.03308645263314247])
+    );
+
+    const var_561_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([160])
+    );
+
+    const var_400_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.037365980446338654])
+    );
+
+    const var_400_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([139])
+    );
+
+    const var_565_quantized = builder.constant(
+      { dataType: 'int8', shape: [384,1,1,64] },
+      new Int8Array(weights_array_buffer, 250912, 24576 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_565_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0011116444366052747])
+    );
+
+    const var_566_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 275504, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_566_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 277040, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_564_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.00675777904689312])
+    );
+
+    const var_568_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,384] },
+      new Int8Array(weights_array_buffer, 277088, 3456 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_568_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.051308464258909225])
+    );
+
+    const var_569_quantized = builder.constant(
+      { dataType: 'int32', shape: [384] },
+      new Int32Array(weights_array_buffer, 280560, 1536 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_569_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 282096, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_567_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.012513305060565472])
+    );
+
+    const var_571_quantized = builder.constant(
+      { dataType: 'int8', shape: [96,1,1,384] },
+      new Int8Array(weights_array_buffer, 282144, 36864 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_571_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.00487904017791152])
+    );
+
+    const var_572_quantized = builder.constant(
+      { dataType: 'int32', shape: [96] },
+      new Int32Array(weights_array_buffer, 319024, 384 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_572_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 319408, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_570_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.02412358671426773])
+    );
+
+    const var_624_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([123])
+    );
+
+    const var_574_quantized = builder.constant(
+      { dataType: 'int8', shape: [576,1,1,96] },
+      new Int8Array(weights_array_buffer, 319456, 55296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_574_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0013143877731636167])
+    );
+
+    const var_575_quantized = builder.constant(
+      { dataType: 'int32', shape: [576] },
+      new Int32Array(weights_array_buffer, 374768, 2304 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_575_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 377072, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_573_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.006710308603942394])
+    );
+
+    const var_577_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,576] },
+      new Int8Array(weights_array_buffer, 377120, 5184 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_577_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.07777220755815506])
+    );
+
+    const var_578_quantized = builder.constant(
+      { dataType: 'int32', shape: [576] },
+      new Int32Array(weights_array_buffer, 382320, 2304 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_578_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 384624, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_580_quantized = builder.constant(
+      { dataType: 'int8', shape: [96,1,1,576] },
+      new Int8Array(weights_array_buffer, 384672, 55296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_580_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.003954809159040451])
+    );
+
+    const var_581_quantized = builder.constant(
+      { dataType: 'int32', shape: [96] },
+      new Int32Array(weights_array_buffer, 439984, 384 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_581_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 440368, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_579_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.027985379099845886])
+    );
+
+    const var_579_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([115])
+    );
+
+    const var_417_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.03182479739189148])
+    );
+
+    const var_417_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([109])
+    );
+
+    const var_583_quantized = builder.constant(
+      { dataType: 'int8', shape: [576,1,1,96] },
+      new Int8Array(weights_array_buffer, 440448, 55296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_583_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.001712543424218893])
+    );
+
+    const var_584_quantized = builder.constant(
+      { dataType: 'int32', shape: [576] },
+      new Int32Array(weights_array_buffer, 495760, 2304 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_584_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 498064, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_582_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01857798360288143])
+    );
+
+    const var_586_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,576] },
+      new Int8Array(weights_array_buffer, 498112, 5184 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_586_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.06750054657459259])
+    );
+
+    const var_587_quantized = builder.constant(
+      { dataType: 'int32', shape: [576] },
+      new Int32Array(weights_array_buffer, 503312, 2304 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_587_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 505616, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_589_quantized = builder.constant(
+      { dataType: 'int8', shape: [96,1,1,576] },
+      new Int8Array(weights_array_buffer, 505664, 55296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_589_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.009840592741966248])
+    );
+
+    const var_590_quantized = builder.constant(
+      { dataType: 'int32', shape: [96] },
+      new Int32Array(weights_array_buffer, 560976, 384 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_590_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 561360, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_588_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.06331735104322433])
+    );
+
+    const var_588_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([142])
+    );
+
+    const var_426_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.07048992812633514])
+    );
+
+    const var_592_quantized = builder.constant(
+      { dataType: 'int8', shape: [576,1,1,96] },
+      new Int8Array(weights_array_buffer, 561440, 55296 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_592_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0014183413004502654])
+    );
+
+    const var_593_quantized = builder.constant(
+      { dataType: 'int32', shape: [576] },
+      new Int32Array(weights_array_buffer, 616752, 2304 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_593_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 619056, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_591_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.014397864229977131])
+    );
+
+    const var_595_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,576] },
+      new Int8Array(weights_array_buffer, 619104, 5184 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_595_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01818242482841015])
+    );
+
+    const var_596_quantized = builder.constant(
+      { dataType: 'int32', shape: [576] },
+      new Int32Array(weights_array_buffer, 624304, 2304 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_596_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 626608, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_598_quantized = builder.constant(
+      { dataType: 'int8', shape: [160,1,1,576] },
+      new Int8Array(weights_array_buffer, 626656, 92160 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_598_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0025079844053834677])
+    );
+
+    const var_599_quantized = builder.constant(
+      { dataType: 'int32', shape: [160] },
+      new Int32Array(weights_array_buffer, 718832, 640 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_599_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 719472, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_597_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.06929498165845871])
+    );
+
+    const var_597_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([149])
+    );
+
+    const var_601_quantized = builder.constant(
+      { dataType: 'int8', shape: [960,1,1,160] },
+      new Int8Array(weights_array_buffer, 719520, 153600 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_601_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0029125262517482042])
+    );
+
+    const var_602_quantized = builder.constant(
+      { dataType: 'int32', shape: [960] },
+      new Int32Array(weights_array_buffer, 873136, 3840 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_602_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 876976, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_600_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.02097153291106224])
+    );
+
+    const var_604_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,960] },
+      new Int8Array(weights_array_buffer, 877024, 8640 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_604_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.07850213348865509])
+    );
+
+    const var_605_quantized = builder.constant(
+      { dataType: 'int32', shape: [960] },
+      new Int32Array(weights_array_buffer, 885680, 3840 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_605_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 889520, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_603_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.022908082231879234])
+    );
+
+    const var_607_quantized = builder.constant(
+      { dataType: 'int8', shape: [160,1,1,960] },
+      new Int8Array(weights_array_buffer, 889568, 153600 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_607_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0025744689628481865])
+    );
+
+    const var_608_quantized = builder.constant(
+      { dataType: 'int32', shape: [160] },
+      new Int32Array(weights_array_buffer, 1043184, 640 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_608_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1043824, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_606_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.06415010988712311])
+    );
+
+    const var_606_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([105])
+    );
+
+    const var_443_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.12168142944574356])
+    );
+
+    const var_610_quantized = builder.constant(
+      { dataType: 'int8', shape: [960,1,1,160] },
+      new Int8Array(weights_array_buffer, 1043904, 153600 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_610_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0016836411086842418])
+    );
+
+    const var_611_quantized = builder.constant(
+      { dataType: 'int32', shape: [960] },
+      new Int32Array(weights_array_buffer, 1197520, 3840 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_611_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1201360, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_609_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.020093470811843872])
+    );
+
+    const var_613_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,960] },
+      new Int8Array(weights_array_buffer, 1201408, 8640 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_613_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.05770537257194519])
+    );
+
+    const var_614_quantized = builder.constant(
+      { dataType: 'int32', shape: [960] },
+      new Int32Array(weights_array_buffer, 1210064, 3840 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_614_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1213904, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_616_quantized = builder.constant(
+      { dataType: 'int8', shape: [160,1,1,960] },
+      new Int8Array(weights_array_buffer, 1213952, 153600 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_616_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.004802136216312647])
+    );
+
+    const var_617_quantized = builder.constant(
+      { dataType: 'int32', shape: [160] },
+      new Int32Array(weights_array_buffer, 1367568, 640 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_617_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1368208, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_615_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.14457149803638458])
+    );
+
+    const var_615_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([131])
+    );
+
+    const var_452_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.23722179234027863])
+    );
+
+    const var_452_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([110])
+    );
+
+    const var_619_quantized = builder.constant(
+      { dataType: 'int8', shape: [960,1,1,160] },
+      new Int8Array(weights_array_buffer, 1368288, 153600 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_619_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0010381987085565925])
+    );
+
+    const var_620_quantized = builder.constant(
+      { dataType: 'int32', shape: [960] },
+      new Int32Array(weights_array_buffer, 1521904, 3840 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_620_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1525744, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_618_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.015018466860055923])
+    );
+
+    const var_622_quantized = builder.constant(
+      { dataType: 'int8', shape: [1,3,3,960] },
+      new Int8Array(weights_array_buffer, 1525792, 8640 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_622_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.07043053954839706])
+    );
+
+    const var_623_quantized = builder.constant(
+      { dataType: 'int32', shape: [960] },
+      new Int32Array(weights_array_buffer, 1534448, 3840 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_623_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1538288, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_621_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.008207708597183228])
+    );
+
+    const var_625_quantized = builder.constant(
+      { dataType: 'int8', shape: [320,1,1,960] },
+      new Int8Array(weights_array_buffer, 1538336, 307200 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_625_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.005075970198959112])
+    );
+
+    const var_626_quantized = builder.constant(
+      { dataType: 'int32', shape: [320] },
+      new Int32Array(weights_array_buffer, 1845552, 1280 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_626_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 1846832, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_624_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.01452525146305561])
+    );
+
+    const var_628_quantized = builder.constant(
+      { dataType: 'int8', shape: [1280,1,1,320] },
+      new Int8Array(weights_array_buffer, 1846880, 409600 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_628_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.013814685866236687])
+    );
+
+    const var_629_quantized = builder.constant(
+      { dataType: 'int32', shape: [1280] },
+      new Int32Array(weights_array_buffer, 2256496, 5120 / Int32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_629_scale = builder.constant(
+      { dataType: 'float32', shape: [1] },
+      new Float32Array(weights_array_buffer, 2261616, 4 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_464_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.019110053777694702])
+    );
+
+    const var_classifier_1_weight_quantized = builder.constant(
+      { dataType: 'int8', shape: [1280,1000] },
+      new Int8Array(weights_array_buffer, 2261744, 1280000 / Int8Array.BYTES_PER_ELEMENT)
+    );
+
+    const var_classifier_1_weight_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.0026049718726426363])
+    );
+
+    const output_matmul_scale = builder.constant(
+      { dataType: 'float32', shape: [] },
+      new Float32Array([0.16079935431480408])
+    );
+
+    const output_matmul_zero_point = builder.constant(
+      { dataType: 'uint8', shape: [] },
+      new Uint8Array([76])
+    );
+
+    const var_classifier_1_bias = builder.constant(
+      { dataType: 'float32', shape: [1000] },
+      new Float32Array(weights_array_buffer, 3541792, 4000 / Float32Array.BYTES_PER_ELEMENT)
+    );
+
+    // Create graph operators
+        
+    const input_quantized = builder.quantizeLinear(
+      input,
+      builder.reshape(input_scale, [1, 1, 1, 1]),
+      builder.reshape(input_zero_point, [1, 1, 1, 1]),
+      { label: 'input_Conv_0_QuantizeLinear' }
+    );
+    
+    const input_dequantized = builder.dequantizeLinear(
+      input_quantized,
+      builder.reshape(input_scale, [1, 1, 1, 1]),
+      builder.reshape(input_zero_point, [1, 1, 1, 1]),
+      { label: 'input_Conv_0_DequantizeLinear' }
+    );
+    
+    const var_475_dequantized = builder.dequantizeLinear(
+      var_475_quantized,
+      builder.reshape(var_475_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '475_DequantizeLinear' }
+    );
+    
+    const var_476_dequantized = builder.dequantizeLinear(
+      var_476_quantized,
+      var_476_scale,
+      var_623_zero_point,
+      { label: '476_DequantizeLinear' }
+    );
+    
+    const var_474_quantizeinput = builder.conv2d(
+      input_dequantized, var_475_dequantized,
+      {
+        strides: [2, 2],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_476_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_0_quant'
+      }
+    );
+    
+    const var_474_quantized = builder.quantizeLinear(
+      var_474_quantizeinput,
+      builder.reshape(var_474_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '474_Conv_0_QuantizeLinear' }
+    );
+    
+    const var_474_conv_2_dequantized = builder.dequantizeLinear(
+      var_474_quantized,
+      builder.reshape(var_474_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '474_Conv_2_DequantizeLinear' }
+    );
+    
+    const var_478_dequantized = builder.dequantizeLinear(
+      var_478_quantized,
+      builder.reshape(var_478_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '478_DequantizeLinear' }
+    );
+    
+    const var_479_dequantized = builder.dequantizeLinear(
+      var_479_quantized,
+      var_479_scale,
+      var_623_zero_point,
+      { label: '479_DequantizeLinear' }
+    );
+    
+    const var_477_quantizeinput = builder.conv2d(
+      var_474_conv_2_dequantized, var_478_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 32,
+        bias: var_479_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_2_quant'
+      }
+    );
+    
+    const var_477_quantized = builder.quantizeLinear(
+      var_477_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '477_Conv_2_QuantizeLinear' }
+    );
+    
+    const var_477_conv_4_dequantized = builder.dequantizeLinear(
+      var_477_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '477_Conv_4_DequantizeLinear' }
+    );
+    
+    const var_481_dequantized = builder.dequantizeLinear(
+      var_481_quantized,
+      builder.reshape(var_481_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '481_DequantizeLinear' }
+    );
+    
+    const var_482_dequantized = builder.dequantizeLinear(
+      var_482_quantized,
+      var_482_scale,
+      var_623_zero_point,
+      { label: '482_DequantizeLinear' }
+    );
+    
+    const var_480_quantizeinput = builder.conv2d(
+      var_477_conv_4_dequantized, var_481_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_482_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_4_quant'
+      }
+    );
+    
+    const var_480_quantized = builder.quantizeLinear(
+      var_480_quantizeinput,
+      builder.reshape(var_480_scale, [1, 1, 1, 1]),
+      builder.reshape(var_480_zero_point, [1, 1, 1, 1]),
+      { label: '480_Conv_4_QuantizeLinear' }
+    );
+    
+    const var_480_conv_5_dequantized = builder.dequantizeLinear(
+      var_480_quantized,
+      builder.reshape(var_480_scale, [1, 1, 1, 1]),
+      builder.reshape(var_480_zero_point, [1, 1, 1, 1]),
+      { label: '480_Conv_5_DequantizeLinear' }
+    );
+    
+    const var_484_dequantized = builder.dequantizeLinear(
+      var_484_quantized,
+      builder.reshape(var_484_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '484_DequantizeLinear' }
+    );
+    
+    const var_485_dequantized = builder.dequantizeLinear(
+      var_485_quantized,
+      var_485_scale,
+      var_623_zero_point,
+      { label: '485_DequantizeLinear' }
+    );
+    
+    const var_483_quantizeinput = builder.conv2d(
+      var_480_conv_5_dequantized, var_484_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_485_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_5_quant'
+      }
+    );
+    
+    const var_483_quantized = builder.quantizeLinear(
+      var_483_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '483_Conv_5_QuantizeLinear' }
+    );
+    
+    const var_483_conv_7_dequantized = builder.dequantizeLinear(
+      var_483_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '483_Conv_7_DequantizeLinear' }
+    );
+    
+    const var_487_dequantized = builder.dequantizeLinear(
+      var_487_quantized,
+      builder.reshape(var_487_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '487_DequantizeLinear' }
+    );
+    
+    const var_488_dequantized = builder.dequantizeLinear(
+      var_488_quantized,
+      var_488_scale,
+      var_623_zero_point,
+      { label: '488_DequantizeLinear' }
+    );
+    
+    const var_486_quantizeinput = builder.conv2d(
+      var_483_conv_7_dequantized, var_487_dequantized,
+      {
+        strides: [2, 2],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 96,
+        bias: var_488_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_7_quant'
+      }
+    );
+    
+    const var_486_quantized = builder.quantizeLinear(
+      var_486_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '486_Conv_7_QuantizeLinear' }
+    );
+    
+    const var_486_conv_9_dequantized = builder.dequantizeLinear(
+      var_486_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '486_Conv_9_DequantizeLinear' }
+    );
+    
+    const var_490_dequantized = builder.dequantizeLinear(
+      var_490_quantized,
+      builder.reshape(var_490_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '490_DequantizeLinear' }
+    );
+    
+    const var_491_dequantized = builder.dequantizeLinear(
+      var_491_quantized,
+      var_491_scale,
+      var_623_zero_point,
+      { label: '491_DequantizeLinear' }
+    );
+    
+    const var_489_quantizeinput = builder.conv2d(
+      var_486_conv_9_dequantized, var_490_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_491_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_9_quant'
+      }
+    );
+    
+    const var_489_quantized = builder.quantizeLinear(
+      var_489_quantizeinput,
+      builder.reshape(var_489_scale, [1, 1, 1, 1]),
+      builder.reshape(var_489_zero_point, [1, 1, 1, 1]),
+      { label: '489_Conv_9_QuantizeLinear' }
+    );
+    
+    const var_489_duplicated = builder.dequantizeLinear(
+      var_489_quantized,
+      builder.reshape(var_489_scale, [1, 1, 1, 1]),
+      builder.reshape(var_489_zero_point, [1, 1, 1, 1]),
+      { label: '489_Conv_9_DequantizeLinear/duplicated' }
+    );
+    
+    const var_493_dequantized = builder.dequantizeLinear(
+      var_493_quantized,
+      builder.reshape(var_493_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '493_DequantizeLinear' }
+    );
+    
+    const var_494_dequantized = builder.dequantizeLinear(
+      var_494_quantized,
+      var_494_scale,
+      var_623_zero_point,
+      { label: '494_DequantizeLinear' }
+    );
+    
+    const var_492_quantizeinput = builder.conv2d(
+      var_489_duplicated, var_493_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_494_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_10_quant'
+      }
+    );
+    
+    const var_492_quantized = builder.quantizeLinear(
+      var_492_quantizeinput,
+      builder.reshape(var_492_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '492_Conv_10_QuantizeLinear' }
+    );
+    
+    const var_492_conv_12_dequantized = builder.dequantizeLinear(
+      var_492_quantized,
+      builder.reshape(var_492_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '492_Conv_12_DequantizeLinear' }
+    );
+    
+    const var_496_dequantized = builder.dequantizeLinear(
+      var_496_quantized,
+      builder.reshape(var_496_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '496_DequantizeLinear' }
+    );
+    
+    const var_497_dequantized = builder.dequantizeLinear(
+      var_497_quantized,
+      var_497_scale,
+      var_623_zero_point,
+      { label: '497_DequantizeLinear' }
+    );
+    
+    const var_495_quantizeinput = builder.conv2d(
+      var_492_conv_12_dequantized, var_496_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 144,
+        bias: var_497_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_12_quant'
+      }
+    );
+    
+    const var_495_quantized = builder.quantizeLinear(
+      var_495_quantizeinput,
+      builder.reshape(var_495_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '495_Conv_12_QuantizeLinear' }
+    );
+    
+    const var_495_conv_14_dequantized = builder.dequantizeLinear(
+      var_495_quantized,
+      builder.reshape(var_495_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '495_Conv_14_DequantizeLinear' }
+    );
+    
+    const var_499_dequantized = builder.dequantizeLinear(
+      var_499_quantized,
+      builder.reshape(var_499_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '499_DequantizeLinear' }
+    );
+    
+    const var_500_dequantized = builder.dequantizeLinear(
+      var_500_quantized,
+      var_500_scale,
+      var_623_zero_point,
+      { label: '500_DequantizeLinear' }
+    );
+    
+    const var_498_quantizeinput = builder.conv2d(
+      var_495_conv_14_dequantized, var_499_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_500_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_14_quant'
+      }
+    );
+    
+    const var_498_quantized = builder.quantizeLinear(
+      var_498_quantizeinput,
+      builder.reshape(var_498_scale, [1, 1, 1, 1]),
+      builder.reshape(var_498_zero_point, [1, 1, 1, 1]),
+      { label: '498_Conv_14_QuantizeLinear' }
+    );
+    
+    const var_498 = builder.dequantizeLinear(
+      var_498_quantized,
+      builder.reshape(var_498_scale, [1, 1, 1, 1]),
+      builder.reshape(var_498_zero_point, [1, 1, 1, 1]),
+      { label: '498_Conv_14_DequantizeLinear' }
+    );
+    
+    const var_339 = builder.add(
+      var_489_duplicated,
+      var_498,
+      { label: 'Add_15' }
+    );
+    
+    const var_339_conv_16_quantizelinear = builder.quantizeLinear(
+      var_339,
+      builder.reshape(var_339_scale, [1, 1, 1, 1]),
+      builder.reshape(var_339_zero_point, [1, 1, 1, 1]),
+      { label: '339_Conv_16_QuantizeLinear' }
+    );
+    
+    const var_339_conv_16_dequantized = builder.dequantizeLinear(
+      var_339_conv_16_quantizelinear,
+      builder.reshape(var_339_scale, [1, 1, 1, 1]),
+      builder.reshape(var_339_zero_point, [1, 1, 1, 1]),
+      { label: '339_Conv_16_DequantizeLinear' }
+    );
+    
+    const var_502_dequantized = builder.dequantizeLinear(
+      var_502_quantized,
+      builder.reshape(var_502_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '502_DequantizeLinear' }
+    );
+    
+    const var_503_dequantized = builder.dequantizeLinear(
+      var_503_quantized,
+      var_503_scale,
+      var_623_zero_point,
+      { label: '503_DequantizeLinear' }
+    );
+    
+    const var_501_quantizeinput = builder.conv2d(
+      var_339_conv_16_dequantized, var_502_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_503_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_16_quant'
+      }
+    );
+    
+    const var_501_quantized = builder.quantizeLinear(
+      var_501_quantizeinput,
+      builder.reshape(var_501_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '501_Conv_16_QuantizeLinear' }
+    );
+    
+    const var_501_conv_18_dequantized = builder.dequantizeLinear(
+      var_501_quantized,
+      builder.reshape(var_501_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '501_Conv_18_DequantizeLinear' }
+    );
+    
+    const var_505_dequantized = builder.dequantizeLinear(
+      var_505_quantized,
+      builder.reshape(var_505_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '505_DequantizeLinear' }
+    );
+    
+    const var_506_dequantized = builder.dequantizeLinear(
+      var_506_quantized,
+      var_506_scale,
+      var_623_zero_point,
+      { label: '506_DequantizeLinear' }
+    );
+    
+    const var_504_quantizeinput = builder.conv2d(
+      var_501_conv_18_dequantized, var_505_dequantized,
+      {
+        strides: [2, 2],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 144,
+        bias: var_506_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_18_quant'
+      }
+    );
+    
+    const var_504_quantized = builder.quantizeLinear(
+      var_504_quantizeinput,
+      builder.reshape(var_504_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '504_Conv_18_QuantizeLinear' }
+    );
+    
+    const var_504_conv_20_dequantized = builder.dequantizeLinear(
+      var_504_quantized,
+      builder.reshape(var_504_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '504_Conv_20_DequantizeLinear' }
+    );
+    
+    const var_508_dequantized = builder.dequantizeLinear(
+      var_508_quantized,
+      builder.reshape(var_508_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '508_DequantizeLinear' }
+    );
+    
+    const var_509_dequantized = builder.dequantizeLinear(
+      var_509_quantized,
+      var_509_scale,
+      var_623_zero_point,
+      { label: '509_DequantizeLinear' }
+    );
+    
+    const var_507_quantizeinput = builder.conv2d(
+      var_504_conv_20_dequantized, var_508_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_509_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_20_quant'
+      }
+    );
+    
+    const var_507_quantized = builder.quantizeLinear(
+      var_507_quantizeinput,
+      builder.reshape(var_507_scale, [1, 1, 1, 1]),
+      builder.reshape(var_507_zero_point, [1, 1, 1, 1]),
+      { label: '507_Conv_20_QuantizeLinear' }
+    );
+    
+    const var_507_duplicated = builder.dequantizeLinear(
+      var_507_quantized,
+      builder.reshape(var_507_scale, [1, 1, 1, 1]),
+      builder.reshape(var_507_zero_point, [1, 1, 1, 1]),
+      { label: '507_Conv_20_DequantizeLinear/duplicated' }
+    );
+    
+    const var_511_dequantized = builder.dequantizeLinear(
+      var_511_quantized,
+      builder.reshape(var_511_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '511_DequantizeLinear' }
+    );
+    
+    const var_512_dequantized = builder.dequantizeLinear(
+      var_512_quantized,
+      var_512_scale,
+      var_623_zero_point,
+      { label: '512_DequantizeLinear' }
+    );
+    
+    const var_510_quantizeinput = builder.conv2d(
+      var_507_duplicated, var_511_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_512_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_21_quant'
+      }
+    );
+    
+    const var_510_quantized = builder.quantizeLinear(
+      var_510_quantizeinput,
+      builder.reshape(var_510_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '510_Conv_21_QuantizeLinear' }
+    );
+    
+    const var_510_conv_23_dequantized = builder.dequantizeLinear(
+      var_510_quantized,
+      builder.reshape(var_510_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '510_Conv_23_DequantizeLinear' }
+    );
+    
+    const var_514_dequantized = builder.dequantizeLinear(
+      var_514_quantized,
+      builder.reshape(var_514_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '514_DequantizeLinear' }
+    );
+    
+    const var_515_dequantized = builder.dequantizeLinear(
+      var_515_quantized,
+      var_515_scale,
+      var_623_zero_point,
+      { label: '515_DequantizeLinear' }
+    );
+    
+    const var_513_quantizeinput = builder.conv2d(
+      var_510_conv_23_dequantized, var_514_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 192,
+        bias: var_515_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_23_quant'
+      }
+    );
+    
+    const var_513_quantized = builder.quantizeLinear(
+      var_513_quantizeinput,
+      builder.reshape(var_513_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '513_Conv_23_QuantizeLinear' }
+    );
+    
+    const var_513_conv_25_dequantized = builder.dequantizeLinear(
+      var_513_quantized,
+      builder.reshape(var_513_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '513_Conv_25_DequantizeLinear' }
+    );
+    
+    const var_517_dequantized = builder.dequantizeLinear(
+      var_517_quantized,
+      builder.reshape(var_517_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '517_DequantizeLinear' }
+    );
+    
+    const var_518_dequantized = builder.dequantizeLinear(
+      var_518_quantized,
+      var_518_scale,
+      var_623_zero_point,
+      { label: '518_DequantizeLinear' }
+    );
+    
+    const var_516_quantizeinput = builder.conv2d(
+      var_513_conv_25_dequantized, var_517_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_518_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_25_quant'
+      }
+    );
+    
+    const var_516_quantized = builder.quantizeLinear(
+      var_516_quantizeinput,
+      builder.reshape(var_516_scale, [1, 1, 1, 1]),
+      builder.reshape(var_516_zero_point, [1, 1, 1, 1]),
+      { label: '516_Conv_25_QuantizeLinear' }
+    );
+    
+    const var_516 = builder.dequantizeLinear(
+      var_516_quantized,
+      builder.reshape(var_516_scale, [1, 1, 1, 1]),
+      builder.reshape(var_516_zero_point, [1, 1, 1, 1]),
+      { label: '516_Conv_25_DequantizeLinear' }
+    );
+    
+    const var_356 = builder.add(
+      var_507_duplicated,
+      var_516,
+      { label: 'Add_26' }
+    );
+    
+    const var_356_conv_27_quantizelinear = builder.quantizeLinear(
+      var_356,
+      builder.reshape(var_356_scale, [1, 1, 1, 1]),
+      builder.reshape(var_356_zero_point, [1, 1, 1, 1]),
+      { label: '356_Conv_27_QuantizeLinear' }
+    );
+    
+    const var_356_conv_27_dequantized = builder.dequantizeLinear(
+      var_356_conv_27_quantizelinear,
+      builder.reshape(var_356_scale, [1, 1, 1, 1]),
+      builder.reshape(var_356_zero_point, [1, 1, 1, 1]),
+      { label: '356_Conv_27_DequantizeLinear' }
+    );
+    
+    const var_520_dequantized = builder.dequantizeLinear(
+      var_520_quantized,
+      builder.reshape(var_520_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '520_DequantizeLinear' }
+    );
+    
+    const var_521_dequantized = builder.dequantizeLinear(
+      var_521_quantized,
+      var_521_scale,
+      var_623_zero_point,
+      { label: '521_DequantizeLinear' }
+    );
+    
+    const var_519_quantizeinput = builder.conv2d(
+      var_356_conv_27_dequantized, var_520_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_521_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_27_quant'
+      }
+    );
+    
+    const var_519_quantized = builder.quantizeLinear(
+      var_519_quantizeinput,
+      builder.reshape(var_519_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '519_Conv_27_QuantizeLinear' }
+    );
+    
+    const var_519_conv_29_dequantized = builder.dequantizeLinear(
+      var_519_quantized,
+      builder.reshape(var_519_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '519_Conv_29_DequantizeLinear' }
+    );
+    
+    const var_523_dequantized = builder.dequantizeLinear(
+      var_523_quantized,
+      builder.reshape(var_523_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '523_DequantizeLinear' }
+    );
+    
+    const var_524_dequantized = builder.dequantizeLinear(
+      var_524_quantized,
+      var_524_scale,
+      var_623_zero_point,
+      { label: '524_DequantizeLinear' }
+    );
+    
+    const var_522_quantizeinput = builder.conv2d(
+      var_519_conv_29_dequantized, var_523_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 192,
+        bias: var_524_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_29_quant'
+      }
+    );
+    
+    const var_522_quantized = builder.quantizeLinear(
+      var_522_quantizeinput,
+      builder.reshape(var_522_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '522_Conv_29_QuantizeLinear' }
+    );
+    
+    const var_522_conv_31_dequantized = builder.dequantizeLinear(
+      var_522_quantized,
+      builder.reshape(var_522_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '522_Conv_31_DequantizeLinear' }
+    );
+    
+    const var_526_dequantized = builder.dequantizeLinear(
+      var_526_quantized,
+      builder.reshape(var_526_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '526_DequantizeLinear' }
+    );
+    
+    const var_527_dequantized = builder.dequantizeLinear(
+      var_527_quantized,
+      var_527_scale,
+      var_623_zero_point,
+      { label: '527_DequantizeLinear' }
+    );
+    
+    const var_525_quantizeinput = builder.conv2d(
+      var_522_conv_31_dequantized, var_526_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_527_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_31_quant'
+      }
+    );
+    
+    const var_525_quantized = builder.quantizeLinear(
+      var_525_quantizeinput,
+      builder.reshape(var_525_scale, [1, 1, 1, 1]),
+      builder.reshape(var_525_zero_point, [1, 1, 1, 1]),
+      { label: '525_Conv_31_QuantizeLinear' }
+    );
+    
+    const var_525 = builder.dequantizeLinear(
+      var_525_quantized,
+      builder.reshape(var_525_scale, [1, 1, 1, 1]),
+      builder.reshape(var_525_zero_point, [1, 1, 1, 1]),
+      { label: '525_Conv_31_DequantizeLinear' }
+    );
+    
+    const var_365 = builder.add(
+      var_356,
+      var_525,
+      { label: 'Add_32' }
+    );
+    
+    const var_365_conv_33_quantizelinear = builder.quantizeLinear(
+      var_365,
+      builder.reshape(var_365_scale, [1, 1, 1, 1]),
+      builder.reshape(var_365_zero_point, [1, 1, 1, 1]),
+      { label: '365_Conv_33_QuantizeLinear' }
+    );
+    
+    const var_365_conv_33_dequantized = builder.dequantizeLinear(
+      var_365_conv_33_quantizelinear,
+      builder.reshape(var_365_scale, [1, 1, 1, 1]),
+      builder.reshape(var_365_zero_point, [1, 1, 1, 1]),
+      { label: '365_Conv_33_DequantizeLinear' }
+    );
+    
+    const var_529_dequantized = builder.dequantizeLinear(
+      var_529_quantized,
+      builder.reshape(var_529_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '529_DequantizeLinear' }
+    );
+    
+    const var_530_dequantized = builder.dequantizeLinear(
+      var_530_quantized,
+      var_530_scale,
+      var_623_zero_point,
+      { label: '530_DequantizeLinear' }
+    );
+    
+    const var_528_quantizeinput = builder.conv2d(
+      var_365_conv_33_dequantized, var_529_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_530_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_33_quant'
+      }
+    );
+    
+    const var_528_quantized = builder.quantizeLinear(
+      var_528_quantizeinput,
+      builder.reshape(var_528_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '528_Conv_33_QuantizeLinear' }
+    );
+    
+    const var_528_conv_35_dequantized = builder.dequantizeLinear(
+      var_528_quantized,
+      builder.reshape(var_528_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '528_Conv_35_DequantizeLinear' }
+    );
+    
+    const var_532_dequantized = builder.dequantizeLinear(
+      var_532_quantized,
+      builder.reshape(var_532_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '532_DequantizeLinear' }
+    );
+    
+    const var_533_dequantized = builder.dequantizeLinear(
+      var_533_quantized,
+      var_533_scale,
+      var_623_zero_point,
+      { label: '533_DequantizeLinear' }
+    );
+    
+    const var_531_quantizeinput = builder.conv2d(
+      var_528_conv_35_dequantized, var_532_dequantized,
+      {
+        strides: [2, 2],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 192,
+        bias: var_533_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_35_quant'
+      }
+    );
+    
+    const var_531_quantized = builder.quantizeLinear(
+      var_531_quantizeinput,
+      builder.reshape(var_531_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '531_Conv_35_QuantizeLinear' }
+    );
+    
+    const var_531_conv_37_dequantized = builder.dequantizeLinear(
+      var_531_quantized,
+      builder.reshape(var_531_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '531_Conv_37_DequantizeLinear' }
+    );
+    
+    const var_535_dequantized = builder.dequantizeLinear(
+      var_535_quantized,
+      builder.reshape(var_535_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '535_DequantizeLinear' }
+    );
+    
+    const var_536_dequantized = builder.dequantizeLinear(
+      var_536_quantized,
+      var_536_scale,
+      var_623_zero_point,
+      { label: '536_DequantizeLinear' }
+    );
+    
+    const var_534_quantizeinput = builder.conv2d(
+      var_531_conv_37_dequantized, var_535_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_536_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_37_quant'
+      }
+    );
+    
+    const var_534_quantized = builder.quantizeLinear(
+      var_534_quantizeinput,
+      builder.reshape(var_534_scale, [1, 1, 1, 1]),
+      builder.reshape(var_534_zero_point, [1, 1, 1, 1]),
+      { label: '534_Conv_37_QuantizeLinear' }
+    );
+    
+    const var_534_duplicated = builder.dequantizeLinear(
+      var_534_quantized,
+      builder.reshape(var_534_scale, [1, 1, 1, 1]),
+      builder.reshape(var_534_zero_point, [1, 1, 1, 1]),
+      { label: '534_Conv_37_DequantizeLinear/duplicated' }
+    );
+    
+    const var_538_dequantized = builder.dequantizeLinear(
+      var_538_quantized,
+      builder.reshape(var_538_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '538_DequantizeLinear' }
+    );
+    
+    const var_539_dequantized = builder.dequantizeLinear(
+      var_539_quantized,
+      var_539_scale,
+      var_623_zero_point,
+      { label: '539_DequantizeLinear' }
+    );
+    
+    const var_537_quantizeinput = builder.conv2d(
+      var_534_duplicated, var_538_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_539_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_38_quant'
+      }
+    );
+    
+    const var_537_quantized = builder.quantizeLinear(
+      var_537_quantizeinput,
+      builder.reshape(var_537_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '537_Conv_38_QuantizeLinear' }
+    );
+    
+    const var_537_conv_40_dequantized = builder.dequantizeLinear(
+      var_537_quantized,
+      builder.reshape(var_537_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '537_Conv_40_DequantizeLinear' }
+    );
+    
+    const var_541_dequantized = builder.dequantizeLinear(
+      var_541_quantized,
+      builder.reshape(var_541_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '541_DequantizeLinear' }
+    );
+    
+    const var_542_dequantized = builder.dequantizeLinear(
+      var_542_quantized,
+      var_542_scale,
+      var_623_zero_point,
+      { label: '542_DequantizeLinear' }
+    );
+    
+    const var_540_quantizeinput = builder.conv2d(
+      var_537_conv_40_dequantized, var_541_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 384,
+        bias: var_542_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_40_quant'
+      }
+    );
+    
+    const var_540_quantized = builder.quantizeLinear(
+      var_540_quantizeinput,
+      builder.reshape(var_540_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '540_Conv_40_QuantizeLinear' }
+    );
+    
+    const var_540_conv_42_dequantized = builder.dequantizeLinear(
+      var_540_quantized,
+      builder.reshape(var_540_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '540_Conv_42_DequantizeLinear' }
+    );
+    
+    const var_544_dequantized = builder.dequantizeLinear(
+      var_544_quantized,
+      builder.reshape(var_544_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '544_DequantizeLinear' }
+    );
+    
+    const var_545_dequantized = builder.dequantizeLinear(
+      var_545_quantized,
+      var_545_scale,
+      var_623_zero_point,
+      { label: '545_DequantizeLinear' }
+    );
+    
+    const var_543_quantizeinput = builder.conv2d(
+      var_540_conv_42_dequantized, var_544_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_545_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_42_quant'
+      }
+    );
+    
+    const var_543_quantized = builder.quantizeLinear(
+      var_543_quantizeinput,
+      builder.reshape(var_543_scale, [1, 1, 1, 1]),
+      builder.reshape(var_543_zero_point, [1, 1, 1, 1]),
+      { label: '543_Conv_42_QuantizeLinear' }
+    );
+    
+    const var_543 = builder.dequantizeLinear(
+      var_543_quantized,
+      builder.reshape(var_543_scale, [1, 1, 1, 1]),
+      builder.reshape(var_543_zero_point, [1, 1, 1, 1]),
+      { label: '543_Conv_42_DequantizeLinear' }
+    );
+    
+    const var_382 = builder.add(
+      var_534_duplicated,
+      var_543,
+      { label: 'Add_43' }
+    );
+    
+    const var_382_conv_44_quantizelinear = builder.quantizeLinear(
+      var_382,
+      builder.reshape(var_382_scale, [1, 1, 1, 1]),
+      builder.reshape(var_382_zero_point, [1, 1, 1, 1]),
+      { label: '382_Conv_44_QuantizeLinear' }
+    );
+    
+    const var_382_conv_44_dequantized = builder.dequantizeLinear(
+      var_382_conv_44_quantizelinear,
+      builder.reshape(var_382_scale, [1, 1, 1, 1]),
+      builder.reshape(var_382_zero_point, [1, 1, 1, 1]),
+      { label: '382_Conv_44_DequantizeLinear' }
+    );
+    
+    const var_547_dequantized = builder.dequantizeLinear(
+      var_547_quantized,
+      builder.reshape(var_547_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '547_DequantizeLinear' }
+    );
+    
+    const var_548_dequantized = builder.dequantizeLinear(
+      var_548_quantized,
+      var_548_scale,
+      var_623_zero_point,
+      { label: '548_DequantizeLinear' }
+    );
+    
+    const var_546_quantizeinput = builder.conv2d(
+      var_382_conv_44_dequantized, var_547_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_548_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_44_quant'
+      }
+    );
+    
+    const var_546_quantized = builder.quantizeLinear(
+      var_546_quantizeinput,
+      builder.reshape(var_546_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '546_Conv_44_QuantizeLinear' }
+    );
+    
+    const var_546_conv_46_dequantized = builder.dequantizeLinear(
+      var_546_quantized,
+      builder.reshape(var_546_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '546_Conv_46_DequantizeLinear' }
+    );
+    
+    const var_550_dequantized = builder.dequantizeLinear(
+      var_550_quantized,
+      builder.reshape(var_550_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '550_DequantizeLinear' }
+    );
+    
+    const var_551_dequantized = builder.dequantizeLinear(
+      var_551_quantized,
+      var_551_scale,
+      var_623_zero_point,
+      { label: '551_DequantizeLinear' }
+    );
+    
+    const var_549_quantizeinput = builder.conv2d(
+      var_546_conv_46_dequantized, var_550_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 384,
+        bias: var_551_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_46_quant'
+      }
+    );
+    
+    const var_549_quantized = builder.quantizeLinear(
+      var_549_quantizeinput,
+      builder.reshape(var_549_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '549_Conv_46_QuantizeLinear' }
+    );
+    
+    const var_549_conv_48_dequantized = builder.dequantizeLinear(
+      var_549_quantized,
+      builder.reshape(var_549_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '549_Conv_48_DequantizeLinear' }
+    );
+    
+    const var_553_dequantized = builder.dequantizeLinear(
+      var_553_quantized,
+      builder.reshape(var_553_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '553_DequantizeLinear' }
+    );
+    
+    const var_554_dequantized = builder.dequantizeLinear(
+      var_554_quantized,
+      var_554_scale,
+      var_623_zero_point,
+      { label: '554_DequantizeLinear' }
+    );
+    
+    const var_552_quantizeinput = builder.conv2d(
+      var_549_conv_48_dequantized, var_553_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_554_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_48_quant'
+      }
+    );
+    
+    const var_552_quantized = builder.quantizeLinear(
+      var_552_quantizeinput,
+      builder.reshape(var_552_scale, [1, 1, 1, 1]),
+      builder.reshape(var_543_zero_point, [1, 1, 1, 1]),
+      { label: '552_Conv_48_QuantizeLinear' }
+    );
+    
+    const var_552 = builder.dequantizeLinear(
+      var_552_quantized,
+      builder.reshape(var_552_scale, [1, 1, 1, 1]),
+      builder.reshape(var_543_zero_point, [1, 1, 1, 1]),
+      { label: '552_Conv_48_DequantizeLinear' }
+    );
+    
+    const var_391 = builder.add(
+      var_382,
+      var_552,
+      { label: 'Add_49' }
+    );
+    
+    const var_391_conv_50_quantizelinear = builder.quantizeLinear(
+      var_391,
+      builder.reshape(var_391_scale, [1, 1, 1, 1]),
+      builder.reshape(var_525_zero_point, [1, 1, 1, 1]),
+      { label: '391_Conv_50_QuantizeLinear' }
+    );
+    
+    const var_391_conv_50_dequantized = builder.dequantizeLinear(
+      var_391_conv_50_quantizelinear,
+      builder.reshape(var_391_scale, [1, 1, 1, 1]),
+      builder.reshape(var_525_zero_point, [1, 1, 1, 1]),
+      { label: '391_Conv_50_DequantizeLinear' }
+    );
+    
+    const var_556_dequantized = builder.dequantizeLinear(
+      var_556_quantized,
+      builder.reshape(var_556_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '556_DequantizeLinear' }
+    );
+    
+    const var_557_dequantized = builder.dequantizeLinear(
+      var_557_quantized,
+      var_557_scale,
+      var_623_zero_point,
+      { label: '557_DequantizeLinear' }
+    );
+    
+    const var_555_quantizeinput = builder.conv2d(
+      var_391_conv_50_dequantized, var_556_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_557_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_50_quant'
+      }
+    );
+    
+    const var_555_quantized = builder.quantizeLinear(
+      var_555_quantizeinput,
+      builder.reshape(var_555_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '555_Conv_50_QuantizeLinear' }
+    );
+    
+    const var_555_conv_52_dequantized = builder.dequantizeLinear(
+      var_555_quantized,
+      builder.reshape(var_555_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '555_Conv_52_DequantizeLinear' }
+    );
+    
+    const var_559_dequantized = builder.dequantizeLinear(
+      var_559_quantized,
+      builder.reshape(var_559_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '559_DequantizeLinear' }
+    );
+    
+    const var_560_dequantized = builder.dequantizeLinear(
+      var_560_quantized,
+      var_560_scale,
+      var_623_zero_point,
+      { label: '560_DequantizeLinear' }
+    );
+    
+    const var_558_quantizeinput = builder.conv2d(
+      var_555_conv_52_dequantized, var_559_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 384,
+        bias: var_560_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_52_quant'
+      }
+    );
+    
+    const var_558_quantized = builder.quantizeLinear(
+      var_558_quantizeinput,
+      builder.reshape(var_558_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '558_Conv_52_QuantizeLinear' }
+    );
+    
+    const var_558_conv_54_dequantized = builder.dequantizeLinear(
+      var_558_quantized,
+      builder.reshape(var_558_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '558_Conv_54_DequantizeLinear' }
+    );
+    
+    const var_562_dequantized = builder.dequantizeLinear(
+      var_562_quantized,
+      builder.reshape(var_562_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '562_DequantizeLinear' }
+    );
+    
+    const var_563_dequantized = builder.dequantizeLinear(
+      var_563_quantized,
+      var_563_scale,
+      var_623_zero_point,
+      { label: '563_DequantizeLinear' }
+    );
+    
+    const var_561_quantizeinput = builder.conv2d(
+      var_558_conv_54_dequantized, var_562_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_563_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_54_quant'
+      }
+    );
+    
+    const var_561_quantized = builder.quantizeLinear(
+      var_561_quantizeinput,
+      builder.reshape(var_561_scale, [1, 1, 1, 1]),
+      builder.reshape(var_561_zero_point, [1, 1, 1, 1]),
+      { label: '561_Conv_54_QuantizeLinear' }
+    );
+    
+    const var_561 = builder.dequantizeLinear(
+      var_561_quantized,
+      builder.reshape(var_561_scale, [1, 1, 1, 1]),
+      builder.reshape(var_561_zero_point, [1, 1, 1, 1]),
+      { label: '561_Conv_54_DequantizeLinear' }
+    );
+    
+    const var_400 = builder.add(
+      var_391,
+      var_561,
+      { label: 'Add_55' }
+    );
+    
+    const var_400_conv_56_quantizelinear = builder.quantizeLinear(
+      var_400,
+      builder.reshape(var_400_scale, [1, 1, 1, 1]),
+      builder.reshape(var_400_zero_point, [1, 1, 1, 1]),
+      { label: '400_Conv_56_QuantizeLinear' }
+    );
+    
+    const var_400_conv_56_dequantized = builder.dequantizeLinear(
+      var_400_conv_56_quantizelinear,
+      builder.reshape(var_400_scale, [1, 1, 1, 1]),
+      builder.reshape(var_400_zero_point, [1, 1, 1, 1]),
+      { label: '400_Conv_56_DequantizeLinear' }
+    );
+    
+    const var_565_dequantized = builder.dequantizeLinear(
+      var_565_quantized,
+      builder.reshape(var_565_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '565_DequantizeLinear' }
+    );
+    
+    const var_566_dequantized = builder.dequantizeLinear(
+      var_566_quantized,
+      var_566_scale,
+      var_623_zero_point,
+      { label: '566_DequantizeLinear' }
+    );
+    
+    const var_564_quantizeinput = builder.conv2d(
+      var_400_conv_56_dequantized, var_565_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_566_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_56_quant'
+      }
+    );
+    
+    const var_564_quantized = builder.quantizeLinear(
+      var_564_quantizeinput,
+      builder.reshape(var_564_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '564_Conv_56_QuantizeLinear' }
+    );
+    
+    const var_564_conv_58_dequantized = builder.dequantizeLinear(
+      var_564_quantized,
+      builder.reshape(var_564_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '564_Conv_58_DequantizeLinear' }
+    );
+    
+    const var_568_dequantized = builder.dequantizeLinear(
+      var_568_quantized,
+      builder.reshape(var_568_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '568_DequantizeLinear' }
+    );
+    
+    const var_569_dequantized = builder.dequantizeLinear(
+      var_569_quantized,
+      var_569_scale,
+      var_623_zero_point,
+      { label: '569_DequantizeLinear' }
+    );
+    
+    const var_567_quantizeinput = builder.conv2d(
+      var_564_conv_58_dequantized, var_568_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 384,
+        bias: var_569_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_58_quant'
+      }
+    );
+    
+    const var_567_quantized = builder.quantizeLinear(
+      var_567_quantizeinput,
+      builder.reshape(var_567_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '567_Conv_58_QuantizeLinear' }
+    );
+    
+    const var_567_conv_60_dequantized = builder.dequantizeLinear(
+      var_567_quantized,
+      builder.reshape(var_567_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '567_Conv_60_DequantizeLinear' }
+    );
+    
+    const var_571_dequantized = builder.dequantizeLinear(
+      var_571_quantized,
+      builder.reshape(var_571_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '571_DequantizeLinear' }
+    );
+    
+    const var_572_dequantized = builder.dequantizeLinear(
+      var_572_quantized,
+      var_572_scale,
+      var_623_zero_point,
+      { label: '572_DequantizeLinear' }
+    );
+    
+    const var_570_quantizeinput = builder.conv2d(
+      var_567_conv_60_dequantized, var_571_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_572_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_60_quant'
+      }
+    );
+    
+    const var_570_quantized = builder.quantizeLinear(
+      var_570_quantizeinput,
+      builder.reshape(var_570_scale, [1, 1, 1, 1]),
+      builder.reshape(var_624_zero_point, [1, 1, 1, 1]),
+      { label: '570_Conv_60_QuantizeLinear' }
+    );
+    
+    const var_570_duplicated = builder.dequantizeLinear(
+      var_570_quantized,
+      builder.reshape(var_570_scale, [1, 1, 1, 1]),
+      builder.reshape(var_624_zero_point, [1, 1, 1, 1]),
+      { label: '570_Conv_60_DequantizeLinear/duplicated' }
+    );
+    
+    const var_574_dequantized = builder.dequantizeLinear(
+      var_574_quantized,
+      builder.reshape(var_574_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '574_DequantizeLinear' }
+    );
+    
+    const var_575_dequantized = builder.dequantizeLinear(
+      var_575_quantized,
+      var_575_scale,
+      var_623_zero_point,
+      { label: '575_DequantizeLinear' }
+    );
+    
+    const var_573_quantizeinput = builder.conv2d(
+      var_570_duplicated, var_574_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_575_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_61_quant'
+      }
+    );
+    
+    const var_573_quantized = builder.quantizeLinear(
+      var_573_quantizeinput,
+      builder.reshape(var_573_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '573_Conv_61_QuantizeLinear' }
+    );
+    
+    const var_573_conv_63_dequantized = builder.dequantizeLinear(
+      var_573_quantized,
+      builder.reshape(var_573_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '573_Conv_63_DequantizeLinear' }
+    );
+    
+    const var_577_dequantized = builder.dequantizeLinear(
+      var_577_quantized,
+      builder.reshape(var_577_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '577_DequantizeLinear' }
+    );
+    
+    const var_578_dequantized = builder.dequantizeLinear(
+      var_578_quantized,
+      var_578_scale,
+      var_623_zero_point,
+      { label: '578_DequantizeLinear' }
+    );
+    
+    const var_576_quantizeinput = builder.conv2d(
+      var_573_conv_63_dequantized, var_577_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 576,
+        bias: var_578_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_63_quant'
+      }
+    );
+    
+    const var_576_quantized = builder.quantizeLinear(
+      var_576_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '576_Conv_63_QuantizeLinear' }
+    );
+    
+    const var_576_conv_65_dequantized = builder.dequantizeLinear(
+      var_576_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '576_Conv_65_DequantizeLinear' }
+    );
+    
+    const var_580_dequantized = builder.dequantizeLinear(
+      var_580_quantized,
+      builder.reshape(var_580_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '580_DequantizeLinear' }
+    );
+    
+    const var_581_dequantized = builder.dequantizeLinear(
+      var_581_quantized,
+      var_581_scale,
+      var_623_zero_point,
+      { label: '581_DequantizeLinear' }
+    );
+    
+    const var_579_quantizeinput = builder.conv2d(
+      var_576_conv_65_dequantized, var_580_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_581_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_65_quant'
+      }
+    );
+    
+    const var_579_quantized = builder.quantizeLinear(
+      var_579_quantizeinput,
+      builder.reshape(var_579_scale, [1, 1, 1, 1]),
+      builder.reshape(var_579_zero_point, [1, 1, 1, 1]),
+      { label: '579_Conv_65_QuantizeLinear' }
+    );
+    
+    const var_579 = builder.dequantizeLinear(
+      var_579_quantized,
+      builder.reshape(var_579_scale, [1, 1, 1, 1]),
+      builder.reshape(var_579_zero_point, [1, 1, 1, 1]),
+      { label: '579_Conv_65_DequantizeLinear' }
+    );
+    
+    const var_417 = builder.add(
+      var_570_duplicated,
+      var_579,
+      { label: 'Add_66' }
+    );
+    
+    const var_417_conv_67_quantizelinear = builder.quantizeLinear(
+      var_417,
+      builder.reshape(var_417_scale, [1, 1, 1, 1]),
+      builder.reshape(var_417_zero_point, [1, 1, 1, 1]),
+      { label: '417_Conv_67_QuantizeLinear' }
+    );
+    
+    const var_417_conv_67_dequantized = builder.dequantizeLinear(
+      var_417_conv_67_quantizelinear,
+      builder.reshape(var_417_scale, [1, 1, 1, 1]),
+      builder.reshape(var_417_zero_point, [1, 1, 1, 1]),
+      { label: '417_Conv_67_DequantizeLinear' }
+    );
+    
+    const var_583_dequantized = builder.dequantizeLinear(
+      var_583_quantized,
+      builder.reshape(var_583_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '583_DequantizeLinear' }
+    );
+    
+    const var_584_dequantized = builder.dequantizeLinear(
+      var_584_quantized,
+      var_584_scale,
+      var_623_zero_point,
+      { label: '584_DequantizeLinear' }
+    );
+    
+    const var_582_quantizeinput = builder.conv2d(
+      var_417_conv_67_dequantized, var_583_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_584_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_67_quant'
+      }
+    );
+    
+    const var_582_quantized = builder.quantizeLinear(
+      var_582_quantizeinput,
+      builder.reshape(var_582_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '582_Conv_67_QuantizeLinear' }
+    );
+    
+    const var_582_conv_69_dequantized = builder.dequantizeLinear(
+      var_582_quantized,
+      builder.reshape(var_582_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '582_Conv_69_DequantizeLinear' }
+    );
+    
+    const var_586_dequantized = builder.dequantizeLinear(
+      var_586_quantized,
+      builder.reshape(var_586_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '586_DequantizeLinear' }
+    );
+    
+    const var_587_dequantized = builder.dequantizeLinear(
+      var_587_quantized,
+      var_587_scale,
+      var_623_zero_point,
+      { label: '587_DequantizeLinear' }
+    );
+    
+    const var_585_quantizeinput = builder.conv2d(
+      var_582_conv_69_dequantized, var_586_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 576,
+        bias: var_587_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_69_quant'
+      }
+    );
+    
+    const var_585_quantized = builder.quantizeLinear(
+      var_585_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '585_Conv_69_QuantizeLinear' }
+    );
+    
+    const var_585_conv_71_dequantized = builder.dequantizeLinear(
+      var_585_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '585_Conv_71_DequantizeLinear' }
+    );
+    
+    const var_589_dequantized = builder.dequantizeLinear(
+      var_589_quantized,
+      builder.reshape(var_589_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '589_DequantizeLinear' }
+    );
+    
+    const var_590_dequantized = builder.dequantizeLinear(
+      var_590_quantized,
+      var_590_scale,
+      var_623_zero_point,
+      { label: '590_DequantizeLinear' }
+    );
+    
+    const var_588_quantizeinput = builder.conv2d(
+      var_585_conv_71_dequantized, var_589_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_590_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_71_quant'
+      }
+    );
+    
+    const var_588_quantized = builder.quantizeLinear(
+      var_588_quantizeinput,
+      builder.reshape(var_588_scale, [1, 1, 1, 1]),
+      builder.reshape(var_588_zero_point, [1, 1, 1, 1]),
+      { label: '588_Conv_71_QuantizeLinear' }
+    );
+    
+    const var_588 = builder.dequantizeLinear(
+      var_588_quantized,
+      builder.reshape(var_588_scale, [1, 1, 1, 1]),
+      builder.reshape(var_588_zero_point, [1, 1, 1, 1]),
+      { label: '588_Conv_71_DequantizeLinear' }
+    );
+    
+    const var_426 = builder.add(
+      var_417,
+      var_588,
+      { label: 'Add_72' }
+    );
+    
+    const var_426_conv_73_quantizelinear = builder.quantizeLinear(
+      var_426,
+      builder.reshape(var_426_scale, [1, 1, 1, 1]),
+      builder.reshape(var_624_zero_point, [1, 1, 1, 1]),
+      { label: '426_Conv_73_QuantizeLinear' }
+    );
+    
+    const var_426_conv_73_dequantized = builder.dequantizeLinear(
+      var_426_conv_73_quantizelinear,
+      builder.reshape(var_426_scale, [1, 1, 1, 1]),
+      builder.reshape(var_624_zero_point, [1, 1, 1, 1]),
+      { label: '426_Conv_73_DequantizeLinear' }
+    );
+    
+    const var_592_dequantized = builder.dequantizeLinear(
+      var_592_quantized,
+      builder.reshape(var_592_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '592_DequantizeLinear' }
+    );
+    
+    const var_593_dequantized = builder.dequantizeLinear(
+      var_593_quantized,
+      var_593_scale,
+      var_623_zero_point,
+      { label: '593_DequantizeLinear' }
+    );
+    
+    const var_591_quantizeinput = builder.conv2d(
+      var_426_conv_73_dequantized, var_592_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_593_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_73_quant'
+      }
+    );
+    
+    const var_591_quantized = builder.quantizeLinear(
+      var_591_quantizeinput,
+      builder.reshape(var_591_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '591_Conv_73_QuantizeLinear' }
+    );
+    
+    const var_591_conv_75_dequantized = builder.dequantizeLinear(
+      var_591_quantized,
+      builder.reshape(var_591_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '591_Conv_75_DequantizeLinear' }
+    );
+    
+    const var_595_dequantized = builder.dequantizeLinear(
+      var_595_quantized,
+      builder.reshape(var_595_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '595_DequantizeLinear' }
+    );
+    
+    const var_596_dequantized = builder.dequantizeLinear(
+      var_596_quantized,
+      var_596_scale,
+      var_623_zero_point,
+      { label: '596_DequantizeLinear' }
+    );
+    
+    const var_594_quantizeinput = builder.conv2d(
+      var_591_conv_75_dequantized, var_595_dequantized,
+      {
+        strides: [2, 2],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 576,
+        bias: var_596_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_75_quant'
+      }
+    );
+    
+    const var_594_quantized = builder.quantizeLinear(
+      var_594_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '594_Conv_75_QuantizeLinear' }
+    );
+    
+    const var_594_conv_77_dequantized = builder.dequantizeLinear(
+      var_594_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '594_Conv_77_DequantizeLinear' }
+    );
+    
+    const var_598_dequantized = builder.dequantizeLinear(
+      var_598_quantized,
+      builder.reshape(var_598_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '598_DequantizeLinear' }
+    );
+    
+    const var_599_dequantized = builder.dequantizeLinear(
+      var_599_quantized,
+      var_599_scale,
+      var_623_zero_point,
+      { label: '599_DequantizeLinear' }
+    );
+    
+    const var_597_quantizeinput = builder.conv2d(
+      var_594_conv_77_dequantized, var_598_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_599_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_77_quant'
+      }
+    );
+    
+    const var_597_quantized = builder.quantizeLinear(
+      var_597_quantizeinput,
+      builder.reshape(var_597_scale, [1, 1, 1, 1]),
+      builder.reshape(var_597_zero_point, [1, 1, 1, 1]),
+      { label: '597_Conv_77_QuantizeLinear' }
+    );
+    
+    const var_597_duplicated = builder.dequantizeLinear(
+      var_597_quantized,
+      builder.reshape(var_597_scale, [1, 1, 1, 1]),
+      builder.reshape(var_597_zero_point, [1, 1, 1, 1]),
+      { label: '597_Conv_77_DequantizeLinear/duplicated' }
+    );
+    
+    const var_601_dequantized = builder.dequantizeLinear(
+      var_601_quantized,
+      builder.reshape(var_601_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '601_DequantizeLinear' }
+    );
+    
+    const var_602_dequantized = builder.dequantizeLinear(
+      var_602_quantized,
+      var_602_scale,
+      var_623_zero_point,
+      { label: '602_DequantizeLinear' }
+    );
+    
+    const var_600_quantizeinput = builder.conv2d(
+      var_597_duplicated, var_601_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_602_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_78_quant'
+      }
+    );
+    
+    const var_600_quantized = builder.quantizeLinear(
+      var_600_quantizeinput,
+      builder.reshape(var_600_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '600_Conv_78_QuantizeLinear' }
+    );
+    
+    const var_600_conv_80_dequantized = builder.dequantizeLinear(
+      var_600_quantized,
+      builder.reshape(var_600_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '600_Conv_80_DequantizeLinear' }
+    );
+    
+    const var_604_dequantized = builder.dequantizeLinear(
+      var_604_quantized,
+      builder.reshape(var_604_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '604_DequantizeLinear' }
+    );
+    
+    const var_605_dequantized = builder.dequantizeLinear(
+      var_605_quantized,
+      var_605_scale,
+      var_623_zero_point,
+      { label: '605_DequantizeLinear' }
+    );
+    
+    const var_603_quantizeinput = builder.conv2d(
+      var_600_conv_80_dequantized, var_604_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 960,
+        bias: var_605_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_80_quant'
+      }
+    );
+    
+    const var_603_quantized = builder.quantizeLinear(
+      var_603_quantizeinput,
+      builder.reshape(var_603_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '603_Conv_80_QuantizeLinear' }
+    );
+    
+    const var_603_conv_82_dequantized = builder.dequantizeLinear(
+      var_603_quantized,
+      builder.reshape(var_603_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '603_Conv_82_DequantizeLinear' }
+    );
+    
+    const var_607_dequantized = builder.dequantizeLinear(
+      var_607_quantized,
+      builder.reshape(var_607_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '607_DequantizeLinear' }
+    );
+    
+    const var_608_dequantized = builder.dequantizeLinear(
+      var_608_quantized,
+      var_608_scale,
+      var_623_zero_point,
+      { label: '608_DequantizeLinear' }
+    );
+    
+    const var_606_quantizeinput = builder.conv2d(
+      var_603_conv_82_dequantized, var_607_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_608_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_82_quant'
+      }
+    );
+    
+    const var_606_quantized = builder.quantizeLinear(
+      var_606_quantizeinput,
+      builder.reshape(var_606_scale, [1, 1, 1, 1]),
+      builder.reshape(var_606_zero_point, [1, 1, 1, 1]),
+      { label: '606_Conv_82_QuantizeLinear' }
+    );
+    
+    const var_606 = builder.dequantizeLinear(
+      var_606_quantized,
+      builder.reshape(var_606_scale, [1, 1, 1, 1]),
+      builder.reshape(var_606_zero_point, [1, 1, 1, 1]),
+      { label: '606_Conv_82_DequantizeLinear' }
+    );
+    
+    const var_443 = builder.add(
+      var_597_duplicated,
+      var_606,
+      { label: 'Add_83' }
+    );
+    
+    const var_443_conv_84_quantizelinear = builder.quantizeLinear(
+      var_443,
+      builder.reshape(var_443_scale, [1, 1, 1, 1]),
+      builder.reshape(var_480_zero_point, [1, 1, 1, 1]),
+      { label: '443_Conv_84_QuantizeLinear' }
+    );
+    
+    const var_443_conv_84_dequantized = builder.dequantizeLinear(
+      var_443_conv_84_quantizelinear,
+      builder.reshape(var_443_scale, [1, 1, 1, 1]),
+      builder.reshape(var_480_zero_point, [1, 1, 1, 1]),
+      { label: '443_Conv_84_DequantizeLinear' }
+    );
+    
+    const var_610_dequantized = builder.dequantizeLinear(
+      var_610_quantized,
+      builder.reshape(var_610_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '610_DequantizeLinear' }
+    );
+    
+    const var_611_dequantized = builder.dequantizeLinear(
+      var_611_quantized,
+      var_611_scale,
+      var_623_zero_point,
+      { label: '611_DequantizeLinear' }
+    );
+    
+    const var_609_quantizeinput = builder.conv2d(
+      var_443_conv_84_dequantized, var_610_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_611_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_84_quant'
+      }
+    );
+    
+    const var_609_quantized = builder.quantizeLinear(
+      var_609_quantizeinput,
+      builder.reshape(var_609_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '609_Conv_84_QuantizeLinear' }
+    );
+    
+    const var_609_conv_86_dequantized = builder.dequantizeLinear(
+      var_609_quantized,
+      builder.reshape(var_609_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '609_Conv_86_DequantizeLinear' }
+    );
+    
+    const var_613_dequantized = builder.dequantizeLinear(
+      var_613_quantized,
+      builder.reshape(var_613_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '613_DequantizeLinear' }
+    );
+    
+    const var_614_dequantized = builder.dequantizeLinear(
+      var_614_quantized,
+      var_614_scale,
+      var_623_zero_point,
+      { label: '614_DequantizeLinear' }
+    );
+    
+    const var_612_quantizeinput = builder.conv2d(
+      var_609_conv_86_dequantized, var_613_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 960,
+        bias: var_614_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_86_quant'
+      }
+    );
+    
+    const var_612_quantized = builder.quantizeLinear(
+      var_612_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '612_Conv_86_QuantizeLinear' }
+    );
+    
+    const var_612_conv_88_dequantized = builder.dequantizeLinear(
+      var_612_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '612_Conv_88_DequantizeLinear' }
+    );
+    
+    const var_616_dequantized = builder.dequantizeLinear(
+      var_616_quantized,
+      builder.reshape(var_616_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '616_DequantizeLinear' }
+    );
+    
+    const var_617_dequantized = builder.dequantizeLinear(
+      var_617_quantized,
+      var_617_scale,
+      var_623_zero_point,
+      { label: '617_DequantizeLinear' }
+    );
+    
+    const var_615_quantizeinput = builder.conv2d(
+      var_612_conv_88_dequantized, var_616_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_617_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_88_quant'
+      }
+    );
+    
+    const var_615_quantized = builder.quantizeLinear(
+      var_615_quantizeinput,
+      builder.reshape(var_615_scale, [1, 1, 1, 1]),
+      builder.reshape(var_615_zero_point, [1, 1, 1, 1]),
+      { label: '615_Conv_88_QuantizeLinear' }
+    );
+    
+    const var_615 = builder.dequantizeLinear(
+      var_615_quantized,
+      builder.reshape(var_615_scale, [1, 1, 1, 1]),
+      builder.reshape(var_615_zero_point, [1, 1, 1, 1]),
+      { label: '615_Conv_88_DequantizeLinear' }
+    );
+    
+    const var_452 = builder.add(
+      var_443,
+      var_615,
+      { label: 'Add_89' }
+    );
+    
+    const var_452_conv_90_quantizelinear = builder.quantizeLinear(
+      var_452,
+      builder.reshape(var_452_scale, [1, 1, 1, 1]),
+      builder.reshape(var_452_zero_point, [1, 1, 1, 1]),
+      { label: '452_Conv_90_QuantizeLinear' }
+    );
+    
+    const var_452_conv_90_dequantized = builder.dequantizeLinear(
+      var_452_conv_90_quantizelinear,
+      builder.reshape(var_452_scale, [1, 1, 1, 1]),
+      builder.reshape(var_452_zero_point, [1, 1, 1, 1]),
+      { label: '452_Conv_90_DequantizeLinear' }
+    );
+    
+    const var_619_dequantized = builder.dequantizeLinear(
+      var_619_quantized,
+      builder.reshape(var_619_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '619_DequantizeLinear' }
+    );
+    
+    const var_620_dequantized = builder.dequantizeLinear(
+      var_620_quantized,
+      var_620_scale,
+      var_623_zero_point,
+      { label: '620_DequantizeLinear' }
+    );
+    
+    const var_618_quantizeinput = builder.conv2d(
+      var_452_conv_90_dequantized, var_619_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_620_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_90_quant'
+      }
+    );
+    
+    const var_618_quantized = builder.quantizeLinear(
+      var_618_quantizeinput,
+      builder.reshape(var_618_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '618_Conv_90_QuantizeLinear' }
+    );
+    
+    const var_618_conv_92_dequantized = builder.dequantizeLinear(
+      var_618_quantized,
+      builder.reshape(var_618_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '618_Conv_92_DequantizeLinear' }
+    );
+    
+    const var_622_dequantized = builder.dequantizeLinear(
+      var_622_quantized,
+      builder.reshape(var_622_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '622_DequantizeLinear' }
+    );
+    
+    const var_623_dequantized = builder.dequantizeLinear(
+      var_623_quantized,
+      var_623_scale,
+      var_623_zero_point,
+      { label: '623_DequantizeLinear' }
+    );
+    
+    const var_621_quantizeinput = builder.conv2d(
+      var_618_conv_92_dequantized, var_622_dequantized,
+      {
+        strides: [1, 1],
+        padding: [1, 1, 1, 1],
+        dilations: [1, 1],
+        groups: 960,
+        bias: var_623_dequantized,
+        filterLayout: 'ihwo',
+        inputLayout: 'nhwc',
+        label: 'Conv_92_quant'
+      }
+    );
+    
+    const var_621_quantized = builder.quantizeLinear(
+      var_621_quantizeinput,
+      builder.reshape(var_621_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '621_Conv_92_QuantizeLinear' }
+    );
+    
+    const var_621_conv_94_dequantized = builder.dequantizeLinear(
+      var_621_quantized,
+      builder.reshape(var_621_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '621_Conv_94_DequantizeLinear' }
+    );
+    
+    const var_625_dequantized = builder.dequantizeLinear(
+      var_625_quantized,
+      builder.reshape(var_625_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '625_DequantizeLinear' }
+    );
+    
+    const var_626_dequantized = builder.dequantizeLinear(
+      var_626_quantized,
+      var_626_scale,
+      var_623_zero_point,
+      { label: '626_DequantizeLinear' }
+    );
+    
+    const var_624_quantizeinput = builder.conv2d(
+      var_621_conv_94_dequantized, var_625_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_626_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_94_quant'
+      }
+    );
+    
+    const var_624_quantized = builder.quantizeLinear(
+      var_624_quantizeinput,
+      builder.reshape(var_624_scale, [1, 1, 1, 1]),
+      builder.reshape(var_624_zero_point, [1, 1, 1, 1]),
+      { label: '624_Conv_94_QuantizeLinear' }
+    );
+    
+    const var_624_conv_95_dequantized = builder.dequantizeLinear(
+      var_624_quantized,
+      builder.reshape(var_624_scale, [1, 1, 1, 1]),
+      builder.reshape(var_624_zero_point, [1, 1, 1, 1]),
+      { label: '624_Conv_95_DequantizeLinear' }
+    );
+    
+    const var_628_dequantized = builder.dequantizeLinear(
+      var_628_quantized,
+      builder.reshape(var_628_scale, [1, 1, 1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1, 1, 1]),
+      { label: '628_DequantizeLinear' }
+    );
+    
+    const var_629_dequantized = builder.dequantizeLinear(
+      var_629_quantized,
+      var_629_scale,
+      var_623_zero_point,
+      { label: '629_DequantizeLinear' }
+    );
+    
+    const var_627_quantizeinput = builder.conv2d(
+      var_624_conv_95_dequantized, var_628_dequantized,
+      {
+        strides: [1, 1],
+        padding: [0, 0, 0, 0],
+        dilations: [1, 1],
+        groups: 1,
+        bias: var_629_dequantized,
+        filterLayout: 'ohwi',
+        inputLayout: 'nhwc',
+        label: 'Conv_95_quant'
+      }
+    );
+    
+    const var_627_quantized = builder.quantizeLinear(
+      var_627_quantizeinput,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '627_Conv_95_QuantizeLinear' }
+    );
+    
+    const var_627_duplicated = builder.dequantizeLinear(
+      var_627_quantized,
+      builder.reshape(var_576_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '627_Conv_95_DequantizeLinear/duplicated' }
+    );
+    
+    const var_464_quantizeinput = builder.averagePool2d(
+      var_627_duplicated,
+      {
+        layout: 'nhwc',
+        label: 'GlobalAveragePool_97'
+      }
+    );
+    
+    const var_464_quantized = builder.quantizeLinear(
+      var_464_quantizeinput,
+      builder.reshape(var_464_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '464_GlobalAveragePool_97_QuantizeLinear' }
+    );
+    
+    const var_464_reshape_103_dequantized = builder.dequantizeLinear(
+      var_464_quantized,
+      builder.reshape(var_464_scale, [1, 1, 1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1, 1, 1]),
+      { label: '464_Reshape_103_DequantizeLinear' }
+    );
+    
+    const var_472_quantizeinput = builder.reshape(
+      var_464_reshape_103_dequantized,
+      (() => {
+      // If newShape's size is 0, then set outputShape to an empty list for a scalar
+      const initialShape = [1,-1];
+      if (initialShape.length === 0) {
+        return [];
+      }
+      
+      let shape = [...initialShape];
+      
+      // Handle 0 dimensions (copy from input shape)
+      const inputShape = var_464_reshape_103_dequantized.shape;
+      for (let i = 0; i < shape.length; i++) {
+        if (shape[i] === 0 && i < inputShape.length) {
+          shape[i] = inputShape[i];
+        }
+      }
+      
+      // Calculate the concrete size for value -1
+      if (shape.includes(-1)) {
+        const count = shape.filter(v => v === -1).length;
+        if (count !== 1) {
+          throw new TypeError('Only one -1 is allowed in reshape shape');
+        }
+        
+        // Calculate inputElementCount (product of all items in input's shape)
+        const inputElementCount = inputShape.reduce((a, b) => a * b, 1);
+        
+        // Calculate known (product of all values in shape except -1)
+        const known = shape.reduce((a, b) => b === -1 ? a : a * b, 1);
+        
+        if (known === 0) {
+          throw new TypeError('Product of shape dimensions contains 0');
+        }
+        
+        const idx = shape.indexOf(-1);
+        const inferredDim = Math.floor(inputElementCount / known);
+        
+        // Check if the inferred dimension results in the same number of elements
+        if (inferredDim * known !== inputElementCount) {
+          throw new TypeError('Total size of input tensor is not divisible by product of specified dimensions');
+        }
+        
+        shape[idx] = inferredDim;
+      }
+      
+      // Validate the shape: ensure all values are valid unsigned long integers
+      const outputShape = shape.map(dim => {
+        if (isNaN(dim) || !isFinite(dim) || dim < 0) {
+          throw new TypeError('Shape dimension must be a non-negative integer');
+        }
+        return Math.floor(Number(dim));
+      });
+      
+      // Check if product of newShape equals inputElementCount
+      const inputElementCount = inputShape.reduce((a, b) => a * b, 1);
+      const outputElementCount = outputShape.reduce((a, b) => a * b, 1);
+      
+      if (outputElementCount !== inputElementCount) {
+        throw new TypeError('Product of output shape dimensions must equal the product of input shape dimensions');
+      }
+      
+      return outputShape;
+    })(),
+      { label: 'Reshape_103_quant' }
+    );
+    
+    const var_472_quantized = builder.quantizeLinear(
+      var_472_quantizeinput,
+      builder.reshape(var_464_scale, [1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1]),
+      { label: '472_Reshape_103_QuantizeLinear' }
+    );
+    
+    const var_472_gemm_104_matmul_dequantized = builder.dequantizeLinear(
+      var_472_quantized,
+      builder.reshape(var_464_scale, [1, 1]),
+      builder.reshape(var_474_zero_point, [1, 1]),
+      { label: '472_Gemm_104_MatMul_DequantizeLinear' }
+    );
+    
+    const var_classifier_1_weight_dequantized = builder.dequantizeLinear(
+      var_classifier_1_weight_quantized,
+      builder.reshape(var_classifier_1_weight_scale, [1, 1]),
+      builder.reshape(var_475_zero_point, [1, 1]),
+      { label: 'classifier.1.weight_DequantizeLinear' }
+    );
+    
+    let output_matmul_quantizeinput = builder.matmul(
+      var_472_gemm_104_matmul_dequantized,
+      var_classifier_1_weight_dequantized,
+      { label: 'Gemm_104_MatMul_quant' }
+    );
+    
+    const output_matmul_quantized = builder.quantizeLinear(
+      output_matmul_quantizeinput,
+      builder.reshape(output_matmul_scale, [1, 1]),
+      builder.reshape(output_matmul_zero_point, [1, 1]),
+      { label: 'output_MatMul_Gemm_104_MatMul_QuantizeLinear' }
+    );
+    
+    const output_matmul = builder.dequantizeLinear(
+      output_matmul_quantized,
+      builder.reshape(output_matmul_scale, [1, 1]),
+      builder.reshape(output_matmul_zero_point, [1, 1]),
+      { label: 'output_MatMul_Gemm_104_MatMul_DequantizeLinear' }
+    );
+    
+    const output = builder.add(
+      output_matmul,
+      var_classifier_1_bias,
+      { label: 'Gemm_104_Add' }
+    );
+
+    // Build graph with all outputs
+    
+    this.graph_ = await builder.build({ 'output': output });
+
+    // Create output tensors
+    
+    this.outputTensors_['output'] = await this.context_.createTensor(
+      { dataType: 'float32', shape: [1,1000], readable: true }
+    );
+  }
+
+  async run(inputs) {
+    // Set input buffers to input tensors using writeTensor (sync)
+    for (const name in inputs) {
+      if (!(name in this.inputTensors_)) throw new Error('Unknown input: ' + name);
+      this.context_.writeTensor(this.inputTensors_[name], inputs[name]);
+    }
+
+    // Compute the graph
+    await this.context_.dispatch(this.graph_, this.inputTensors_, this.outputTensors_);
+
+    // Read output tensors to buffers using readTensor (async)
+    const outputs = {};
+    for (const name in this.outputTensors_) {
+      const tensor = this.outputTensors_[name];
+      const buffer = await this.context_.readTensor(tensor);
+      let typedArrayCtor;
+      switch (tensor.dataType) {
+        case 'float32': typedArrayCtor = Float32Array; break;
+        case 'uint8': typedArrayCtor = Uint8Array; break;
+        case 'int8': typedArrayCtor = Int8Array; break;
+        case 'uint16': typedArrayCtor = Uint16Array; break;
+        case 'int16': typedArrayCtor = Int16Array; break;
+        case 'int32': typedArrayCtor = Int32Array; break;
+        case 'int64': typedArrayCtor = BigInt64Array; break;
+        case 'float16': typedArrayCtor = Float16Array; break;
+        case 'float64': typedArrayCtor = Float64Array; break;
+        case 'uint32': typedArrayCtor = Uint32Array; break;
+        case 'uint64': typedArrayCtor = BigUint64Array; break;
+        default: throw new Error('Unhandled tensor dataType: ' + tensor.dataType);
+      }
+      outputs[name] = new typedArrayCtor(buffer);
+    }
+    return outputs;
+  }
+}

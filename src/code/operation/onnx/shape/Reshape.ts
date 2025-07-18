@@ -112,7 +112,11 @@ export function Reshape(
       throw new Error('Weights array buffer is null');
     }
     const js_shape_array = new BigInt64Array(weights_array_buffer, shape_offset, shape_length / BigInt64Array.BYTES_PER_ELEMENT);
-    const array = Array.from(js_shape_array, Number);
+    let array = Array.from(js_shape_array, Number);
+
+    // if (nhwc) {
+    //   permute4d(array, 'NHWC', 'NCHW');
+    // }
 
     // Generate code for shape processing
     const js_shape = generateShapeProcessingCode(array);

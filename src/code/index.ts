@@ -255,21 +255,29 @@ function buildCodeWithLayout(nhwc: boolean) {
         : dim
     );
 
-    // if (nhwc && resolvedShape.length === 4) {
-    //   // const nhwcShape = [resolvedShape[0], resolvedShape[2], resolvedShape[3], resolvedShape[1]];
-    //   // NHWC -> NCHW permutation: [0, 3, 1, 2]
-    //   const nchwShape = [resolvedShape[0], resolvedShape[3], resolvedShape[1], resolvedShape[2]];
+    if (nhwc && resolvedShape.length === 4) {
+      // const nhwcShape = [resolvedShape[0], resolvedShape[2], resolvedShape[3], resolvedShape[1]];
+      // NHWC -> NCHW permutation: [0, 3, 1, 2]
+      // Todo
+      // Use permute4d to convert NHWC to NCHW for output tensor shape
+    //  const nchwShape = permute4d(resolvedShape, 'NHWC', 'NHWC');
     //   outputsCode += `
     // this.outputTensors_['${name}'] = await this.context_.createTensor(
     //   { dataType: '${dataType}', shape: [${nchwShape}], readable: true }
-    // );`;
-    // } else {
+    // );
+    // `;
+      outputsCode += `
+    this.outputTensors_['${name}'] = await this.context_.createTensor(
+      { dataType: '${dataType}', shape: [${resolvedShape}], readable: true }
+    );
+    `;
+    } else {
       // NCHW or non-4D: use as-is
       outputsCode += `
     this.outputTensors_['${name}'] = await this.context_.createTensor(
       { dataType: '${dataType}', shape: [${resolvedShape}], readable: true }
     );`;
-    // }
+    }
   }
 
   const binFile = nhwc ? 'weights_nhwc.bin' : 'weights_nchw.bin';

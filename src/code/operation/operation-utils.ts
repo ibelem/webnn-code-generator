@@ -98,6 +98,39 @@ export function getShape(
   return { shape, info: { conv, depthwise, convTranspose } };
 }
 
+/**
+ * Permute a 4D shape or array between NCHW and NHWC layouts.
+ * @param arr The input array (shape or flat data).
+ * @param from 'NCHW' or 'NHWC'
+ * @param to 'NCHW' or 'NHWC'
+ * @returns The permuted array.
+ */
+export function permute4d(arr: number[], from: 'NCHW' | 'NHWC', to: 'NCHW' | 'NHWC'): number[] {
+  if (from === to) return arr.slice();
+  // NCHW -> NHWC: [N, C, H, W] -> [N, H, W, C]
+  if (from === 'NCHW' && to === 'NHWC') {
+    return [arr[0], arr[2], arr[3], arr[1]];
+  }
+  // NHWC -> NCHW: [N, H, W, C] -> [N, C, H, W]
+  if (from === 'NHWC' && to === 'NCHW') {
+    return [arr[0], arr[3], arr[1], arr[2]];
+  }
+  throw new Error(`Unsupported permutation: ${from} -> ${to}`);
+}
+
+/**
+ * Permute axes for 4D filter weights (e.g., OIHW <-> IHWO).
+ * @param arr The input array (shape or flat data).
+ * @param perm The permutation array, e.g., [1,2,3,0] for OIHW->IHWO.
+ * @returns The permuted array.
+ */
+export function permuteAxes4d(arr: number[], perm: number[]): number[] {
+  if (arr.length !== 4 || perm.length !== 4) {
+    throw new Error('permuteAxes4d expects arrays of length 4');
+  }
+  return [arr[perm[0]], arr[perm[1]], arr[perm[2]], arr[perm[3]]];
+}
+
 export function getDataType(node: any, idx: number = 0): string {
   return node.inputs?.[idx]?.value?.[0]?.type?.dataType || '';
 }
