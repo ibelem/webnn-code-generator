@@ -106,7 +106,7 @@ export function getDatafromWeightsArrayBuffer(
       break;
     case 'float16':
       // @ts-ignore
-      data = new Float16Array(baseBuffer, baseOffset, byteLength / FloatArray.BYTES_PER_ELEMENT);
+      data = new Float16Array(baseBuffer, baseOffset, byteLength / Float16Array.BYTES_PER_ELEMENT);
       break;
     case 'double':
     case 'float64':
