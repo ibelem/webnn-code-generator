@@ -105,8 +105,8 @@ export function getDatafromWeightsArrayBuffer(
       }
       break;
     case 'float16':
-      // Not standard; handle or polyfill as needed
-      data = "Float16Array not supported natively";
+      // @ts-ignore
+      data = new Float16Array(baseBuffer, baseOffset, byteLength / FloatArray.BYTES_PER_ELEMENT);
       break;
     case 'double':
     case 'float64':
