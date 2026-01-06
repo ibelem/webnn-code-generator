@@ -102,9 +102,9 @@ const renderAppLayout = (): void => {
                 <div>
                   <div class="example-title">MobileNet V2</div>
                     <div class="example-links">
-                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/weights_nhwc.bin">Code Generation</a>
-                      <a href="https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/index.html?devicetype=gpu&layout=nchw&run=50">NCHW</a>
-                      <a href="https://ibelem.github.io/webnn-code-generator/model/mobilenetv2-12-static/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/?graph=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2/graph.json&weights_nchw=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2/weights_nchw.bin&weights_nhwc=https://ibelem.github.io/webnn-code-generator/model/mobilenetv2/weights_nhwc.bin">Code Generation</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/mobilenetv2/index.html?devicetype=gpu&layout=nchw&run=50">NCHW</a>
+                      <a href="https://ibelem.github.io/webnn-code-generator/model/mobilenetv2/index.html?devicetype=cpu&layout=nhwc&run=50">NHWC</a>
                     </div>
                   </div>
                   <div>
