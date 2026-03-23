@@ -1,3 +1,5 @@
+### Working on a new tool and archive this repository.
+
 # WebNN Code Generator
 
 Visit [https://ibelem.github.io/webnn-code-generator/](https://ibelem.github.io/webnn-code-generator/)
