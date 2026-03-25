@@ -1,9 +1,6 @@
-### Working on a new tool and archive this repository.
+# Deprecated - WebNN Code Generator
 
-# WebNN Code Generator
-
-Deprecated, please visit [ibelem/model2webnn](https://github.com/ibelem/model2webnn) instead.
-Visit [https://ibelem.github.io/model2webnn/](https://ibelem.github.io/model2webnn/)
+***Deprecated, please visit [ibelem/model2webnn](https://github.com/ibelem/model2webnn) and [https://ibelem.github.io/model2webnn/](https://ibelem.github.io/model2webnn/) instead.***
 
 ## Overview
 
