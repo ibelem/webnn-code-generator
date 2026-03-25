@@ -2,7 +2,8 @@
 
 # WebNN Code Generator
 
-Visit [https://ibelem.github.io/webnn-code-generator/](https://ibelem.github.io/webnn-code-generator/)
+Deprecated, please visit [ibelem/model2webnn](https://github.com/ibelem/model2webnn) instead.
+Visit [https://ibelem.github.io/model2webnn/](https://ibelem.github.io/model2webnn/)
 
 ## Overview
 
